@@ -1,7 +1,8 @@
 import { storageService } from "./async-storage.service.js"
+import { utilService } from "./util.service.js"
 
 const STORAGE_KEY_LOGGEDIN_USER = "loggedinUser"
-const STORAGE_KEY_USER_DB = "user"
+const STORAGE_KEY_USER_DB = "userDB"
 
 export const userService = {
   login,
@@ -18,6 +19,8 @@ export const userService = {
 }
 
 window.userService = userService
+
+_createUsers()
 
 function getUsers() {
   return storageService.query(STORAGE_KEY_USER_DB)
@@ -104,6 +107,43 @@ function getLoggedinUser() {
   return JSON.parse(sessionStorage.getItem(STORAGE_KEY_LOGGEDIN_USER))
 }
 
-
-
-//creating demo data here
+function _createUsers() {
+    console.log('ok')
+  let users = utilService.loadFromStorage(STORAGE_KEY_USER_DB)
+  if (!users || !users.length) {
+    users = [
+      {
+        id: "u101",
+        firstName: "Reuven",
+        lastName: "Cohen",
+        username: "reuven321",
+        password: "1234",
+        email: "reuven@gmail.com",
+        imgUrl: "",
+        role: "guest",
+      },
+      {
+        id: "u102",
+        firstName: "Daria",
+        lastName: "Levi",
+        username: "daria123",
+        password: "abcd",
+        email: "dana@gmail.com",
+        imgUrl: "",
+        role: "host",
+      },
+      {
+        id: "u103",
+        firstName: "Avi",
+        lastName: "Nissim",
+        username: "avi",
+        password: "1111",
+        email: "avi@host.com",
+        imgUrl: "",
+        role: "both",
+      },
+    ]
+    utilService.saveToStorage(STORAGE_KEY_USER_DB, users)
+  }
+  return users
+}
