@@ -6,7 +6,7 @@ import { useSelector } from "react-redux"
 export function HomesList() {
   const homes = useSelector((storeState) => storeState.homeModule.homes)
   const [startIdx, setStartIdx] = useState(0)
-  const itemsPerPage = 8
+  const itemsPerPage = 7
   const total = homes.length
 
   const next = () => {

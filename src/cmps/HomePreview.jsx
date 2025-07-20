@@ -11,7 +11,7 @@ export function HomePreview({ home }) {
             <div className="img-container">
                 <img src={home.imgUrls[0]} alt={home.title} />
                 {home.guestFavorite && (
-                    <img src={heart} alt="Heart icon" className="heart-icon" />
+                    <img src="./icons/heart.svg" alt="Heart icon" className="heart-icon" />
                 )}
             </div>
             <h4>{home.title}</h4>
