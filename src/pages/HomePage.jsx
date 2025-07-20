@@ -1,22 +1,24 @@
 import { useSelector } from "react-redux"
 import { useEffect, useState } from "react"
 import { loadHomes } from "../store/homes/homes.action.js"
-import { getFormattedDateRange } from "../services/home/home.service.js"
+import { getFormattedDateRange } from "../services/home.service.js"
 import { HomesList } from "../cmps/HomesList.jsx"
-import arrow1 from "../../public/icons/arrow1.svg"
 import { Link } from "react-router-dom"
+import { useFilterSearchParams } from "../customHooks/useFilterSearchParams"
 
 const dateRange = getFormattedDateRange() // e.g. "Jul 15–17"
 
 export function HomePage() {
-  const filterBy = {} // will add later
+  const filterBy = useSelector((storeState) => storeState.homeModule.filterBy)
+
+  const setExistSearchParams = useFilterSearchParams()
+
+  const arrow1 = "/Airdnd/icons/arrow1.svg"
 
   useEffect(() => {
-    loadHomes(filterBy).catch(err => {
-      // showErrorMsg('Cannot load homes')
-      // redirect to error page or render error component
-    })
-  }, [])
+    loadHomes()
+    setExistSearchParams(filterBy)
+  }, [filterBy])
 
   return (
     <div className="main-page">

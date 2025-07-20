@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom"
-import { getFormattedDateRange } from "../services/home/home.service"
+import { getFormattedDateRange } from "../services/home.service"
 import { FaStar } from "react-icons/fa"
 import { useSelector } from "react-redux"
 import heart from "../../public/icons/heart.svg"

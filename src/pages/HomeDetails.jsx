@@ -1,6 +1,7 @@
 import { useParams, Link } from "react-router-dom"
 import { useState, useEffect } from "react"
-import { homeService } from "../services/home/home.service"
+import { homeService } from "../services/home.service"
+import {userService} from '../services/user.service'
 
 export function HomeDetails() {
   const [home, setHome] = useState(null)

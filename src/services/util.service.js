@@ -6,6 +6,7 @@ export const utilService = {
   saveToStorage,
   loadFromStorage,
   getRandomRating,
+  getExistingProperties,
   getRandomGuestFavorite,
 }
 
@@ -71,16 +72,15 @@ function getRandomIntInclusive(min, max) {
 }
 
 function getRandomGuestFavorite() {
-  return Math.random() < 0.4; // 40% chance to return true
+  return Math.random() < 0.4 // 40% chance to return true
 }
 
 function getRandomRating() {
   const rand = Math.random()
-  if (rand < 0.05) return +(Math.random() * 3.5).toFixed(2)        // 0 - 3.5
-  if (rand < 0.2) return +(3.5 + Math.random() * 1).toFixed(2)     // 3.5 - 4.5
-  return +(4.5 + Math.random() * 0.5).toFixed(2)                   // 4.5 - 5
+  if (rand < 0.05) return +(Math.random() * 3.5).toFixed(2) // 0 - 3.5
+  if (rand < 0.2) return +(3.5 + Math.random() * 1).toFixed(2) // 3.5 - 4.5
+  return +(4.5 + Math.random() * 0.5).toFixed(2) // 4.5 - 5
 }
-
 
 function randomPastTime() {
   const HOUR = 1000 * 60 * 60
@@ -108,4 +108,14 @@ function saveToStorage(key, value) {
 function loadFromStorage(key) {
   const data = localStorage.getItem(key)
   return data ? JSON.parse(data) : undefined
+}
+export function getExistingProperties(obj) {
+  const truthyObj = {}
+  for (const key in obj) {
+    const val = obj[key]
+    if (val || typeof val === "boolean") {
+      truthyObj[key] = val
+    }
+  }
+  return truthyObj
 }
