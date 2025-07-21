@@ -26,7 +26,7 @@ export function HomePage() {
 
       <div className="text-with-icon small">
         Continue searching for homes in Athens {dateRange} – 1 guest{" "}
-        <img src="./icons/arrow1.svg" alt="Arrow icon" className="arrow-icon" />
+        <img src={arrow1} alt="Arrow icon" className="arrow-icon" />
       </div>
 
       <hr />
