@@ -108,7 +108,6 @@ function getLoggedinUser() {
 }
 
 function _createUsers() {
-    console.log('ok')
   let users = utilService.loadFromStorage(STORAGE_KEY_USER_DB)
   if (!users || !users.length) {
     users = [

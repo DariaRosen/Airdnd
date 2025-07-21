@@ -7,40 +7,48 @@ import { HomesList } from "./HomesList.jsx"
 const dateRange = getFormattedDateRange() // returns something like "Jul 15–17"
 
 export function HomeIndex() {
-    const homes = useSelector((storeState) => storeState.homeModule.homes)
-    const filterBy = {} // will add later
+  const homes = useSelector((storeState) => storeState.homeModule.homes)
+  const filterBy = useSelector((storeState) => storeState.homeModule.filterBy)
 
-    useEffect(() => {
-        loadHomes(filterBy)
-            .then(homes => {
-                showSuccessMsg('Load homes successfully')
-            })
-            .catch(err => {
-                showErrorMsg('Cannot load homes')
-            })
-    }, [])
-console.log('homes', homes)
-    return (
-        <>
-            <AppHeader />
 
-            <div className="home-index">
-                <hr />
 
-                <ul className="home-list">
-                    {homes.map(home => (
-                        <li className="home-preview" key={home._id}>
-                            <Link to={`/home/${home._id}`} style={{ textDecoration: 'none', color: 'inherit' }}>
-                                <HomePreview home={home} />
-                            </Link>
-                        </li>
-                    ))}
-                </ul>
+  console.log(uniqueAmenities)
 
-                <hr />
-            </div>
 
-            <AppFooter />
-        </>
-    )
+  useEffect(() => {
+    loadHomes(filterBy)
+      .then((homes) => {
+        showSuccessMsg("Load homes successfully")
+      })
+      .catch((err) => {
+        showErrorMsg("Cannot load homes")
+      })
+  }, [])
+  console.log("homes", homes)
+  return (
+    <>
+      <AppHeader />
+
+      <div className="home-index">
+        <hr />
+
+        <ul className="home-list">
+          {homes.map((home) => (
+            <li className="home-preview" key={home._id}>
+              <Link
+                to={`/home/${home._id}`}
+                style={{ textDecoration: "none", color: "inherit" }}
+              >
+                <HomePreview home={home} />
+              </Link>
+            </li>
+          ))}
+        </ul>
+
+        <hr />
+      </div>
+
+      <AppFooter />
+    </>
+  )
 }

@@ -1,12 +1,24 @@
 import { useParams, Link } from "react-router-dom"
-import { useState, useEffect } from "react"
+import { useState, useEffect, useMemo } from "react"
 import { homeService } from "../services/home.service"
 import { userService } from "../services/user.service"
+import { useSelector } from "react-redux"
 
 export function HomeDetails() {
   const [home, setHome] = useState(null)
   const [selectedImgIdx, setSelectedImgIdx] = useState(null)
   const params = useParams()
+
+  const homes = useSelector((storeState) => storeState.homeModule.homes || [])
+  const uniqueAmenities = useMemo(() => {
+    if (!homes.length) return []
+
+    const allAmenities = homes.flatMap((home) => home.amenities || [])
+    const unique = [...new Set(allAmenities)]
+
+    console.log("uniqueAmenities:", unique)
+    return unique
+  }, [homes])
 
   useEffect(() => {
     loadHome()
@@ -38,8 +50,8 @@ export function HomeDetails() {
           {home.imgUrls.slice(1, 5).map((url, idx) => (
             <div
               className="grid-img"
-              key={idx+1}
-              onClick={() => setSelectedImgIdx(idx)}
+              key={idx + 1}
+              onClick={() => setSelectedImgIdx(idx + 1)}
             >
               <img src={url} />
             </div>
