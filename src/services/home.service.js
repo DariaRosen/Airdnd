@@ -159,7 +159,12 @@ function _createHomes() {
         bathrooms: 2,
         type: "house",
         imgUrls: [
-          `/Airdnd/img/${utilService.getRandomIntInclusive(1, 10)}.jpg`,
+          "https://res.cloudinary.com/dool6mmp1/image/upload/v1753044844/pexels-pixabay-534151_ddjwj9.jpg",
+          "https://res.cloudinary.com/dool6mmp1/image/upload/v1753044847/pexels-arnon-suksumran-367077-996220_droyxa.jpg",
+          "https://res.cloudinary.com/dool6mmp1/image/upload/v1753044858/pexels-enginakyurt-3620234_onvo4m.jpg",
+          "https://res.cloudinary.com/dool6mmp1/image/upload/v1753044859/pexels-tobiasbjorkli-2360673_yb9gxr.jpg",
+          "https://res.cloudinary.com/dool6mmp1/image/upload/v1753044838/pexels-amar-8389897_mabjwj.jpg",
+          "https://res.cloudinary.com/dool6mmp1/image/upload/v1753044847/pexels-pixabay-259962_myrinr.jpg",
         ],
         rating: utilService.getRandomRating(),
         guestFavorite: utilService.getRandomGuestFavorite(),

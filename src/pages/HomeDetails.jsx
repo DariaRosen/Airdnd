@@ -1,10 +1,11 @@
 import { useParams, Link } from "react-router-dom"
 import { useState, useEffect } from "react"
 import { homeService } from "../services/home.service"
-import {userService} from '../services/user.service'
+import { userService } from "../services/user.service"
 
 export function HomeDetails() {
   const [home, setHome] = useState(null)
+  const [selectedImgIdx, setSelectedImgIdx] = useState(null)
   const params = useParams()
 
   useEffect(() => {
@@ -26,7 +27,24 @@ export function HomeDetails() {
     <section className="home-details">
       <h1>{home.description}</h1>
       <section className="gallery">
-        <h1>pictures here</h1>
+        <div className="gallery-grid">
+          <div className="main-img">
+            <img
+              src={home.imgUrls[0]}
+              key={0}
+              onClick={() => setSelectedImgIdx(0)}
+            />
+          </div>
+          {home.imgUrls.slice(1, 5).map((url, idx) => (
+            <div
+              className="grid-img"
+              key={idx+1}
+              onClick={() => setSelectedImgIdx(idx)}
+            >
+              <img src={url} />
+            </div>
+          ))}
+        </div>
       </section>
       <section className="content-grid">
         <section className="main-content-details">
@@ -44,6 +62,37 @@ export function HomeDetails() {
       </section>
 
       <Link to="/">Back</Link>
+      {selectedImgIdx !== null && (
+        <div className="modal" onClick={() => setSelectedImgIdx(null)}>
+          <div className="modal-content" onClick={(e) => e.stopPropagation()}>
+            <button
+              className="close-btn"
+              onClick={() => setSelectedImgIdx(null)}
+            >
+              ×
+            </button>
+
+            <img src={home.imgUrls[selectedImgIdx]} alt="Full size" />
+
+            {selectedImgIdx > 0 && (
+              <button
+                className="arrow left"
+                onClick={() => setSelectedImgIdx((prev) => prev - 1)}
+              >
+                ←
+              </button>
+            )}
+            {selectedImgIdx < home.imgUrls.length - 1 && (
+              <button
+                className="arrow right"
+                onClick={() => setSelectedImgIdx((prev) => prev + 1)}
+              >
+                →
+              </button>
+            )}
+          </div>
+        </div>
+      )}
     </section>
   )
 }
