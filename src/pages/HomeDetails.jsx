@@ -101,7 +101,10 @@ export function HomeDetails() {
 
       <Link to="/">Back</Link>
       {selectedImgIdx !== null && (
-        <div className="modal image-modal" onClick={() => setSelectedImgIdx(null)}>
+        <div
+          className="modal image-modal"
+          onClick={() => setSelectedImgIdx(null)}
+        >
           <div className="modal-content" onClick={(e) => e.stopPropagation()}>
             <button
               className="close-btn"
@@ -132,7 +135,10 @@ export function HomeDetails() {
         </div>
       )}
       {isAmenitiesModalOpen && (
-        <div className="modal amenities-modal" onClick={() => setIsAmenitiesModalOpen(false)}>
+        <div
+          className="modal amenities-modal"
+          onClick={() => setIsAmenitiesModalOpen(false)}
+        >
           <div className="modal-content" onClick={(e) => e.stopPropagation()}>
             <button
               className="close-btn"
