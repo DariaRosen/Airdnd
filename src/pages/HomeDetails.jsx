@@ -3,10 +3,12 @@ import { useState, useEffect, useMemo } from "react"
 import { homeService } from "../services/home.service"
 import { userService } from "../services/user.service"
 import { useSelector } from "react-redux"
+import { amenities } from "../assests/amenities"
 
 export function HomeDetails() {
   const [home, setHome] = useState(null)
   const [selectedImgIdx, setSelectedImgIdx] = useState(null)
+  const [isAmenitiesModalOpen, setIsAmenitiesModalOpen] = useState(false)
   const params = useParams()
 
   const homes = useSelector((storeState) => storeState.homeModule.homes || [])
@@ -67,7 +69,31 @@ export function HomeDetails() {
             home.bathrooms > 1 ? "s" : ""
           }  `}</h4>
           <h3>What this place offers</h3>
-          <h4>{home.amenities.join(", ")}</h4>
+          <section className="amenities">
+            {home.amenities.slice(0, 6).map((amenity) => {
+              const match = amenities.find(
+                (amen) => amen.key.toLowerCase() === amenity.toLowerCase()
+              )
+              if (!match) return null
+              return (
+                <div className="amenity" key={amenity}>
+                  <img
+                    src={`/Airdnd/public/icons/amenities/${match.icon}.svg`}
+                    alt={match.label}
+                  />
+                  <span>{match.label}</span>
+                </div>
+              )
+            })}
+            {home.amenities.length > 6 && (
+              <button
+                className="btn-show-all"
+                onClick={() => setIsAmenitiesModalOpen(true)}
+              >
+                Show all amenities
+              </button>
+            )}
+          </section>
         </section>
 
         <aside className="side-panel">booking future</aside>
@@ -75,7 +101,10 @@ export function HomeDetails() {
 
       <Link to="/">Back</Link>
       {selectedImgIdx !== null && (
-        <div className="modal" onClick={() => setSelectedImgIdx(null)}>
+        <div
+          className="modal image-modal"
+          onClick={() => setSelectedImgIdx(null)}
+        >
           <div className="modal-content" onClick={(e) => e.stopPropagation()}>
             <button
               className="close-btn"
@@ -102,6 +131,39 @@ export function HomeDetails() {
                 →
               </button>
             )}
+          </div>
+        </div>
+      )}
+      {isAmenitiesModalOpen && (
+        <div
+          className="modal amenities-modal"
+          onClick={() => setIsAmenitiesModalOpen(false)}
+        >
+          <div className="modal-content" onClick={(e) => e.stopPropagation()}>
+            <button
+              className="close-btn"
+              onClick={() => setIsAmenitiesModalOpen(false)}
+            >
+              ×
+            </button>
+            <h2>All amenities</h2>
+            <div className="all-amenities-grid">
+              {home.amenities.map((amenity) => {
+                const match = amenities.find(
+                  (amen) => amen.key.toLowerCase() === amenity.toLowerCase()
+                )
+                if (!match) return null
+                return (
+                  <div className="amenity" key={amenity}>
+                    <img
+                      src={`/Airdnd/public/icons/amenities/${match.icon}.svg`}
+                      alt={match.label}
+                    />
+                    <span>{match.label}</span>
+                  </div>
+                )
+              })}
+            </div>
           </div>
         </div>
       )}
