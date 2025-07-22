@@ -1,0 +1,42 @@
+.app-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 2.5rem;
+  font-size: 0.875rem;
+  background-color: $clr-gray-100;
+  color: $clr-gray-600;
+  border-top: 1px solid $clr-gray-300;
+
+  .footer-left,
+  .footer-right {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+
+    a {
+      text-decoration: none;
+      color: inherit;
+
+      &:hover {
+        color: $clr-primary;
+        text-decoration: underline;
+      }
+    }
+
+    i {
+      font-size: 1rem;
+    }
+  }
+
+  .footer-right {
+    gap: 16px;
+
+    a {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+  }
+}
