@@ -107,7 +107,6 @@ export function HomeDetails() {
         <aside className="side-panel">booking future</aside>
       </section>
 
-      <Link to="/">Back</Link>
       {selectedImgIdx !== null && (
         <div
           className="modal image-modal"
