@@ -177,7 +177,8 @@ function _createHomes() {
         },
         amenities: ["WiFi", "Fireplace", "Garden"],
         msgs: [],
-        unavailableDates: [],
+        unavailableDates: utilService.getRandomBookedDates(10),  
+        lastSearchValue: "",
         createdAt: Date.now(),
       },
       {
@@ -204,7 +205,8 @@ function _createHomes() {
         },
         amenities: ["WiFi", "Kitchen", "Washer", "TV"],
         msgs: [],
-        unavailableDates: [],
+        unavailableDates: utilService.getRandomBookedDates(10),  
+        lastSearchValue: "",
         createdAt: Date.now(),
       },
       {
@@ -231,7 +233,8 @@ function _createHomes() {
         },
         amenities: ["Solar Power", "Outdoor Shower"],
         msgs: [],
-        unavailableDates: [],
+        unavailableDates: utilService.getRandomBookedDates(10),  
+        lastSearchValue: "",
         createdAt: Date.now(),
       },
       {
@@ -258,7 +261,8 @@ function _createHomes() {
         },
         amenities: ["Kayaks", "Fireplace", "WiFi"],
         msgs: [],
-        unavailableDates: [],
+        unavailableDates: utilService.getRandomBookedDates(10),  
+        lastSearchValue: "",
         createdAt: Date.now(),
       },
       {
@@ -285,7 +289,8 @@ function _createHomes() {
         },
         amenities: ["WiFi", "Deck", "Nature View"],
         msgs: [],
-        unavailableDates: [],
+        unavailableDates: utilService.getRandomBookedDates(10),  
+        lastSearchValue: "",
         createdAt: Date.now(),
       },
       {
@@ -312,7 +317,8 @@ function _createHomes() {
         },
         amenities: ["Fireplace", "Heated Floors", "WiFi"],
         msgs: [],
-        unavailableDates: [],
+        unavailableDates: utilService.getRandomBookedDates(10),  
+        lastSearchValue: "",
         createdAt: Date.now(),
       },
       {
@@ -339,7 +345,8 @@ function _createHomes() {
         },
         amenities: ["WiFi", "Balcony", "Washer"],
         msgs: [],
-        unavailableDates: [],
+        unavailableDates: utilService.getRandomBookedDates(10),  
+        lastSearchValue: "",
         createdAt: Date.now(),
       },
       {
@@ -366,7 +373,8 @@ function _createHomes() {
         },
         amenities: ["WiFi", "AC", "Kitchenette"],
         msgs: [],
-        unavailableDates: [],
+        unavailableDates: utilService.getRandomBookedDates(10),  
+        lastSearchValue: "",
         createdAt: Date.now(),
       },
       {
@@ -393,7 +401,8 @@ function _createHomes() {
         },
         amenities: ["WiFi", "Coffee Maker", "Bike Rental"],
         msgs: [],
-        unavailableDates: [],
+        unavailableDates: utilService.getRandomBookedDates(10),  
+        lastSearchValue: "",
         createdAt: Date.now(),
       },
       {
@@ -420,7 +429,8 @@ function _createHomes() {
         },
         amenities: ["Outdoor Shower", "Mosquito Net", "WiFi"],
         msgs: [],
-        unavailableDates: [],
+        unavailableDates: utilService.getRandomBookedDates(10),  
+        lastSearchValue: "",
         createdAt: Date.now(),
       },
       {
@@ -447,7 +457,8 @@ function _createHomes() {
         },
         amenities: ["WiFi", "Washer", "Elevator"],
         msgs: [],
-        unavailableDates: [],
+        unavailableDates: utilService.getRandomBookedDates(10),  
+        lastSearchValue: "",
         createdAt: Date.now(),
       },
       {
@@ -474,7 +485,8 @@ function _createHomes() {
         },
         amenities: ["WiFi", "Kitchen", "Work Desk"],
         msgs: [],
-        unavailableDates: [],
+        unavailableDates: utilService.getRandomBookedDates(10),  
+        lastSearchValue: "",
         createdAt: Date.now(),
       },
       {
@@ -501,7 +513,8 @@ function _createHomes() {
         },
         amenities: ["AC", "WiFi", "Smart TV"],
         msgs: [],
-        unavailableDates: [],
+        unavailableDates: utilService.getRandomBookedDates(10),  
+        lastSearchValue: "",
         createdAt: Date.now(),
       },
       {
@@ -528,7 +541,8 @@ function _createHomes() {
         },
         amenities: ["WiFi", "Backyard", "Washer"],
         msgs: [],
-        unavailableDates: [],
+        unavailableDates: utilService.getRandomBookedDates(10),  
+        lastSearchValue: "",
         createdAt: Date.now(),
       },
       {
@@ -555,7 +569,8 @@ function _createHomes() {
         },
         amenities: ["WiFi", "Art Decor", "Workspace"],
         msgs: [],
-        unavailableDates: [],
+        unavailableDates: utilService.getRandomBookedDates(10),  
+        lastSearchValue: "",
         createdAt: Date.now(),
       },
       {
@@ -582,7 +597,8 @@ function _createHomes() {
         },
         amenities: ["WiFi", "AC", "Balcony"],
         msgs: [],
-        unavailableDates: [],
+        unavailableDates: utilService.getRandomBookedDates(10),  
+        lastSearchValue: "",
         createdAt: Date.now(),
       },
       {
@@ -609,7 +625,8 @@ function _createHomes() {
         },
         amenities: ["WiFi", "Washer", "Kitchen"],
         msgs: [],
-        unavailableDates: [],
+        unavailableDates: utilService.getRandomBookedDates(10),  
+        lastSearchValue: "",
         createdAt: Date.now(),
       },
       {
@@ -636,7 +653,8 @@ function _createHomes() {
         },
         amenities: ["WiFi", "Deck", "AC"],
         msgs: [],
-        unavailableDates: [],
+        unavailableDates: utilService.getRandomBookedDates(10),  
+        lastSearchValue: "",
         createdAt: Date.now(),
       },
       {
@@ -663,7 +681,8 @@ function _createHomes() {
         },
         amenities: ["WiFi", "Crib", "Elevator"],
         msgs: [],
-        unavailableDates: [],
+        unavailableDates: utilService.getRandomBookedDates(10),  
+        lastSearchValue: "",
         createdAt: Date.now(),
       },
       {
@@ -690,7 +709,8 @@ function _createHomes() {
         },
         amenities: ["WiFi", "Workspace", "Coffee Maker"],
         msgs: [],
-        unavailableDates: [],
+        unavailableDates: utilService.getRandomBookedDates(10),  
+        lastSearchValue: "",
         createdAt: Date.now(),
       },
 
@@ -717,7 +737,8 @@ function _createHomes() {
         },
         amenities: ["WiFi", "Balcony", "AC"],
         msgs: [],
-        unavailableDates: [],
+        unavailableDates: utilService.getRandomBookedDates(10),  
+        lastSearchValue: "",
         createdAt: Date.now(),
       },
       {
@@ -742,7 +763,8 @@ function _createHomes() {
         },
         amenities: ["WiFi", "Kitchenette", "Historic Charm"],
         msgs: [],
-        unavailableDates: [],
+        unavailableDates: utilService.getRandomBookedDates(10),  
+        lastSearchValue: "",
         createdAt: Date.now(),
       },
       {
@@ -767,7 +789,8 @@ function _createHomes() {
         },
         amenities: ["WiFi", "Workspace", "AC"],
         msgs: [],
-        unavailableDates: [],
+        unavailableDates: utilService.getRandomBookedDates(10),  
+        lastSearchValue: "",
         createdAt: Date.now(),
       },
       {
@@ -792,7 +815,8 @@ function _createHomes() {
         },
         amenities: ["Garden", "WiFi", "Fireplace"],
         msgs: [],
-        unavailableDates: [],
+        unavailableDates: utilService.getRandomBookedDates(10),  
+        lastSearchValue: "",
         createdAt: Date.now(),
       },
       {
@@ -817,7 +841,8 @@ function _createHomes() {
         },
         amenities: ["WiFi", "Terrace", "Elevator"],
         msgs: [],
-        unavailableDates: [],
+        unavailableDates: utilService.getRandomBookedDates(10),  
+        lastSearchValue: "",
         createdAt: Date.now(),
       },
       {
@@ -842,7 +867,8 @@ function _createHomes() {
         },
         amenities: ["WiFi", "Books", "Balcony"],
         msgs: [],
-        unavailableDates: [],
+        unavailableDates: utilService.getRandomBookedDates(10),  
+        lastSearchValue: "",
         createdAt: Date.now(),
       },
       {
@@ -867,7 +893,8 @@ function _createHomes() {
         },
         amenities: ["AC", "WiFi", "Historic Decor"],
         msgs: [],
-        unavailableDates: [],
+        unavailableDates: utilService.getRandomBookedDates(10),  
+        lastSearchValue: "",
         createdAt: Date.now(),
       },
       {
@@ -892,7 +919,8 @@ function _createHomes() {
         },
         amenities: ["WiFi", "TV", "Elevator"],
         msgs: [],
-        unavailableDates: [],
+        unavailableDates: utilService.getRandomBookedDates(10),  
+        lastSearchValue: "",
         createdAt: Date.now(),
       },
       {
@@ -917,7 +945,8 @@ function _createHomes() {
         },
         amenities: ["Beach Access", "WiFi", "Deck"],
         msgs: [],
-        unavailableDates: [],
+        unavailableDates: utilService.getRandomBookedDates(10),  
+        lastSearchValue: "",
         createdAt: Date.now(),
       },
       {
@@ -942,7 +971,8 @@ function _createHomes() {
         },
         amenities: ["WiFi", "Mountain View", "AC"],
         msgs: [],
-        unavailableDates: [],
+        unavailableDates: utilService.getRandomBookedDates(10),  
+        lastSearchValue: "",
         createdAt: Date.now(),
       },
     ]

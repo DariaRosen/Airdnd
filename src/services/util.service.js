@@ -8,6 +8,7 @@ export const utilService = {
   getRandomRating,
   getExistingProperties,
   getRandomGuestFavorite,
+  getRandomBookedDates
 }
 
 function makeId(length = 6) {
@@ -118,4 +119,23 @@ export function getExistingProperties(obj) {
     }
   }
   return truthyObj
+}
+
+function getRandomBookedDates(count = 10) {
+  const dates = new Set()
+
+  while (dates.size < count) {
+    const futureDate = new Date()
+    // Generate a random day within the next 90 days
+    const offset = Math.floor(Math.random() * 90)
+    futureDate.setDate(futureDate.getDate() + offset)
+
+    // Format as ddmmyy
+    const dd = String(futureDate.getDate()).padStart(2, '0')
+    const mm = String(futureDate.getMonth() + 1).padStart(2, '0')
+    const yy = String(futureDate.getFullYear()).slice(-2)
+    dates.add(`${dd}${mm}${yy}`)
+  }
+
+  return Array.from(dates)
 }

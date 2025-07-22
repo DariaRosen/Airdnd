@@ -14,11 +14,6 @@
   font-size: 1.1rem;
 }
 
-.arrow-icon {
-  height: 12px;
-  width: 12px;
-}
-
 .section-wrapper {
   margin-bottom: 2rem;
 }
@@ -37,15 +32,25 @@
     text-decoration: none;
     color: inherit;
   }
+}
 
   .arrow-icon {
+    width: 0.7rem;
+    height: auto;
+    margin-top: 7;
+  }
+  .arrow-icon-gray-circle {
     width: 1rem;
     height: auto;
   }
 
-  &.small {
-    font-size: 0.875rem;
-    font-weight: 400;
-    margin-bottom: 1rem;
-  }
+.continue-searching {
+   display: flex;
+  justify-content: center;   // centers the content inside the div
+  align-items: center;       // vertical alignment
+  font-size: 1.1rem;
+  font-weight: 400;
+  gap: 8px;
+  line-height: 1.4;
+  width: 100%;
 }
