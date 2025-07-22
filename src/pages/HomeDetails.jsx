@@ -4,6 +4,7 @@ import { homeService } from "../services/home.service"
 import { userService } from "../services/user.service"
 import { useSelector } from "react-redux"
 import { amenities } from "../assests/amenities"
+import {AirdndIcon} from "../cmps/AirdndIcon"
 
 export function HomeDetails() {
   const [home, setHome] = useState(null)
@@ -35,7 +36,14 @@ export function HomeDetails() {
     }
   }
 
-  if (!home) return <div>Loading...</div> //do somthing better with effect
+  if (!home)
+    return (
+      <div
+        style={{ display: "flex", justifyContent: "center", margin: "4rem 0" }}
+      >
+        <AirdndIcon size={80} color="#FF385C" className="loading-icon" />
+      </div>
+    )
 
   return (
     <section className="home-details">

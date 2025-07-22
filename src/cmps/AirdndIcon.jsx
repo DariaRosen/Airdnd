@@ -1,7 +1,7 @@
-
-export function AirdndIcon({ size = 30, color = "#FF385C" }) {
+export function AirdndIcon({ size = 30, color = "#FF385C", className = "" }) {
   return (
     <svg
+      className={className}
       width={size}
       height={size * 1.07}
       viewBox="0 0 1007 1080"
