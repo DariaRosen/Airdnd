@@ -3,9 +3,11 @@
   flex-direction: column;
   gap: 2rem;
 }
+
 .gallery {
   width: 100%;
 }
+
 .gallery-grid {
   display: grid;
   grid-template-columns: 2fr 1fr 1fr;
@@ -34,11 +36,13 @@
   grid-template-columns: 2fr 1fr;
   gap: 2rem;
 }
+
 .side-panel {
   position: sticky;
   top: 100px;
 }
 
+/* ---------------- MODAL GENERAL ---------------- */
 .modal {
   position: fixed;
   top: 0;
@@ -52,6 +56,7 @@
   z-index: 999;
 }
 
+/* ---------------- IMAGE MODAL ---------------- */
 .modal-content {
   position: relative;
   max-width: 50%;
@@ -65,17 +70,6 @@
   border-radius: 10px;
 }
 
-.close-btn {
-  position: absolute;
-  top: 8px;
-  right: 8px;
-  background: white;
-  border: none;
-  font-size: 20px;
-  padding: 6px 10px;
-  border-radius: 4px;
-  cursor: pointer;
-}
 .arrow {
   position: absolute;
   top: 50%;
@@ -101,9 +95,86 @@
 }
 
 .arrow.left {
-  left: -50px; 
+  left: -50px;
 }
 
 .arrow.right {
   right: -50px;
+}
+
+.close-btn {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background: white;
+  border: none;
+  font-size: 20px;
+  padding: 6px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+/* ---------------- AMENITIES ---------------- */
+.amenities {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: 1rem;
+}
+
+.amenity {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 1rem;
+  color: #222;
+}
+
+.amenity img {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+.btn-show-all {
+  display: inline-block;
+  width: fit-content;
+  background-color: #f7f7f7;
+  color: #222;
+  border: 1px solid #222;
+  border-radius: 6px;
+  padding: 6px 12px;
+  font-size: 0.875rem; /* בערך 14px */
+  font-weight: 400;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.btn-show-all:hover {
+  background-color: #ebebeb;
+}
+
+/* ---------------- MODAL: AMENITIES ---------------- */
+.amenities-modal .modal-content {
+  background: white;
+  padding: 2rem;
+  max-width: 600px;
+  max-height: 80%;
+  overflow-y: auto;
+  border-radius: 12px;
+  transform: none;
+}
+
+.all-amenities-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px 24px;
+  margin-top: 1rem;
+}
+
+@media (min-width: 768px) {
+  .all-amenities-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }
