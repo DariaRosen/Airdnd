@@ -1,5 +1,6 @@
 import { storageService } from "./async-storage.service.js"
 import { utilService } from "./util.service.js"
+import usersData from "../data/users.json"
 
 const STORAGE_KEY_LOGGEDIN_USER = "loggedinUser"
 const STORAGE_KEY_USER_DB = "userDB"
@@ -14,7 +15,6 @@ export const userService = {
   getById,
   remove,
   update,
-  spendBalance,
   getEmptyUser,
 }
 
@@ -79,15 +79,7 @@ function getEmptyUser() {
     password: "",
     email: "",
     imgUrl: "",
-    role: "guest",
   }
-}
-
-async function spendBalance(amount) {
-  const user = getLoggedinUser()
-  if (!user) throw new Error("Not logged in")
-  user.balance -= amount
-  return await update(user)
 }
 
 function saveLocalUser(user) {
@@ -96,7 +88,6 @@ function saveLocalUser(user) {
     firstName: user.firstName,
     lastName: user.lastName,
     imgUrl: user.imgUrl,
-    balance: user.balance,
     role: user.role,
   }
   sessionStorage.setItem(STORAGE_KEY_LOGGEDIN_USER, JSON.stringify(minimalUser))
@@ -110,38 +101,7 @@ function getLoggedinUser() {
 function _createUsers() {
   let users = utilService.loadFromStorage(STORAGE_KEY_USER_DB)
   if (!users || !users.length) {
-    users = [
-      {
-        id: "u101",
-        firstName: "Reuven",
-        lastName: "Cohen",
-        username: "reuven321",
-        password: "1234",
-        email: "reuven@gmail.com",
-        imgUrl: "",
-        role: "guest",
-      },
-      {
-        id: "u102",
-        firstName: "Daria",
-        lastName: "Levi",
-        username: "daria123",
-        password: "abcd",
-        email: "dana@gmail.com",
-        imgUrl: "",
-        role: "host",
-      },
-      {
-        id: "u103",
-        firstName: "Avi",
-        lastName: "Nissim",
-        username: "avi",
-        password: "1111",
-        email: "avi@host.com",
-        imgUrl: "",
-        role: "both",
-      },
-    ]
+    users = usersData
     utilService.saveToStorage(STORAGE_KEY_USER_DB, users)
   }
   return users

@@ -5,6 +5,7 @@ import { getFormattedDateRange } from "../services/home.service.js"
 import { HomesList } from "../cmps/HomesList.jsx"
 import { Link } from "react-router-dom"
 import { useFilterSearchParams } from "../customHooks/useFilterSearchParams"
+import { loadUsers, login } from "../store/user/user.action.js"
 
 const dateRange = getFormattedDateRange() // e.g. "Jul 15–17"
 
@@ -17,6 +18,9 @@ export function HomePage() {
 
   useEffect(() => {
     loadHomes()
+    loadUsers()
+    login({ username: "avi", password: "1111" })
+
     setExistSearchParams(filterBy)
   }, [filterBy])
 
@@ -27,7 +31,11 @@ export function HomePage() {
       <div className="continue-searching">
         Continue searching for homes in Athens {dateRange} – 1 guest{" "}
         <div className="arrow-icon-wrapper">
-          <img src={arrow1} alt="Arrow icon" className="arrow-icon-gray-circle" />
+          <img
+            src={arrow1}
+            alt="Arrow icon"
+            className="arrow-icon-gray-circle"
+          />
         </div>
       </div>
 

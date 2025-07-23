@@ -1,6 +1,6 @@
 import { useSelector } from "react-redux"
 import { useEffect, useState } from "react"
-import { loadHomes } from "../store/home/homes.action.js"
+import { loadHomes } from "../store/homes/homes.action.js"
 import { showSuccessMsg, showErrorMsg } from "../services/event-bus.service"
 import { getFormattedDateRange } from "../services/home/home.service"
 import { HomesList } from "./HomesList.jsx"

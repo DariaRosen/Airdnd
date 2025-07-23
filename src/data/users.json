@@ -1,0 +1,29 @@
+[
+    {
+        "id": "a3",
+        "firstName": "Reuven",
+        "lastName": "Cohen",
+        "username": "reuven321",
+        "password": "1234",
+        "email": "reuven@gmail.com",
+        "imgUrl": ""
+    },
+    {
+        "id": "a2",
+        "firstName": "Daria",
+        "lastName": "Levi",
+        "username": "daria123",
+        "password": "abcd",
+        "email": "daria@gmail.com",
+        "imgUrl": ""
+    },
+    {
+        "id": "a1",
+        "firstName": "Avi",
+        "lastName": "Nissim",
+        "username": "avi",
+        "password": "1111",
+        "email": "avi@host.com",
+        "imgUrl": ""
+    }
+]
