@@ -1,7 +1,7 @@
 import { storageService } from "./async-storage.service"
 import { utilService } from "./util.service"
+import cloudinaryAssets from "../json/pictures.json"
 import homesData from "../data/homes.json"
-//import { userService } from '../user'
 
 export const homeService = {
   query,
@@ -151,6 +151,6 @@ async function _createHomes() {
   if (!homes || !homes.length) {
     homes = homesData
       // homes = await utilService.updateHomeImageUrlsFromCloudinary(homes);
-      utilService.saveToStorage(STORAGE_KEY, homes)
+    utilService.saveToStorage(STORAGE_KEY, homes)
   }
 }
