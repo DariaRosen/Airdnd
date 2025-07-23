@@ -6,7 +6,9 @@ import { HomesList } from "../cmps/HomesList.jsx"
 import { Link } from "react-router-dom"
 import { useFilterSearchParams } from "../customHooks/useFilterSearchParams"
 import { loadUsers, login } from "../store/user/user.action.js"
+import { utilService } from "../services/util.service.js"
 
+const { checkIn, checkOut } = utilService.getNextMonthDates()
 const dateRange = getFormattedDateRange() // e.g. "Jul 15–17"
 
 export function HomePage() {
@@ -40,56 +42,66 @@ export function HomePage() {
         </div>
       )}
 
+      <div className="section-wrapper">
+        <div className="text-with-icon">
+          <Link to="/home">
+            Popular homes in Tel Aviv-Yafo
+            <img src={arrow1} alt="Arrow icon" className="arrow-icon" />
+          </Link>
+        </div>
+        <HomesList location="Tel Aviv-Yafo" />
+      </div>
 
+      {loggedInUser?.searching_history?.length > 0 && (
+        <div className="section-wrapper">
+          <div className="text-with-icon">
+            <Link to="/home">
+              Available for similar dates
+              <img src={arrow1} alt="Arrow icon" className="arrow-icon" />
+            </Link>
+          </div>
+          <HomesList location="Tel Aviv-Yafo" checkIn="2025-08-01" checkOut="2025-08-05" />
+        </div>
+      )}
 
       <div className="section-wrapper">
         <div className="text-with-icon">
           <Link to="/home">
-            Available for similar dates
+            Stay near Gran Via
             <img src={arrow1} alt="Arrow icon" className="arrow-icon" />
           </Link>
         </div>
-        <HomesList />
+        <HomesList location="Gran Vía" />
       </div>
 
       <div className="section-wrapper">
         <div className="text-with-icon">
           <Link to="/home">
-            Stay in Aegina
+            Popular homes in USA
             <img src={arrow1} alt="Arrow icon" className="arrow-icon" />
           </Link>
         </div>
-        <HomesList />
+        <HomesList location="USA" />
       </div>
 
       <div className="section-wrapper">
         <div className="text-with-icon">
           <Link to="/home">
-            Popular homes in Lavreotiki
+            Available next month 
             <img src={arrow1} alt="Arrow icon" className="arrow-icon" />
           </Link>
         </div>
-        <HomesList />
+        <HomesList checkIn={checkIn} checkOut={checkOut} />
       </div>
 
       <div className="section-wrapper">
         <div className="text-with-icon">
           <Link to="/home">
-            Guests also checked out Glyfada
+            Homes in United Kingdom
             <img src={arrow1} alt="Arrow icon" className="arrow-icon" />
           </Link>
         </div>
-        <HomesList />
-      </div>
-
-      <div className="section-wrapper">
-        <div className="text-with-icon">
-          <Link to="/home">
-            Homes in Markopoulo Mesogaias
-            <img src={arrow1} alt="Arrow icon" className="arrow-icon" />
-          </Link>
-        </div>
-        <HomesList />
+        <HomesList location="UK" />
       </div>
 
       <hr />

@@ -11,7 +11,10 @@ export const utilService = {
   getRandomBookedDates,
   updateHomeImageUrlsFromCloudinary,
   getLocationSuggestions,
-  updateImageUrlsFromAssets
+  updateImageUrlsFromAssets,
+  getNextMonthDates,
+  doesHomeMatchLocation,
+  doesHomeMatchDates
 }
 
 function makeId(length = 6) {
@@ -186,7 +189,7 @@ export async function updateHomeImageUrlsFromCloudinary(homes) {
 }
 
 
-export async function getLocationSuggestions(term) {
+async function getLocationSuggestions(term) {
   const locations = [
     'Paris', 'London', 'Lisbon', 'Tel Aviv', 'Tokyo',
     'New York', 'Los Angeles', 'Berlin', 'Madrid',
@@ -224,4 +227,60 @@ function updateImageUrlsFromAssets(homes, cloudinaryAssets) {
   })
 }
 
+function getNextMonthDates({ fromDay = 10, toDay = 15 } = {}) {
+  const today = new Date()
+  const nextMonth = new Date(today.getFullYear(), today.getMonth() + 1, 1)
 
+  const checkIn = new Date(nextMonth.getFullYear(), nextMonth.getMonth(), fromDay)
+  const checkOut = new Date(nextMonth.getFullYear(), nextMonth.getMonth(), toDay)
+
+  return {
+    checkIn: checkIn.toISOString().split('T')[0],
+    checkOut: checkOut.toISOString().split('T')[0],
+  }
+}
+
+function doesHomeMatchLocation(home, locationFilter) {
+  if (!locationFilter || !home?.location) return true
+  const { city, country, address } = home.location
+  const lowerFilter = locationFilter.toLowerCase()
+
+  return (
+    (city && city.toLowerCase().includes(lowerFilter)) ||
+    (country && country.toLowerCase().includes(lowerFilter)) ||
+    (address && address.toLowerCase().includes(lowerFilter))
+  )
+}
+
+function doesHomeMatchDates(home, checkIn, checkOut) {
+  if (!checkIn || !checkOut) return true
+  if (!home?.unavailableDates || !Array.isArray(home.unavailableDates)) return true
+
+  const unavailableSet = new Set(home.unavailableDates)
+  const stayDates = getDatesBetween(checkIn, checkOut)
+
+  // Convert each date to 'DDMMYY' and check if it's unavailable
+  return stayDates.every(dateStr => {
+    const formatted = formatDateToDDMMYY(dateStr)
+    return !unavailableSet.has(formatted)
+  })
+}
+
+function getDatesBetween(startStr, endStr) {
+  const dates = []
+  const current = new Date(startStr)
+  const end = new Date(endStr)
+
+  while (current < end) {
+    const copy = new Date(current)
+    dates.push(copy.toISOString().slice(0, 10)) // 'YYYY-MM-DD'
+    current.setDate(current.getDate() + 1)
+  }
+
+  return dates
+}
+
+function formatDateToDDMMYY(dateStr) {
+  const [year, month, day] = dateStr.split("-")
+  return `${day}${month}${year.slice(-2)}`
+}

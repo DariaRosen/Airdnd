@@ -377,7 +377,7 @@
         "guestFavorite": true,
         "location": {
             "country": "Israel",
-            "city": "Tel Aviv",
+            "city": "Tel Aviv-Yafo",
             "address": "Sheinkin St 45, Tel Aviv-Yafo",
             "lat": 32.0663,
             "lng": 34.7741
@@ -790,7 +790,7 @@
         "guestFavorite": true,
         "location": {
             "country": "Israel",
-            "city": "Tel Aviv",
+            "city": "Tel Aviv-Yafo",
             "address": "Sheinkin St 23, Tel Aviv-Yafo",
             "lat": 32.0683,
             "lng": 34.7729
@@ -842,7 +842,7 @@
         "guestFavorite": true,
         "location": {
             "country": "Israel",
-            "city": "Tel Aviv",
+            "city": "Tel Aviv-Yafo",
             "address": "Shabazi St 50, Tel Aviv-Yafo",
             "lat": 32.0596,
             "lng": 34.7621
@@ -891,7 +891,7 @@
         "guestFavorite": false,
         "location": {
             "country": "Israel",
-            "city": "Tel Aviv",
+            "city": "Tel Aviv-Yafo",
             "address": "Dizengoff St 190, Tel Aviv-Yafo",
             "lat": 32.0942,
             "lng": 34.7749
@@ -942,7 +942,7 @@
         "guestFavorite": false,
         "location": {
             "country": "Israel",
-            "city": "Tel Aviv",
+            "city": "Tel Aviv-Yafo",
             "address": "Weizmann St 15, Tel Aviv-Yafo",
             "lat": 32.0937,
             "lng": 34.7879
@@ -991,7 +991,7 @@
         "guestFavorite": false,
         "location": {
             "country": "Israel",
-            "city": "Tel Aviv",
+            "city": "Tel Aviv-Yafo",
             "address": "Abarbanel St 56, Tel Aviv-Yafo",
             "lat": 32.0541,
             "lng": 34.7666
@@ -1014,6 +1014,309 @@
             "080925",
             "310825"
         ],
+        "lastSearchValue": "",
+        "createdAt": 1753278900219
+    },
+    {
+        "_id": "gV1",
+        "host_id": "b1",
+        "title": "Apartment in Gran Vía",
+        "description": "דירה יפהפייה בלב מדריד עם נוף לגרן ויה",
+        "price": 553,
+        "capacity": 2,
+        "rooms": 2,
+        "beds": 1,
+        "bathrooms": 1,
+        "type": "apartment",
+         "imgUrls": [
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753302380/fc387248-4231-46ae-ac9c-9c853f0ab89a_qo8ind.avif",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753302377/4d2f55f8-c5df-413c-97f7-fd193474fbac_toxlol.avif",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753302376/3d6226ac-f9a5-4933-b183-325545ee027a_bsygsz.avif",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753302373/8eb14937-5a5c-454d-a759-13aa6b830be5_ry0ixb.avif",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753302372/091ba0e9-ce26-4d8e-8979-28550274b699_dxfdex.webp"
+        ],
+        "rating": 4.8,
+        "guestFavorite": true,
+        "location": {
+            "country": "Spain",
+            "city": "Madrid",
+            "address": "Gran Vía 12, Madrid",
+            "lat": 40.4201,
+            "lng": -3.7058
+        },
+        "amenities": [
+            "WiFi",
+            "AC",
+            "Kitchen",
+            "TV"
+        ],
+        "msgs": [],
+        "unavailableDates": [],
+        "lastSearchValue": "",
+        "createdAt": 1753278900219
+    },
+    {
+        "_id": "gV2",
+        "host_id": "b2",
+        "title": "Apartment in Gran Vía",
+        "description": "דירת אירוח מודרנית קרובה לאטרקציות המרכזיות",
+        "price": 504,
+        "capacity": 3,
+        "rooms": 2,
+        "beds": 2,
+        "bathrooms": 1,
+        "type": "apartment",
+         "imgUrls": [
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753302268/d13f4a10-38a4-4338-87ca-d900489404e8_klpgdu.avif",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753302265/918cd6ba-551f-491a-b812-3cb3f227d5bc_csivru.avif",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753302263/11623388-9a74-49f0-ad8e-28871805b039_cy5bv6.avif",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753302260/fca2b526-a7e3-4317-8b32-149f5ad13d13_pjx7e0.avif",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753302258/5ae584e0-54e7-478c-aebf-25edaa1ce987_rcmc09.avif"
+        ],
+        "rating": 4.81,
+        "guestFavorite": true,
+        "location": {
+            "country": "Spain",
+            "city": "Madrid",
+            "address": "Gran Vía 45, Madrid",
+            "lat": 40.4215,
+            "lng": -3.7059
+        },
+        "amenities": [
+            "WiFi",
+            "Kitchen",
+            "Washer",
+            "Balcony"
+        ],
+        "msgs": [],
+        "unavailableDates": [],
+        "lastSearchValue": "",
+        "createdAt": 1753278900219
+    },
+    {
+        "_id": "gV3",
+        "host_id": "b3",
+        "title": "Apartment in Gran Vía",
+        "description": "דירה במיקום מעולה ליד מסעדות ותחבורה ציבורית",
+        "price": 453,
+        "capacity": 2,
+        "rooms": 1,
+        "beds": 1,
+        "bathrooms": 1,
+        "type": "apartment",
+         "imgUrls": [
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753302153/bc74256f-40f8-48e4-9a15-666d1986d3b4_s35kov.avif",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753302152/14d4a597-1221-4245-acbc-0e759137a7e4_b0y0d7.avif",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753302150/99f66295-6972-4204-93ac-39c24f8f7c09_vlmcjy.avif",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753302147/0ea08138-b1f2-40d4-857f-c565ddbd9d05_gmsyl8.avif",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753302146/831d82d5-9576-4411-b2ea-a39ab9ed9f81_k6sk2x.avif"
+        ],
+        "rating": 4.83,
+        "guestFavorite": false,
+        "location": {
+            "country": "Spain",
+            "city": "Madrid",
+            "address": "Gran Vía 31, Madrid",
+            "lat": 40.4207,
+            "lng": -3.7057
+        },
+        "amenities": [
+            "WiFi",
+            "TV",
+            "AC"
+        ],
+        "msgs": [],
+        "unavailableDates": [],
+        "lastSearchValue": "",
+        "createdAt": 1753278900219
+    },
+    {
+        "_id": "gV4",
+        "host_id": "b4",
+        "title": "Apartment in Gran Vía",
+        "description": "דירה חדשה עם עיצוב מודרני ונעים",
+        "price": 488,
+        "capacity": 4,
+        "rooms": 3,
+        "beds": 3,
+        "bathrooms": 1,
+        "type": "apartment",
+         "imgUrls": [
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753302043/f7f55367-00e9-4bb6-8604-e23fcacb41c8_bmftxy.avif",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753302040/cd9d7b7b-8416-40c6-b4fa-cef9f7dc23f2_xigouy.avif",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753302039/d7711155-bbf8-4829-a11f-c78d5a685b48_sksux6.avif",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753302036/58c1c774-4888-45fa-86da-6c53d63b0206_iub7aa.avif",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753302036/066b736b-93ce-4224-a6e9-5d22f524db98_xyxpe3.avif"
+        ],
+        "rating": 4.76,
+        "guestFavorite": true,
+        "location": {
+            "country": "Spain",
+            "city": "Madrid",
+            "address": "Gran Vía 50, Madrid",
+            "lat": 40.4203,
+            "lng": -3.7060
+        },
+        "amenities": [
+            "WiFi",
+            "Kitchen",
+            "Washer",
+            "AC",
+            "TV"
+        ],
+        "msgs": [],
+        "unavailableDates": [],
+        "lastSearchValue": "",
+        "createdAt": 1753278900219
+    },
+    {
+        "_id": "gV5",
+        "host_id": "b5",
+        "title": "Apartment in Gran Vía",
+        "description": "דירה מוארת עם חלונות גדולים המשקיפים לרחוב המרכזי",
+        "price": 555,
+        "capacity": 2,
+        "rooms": 2,
+        "beds": 1,
+        "bathrooms": 1,
+        "type": "apartment",
+         "imgUrls": [
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753301927/2eb5342b-1c0f-491a-a44f-5b5d80f12836_nqwa9r.avif",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753301927/2eb5342b-1c0f-491a-a44f-5b5d80f12836_nqwa9r.avif",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753301925/31b384df-4335-4d55-88d5-304f08d09d11_c1o0ka.avif",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753301924/411b3bcc-ad9e-4ef2-85be-e4288cf6b123_k5c2r2.avif",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753301923/3bde1afd-9381-4fb0-92f6-010388de242a_hsjlmm.avif"
+        ],
+        "rating": 4.89,
+        "guestFavorite": false,
+        "location": {
+            "country": "Spain",
+            "city": "Madrid",
+            "address": "Gran Vía 21, Madrid",
+            "lat": 40.4210,
+            "lng": -3.7056
+        },
+        "amenities": [
+            "WiFi",
+            "Kitchen",
+            "Balcony"
+        ],
+        "msgs": [],
+        "unavailableDates": [],
+        "lastSearchValue": "",
+        "createdAt": 1753278900219
+    },
+    {
+        "_id": "gV6",
+        "host_id": "b6",
+        "title": "Room in Gran Vía",
+        "description": "חדר פרטי נעים במיקום מרכזי",
+        "price": 302,
+        "capacity": 1,
+        "rooms": 1,
+        "beds": 1,
+        "bathrooms": 1,
+        "type": "room",
+         "imgUrls": [
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753301831/3c928ded-57ec-446a-9049-f84387c4eb91_glawau.avif",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753301828/f5ddef38-0167-4843-ba1c-ba6cdfda38d1_ng4te3.avif",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753301828/82b25633-f21d-4434-9223-c62f2ff6656f_fxlcyl.avif",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753301827/d443d20f-d71b-4e3a-9f8b-1ab4da34c3e3_yqp5k6.avif",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753301827/c1ca8ceb-19cd-459f-b6b1-67c0db9e1609_tg2mr8.avif"
+        ],
+        "rating": 4.89,
+        "guestFavorite": true,
+        "location": {
+            "country": "Spain",
+            "city": "Madrid",
+            "address": "Gran Vía 38, Madrid",
+            "lat": 40.4209,
+            "lng": -3.7054
+        },
+        "amenities": [
+            "WiFi",
+            "TV",
+            "AC"
+        ],
+        "msgs": [],
+        "unavailableDates": [],
+        "lastSearchValue": "",
+        "createdAt": 1753278900219
+    },
+    {
+        "_id": "gV7",
+        "host_id": "b7",
+        "title": "Apartment in Gran Vía",
+        "description": "אירוח נעים למשפחות בלב מדריד",
+        "price": 610,
+        "capacity": 4,
+        "rooms": 3,
+        "beds": 3,
+        "bathrooms": 2,
+        "type": "apartment",
+        "imgUrls": [
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753301502/2a3f33e0-401e-4e9e-9f71-df200390d7cc_rq8dos.avif",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753301503/b5e83b30-b424-4d49-9fe0-2fc1e66ca5a5_w3xtzk.avif",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753301501/15dfa1ef-54c3-463d-9d78-1269b344ee40_v5tzvd.avif",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753301501/5663bbad-fc7b-4fea-9dd2-753648ca901c_l0sx1s.avif",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753301501/fb4096bd-71b2-47f8-9123-296cf29790e0_ulhcwx.avif"
+        ],
+        "rating": 4.87,
+        "guestFavorite": true,
+        "location": {
+            "country": "Spain",
+            "city": "Madrid",
+            "address": "Gran Vía 70, Madrid",
+            "lat": 40.4212,
+            "lng": -3.7062
+        },
+        "amenities": [
+            "WiFi",
+            "Kitchen",
+            "AC",
+            "Washer",
+            "TV"
+        ],
+        "msgs": [],
+        "unavailableDates": [],
+        "lastSearchValue": "",
+        "createdAt": 1753278900219
+    },
+    {
+        "_id": "gV8",
+        "host_id": "b8",
+        "title": "Apartment in Gran Vía",
+        "description": "דירה מרווחת עם נוף מהמם לגגות מדריד",
+        "price": 590,
+        "capacity": 3,
+        "rooms": 2,
+        "beds": 2,
+        "bathrooms": 1,
+        "type": "apartment",
+        "imgUrls": [
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753301194/adfa122f-5f3a-4742-9d1c-966f715ba79d_xp4iys.avif",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753301194/98643849-5468-4d09-8188-69b088f7bd6b_b02cto.avif",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753301194/af24e0b7-06d9-460f-bc1a-34bd1b411c77_ugrh4a.avif",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753301193/5d6a7dc0-bad1-49d4-b6e2-edf7388323a3_dl9ct9.avif",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753301194/5d249344-f465-442c-b58b-59ed41c07515_sbpvxj.avif"
+        ],
+        "rating": 4.84,
+        "guestFavorite": false,
+        "location": {
+            "country": "Spain",
+            "city": "Madrid",
+            "address": "Gran Vía 5, Madrid",
+            "lat": 40.4206,
+            "lng": -3.7055
+        },
+        "amenities": [
+            "WiFi",
+            "AC",
+            "Balcony",
+            "Kitchen"
+        ],
+        "msgs": [],
+        "unavailableDates": [],
         "lastSearchValue": "",
         "createdAt": 1753278900219
     }

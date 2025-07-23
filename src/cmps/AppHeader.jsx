@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
-import { debounce, getLocationSuggestions } from '../services/util.service'
+import { debounce, utilService } from '../services/util.service'
 import { AirdndIcon } from "./AirdndIcon"
 import { useNavigate, Link } from "react-router-dom"
 
@@ -26,7 +26,7 @@ export function AppHeader() {
   }, [])
 
   const debouncedFetchLocations = debounce(async (term) => {
-    const locations = await getLocationSuggestions(term)
+    const locations = await utilService.getLocationSuggestions(term)
     setLocationSuggestions(locations)
   }, 300)
 
