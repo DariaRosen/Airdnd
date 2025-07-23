@@ -65,9 +65,14 @@
   z-index: 1;
 
   /* Fill color of the heart itself */
-  fill: rgba(0, 0, 0, 0.5) !important;
+  // fill: rgba(0, 0, 0, 0.5) !important;
 
   /* White stroke around the heart */
   stroke: #fff !important;
   stroke-width: 2 !important;
+  cursor: pointer;
+  transition: filter 0.3s ease;
+}
+.heart-icon:hover {
+  transform: scale(1.15); // 💡 make it 20% bigger on hover
 }
