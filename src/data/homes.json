@@ -1,0 +1,1020 @@
+[
+    {
+        "_id": "mHhQ8g",
+        "host_id": "a1",
+        "title": "Rustic Countryside House",
+        "description": "בית כפרי עם גינה ונוף לשדות ירוקים",
+        "price": 450,
+        "capacity": 4,
+        "rooms": 3,
+        "beds": 3,
+        "bathrooms": 2,
+        "type": "house",
+        "imgUrls": [
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753044844/pexels-pixabay-534151_ddjwj9.jpg",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753044838/pexels-amar-8389897_mabjwj.jpg",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753044859/pexels-tobiasbjorkli-2360673_yb9gxr.jpg",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753044858/pexels-enginakyurt-3620234_onvo4m.jpg",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753044847/pexels-arnon-suksumran-367077-996220_droyxa.jpg"
+        ],
+        "rating": 4.85,
+        "guestFavorite": false,
+        "location": {
+            "country": "UK",
+            "city": "Cotswolds",
+            "address": "High St, Bourton-on-the-Water, GL54 2AP",
+            "lat": 51.8857,
+            "lng": -1.7578
+        },
+        "amenities": [
+            "WiFi",
+            "Fireplace",
+            "Garden",
+            "Washer",
+            "TV",
+            "Balcony",
+            "Kitchen",
+            "AC"
+        ],
+        "msgs": [],
+        "unavailableDates": [
+            "210825",
+            "290825",
+            "020925",
+            "171025",
+            "050825",
+            "060825",
+            "120825",
+            "150825",
+            "140925",
+            "110825"
+        ],
+        "lastSearchValue": "",
+        "createdAt": 1753278900218
+    },
+    {
+        "_id": "HMLE3x",
+        "host_id": "a2",
+        "title": "Modern Loft Downtown",
+        "description": "לופט מודרני במרכז העיר עם מטבח מאובזר",
+        "price": 600,
+        "capacity": 3,
+        "rooms": 4,
+        "beds": 5,
+        "bathrooms": 2,
+        "type": "loft",
+        "imgUrls": [
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753044767/pexels-fotoaibe-1571471_m96y8r.jpg",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753044761/pexels-fotoaibe-1571461_toq1c8.jpg",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753044761/pexels-atbo-66986-245208_trblw7.jpg",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753044769/pexels-notswervo-2398375_fquvyz.jpg",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753044787/pexels-marleneleppanen-1031593_mdnw17.jpg"
+        ],
+        "rating": 4.56,
+        "guestFavorite": false,
+        "location": {
+            "country": "Germany",
+            "city": "Berlin",
+            "address": "Rosenthaler Str. 72A, 10119 Berlin",
+            "lat": 52.5291,
+            "lng": 13.4011
+        },
+        "amenities": [
+            "WiFi",
+            "Kitchen",
+            "Washer",
+            "TV"
+        ],
+        "msgs": [],
+        "unavailableDates": [
+            "191025",
+            "120925",
+            "290725",
+            "181025",
+            "020825",
+            "090825",
+            "220825",
+            "310725",
+            "030925",
+            "160925"
+        ],
+        "lastSearchValue": "",
+        "createdAt": 1753278900218
+    },
+    {
+        "_id": "lF06GX",
+        "host_id": "a3",
+        "title": "Desert Eco Dome",
+        "description": "כיפת מגורים אקולוגית בלב המדבר",
+        "price": 390,
+        "capacity": 2,
+        "rooms": 2,
+        "beds": 1,
+        "bathrooms": 1,
+        "type": "dome",
+        "imgUrls": [
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753044576/Capture_xuekzf.jpg",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753044596/pexels-fotios-photos-1090638_hpdxwc.jpg",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753044587/pexels-christa-grover-977018-1909656_khrbho.jpg",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753044609/pexels-esra-kaya-276306841-32988839_gzagts.jpg",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753044600/pexels-pixabay-271743_iwobyf.jpg",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753044625/pexels-mtk402-2098912_uel8ym.jpg"
+        ],
+        "rating": 4.84,
+        "guestFavorite": false,
+        "location": {
+            "country": "Israel",
+            "city": "Mitzpe Ramon",
+            "address": "Ma'ale Ben Tur St 1, Mitzpe Ramon",
+            "lat": 30.6063,
+            "lng": 34.8011
+        },
+        "amenities": [
+            "Refrigerator",
+            "Fire extinguisher"
+        ],
+        "msgs": [],
+        "unavailableDates": [
+            "220825",
+            "131025",
+            "140825",
+            "070925",
+            "090825",
+            "091025",
+            "240925",
+            "110825",
+            "210925",
+            "280825"
+        ],
+        "lastSearchValue": "",
+        "createdAt": 1753278900218
+    },
+    {
+        "_id": "MtPdvy",
+        "host_id": "a4",
+        "title": "Lakeview Cottage",
+        "description": "קוטג' קסום על שפת אגם עם קיאקים",
+        "price": 500,
+        "capacity": 5,
+        "rooms": 2,
+        "beds": 3,
+        "bathrooms": 1,
+        "type": "cabin",
+        "imgUrls": [
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753044741/pexels-naimbic-2029715_sy8gxa.jpg",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753044734/pexels-naimbic-2029663_mchara.jpg",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753044720/pexels-emrecan-2079449_zl5e37.jpg",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753044708/pexels-heyho-6487944_y1wovd.jpg",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753044701/pexels-heyho-6301176_ugkdz2.jpg",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753044701/pexels-heyho-6301176_ugkdz2.jpg",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753044686/pexels-asphotograpy-94865_rsm7ho.jpg",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753044696/pexels-dilara-aksoy-354420321-18005100_fdc6ui.jpg"
+        ],
+        "rating": 4.6,
+        "guestFavorite": false,
+        "location": {
+            "country": "Canada",
+            "city": "Muskoka",
+            "address": "1072 Elgin House Rd, Port Carling, ON",
+            "lat": 45.1116,
+            "lng": -79.5795
+        },
+        "amenities": [
+            "Wine glasses",
+            "Fireplace",
+            "WiFi"
+        ],
+        "msgs": [],
+        "unavailableDates": [
+            "061025",
+            "140925",
+            "050825",
+            "050925",
+            "060925",
+            "130925",
+            "071025",
+            "240925",
+            "240825",
+            "220825"
+        ],
+        "lastSearchValue": "",
+        "createdAt": 1753278900219
+    },
+    {
+        "_id": "WDdSID",
+        "host_id": "a5",
+        "title": "Treehouse Escape",
+        "description": "בית עץ גבוה בין עצים ונוף עוצר נשימה",
+        "price": 420,
+        "capacity": 2,
+        "rooms": 2,
+        "beds": 1,
+        "bathrooms": 1,
+        "type": "treehouse",
+        "imgUrls": [
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753100027/Capture_iszrp5.jpg",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753100049/pexels-designecologist-1046639_uwzppz.jpg",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753100052/pexels-designecologist-1239221_crulw7.jpg",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753100058/pexels-anytiffng-3700253_norxb1.jpg",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753100056/pexels-fernanda-leticia-536417725-32978302_fevlqv.jpg",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753100053/pexels-pixabay-262048_iyx1gj.jpg",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753100098/pexels-charlotte-may-5825699_pwbc4m.jpg",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753100079/pexels-taryn-elliott-9565973_p1d4vf.jpg",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753100061/pexels-designecologist-1248583_vj6qqx.jpg"
+        ],
+        "rating": 4.55,
+        "guestFavorite": false,
+        "location": {
+            "country": "USA",
+            "city": "Atlanta",
+            "address": "135 Waddell St NE, Atlanta, GA",
+            "lat": 33.7537,
+            "lng": -84.3555
+        },
+        "amenities": [
+            "WiFi",
+            "Pets allowed",
+            "Nature View"
+        ],
+        "msgs": [],
+        "unavailableDates": [
+            "111025",
+            "240725",
+            "240925",
+            "150825",
+            "300725",
+            "210825",
+            "190825",
+            "121025",
+            "250925",
+            "260825"
+        ],
+        "lastSearchValue": "",
+        "createdAt": 1753278900219
+    },
+    {
+        "_id": "Ii1cMB",
+        "host_id": "a6",
+        "title": "Ski Chalet",
+        "description": "צ'לט סקי חמימי ליד המסלולים",
+        "price": 750,
+        "capacity": 6,
+        "rooms": 3,
+        "beds": 4,
+        "bathrooms": 3,
+        "type": "chalet",
+        "imgUrls": [
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753099976/Capture_owo7x7.jpg",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753099983/pexels-happiness-maker-229649-1071285_ijw8fv.jpg",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753099978/pexels-kamenczak-775219_god6rq.jpg",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753099998/pexels-itsterrymag-2635038_msvzja.jpg",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753099994/pexels-element5-1125136_jzxzez.jpg",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753099989/pexels-quark-studio-1159039-2507016_onrben.jpg",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753100150/pexels-zvolskiy-2082093_jw1cp7.jpg",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753100116/pexels-christa-grover-977018-2121121_vez2xf.jpg",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753100096/pexels-jonathanborba-3101547_wtru5d.jpg"
+        ],
+        "rating": 0.76,
+        "guestFavorite": false,
+        "location": {
+            "country": "Switzerland",
+            "city": "Zermatt",
+            "address": "Bahnhofstrasse 50, 3920 Zermatt",
+            "lat": 46.0207,
+            "lng": 7.7491
+        },
+        "amenities": [
+            "Fireplace",
+            "Free parking",
+            "WiFi"
+        ],
+        "msgs": [],
+        "unavailableDates": [
+            "210925",
+            "260825",
+            "270725",
+            "250925",
+            "190925",
+            "101025",
+            "090825",
+            "040825",
+            "170925",
+            "300825"
+        ],
+        "lastSearchValue": "",
+        "createdAt": 1753278900219
+    },
+    {
+        "_id": "TmWqdi",
+        "host_id": "a7",
+        "title": "Historic City Flat",
+        "description": "דירה היסטורית בעיר העתיקה עם תקרות גבוהות",
+        "price": 540,
+        "capacity": 3,
+        "rooms": 2,
+        "beds": 2,
+        "bathrooms": 2,
+        "type": "apartment",
+        "imgUrls": [
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753044643/Capture_mt6kp5.jpg",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753044651/pexels-bui-huy-857169-1750029_eftvqa.jpg",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753044675/pexels-eye4dtail-129494_ro37e5.jpg",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753044663/pexels-fotoaibe-1643383_f61kb6.jpg",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753044707/pexels-heyho-6186825_lpaj7d.jpg",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753044706/pexels-heyho-6198661_ivkyjq.jpg",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753044683/pexels-bintimalu-1485657_xjgjdc.jpg"
+        ],
+        "rating": 4.07,
+        "guestFavorite": true,
+        "location": {
+            "country": "Spain",
+            "city": "Barcelona",
+            "address": "Carrer de Ferran, 08002 Barcelona",
+            "lat": 41.3809,
+            "lng": 2.1755
+        },
+        "amenities": [
+            "WiFi",
+            "Balcony",
+            "Washer"
+        ],
+        "msgs": [],
+        "unavailableDates": [
+            "130825",
+            "151025",
+            "061025",
+            "200925",
+            "040825",
+            "310725",
+            "290725",
+            "081025",
+            "250725",
+            "021025"
+        ],
+        "lastSearchValue": "",
+        "createdAt": 1753278900219
+    },
+    {
+        "_id": "qA6bZi",
+        "host_id": "a8",
+        "title": "Rooftop Studio TLV",
+        "description": "סטודיו עם מרפסת גג במרכז תל אביב",
+        "price": 460,
+        "capacity": 2,
+        "rooms": 1,
+        "beds": 1,
+        "bathrooms": 1,
+        "type": "studio",
+        "imgUrls": [
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753044808/Capture_g9udxc.jpg",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753044835/pexels-d-ng-nhan-324384-32960956_mlm9ti.jpg",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753044834/pexels-ekrulila-2332913_f6hghr.jpg",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753044830/pexels-kseniachernaya-3965505_hx5edx.jpg",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753044828/pexels-cottonbro-4154987_ipbop3.jpg",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753044824/pexels-almapapi-2396108_iofzgq.jpg"
+        ],
+        "rating": 4.79,
+        "guestFavorite": true,
+        "location": {
+            "country": "Israel",
+            "city": "Tel Aviv",
+            "address": "Sheinkin St 45, Tel Aviv-Yafo",
+            "lat": 32.0663,
+            "lng": 34.7741
+        },
+        "amenities": [
+            "WiFi",
+            "AC",
+            "Toaster"
+        ],
+        "msgs": [],
+        "unavailableDates": [
+            "240825",
+            "260825",
+            "121025",
+            "150925",
+            "270925",
+            "220825",
+            "110925",
+            "031025",
+            "070825",
+            "180825"
+        ],
+        "lastSearchValue": "",
+        "createdAt": 1753278900219
+    },
+    {
+        "_id": "6r5E7D",
+        "host_id": "a9",
+        "title": "Canal View Apartment",
+        "description": "דירה יפהפייה עם נוף לתעלות של אמסטרדם",
+        "price": 690,
+        "capacity": 4,
+        "rooms": 4,
+        "beds": 3,
+        "bathrooms": 2,
+        "type": "apartment",
+        "imgUrls": [
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753044569/pexels-dtanpt-1329711_cwqsoz.jpg",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753044548/pexels-kash-click-558311036-32988197_evkjbg.jpg",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753044540/pexels-hemanthnirujogi-2555635_bzqiby.jpg",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753044540/pexels-daliladalprat-2179214_ohpyee.jpg",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753044533/pexels-charlotte-may-5824485_zbjnle.jpg",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753044532/pexels-jvdm-1457847_mmlbx1.jpg",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753044531/pexels-anfisa-eremina-1021202-2183865_sfpd6k.jpg",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753044526/pexels-cottonbro-4107279_ggmesb.jpg",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753044506/pexels-daliladalprat-2043569_a2fsxb.jpg",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753044501/pexels-catscoming-707581_bzsgmf.jpg",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753044485/Capture_crdakb.jpg"
+        ],
+        "rating": 4.52,
+        "guestFavorite": true,
+        "location": {
+            "country": "Netherlands",
+            "city": "Amsterdam",
+            "address": "Herengracht 541, 1017 BW Amsterdam",
+            "lat": 52.3648,
+            "lng": 4.8936
+        },
+        "amenities": [
+            "WiFi",
+            "Coffee",
+            "Hot water"
+        ],
+        "msgs": [],
+        "unavailableDates": [
+            "150925",
+            "070925",
+            "071025",
+            "300825",
+            "250925",
+            "131025",
+            "041025",
+            "111025",
+            "230725",
+            "170925"
+        ],
+        "lastSearchValue": "",
+        "createdAt": 1753278900219
+    },
+    {
+        "_id": "GKxLMu",
+        "host_id": "a10",
+        "title": "Tropical Jungle Bungalow",
+        "description": "בונגלו פרטי בתוך הג'ונגל עם מקלחת חוץ",
+        "price": 370,
+        "capacity": 2,
+        "rooms": 1,
+        "beds": 1,
+        "bathrooms": 1,
+        "type": "bungalow",
+        "imgUrls": [
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753100096/pexels-allen-boguslavsky-1344061-32956273_n0scz5.jpg",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753100076/pexels-heyho-6284231_fbgpue.jpg",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753100144/pexels-zvolskiy-2062426_h6drm1.jpg",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753100144/pexels-amelia-hallsworth-5461568_rvicz6.jpg",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753100113/pexels-emrecan-2079246_bd9ikp.jpg"
+        ],
+        "rating": 4.6,
+        "guestFavorite": false,
+        "location": {
+            "country": "Costa Rica",
+            "city": "Puerto Viejo",
+            "address": "Calle 213, Puerto Viejo de Talamanca",
+            "lat": 9.6586,
+            "lng": -82.7542
+        },
+        "amenities": [
+            "Fire extinguisher",
+            "Bikes",
+            "WiFi"
+        ],
+        "msgs": [],
+        "unavailableDates": [
+            "270925",
+            "040925",
+            "220825",
+            "170925",
+            "080825",
+            "300925",
+            "201025",
+            "250925",
+            "021025",
+            "150825"
+        ],
+        "lastSearchValue": "",
+        "createdAt": 1753278900219
+    },
+    {
+        "_id": "P8OCBG",
+        "host_id": "a11",
+        "title": "Central Park Apartment",
+        "description": "דירה מקסימה ליד סנטרל פארק עם מטבח מאובזר",
+        "price": 720,
+        "capacity": 4,
+        "rooms": 3,
+        "beds": 3,
+        "bathrooms": 3,
+        "type": "apartment",
+        "imgUrls": [
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753044587/pexels-pixabay-279607_tcvnkc.jpg",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753044597/pexels-mikebirdy-144632_rirmxl.jpg",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753044580/pexels-heyho-6527054_xvzxoh.jpg",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753044577/pexels-kate-amos-1408770-2718447_p0rgr2.jpg",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753044576/pexels-falling4utah-1080721_mujt6t.jpg",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753044575/pexels-falling4utah-2724748_x5k0xu.jpg",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753044573/pexels-falling4utah-2724749_e35mke.jpg",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753044562/pexels-curtis-adams-1694007-3935352_zskv3q.jpg",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753044560/pexels-alex-qian-1180283-2343466_ghdjf0.jpg",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753044558/pexels-curtis-adams-1694007-3935336_irivwe.jpg",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753044558/pexels-element5-1125130_ya8ji5.jpg"
+        ],
+        "rating": 4.87,
+        "guestFavorite": true,
+        "location": {
+            "country": "USA",
+            "city": "New York",
+            "address": "15 Central Park West, New York, NY 10023",
+            "lat": 40.7712,
+            "lng": -73.9801
+        },
+        "amenities": [
+            "WiFi",
+            "Washer",
+            "Self check-in"
+        ],
+        "msgs": [],
+        "unavailableDates": [
+            "050925",
+            "070925",
+            "171025",
+            "260725",
+            "130925",
+            "071025",
+            "240825",
+            "230725",
+            "061025",
+            "090825"
+        ],
+        "lastSearchValue": "",
+        "createdAt": 1753278900219
+    },
+    {
+        "_id": "4veGSy",
+        "host_id": "a12",
+        "title": "Brooklyn Loft",
+        "description": "לופט תעשייתי משופץ בוויליאמסבורג",
+        "price": 680,
+        "capacity": 3,
+        "rooms": 2,
+        "beds": 2,
+        "bathrooms": 1,
+        "type": "loft",
+        "imgUrls": [
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753044493/pexels-life-of-pix-2459_zzmyx2.jpg",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753044494/pexels-pixabay-209292_djurat.jpg",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753044505/pexels-isabel-araujo-861343-2100245_jtqcjz.jpg",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753044483/pexels-natalyqphotography-9890440_vqaqpd.jpg",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753044485/pexels-asphotograpy-932095_itacfa.jpg",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753044493/pexels-pascal-claivaz-66964-732917_zqmoc6.jpg",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753044478/pexels-julieaagaard-2207894_mlugpb.jpg",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753044477/pexels-designecologist-1005058_fhqma5.jpg"
+        ],
+        "rating": 4.6,
+        "guestFavorite": false,
+        "location": {
+            "country": "USA",
+            "city": "New York",
+            "address": "76 N 4th St, Brooklyn, NY 11249",
+            "lat": 40.7175,
+            "lng": -73.9613
+        },
+        "amenities": [
+            "WiFi",
+            "Kitchen",
+            "Work Desk"
+        ],
+        "msgs": [],
+        "unavailableDates": [
+            "240725",
+            "220825",
+            "100825",
+            "180925",
+            "110925",
+            "080825",
+            "160925",
+            "021025",
+            "260725",
+            "071025"
+        ],
+        "lastSearchValue": "",
+        "createdAt": 1753278900219
+    },
+    {
+        "_id": "qZTIn4",
+        "host_id": "a13",
+        "title": "Times Square Studio",
+        "description": "סטודיו קומפקטי בלב מנהטן, דקות הליכה מטיימס סקוור",
+        "price": 580,
+        "capacity": 2,
+        "rooms": 1,
+        "beds": 1,
+        "bathrooms": 1,
+        "type": "studio",
+        "imgUrls": [
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753100040/pexels-pixabay-275484_t6c4ah.jpg",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753100039/pexels-rdne-8581404_zscigj.jpg",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753100031/pexels-cottonbro-4781442_bqmdpe.jpg",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753100031/pexels-pixabay-265097_jz45d4.jpg",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753100030/pexels-pixabay-262034_cto9xk.jpg",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753100024/pexels-jovydas-2462015_te6yvz.jpg",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753100022/pexels-hakimsatoso-3634742_adsogd.jpg",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753100019/pexels-designecologist-1008692_yltznh.jpg"
+        ],
+        "rating": 4.77,
+        "guestFavorite": true,
+        "location": {
+            "country": "USA",
+            "city": "New York",
+            "address": "1600 Broadway, New York, NY 10019",
+            "lat": 40.7591,
+            "lng": -73.9845
+        },
+        "amenities": [
+            "AC",
+            "WiFi",
+            "Shampoo"
+        ],
+        "msgs": [],
+        "unavailableDates": [
+            "190825",
+            "270725",
+            "100925",
+            "081025",
+            "111025",
+            "270825",
+            "010825",
+            "121025",
+            "181025",
+            "030925"
+        ],
+        "lastSearchValue": "",
+        "createdAt": 1753278900219
+    },
+    {
+        "_id": "KfbcU8",
+        "host_id": "a14",
+        "title": "Harlem Brownstone",
+        "description": "דירה בבית ברונסטון קלאסי בהארלם",
+        "price": 490,
+        "capacity": 4,
+        "rooms": 3,
+        "beds": 3,
+        "bathrooms": 2,
+        "type": "house",
+        "imgUrls": [
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753044618/pexels-fotoaibe-1571468_ygt1op.jpg",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753044622/pexels-einfoto-2203743_lkewzb.jpg",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753044628/pexels-heyho-8135269_kqtrsx.jpg",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753044629/pexels-isaw-company-66472-1249171_u9brkk.jpg",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753044633/pexels-muffinsaurs-1214205_j0rboa.jpg",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753044638/pexels-jenna-hamra-248942-1662529_svn6tw.jpg",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753044634/pexels-nietjuhart-796620_fo1w8x.jpg",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753044641/pexels-itsterrymag-3623785_qsgy6v.jpg",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753044639/pexels-itsterrymag-2631746_wze966.jpg",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753044642/pexels-solliefoto-298842_imkhtp.jpg",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753044678/pexels-sevenstormphotography-439382_ks0ns8.jpg",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753044646/pexels-shvets-production-7561276_chkk1y.jpg"
+        ],
+        "rating": 4.69,
+        "guestFavorite": false,
+        "location": {
+            "country": "USA",
+            "city": "New York",
+            "address": "147 W 120th St, New York, NY 10027",
+            "lat": 40.8054,
+            "lng": -73.9512
+        },
+        "amenities": [
+            "WiFi",
+            "Smoke Alarm",
+            "Washer"
+        ],
+        "msgs": [],
+        "unavailableDates": [
+            "230725",
+            "240925",
+            "130825",
+            "100825",
+            "081025",
+            "051025",
+            "030825",
+            "061025",
+            "220825",
+            "080925"
+        ],
+        "lastSearchValue": "",
+        "createdAt": 1753278900219
+    },
+    {
+        "_id": "TN5rI7",
+        "host_id": "a15",
+        "title": "SoHo Artist Loft",
+        "description": "לופט רחב ידיים באזור הטרנדי של סוהו",
+        "price": 850,
+        "capacity": 5,
+        "rooms": 3,
+        "beds": 3,
+        "bathrooms": 4,
+        "type": "loft",
+        "imgUrls": [
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753099989/pexels-fotoaibe-1571457_dksnck.jpg",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753099988/pexels-fotoaibe-1571453_u6aimi.jpg",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753099993/pexels-fotoaibe-1571459_hwxhh8.jpg",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753099999/pexels-fotoaibe-1571460_mvnige.jpg",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753100002/pexels-fotoaibe-1669799_kyriai.jpg",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753100003/pexels-fotoaibe-1643383_tgjbti.jpg",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753100010/pexels-fotoaibe-3741317_jjc73r.jpg",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753100015/pexels-marketingtuig-87223_cfc7gd.jpg",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753100018/pexels-nadine-wuchenauer-695910-1563650_mesuws.jpg"
+        ],
+        "rating": 4.85,
+        "guestFavorite": false,
+        "location": {
+            "country": "USA",
+            "city": "New York",
+            "address": "101 Wooster St, New York, NY 10012",
+            "lat": 40.7251,
+            "lng": -74.0021
+        },
+        "amenities": [
+            "WiFi",
+            "AC",
+            "Safe"
+        ],
+        "msgs": [],
+        "unavailableDates": [
+            "260925",
+            "050825",
+            "140925",
+            "051025",
+            "220925",
+            "300825",
+            "021025",
+            "060925",
+            "110925",
+            "111025"
+        ],
+        "lastSearchValue": "",
+        "createdAt": 1753278900219
+    },
+    {
+        "_id": "BQYI8F",
+        "host_id": "a16",
+        "title": "Sheinkin Studio",
+        "description": "סטודיו מעוצב ברחוב שינקין השוקק",
+        "price": 490,
+        "capacity": 2,
+        "rooms": 1,
+        "beds": 1,
+        "bathrooms": 1,
+        "type": "studio",
+        "imgUrls": [
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753277731/shenkin1_tazhde.jpg",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753277733/shenkin2_dkoj87.jpg",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753045292/pexels-nazli-gaylan-azili-49565143-32935568_gpchho.jpg",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753045291/pexels-todd-trapani-488382-1436190_f8cofp.jpg",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753045280/pexels-hbozman-1058770_jegbvl.jpg"
+        ],
+        "rating": 4.57,
+        "guestFavorite": true,
+        "location": {
+            "country": "Israel",
+            "city": "Tel Aviv",
+            "address": "Sheinkin St 23, Tel Aviv-Yafo",
+            "lat": 32.0683,
+            "lng": 34.7729
+        },
+        "amenities": [
+            "WiFi",
+            "AC",
+            "Balcony"
+        ],
+        "msgs": [],
+        "unavailableDates": [
+            "200925",
+            "120925",
+            "080925",
+            "090925",
+            "110925",
+            "110825",
+            "260925",
+            "030825",
+            "111025",
+            "240925"
+        ],
+        "lastSearchValue": "",
+        "createdAt": 1753278900219
+    },
+    {
+        "_id": "9WEts9",
+        "host_id": "a17",
+        "title": "Luxury Neve Tzedek Apartment",
+        "description": "דירת יוקרה בלב שכונת נווה צדק ההיסטורית",
+        "price": 880,
+        "capacity": 4,
+        "rooms": 3,
+        "beds": 2,
+        "bathrooms": 2,
+        "type": "apartment",
+        "imgUrls": [
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753044752/pexels-heyho-7546323_zs9iq8.jpg",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753044761/pexels-kowalievska-1366879_nout5p.jpg",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753044755/pexels-pixabay-259950_cokems.jpg",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753044753/pexels-kowalievska-1366872_ka3ucv.jpg",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753044751/pexels-kowalievska-1366877_umj8g3.jpg",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753044746/pexels-kindelmedia-8566418_myxllx.jpg",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753044733/pexels-karolina-grabowska-4207785_vkfkvg.jpg",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753044728/pexels-jvdm-1454804_sgftbx.jpg",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753044722/pexels-clickerhappy-349749_pub5zo.jpg"
+        ],
+        "rating": 3.87,
+        "guestFavorite": true,
+        "location": {
+            "country": "Israel",
+            "city": "Tel Aviv",
+            "address": "Shabazi St 50, Tel Aviv-Yafo",
+            "lat": 32.0596,
+            "lng": 34.7621
+        },
+        "amenities": [
+            "WiFi",
+            "Washer",
+            "Kitchen"
+        ],
+        "msgs": [],
+        "unavailableDates": [
+            "190925",
+            "110825",
+            "050925",
+            "151025",
+            "190825",
+            "090925",
+            "250725",
+            "070825",
+            "280925",
+            "310725"
+        ],
+        "lastSearchValue": "",
+        "createdAt": 1753278900219
+    },
+    {
+        "_id": "Fo7IG9",
+        "host_id": "a18",
+        "title": "Rooftop Loft Dizengoff",
+        "description": "לופט עם מרפסת גג פרטית ברחוב דיזנגוף",
+        "price": 720,
+        "capacity": 3,
+        "rooms": 2,
+        "beds": 2,
+        "bathrooms": 2,
+        "type": "loft",
+        "imgUrls": [
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753044807/pexels-pixabay-271682_bk7ds8.jpg",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753044835/pexels-pixabay-276514_kb88dq.jpg",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753044821/pexels-cottonbro-5146876_e1r7uq.jpg",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753044813/pexels-cottonbro-5158461_jpak69.jpg",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753044808/pexels-luis-ruiz-1416244_nanupk.jpg",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753044801/pexels-pixabay-271816_sd13zi.jpg"
+        ],
+        "rating": 4.73,
+        "guestFavorite": false,
+        "location": {
+            "country": "Israel",
+            "city": "Tel Aviv",
+            "address": "Dizengoff St 190, Tel Aviv-Yafo",
+            "lat": 32.0942,
+            "lng": 34.7749
+        },
+        "amenities": [
+            "WiFi",
+            "Pets allowed",
+            "AC"
+        ],
+        "msgs": [],
+        "unavailableDates": [
+            "150825",
+            "010925",
+            "140925",
+            "170825",
+            "160825",
+            "021025",
+            "121025",
+            "191025",
+            "230725",
+            "051025"
+        ],
+        "lastSearchValue": "",
+        "createdAt": 1753278900219
+    },
+    {
+        "_id": "0PAGNW",
+        "host_id": "a19",
+        "title": "Old North Family Flat",
+        "description": "דירה מרווחת למשפחה בצפון הישן של תל אביב",
+        "price": 650,
+        "capacity": 5,
+        "rooms": 4,
+        "beds": 4,
+        "bathrooms": 4,
+        "type": "apartment",
+        "imgUrls": [
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753044812/pexels-keeganjchecks-12715463_pwyo1a.jpg",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753044797/pexels-heyho-6207945_q8qana.jpg",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753044785/pexels-pixabay-462235_afikzc.jpg",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753044784/pexels-ilya-shakir-1278798-2440471_frzlj2.jpg",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753044782/pexels-julia-kuzenkov-442028-1974508_sxe7a8.jpg",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753044782/pexels-jvdm-1457844_buccup.jpg",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753044775/pexels-gustavoraton-1885562_mzn4am.jpg",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753044771/pexels-fotoaibe-1571462_jmghnh.jpg"
+        ],
+        "rating": 4.77,
+        "guestFavorite": false,
+        "location": {
+            "country": "Israel",
+            "city": "Tel Aviv",
+            "address": "Weizmann St 15, Tel Aviv-Yafo",
+            "lat": 32.0937,
+            "lng": 34.7879
+        },
+        "amenities": [
+            "WiFi",
+            "Hammock",
+            "Self check-in"
+        ],
+        "msgs": [],
+        "unavailableDates": [
+            "131025",
+            "150925",
+            "120925",
+            "210925",
+            "021025",
+            "200925",
+            "151025",
+            "060825",
+            "121025",
+            "031025"
+        ],
+        "lastSearchValue": "",
+        "createdAt": 1753278900219
+    },
+    {
+        "_id": "iuZzH3",
+        "host_id": "a20",
+        "title": "Florentin Urban Pad",
+        "description": "דירת סטודיו מודרנית בשכונת פלורנטין היצירתית",
+        "price": 430,
+        "capacity": 2,
+        "rooms": 1,
+        "beds": 1,
+        "bathrooms": 2,
+        "type": "studio",
+        "imgUrls": [
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753044657/pexels-heyho-8135114_lmyink.jpg",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753044615/pexels-huy-phan-316220-2826787_a5po7f.jpg",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753044610/pexels-pixabay-262005_foswgk.jpg",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753044605/pexels-hakimsatoso-3634740_o6bbhu.jpg",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753044603/pexels-eric-mufasa-578798-1350789_wn18ll.jpg",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753044591/pexels-element5-1470171_jjsrs2.jpg"
+        ],
+        "rating": 4.21,
+        "guestFavorite": false,
+        "location": {
+            "country": "Israel",
+            "city": "Tel Aviv",
+            "address": "Abarbanel St 56, Tel Aviv-Yafo",
+            "lat": 32.0541,
+            "lng": 34.7666
+        },
+        "amenities": [
+            "WiFi",
+            "Workspace",
+            "Coffee"
+        ],
+        "msgs": [],
+        "unavailableDates": [
+            "091025",
+            "150825",
+            "170825",
+            "210825",
+            "200925",
+            "230725",
+            "170925",
+            "230925",
+            "080925",
+            "310825"
+        ],
+        "lastSearchValue": "",
+        "createdAt": 1753278900219
+    }
+]
