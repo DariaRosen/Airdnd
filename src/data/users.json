@@ -6,7 +6,8 @@
         "username": "reuven321",
         "password": "1234",
         "email": "reuven@gmail.com",
-        "imgUrl": ""
+        "imgUrl": "",
+        "favorites": []
     },
     {
         "id": "a2",
@@ -15,7 +16,8 @@
         "username": "daria123",
         "password": "abcd",
         "email": "daria@gmail.com",
-        "imgUrl": ""
+        "imgUrl": "",
+        "favorites": []
     },
     {
         "id": "a1",
@@ -24,6 +26,7 @@
         "username": "avi",
         "password": "1111",
         "email": "avi@host.com",
-        "imgUrl": ""
+        "imgUrl": "",
+        "favorites": []
     }
 ]
