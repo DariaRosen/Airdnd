@@ -6,7 +6,7 @@
   margin: 0;
   scroll-behavior: smooth;
 
-   > .home-preview {
+  > .home-preview {
     flex: 0 1 14%; // flex-grow:0, shrink:1, basis:14%
     min-width: 140px; // won't get smaller than this
     max-width: 200px; // won't get bigger than this
@@ -34,8 +34,8 @@
   }
 
   img {
-    width: 100%;           // fill the container width
-    aspect-ratio: 1 / 1;   // square image
+    width: 100%; // fill the container width
+    aspect-ratio: 1 / 1; // square image
     object-fit: cover;
     border-radius: 15px;
   }
@@ -60,27 +60,58 @@
   overflow: hidden; // or keep overflow-x auto if you want scrolling
 }
 
-
 .home-carousel-header {
   position: absolute;
   top: -30px; // negative to move above carousel
   right: 0;
-  display: display;
+  display: flex;
   gap: 10px;
   z-index: 10;
 }
 
-.home-carousel-header button {
-  width: 36px;
-  height: 36px;
-  font-size: 20px;
-  border-radius: 50%;
-  border: none;
-  background: rgba(255,255,255,0.9);
-  cursor: pointer;
-}
+// .home-carousel-header button {
+//   width: 36px;
+//   height: 36px;
+//   font-size: 20px;
+//   border-radius: 50%;
+//   border: none;
+//   background: rgba(255, 255, 255, 0.9);
+//   cursor: pointer;
+// }
 
 .home-carousel-wrapper {
-  position: relative;  // this is the relative container for arrows
+  position: relative; // this is the relative container for arrows
   margin: 0 auto;
+}
+
+.circle-arrow-btn {
+  background-color: #e5e5e5;
+  border: none;
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+
+  &:hover:not(:disabled) {
+    background-color: #d0d0d0;
+  }
+
+  &:disabled {
+    opacity: 0.4;
+    cursor: default;
+  }
+}
+
+.arrow-icon {
+  width: 14px;
+  height: 14px;
+}
+
+.rotate-left {
+  transform: rotate(180deg);
 }

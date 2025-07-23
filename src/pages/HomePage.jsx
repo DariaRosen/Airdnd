@@ -26,7 +26,9 @@ export function HomePage() {
 
       <div className="continue-searching">
         Continue searching for homes in Athens {dateRange} – 1 guest{" "}
-        <img src={arrow1} alt="Arrow icon" className="arrow-icon-gray-circle" />
+        <div className="arrow-icon-wrapper">
+          <img src={arrow1} alt="Arrow icon" className="arrow-icon-gray-circle" />
+        </div>
       </div>
 
       <hr />

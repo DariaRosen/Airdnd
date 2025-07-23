@@ -6,8 +6,8 @@
 }
 
 .text-with-icon-carousel > a {
-  flex-shrink: 0;   // prevents the link from shrinking too much
-  display: flex;    // to keep text and icon aligned nicely
+  flex-shrink: 0; // prevents the link from shrinking too much
+  display: flex; // to keep text and icon aligned nicely
   align-items: center;
   gap: 0.3rem;
   font-weight: 600;
@@ -34,23 +34,33 @@
   }
 }
 
-  .arrow-icon {
-    width: 0.7rem;
-    height: auto;
-    margin-top: 7;
-  }
-  .arrow-icon-gray-circle {
-    width: 1rem;
-    height: auto;
-  }
+.arrow-icon {
+  width: 0.7rem;
+  height: auto;
+  margin-top: 7;
+}
+.arrow-icon-gray-circle {
+  width: 12px;
+  height: 12px;
+}
 
 .continue-searching {
-   display: flex;
-  justify-content: center;   // centers the content inside the div
-  align-items: center;       // vertical alignment
+  display: flex;
+  justify-content: center; // centers the content inside the div
+  align-items: center; // vertical alignment
   font-size: 1.1rem;
   font-weight: 400;
   gap: 8px;
   line-height: 1.4;
   width: 100%;
+}
+
+.arrow-icon-wrapper {
+  background-color: #e5e5e5; // light gray background
+  border-radius: 50%;
+  width: 26px;
+  height: 26px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
