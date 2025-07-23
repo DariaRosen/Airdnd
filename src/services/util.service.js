@@ -11,6 +11,7 @@ export const utilService = {
   getRandomBookedDates,
   updateHomeImageUrlsFromCloudinary,
   getLocationSuggestions,
+  updateImageUrlsFromAssets
 }
 
 function makeId(length = 6) {
@@ -187,15 +188,40 @@ export async function updateHomeImageUrlsFromCloudinary(homes) {
 
 export async function getLocationSuggestions(term) {
   const locations = [
-  'Paris', 'London', 'Lisbon', 'Tel Aviv', 'Tokyo',
-  'New York', 'Los Angeles', 'Berlin', 'Madrid',
-  'Rome', 'France', 'Germany', 'Israel', 'Spain',
-  'Portugal', 'Italy', 'USA'
-]
+    'Paris', 'London', 'Lisbon', 'Tel Aviv', 'Tokyo',
+    'New York', 'Los Angeles', 'Berlin', 'Madrid',
+    'Rome', 'France', 'Germany', 'Israel', 'Spain',
+    'Portugal', 'Italy', 'USA'
+  ]
 
   if (!term) return []
   const lowerTerm = term.toLowerCase()
   return locations.filter(loc => loc.toLowerCase().startsWith(lowerTerm))
+}
+
+function updateImageUrlsFromAssets(homes, cloudinaryAssets) {
+  const assets = cloudinaryAssets.resources
+  console.log('homes', homes)
+  console.log('!Array.isArray(homes)', !Array.isArray(homes))
+  console.log('!Array.isArray(cloudinaryAssets)', !Array.isArray(cloudinaryAssets))
+  if (!Array.isArray(homes) || !Array.isArray(assets)) return homes
+
+  return homes.map(home => {
+    const matchingAssets = assets.filter(asset => {
+      return (
+        asset.asset_folder &&
+        asset.secure_url &&
+        asset.asset_folder.toLowerCase().includes(home.title.toLowerCase())
+      )
+    })
+
+    const secureUrls = matchingAssets.map(asset => asset.secure_url)
+
+    return {
+      ...home,
+      imgUrls: secureUrls.length ? secureUrls : home.imgUrls // fallback if no match
+    }
+  })
 }
 
 

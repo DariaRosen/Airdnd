@@ -1,0 +1,51 @@
+{
+  "_id": "8YErQC",
+  "title": "Treehouse Escape",
+  "description": "בית עץ גבוה בין עצים ונוף עוצר נשימה",
+  "price": 420,
+  "capacity": 2,
+  "rooms": 2,
+  "beds": 1,
+  "bathrooms": 1,
+  "type": "treehouse",
+  "imgUrls": [
+    "https://res.cloudinary.com/dool6mmp1/image/upload/v1753100098/pexels-charlotte-may-5825699_pwbc4m.jpg",
+    "https://res.cloudinary.com/dool6mmp1/image/upload/v1753100079/pexels-taryn-elliott-9565973_p1d4vf.jpg",
+    "https://res.cloudinary.com/dool6mmp1/image/upload/v1753100061/pexels-designecologist-1248583_vj6qqx.jpg",
+    "https://res.cloudinary.com/dool6mmp1/image/upload/v1753100058/pexels-anytiffng-3700253_norxb1.jpg",
+    "https://res.cloudinary.com/dool6mmp1/image/upload/v1753100056/pexels-fernanda-leticia-536417725-32978302_fevlqv.jpg",
+    "https://res.cloudinary.com/dool6mmp1/image/upload/v1753100053/pexels-pixabay-262048_iyx1gj.jpg",
+    "https://res.cloudinary.com/dool6mmp1/image/upload/v1753100052/pexels-designecologist-1239221_crulw7.jpg",
+    "https://res.cloudinary.com/dool6mmp1/image/upload/v1753100049/pexels-designecologist-1046639_uwzppz.jpg",
+    "https://res.cloudinary.com/dool6mmp1/image/upload/v1753100027/Capture_iszrp5.jpg"
+  ],
+  "rating": 4.89,
+  "guestFavorite": false,
+  "location": {
+    "country": "USA",
+    "city": "Atlanta",
+    "address": "135 Waddell St NE, Atlanta, GA",
+    "lat": 33.7537,
+    "lng": -84.3555
+  },
+  "amenities": [
+    "WiFi",
+    "Pets allowed",
+    "Nature View"
+  ],
+  "msgs": [],
+  "unavailableDates": [
+    "170825",
+    "240825",
+    "040825",
+    "260825",
+    "020925",
+    "270725",
+    "011025",
+    "120825",
+    "270825",
+    "140925"
+  ],
+  "lastSearchValue": "",
+  "createdAt": 1753278538867
+}
