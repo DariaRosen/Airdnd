@@ -18,10 +18,9 @@ export function HomesList({ location, checkIn, checkOut }) {
   const prev = () => {
     setStartIdx((prev) => Math.max(prev - 1, 0))
   }
-
+  console.log('homes', homes);
   // 🔍 Filter homes based on props
   const filteredHomes = homes.filter(home => {
-
     const matchesLocation = location ? utilService.doesHomeMatchLocation(home, location) : true
     const matchesDates = (checkIn && checkOut) ? utilService.doesHomeMatchDates(home, checkIn, checkOut) : true
     return matchesLocation && matchesDates
