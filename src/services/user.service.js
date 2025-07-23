@@ -35,7 +35,7 @@ function remove(userId) {
 }
 
 async function update(userToUpdate) {
-  const user = await getById(userToUpdate.id)
+  const user = await getById(userToUpdate._id)
   const updatedUser = await storageService.put(STORAGE_KEY_USER_DB, {
     ...user,
     ...userToUpdate,
@@ -84,11 +84,11 @@ function getEmptyUser() {
 
 function saveLocalUser(user) {
   const minimalUser = {
-    id: user.id,
+    id: user._id,
     firstName: user.firstName,
     lastName: user.lastName,
+    favorites: user.favorites || [],
     imgUrl: user.imgUrl,
-    role: user.role,
   }
   sessionStorage.setItem(STORAGE_KEY_LOGGEDIN_USER, JSON.stringify(minimalUser))
   return minimalUser

@@ -1,6 +1,5 @@
 import { storageService } from "./async-storage.service"
 import { utilService } from "./util.service"
-import cloudinaryAssets from "../json/pictures.json"
 import homesData from "../data/homes.json"
 
 export const homeService = {

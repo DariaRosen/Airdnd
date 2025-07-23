@@ -1,41 +1,51 @@
 import { Link } from "react-router-dom"
 import { getFormattedDateRange } from "../services/home.service"
 import { FaStar } from "react-icons/fa"
-import { useState } from "react"
+import { useState, useEffect } from "react"
+import { useSelector } from "react-redux"
+import { updateFavoritesUser } from "../store/user/user.action"
 
 export function HomePreview({ home }) {
-    const dateRange = getFormattedDateRange() // returns something like "Jul 15–17"
-    const [isLiked, setIsLiked] = useState(false)
+  const dateRange = getFormattedDateRange() // returns something like "Jul 15–17"
+  const loggedInUser = useSelector(
+    (storeState) => storeState.userModule.loggedInUser
+  )
+  const [isLiked, setIsLiked] = useState(false)
 
-    const toggleHeart = (e) => {
-        e.preventDefault()   // 👈 stops the Link from navigating
-        e.stopPropagation()  // 👈 stops the click from bubbling up
-        setIsLiked(prev => !prev)
-    }
-    return (
-        <article className="home-preview">
-            <div className="img-container">
-                <Link to={`/home/${home._id}`}>
-                    <img src={home.imgUrls[0]} alt={home.title} />
-                </Link>
+  useEffect(() => {
+    setIsLiked(loggedInUser?.favorites?.includes(home._id) || false)
+  }, [loggedInUser, home._id])
 
-                <img
-                    src={isLiked ? './icons/heart_pink.svg' : './icons/heart.svg'}
-                    alt="Heart icon"
-                    className="heart-icon"
-                    onClick={toggleHeart}
-                />
-            </div>
+  const toggleHeart = (homeId) => {
+    updateFavoritesUser(loggedInUser.id, homeId)
+    setIsLiked((prevIsLiked) => !prevIsLiked)
+  }
+  return (
+    <article className="home-preview">
+      <div className="img-container">
+        <Link to={`/home/${home._id}`}>
+          <img src={home.imgUrls[0]} alt={home.title} />
+        </Link>
 
-            <Link to={`/home/${home._id}`} style={{ textDecoration: 'none', color: 'inherit' }}>
-                <h4>{home.title}</h4>
-                <p>{home.price}₪ for 1 night</p>
-                <p>
-                    <FaStar className="star-icon" />
-                    {home.rating}
-                </p>
-            </Link>
-        </article>
-    )
+        <img
+          src={isLiked ? "./icons/heart_pink.svg" : "./icons/heart.svg"}
+          alt="Heart icon"
+          className="heart-icon"
+          onClick={() => toggleHeart(home._id)}
+        />
+      </div>
 
+      <Link
+        to={`/home/${home._id}`}
+        style={{ textDecoration: "none", color: "inherit" }}
+      >
+        <h4>{home.title}</h4>
+        <p>{home.price}₪ for 1 night</p>
+        <p>
+          <FaStar className="star-icon" />
+          {home.rating}
+        </p>
+      </Link>
+    </article>
+  )
 }

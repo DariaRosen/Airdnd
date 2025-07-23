@@ -1,6 +1,6 @@
 [
     {
-        "id": "a3",
+        "_id": "a3",
         "firstName": "Reuven",
         "lastName": "Cohen",
         "username": "reuven321",
@@ -10,7 +10,7 @@
         "favorites": []
     },
     {
-        "id": "a2",
+        "_id": "a2",
         "firstName": "Daria",
         "lastName": "Levi",
         "username": "daria123",
@@ -20,7 +20,7 @@
         "favorites": []
     },
     {
-        "id": "a1",
+        "_id": "a1",
         "firstName": "Avi",
         "lastName": "Nissim",
         "username": "avi",

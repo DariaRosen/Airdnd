@@ -11,6 +11,25 @@ export async function loadUsers() {
     console.log("user.actions: cannot load users", err)
   }
 }
+export async function updateFavoritesUser(userId, homeId) {
+  try {
+    const user = await userService.getById(userId)
+
+    const idx = user.favorites.indexOf(homeId)
+
+    if (idx === -1) {
+      user.favorites.push(homeId)
+    } else {
+      user.favorites.splice(idx, 1)
+    }
+
+    await userService.update(user)
+
+    store.dispatch({ type: SET_USERS, users: await userService.getUsers() })
+  } catch (err) {
+    console.log("user.actions: cannot update users", err)
+  }
+}
 
 export async function removeUser(userId) {
   try {
