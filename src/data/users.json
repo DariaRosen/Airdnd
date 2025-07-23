@@ -7,7 +7,8 @@
         "password": "1234",
         "email": "reuven@gmail.com",
         "imgUrl": "",
-        "favorites": []
+        "favorites": [],
+        "searching_history": []
     },
     {
         "_id": "a2",
@@ -17,7 +18,8 @@
         "password": "abcd",
         "email": "daria@gmail.com",
         "imgUrl": "",
-        "favorites": []
+        "favorites": [],
+        "searching_history": []
     },
     {
         "_id": "a1",
@@ -27,6 +29,7 @@
         "password": "1111",
         "email": "avi@host.com",
         "imgUrl": "",
-        "favorites": []
+        "favorites": [],
+        "searching_history": []
     }
 ]
