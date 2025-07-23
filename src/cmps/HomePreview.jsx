@@ -33,6 +33,13 @@ export function HomePreview({ home }) {
           className="heart-icon"
           onClick={() => toggleHeart(home._id)}
         />
+
+        {home.guestFavorite && (
+          <div className="guest-fav-tag">
+            <span>Guest favorite</span>
+          </div>
+        )}
+
       </div>
 
       <Link
