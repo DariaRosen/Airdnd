@@ -1,3 +1,5 @@
+import { useEffect, useRef, useState } from 'react'
+import { debounce, getLocationSuggestions } from '../services/util.service'
 import { AirdndIcon } from "./AirdndIcon"
 import { useNavigate, Link } from "react-router-dom"
 
@@ -7,77 +9,135 @@ export function AppHeader() {
   const select = "/Airdnd/icons/select.svg"
   const magnifying_glass = "/Airdnd/icons/magnifying_glass.svg"
 
+  const [isLocationOpen, setIsLocationOpen] = useState(false)
+  const [locationInput, setLocationInput] = useState('')
+  const [locationSuggestions, setLocationSuggestions] = useState([])
+
+  const whereRef = useRef()
+
+  useEffect(() => {
+    const handleClickOutside = (e) => {
+      if (whereRef.current && !whereRef.current.contains(e.target)) {
+        setIsLocationOpen(false)
+      }
+    }
+    document.addEventListener('mousedown', handleClickOutside)
+    return () => document.removeEventListener('mousedown', handleClickOutside)
+  }, [])
+
+  const debouncedFetchLocations = debounce(async (term) => {
+    const locations = await getLocationSuggestions(term)
+    setLocationSuggestions(locations)
+  }, 300)
+
+  const handleLocationInput = (e) => {
+    const value = e.target.value
+    setLocationInput(value)
+    debouncedFetchLocations(value)
+  }
+
   return (
     <section className="header">
+      {/* LOGO + ICONS */}
       <div className="logo-wrapper">
-        {/* Home icon */}
         <Link to="/" className="logo-link">
           <AirdndIcon />
         </Link>
 
-        {/* Video icons */}
         <div className="video-container">
-          <div className="video-item">
-            <video className="logo-video" autoPlay loop muted playsInline poster="https://a0.muscache.com/im/pictures/airbnb-platform-assets/AirbnbPlatformAssets-search-bar-icons/original/3b89f74c-8695-46e4-9c8d-cf9e1d777e99.png?im_w=240">
-              <source src="https://a0.muscache.com/videos/search-bar-icons/webm/house-twirl-selected.webm" type="video/webm" />
-              <source src="https://a0.muscache.com/videos/search-bar-icons/hevc/house-twirl-selected.mov" type="video/mp4" />
-            </video>
-            <span className="video-title">Homes</span>
-          </div>
-
-          <div className="video-item">
-            <video className="logo-video" autoPlay loop muted playsInline poster="https://a0.muscache.com/im/pictures/airbnb-platform-assets/AirbnbPlatformAssets-search-bar-icons/original/e47ab655-027b-4679-b2e6-df1c99a5c33d.png?im_w=240">
-              <source src="https://a0.muscache.com/videos/search-bar-icons/webm/balloon-twirl.webm" type="video/webm" />
-              <source src="https://a0.muscache.com/videos/search-bar-icons/hevc/balloon-twirl.mov" type="video/mp4" />
-            </video>
-            <span className="video-title">Experiences</span>
-          </div>
-
-          <div className="video-item">
-            <video className="logo-video" autoPlay loop muted playsInline poster="https://a0.muscache.com/im/pictures/airbnb-platform-assets/AirbnbPlatformAssets-search-bar-icons/original/3d67e9a9-520a-49ee-b439-7b3a75ea814d.png?im_w=240">
-              <source src="https://a0.muscache.com/videos/search-bar-icons/webm/consierge-twirl.webm" type="video/webm" />
-              <source src="https://a0.muscache.com/videos/search-bar-icons/hevc/consierge-twirl.mov" type="video/mp4" />
-            </video>
-            <span className="video-title">Services</span>
-          </div>
+          {/* Video Icons */}
+          {[
+            {
+              src: 'house-twirl-selected',
+              title: 'Homes'
+            },
+            {
+              src: 'balloon-twirl',
+              title: 'Experiences'
+            },
+            {
+              src: 'consierge-twirl',
+              title: 'Services'
+            }
+          ].map(({ src, title }) => (
+            <div className="video-item" key={title}>
+              <video className="logo-video" autoPlay loop muted playsInline poster={`https://a0.muscache.com/im/pictures/airbnb-platform-assets/AirbnbPlatformAssets-search-bar-icons/original/${src}.png?im_w=240`}>
+                <source src={`https://a0.muscache.com/videos/search-bar-icons/webm/${src}.webm`} type="video/webm" />
+                <source src={`https://a0.muscache.com/videos/search-bar-icons/hevc/${src}.mov`} type="video/mp4" />
+              </video>
+              <span className="video-title">{title}</span>
+            </div>
+          ))}
         </div>
 
-        {/* Icons */}
+        {/* Right Icons */}
         <div className="icon-container">
           <div className="host-text">Become a host</div>
-          <Link to="/home" className="logo-link">
-            <img src={globus} alt="Globus icon" className="globus-icon" />
-          </Link>
-          <Link to="/home" className="logo-link">
-            <img src={select} alt="Select icon" className="select-icon" />
-          </Link>
+          <Link to="/home" className="logo-link"><img src={globus} alt="Globus icon" className="globus-icon" /></Link>
+          <Link to="/home" className="logo-link"><img src={select} alt="Select icon" className="select-icon" /></Link>
         </div>
       </div>
 
-      {/* Search bar container */}
+      {/* SEARCH BAR */}
       <div className="search-bar">
-        <div className="search-item">
-          <div className="search-title">Where</div>
-          <div className="search-value">Search destinations</div>
+        {/* WHERE */}
+        <div className="search-section where-section" ref={whereRef}>
+          <div className="search-title clickable" onClick={() => setIsLocationOpen(!isLocationOpen)}>
+            Where
+          </div>
+          <input
+            type="text"
+            className="search-input"
+            placeholder="Search destinations"
+            value={locationInput}
+            onChange={handleLocationInput}
+            onFocus={() => setIsLocationOpen(true)}
+          />
+          {isLocationOpen && (
+            <div className="search-dropdown">
+              <div className="search-option">Nearby</div>
+              <div className="search-option">Find what's around me</div>
+              {locationSuggestions.length > 0 && (
+                <ul className="suggestions-list">
+                  {locationSuggestions.map((loc, idx) => (
+                    <li key={idx} className="suggestion-item">{loc}</li>
+                  ))}
+                </ul>
+              )}
+            </div>
+          )}
         </div>
-        <div className="search-item">
+
+        <div className="separator">|</div>
+
+        {/* CHECK-IN */}
+        <div className="search-section">
           <div className="search-title">Check in</div>
           <div className="search-value">Add dates</div>
         </div>
-        <div className="search-item">
+
+        <div className="separator">|</div>
+
+        {/* CHECK-OUT */}
+        <div className="search-section">
           <div className="search-title">Check out</div>
           <div className="search-value">Add dates</div>
         </div>
-        <div className="search-item">
-          <div className="search-title">Who</div>
-          <div className="search-value">Add guests</div>
-        </div>
-        <div>
-            <Link to="/home" className="magnifying_glass">
-            <img src={magnifying_glass} alt="Magnifying glass" className="magnifying-glass-icon" />
+
+        <div className="separator">|</div>
+
+        {/* WHO + ICON */}
+        <div className="search-section who-section">
+          <div>
+            <div className="search-title">Who</div>
+            <div className="search-value">Add guests</div>
+          </div>
+          <Link to="/home" className="search-button">
+            <img src={magnifying_glass} alt="Search" className="magnifying-glass-icon" />
           </Link>
         </div>
       </div>
+
     </section>
   )
 }

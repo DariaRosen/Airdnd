@@ -971,7 +971,7 @@ async function _createHomes() {
         createdAt: Date.now(),
       },
     ]
-    //homes = await utilService.updateHomeImageUrlsFromCloudinary(homes);
+    // homes = await utilService.updateHomeImageUrlsFromCloudinary(homes);
     utilService.saveToStorage(STORAGE_KEY, homes)
   }
 }

@@ -8,8 +8,9 @@ export const utilService = {
   getRandomRating,
   getExistingProperties,
   getRandomGuestFavorite,
-  getRandomBookedDates, 
+  getRandomBookedDates,
   updateHomeImageUrlsFromCloudinary,
+  getLocationSuggestions,
 }
 
 function makeId(length = 6) {
@@ -93,7 +94,7 @@ function randomPastTime() {
   return Date.now() - pastTime
 }
 
-function debounce(func, timeout = 300) {
+export function debounce(func, timeout = 300) {
   let timer
   return (...args) => {
     clearTimeout(timer)
@@ -141,37 +142,60 @@ function getRandomBookedDates(count = 10) {
   return Array.from(dates)
 }
 
-const CLOUD_NAME = 'dool6mmp1';
-const API_KEY = '695486548144386';
-const API_SECRET = 'your_api_secret'; // Optional: only if using server-side
-const CLOUDINARY_API_BASE = `https://api.cloudinary.com/v1_1/${CLOUD_NAME}/resources/image`;
+
 
 export async function updateHomeImageUrlsFromCloudinary(homes) {
-  const updatedHomes = [];
+  const CLOUD_NAME = 'dool6mmp1';
+  const API_KEY = '695486548144386';
+  const API_SECRET = 'YGihIO3KaB2-7nMfmLnIEPMsMZ8'; // Optional: only if using server-side
+  // const CLOUDINARY_API_BASE = `https://api.cloudinary.com/v1_1/${CLOUD_NAME}/resources/image`;
+  const updatedHomes = []
 
   for (const home of homes) {
-    const folderPath = `cc14cbf40c8979ad76c1798fe01db6781f/${home.title}`;
-    const res = await fetch(`${CLOUDINARY_API_BASE}/upload?prefix=${folderPath}`, {
+    const folderPath = `cc14cbf40c8979ad76c1798fe01db6781f/${home.title}`
+
+    const searchQuery = {
+      expression: `folder="${folderPath}"`,
+    }
+
+    const res = await fetch(`https://api.cloudinary.com/v1_1/${CLOUD_NAME}/resources/search`, {
+      method: 'POST',
       headers: {
-        Authorization: 'Basic ' + btoa(`${API_KEY}:${API_SECRET}`)
-      }
-    });
+        Authorization: 'Basic ' + btoa(`${API_KEY}:${API_SECRET}`),
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(searchQuery),
+    })
 
     if (!res.ok) {
-      updatedHomes.push(home);
-      continue;
+      console.error(`Cloudinary fetch failed for ${home.title}`)
+      updatedHomes.push(home)
+      continue
     }
 
-    const data = await res.json();
+    const data = await res.json()
     if (data.resources && data.resources.length > 0) {
-      home.imgUrls = data.resources.map(r => r.secure_url);
+      home.imgUrls = data.resources.map(r => r.secure_url)
     }
 
-    updatedHomes.push(home);
+    updatedHomes.push(home)
   }
 
-  return updatedHomes;
+  return updatedHomes
 }
 
+
+export async function getLocationSuggestions(term) {
+  const locations = [
+  'Paris', 'London', 'Lisbon', 'Tel Aviv', 'Tokyo',
+  'New York', 'Los Angeles', 'Berlin', 'Madrid',
+  'Rome', 'France', 'Germany', 'Israel', 'Spain',
+  'Portugal', 'Italy', 'USA'
+]
+
+  if (!term) return []
+  const lowerTerm = term.toLowerCase()
+  return locations.filter(loc => loc.toLowerCase().startsWith(lowerTerm))
+}
 
 
