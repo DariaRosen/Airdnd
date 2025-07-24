@@ -73,71 +73,82 @@ export function AppHeader() {
         {/* Right Icons */}
         <div className="icon-container">
           <div className="host-text">Become a host</div>
-          <Link to="/home" className="logo-link"><img src={globus} alt="Globus icon" className="globus-icon" /></Link>
-          <Link to="/home" className="logo-link"><img src={select} alt="Select icon" className="select-icon" /></Link>
+
+          <Link to="/home" className="logo-link">
+            <div className="icon-wrapper">
+              <img src={globus} alt="Globus icon" className="icon-gray-circle" />
+            </div>
+          </Link>
+
+          <Link to="/home" className="logo-link">
+            <div className="icon-wrapper">
+              <img src={select} alt="Select icon" className="icon-gray-circle" />
+            </div>
+          </Link>
         </div>
+
       </div>
 
       {/* SEARCH BAR */}
-    <div className="search-bar">
-      {/* WHERE */}
-      <div className="search-item" ref={whereRef}>
-        <div className="search-title clickable" onClick={() => setIsLocationOpen(!isLocationOpen)}>
-          Where
-        </div>
-        <input
-          type="text"
-          className="search-input"
-          placeholder="Search destinations"
-          value={locationInput}
-          onChange={handleLocationInput}
-          onFocus={() => setIsLocationOpen(true)}
-        />
-        {isLocationOpen && (
-          <div className="search-dropdown">
-            <div className="search-option nearby">Nearby</div>
-            <div className="search-option find-around">Find what's around me</div>
-            {locationSuggestions.length > 0 && (
-              <ul className="suggestions-list">
-                {locationSuggestions.map((loc, idx) => (
-                  <li key={idx} className="suggestion-item">{loc}</li>
-                ))}
-              </ul>
-            )}
+      <div className="search-bar">
+        {/* WHERE */}
+        <div className="search-item" ref={whereRef}>
+          <div className="search-title clickable" onClick={() => setIsLocationOpen(!isLocationOpen)}>
+            Where
           </div>
-        )}
+          <input
+            type="text"
+            className="search-input"
+            placeholder="Search destinations"
+            value={locationInput}
+            onChange={handleLocationInput}
+            onFocus={() => setIsLocationOpen(true)}
+          />
+          {isLocationOpen && (
+            <div className="search-dropdown">
+              <div className="search-option nearby">Nearby</div>
+              <div className="search-option find-around">Find what's around me</div>
+              {locationSuggestions.length > 0 && (
+                <ul className="suggestions-list">
+                  {locationSuggestions.map((loc, idx) => (
+                    <li key={idx} className="suggestion-item">{loc}</li>
+                  ))}
+                </ul>
+              )}
+            </div>
+          )}
+        </div>
+
+        <div className="separator">|</div>
+
+        {/* CHECK-IN */}
+        <div className="search-item">
+          <div className="search-title">Check in</div>
+          <div className="search-value">Add dates</div>
+        </div>
+
+        <div className="separator">|</div>
+
+        {/* CHECK-OUT */}
+        <div className="search-item">
+          <div className="search-title">Check out</div>
+          <div className="search-value">Add dates</div>
+        </div>
+
+        <div className="separator">|</div>
+
+        {/* WHO + ICON*/}
+        <div className="search-item">
+          <div className="search-title">Who</div>
+          <div className="search-value">Add guests</div>
+        </div>
+
+        <div className="search-item">
+          <Link to="/home" className="magnifying-glass-wrapper">
+            <img src={magnifying_glass} alt="Search" className="magnifying-glass-icon" />
+          </Link>
+        </div>
       </div>
-
-      <div className="separator">|</div>
-
-      {/* CHECK-IN */}
-      <div className="search-item">
-        <div className="search-title">Check in</div>
-        <div className="search-value">Add dates</div>
-      </div>
-
-      <div className="separator">|</div>
-
-      {/* CHECK-OUT */}
-      <div className="search-item">
-        <div className="search-title">Check out</div>
-        <div className="search-value">Add dates</div>
-      </div>
-
-      <div className="separator">|</div>
-
-      {/* WHO + ICON*/}
-      <div className="search-item">
-        <div className="search-title">Who</div>
-        <div className="search-value">Add guests</div>
-      </div>
-
-      <div className="search-item">
-        <Link to="/home" className="magnifying-glass-wrapper">
-          <img src={magnifying_glass} alt="Search" className="magnifying-glass-icon" />
-        </Link>
-      </div>
-    </div>
 
     </section>
   )

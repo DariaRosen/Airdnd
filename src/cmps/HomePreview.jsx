@@ -40,17 +40,18 @@ export function HomePreview({ home }) {
             <span>Guest favorite</span>
           </div>
         )}
+
       </div>
 
-      <Link
-        to={`/home/${home._id}`}
-        style={{ textDecoration: "none", color: "inherit" }}
-      >
+      <Link to={`/home/${home._id}`}>
         <h4>{home.title}</h4>
-        <p>{home.price}₪ for 1 night</p>
-        <p>
-          <FaStar className="star-icon" />
-          {home.rating}
+
+        <p className="price-rating">
+          <span className="price">{home.price}₪ for 1 night</span>
+          <span className="rating">
+            <FaStar className="star-icon" />
+            {home.rating}
+          </span>
         </p>
       </Link>
     </article>

@@ -7,52 +7,40 @@
   cursor: pointer;
   font-family: "Segoe UI", sans-serif;
 
-  p {
-    color: $text-gray;
-    font-size: rem(12px);
-    font-weight: 450;
-  }
-
   h4 {
     color: $text-dark;
     font-size: rem(14px);
     font-weight: 500;
+    margin-top: 0.1rem; // reduce top margin
+    margin-bottom: 0.1rem; // reduce bottom margin
+  }
+
+  p {
+    color: $text-gray;
+    font-size: rem(12px);
+    font-weight: 450;
+    margin-top: 0.1rem; // reduce top margin
+    margin-bottom: 0.1rem; // reduce bottom margin
   }
 
   img {
     width: 100%; // fill the container width
     aspect-ratio: 1 / 1; // makes it a square (1:1)
     object-fit: cover; // crop to fill square without stretching
-    border-radius: 15px; // optional: rounded corners
-  }
-
-  &:hover .actions {
-    transform: translateY(0);
-  }
-
-  .rating {
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    font-size: rem(16px);
-    margin-top: 8px;
-
-    .star-icon {
-      color: $clr-yellow;
-      font-size: rem(17px);
-    }
+    border-radius: 15px; // rounded corners
+    display: block;
   }
 }
 
 .img-container {
   position: relative;
-}
 
-.img-container img {
-  display: block;
-  width: 100%;
-  height: auto;
-  object-fit: cover;
+  img {
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+  }
 }
 
 .heart-icon {
@@ -63,19 +51,16 @@
   height: 24px !important;
   object-fit: contain;
   z-index: 1;
-
-  /* Fill color of the heart itself */
-  // fill: rgba(0, 0, 0, 0.5) !important;
-
-  /* White stroke around the heart */
   stroke: #fff !important;
   stroke-width: 2 !important;
   cursor: pointer;
   transition: filter 0.3s ease;
+
+  &:hover {
+    transform: scale(1.15);
+  }
 }
-.heart-icon:hover {
-  transform: scale(1.15); // 💡 make it 20% bigger on hover
-}
+
 .guest-fav-tag {
   position: absolute;
   top: 12px;
@@ -85,7 +70,31 @@
   font-weight: 600;
   font-size: 13px;
   padding: 4px 10px;
-  border-radius: 999px; /* ellipse */
+  border-radius: 999px; // ellipse
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   z-index: 2;
+}
+
+.price-rating {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px !important;
+  color: #444; /* unify color for price and star */
+
+  .rating {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    color: inherit; /* inherit from .price-rating */
+    font-size: 12px !important; /* same as font-size above */
+    margin-top: 0 !important;
+
+    .star-icon {
+      color: inherit; /* same color as text */
+      font-size: 8px; /* same as font-size above */
+      vertical-align: middle; /* aligns star nicely */
+      color: $text-gray !important; /* unify color for price and star */
+    }
+  }
 }
