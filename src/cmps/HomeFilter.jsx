@@ -1,21 +1,35 @@
-import { useEffect, useState } from "react"
-import { HomesList } from "./HomesList.jsx"
-import { useLocation } from "react-router-dom";
+import { useEffect } from "react"
+import { useLocation } from "react-router-dom"
+import { useSelector } from "react-redux"
+import { HomePreview } from "./HomePreview.jsx"
+import { utilService } from "../services/util.service.js"
 
 export function HomeFilter() {
-  const location = useLocation();
-  const filterParams = location.state || {}; // { location: 'Tel Aviv-Yafo' } or { checkIn: '...', checkOut: '...' }
-  const [homeCount, setHomeCount] = useState(0)
+  const locationObj = useLocation()
+  const filterParams = locationObj.state || {}
+  const { location: locationFilter, checkIn, checkOut } = filterParams
+  const homes = useSelector((storeState) => storeState.homeModule.homes)
 
-  useEffect(() => {
-    console.log("Received props via Link state:", filterParams);
-  }, [filterParams]);
+  const filteredHomes = homes.filter(home => {
+    const matchesLocation = locationFilter
+      ? utilService.doesHomeMatchLocation(home, locationFilter)
+      : true
+
+    const matchesDates = (checkIn && checkOut)
+      ? utilService.doesHomeMatchDates(home, checkIn, checkOut)
+      : true
+
+    return matchesLocation && matchesDates
+  })
 
   return (
     <section className="home-filter">
-      {/* <h2>{homeCount} homes within map area</h2> */}
-      <h2>Homes within map area</h2>
-      <HomesList {...filterParams} onCountChange={setHomeCount} />
+      <h2>{filteredHomes.length} homes within map area</h2>
+      <div className="home-grid">
+        {filteredHomes.map(home => (
+          <HomePreview key={home._id} home={home} />
+        ))}
+      </div>
     </section>
   )
 }
