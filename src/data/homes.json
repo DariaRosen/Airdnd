@@ -469,6 +469,7 @@
         "bathrooms": 1,
         "type": "bungalow",
         "imgUrls": [
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753100054/Capture_c4zdod.jpg",
             "https://res.cloudinary.com/dool6mmp1/image/upload/v1753100096/pexels-allen-boguslavsky-1344061-32956273_n0scz5.jpg",
             "https://res.cloudinary.com/dool6mmp1/image/upload/v1753100076/pexels-heyho-6284231_fbgpue.jpg",
             "https://res.cloudinary.com/dool6mmp1/image/upload/v1753100144/pexels-zvolskiy-2062426_h6drm1.jpg",
@@ -1028,7 +1029,7 @@
         "beds": 1,
         "bathrooms": 1,
         "type": "apartment",
-         "imgUrls": [
+        "imgUrls": [
             "https://res.cloudinary.com/dool6mmp1/image/upload/v1753302380/fc387248-4231-46ae-ac9c-9c853f0ab89a_qo8ind.avif",
             "https://res.cloudinary.com/dool6mmp1/image/upload/v1753302377/4d2f55f8-c5df-413c-97f7-fd193474fbac_toxlol.avif",
             "https://res.cloudinary.com/dool6mmp1/image/upload/v1753302376/3d6226ac-f9a5-4933-b183-325545ee027a_bsygsz.avif",
@@ -1066,7 +1067,7 @@
         "beds": 2,
         "bathrooms": 1,
         "type": "apartment",
-         "imgUrls": [
+        "imgUrls": [
             "https://res.cloudinary.com/dool6mmp1/image/upload/v1753302268/d13f4a10-38a4-4338-87ca-d900489404e8_klpgdu.avif",
             "https://res.cloudinary.com/dool6mmp1/image/upload/v1753302265/918cd6ba-551f-491a-b812-3cb3f227d5bc_csivru.avif",
             "https://res.cloudinary.com/dool6mmp1/image/upload/v1753302263/11623388-9a74-49f0-ad8e-28871805b039_cy5bv6.avif",
@@ -1104,7 +1105,7 @@
         "beds": 1,
         "bathrooms": 1,
         "type": "apartment",
-         "imgUrls": [
+        "imgUrls": [
             "https://res.cloudinary.com/dool6mmp1/image/upload/v1753302153/bc74256f-40f8-48e4-9a15-666d1986d3b4_s35kov.avif",
             "https://res.cloudinary.com/dool6mmp1/image/upload/v1753302152/14d4a597-1221-4245-acbc-0e759137a7e4_b0y0d7.avif",
             "https://res.cloudinary.com/dool6mmp1/image/upload/v1753302150/99f66295-6972-4204-93ac-39c24f8f7c09_vlmcjy.avif",
@@ -1141,7 +1142,7 @@
         "beds": 3,
         "bathrooms": 1,
         "type": "apartment",
-         "imgUrls": [
+        "imgUrls": [
             "https://res.cloudinary.com/dool6mmp1/image/upload/v1753302043/f7f55367-00e9-4bb6-8604-e23fcacb41c8_bmftxy.avif",
             "https://res.cloudinary.com/dool6mmp1/image/upload/v1753302040/cd9d7b7b-8416-40c6-b4fa-cef9f7dc23f2_xigouy.avif",
             "https://res.cloudinary.com/dool6mmp1/image/upload/v1753302039/d7711155-bbf8-4829-a11f-c78d5a685b48_sksux6.avif",
@@ -1180,7 +1181,7 @@
         "beds": 1,
         "bathrooms": 1,
         "type": "apartment",
-         "imgUrls": [
+        "imgUrls": [
             "https://res.cloudinary.com/dool6mmp1/image/upload/v1753301927/2eb5342b-1c0f-491a-a44f-5b5d80f12836_nqwa9r.avif",
             "https://res.cloudinary.com/dool6mmp1/image/upload/v1753301927/2eb5342b-1c0f-491a-a44f-5b5d80f12836_nqwa9r.avif",
             "https://res.cloudinary.com/dool6mmp1/image/upload/v1753301925/31b384df-4335-4d55-88d5-304f08d09d11_c1o0ka.avif",
@@ -1217,7 +1218,7 @@
         "beds": 1,
         "bathrooms": 1,
         "type": "room",
-         "imgUrls": [
+        "imgUrls": [
             "https://res.cloudinary.com/dool6mmp1/image/upload/v1753301831/3c928ded-57ec-446a-9049-f84387c4eb91_glawau.avif",
             "https://res.cloudinary.com/dool6mmp1/image/upload/v1753301828/f5ddef38-0167-4843-ba1c-ba6cdfda38d1_ng4te3.avif",
             "https://res.cloudinary.com/dool6mmp1/image/upload/v1753301828/82b25633-f21d-4434-9223-c62f2ff6656f_fxlcyl.avif",
@@ -1314,6 +1315,382 @@
             "AC",
             "Balcony",
             "Kitchen"
+        ],
+        "msgs": [],
+        "unavailableDates": [],
+        "lastSearchValue": "",
+        "createdAt": 1753278900219
+    },
+    {
+        "_id": "Fo7IG9",
+        "host_id": "b9",
+        "title": "Modern Flat in Tel Aviv",
+        "description": "דירה מעוצבת בקרבת הים",
+        "price": 670,
+        "capacity": 4,
+        "rooms": 2,
+        "beds": 2,
+        "bathrooms": 1,
+        "type": "apartment",
+        "imgUrls": [
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753340123/426408162_rzecca.jpg",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753340003/fdf30671-c876-4c1a-bb94-b5c3320d7ec5_w07rvc.avif",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753340000/4377b630-132c-4fe1-b94b-afdb573c4a29_rumexp.avif",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753339979/fafb569b-8261-4a4e-bdee-c91c8b91a68d_n3bcxi.avif",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753339964/c136797e-2f84-4866-866e-278bb85116f2_kymf6h.avif"
+        ],
+        "rating": 4.92,
+        "guestFavorite": true,
+        "location": {
+            "country": "Israel",
+            "city": "Tel Aviv",
+            "address": "Dizengoff St 100, Tel Aviv",
+            "lat": 32.0805,
+            "lng": 34.7806
+        },
+        "amenities": [
+            "WiFi",
+            "AC",
+            "Kitchen",
+            "Balcony"
+        ],
+        "msgs": [],
+        "unavailableDates": [],
+        "lastSearchValue": "",
+        "createdAt": 1753278900219
+    },
+    {
+        "_id": "Rk2LJ8",
+        "host_id": "b10",
+        "title": "Beachfront Retreat TLV",
+        "description": "חופשה מושלמת ליד הים",
+        "price": 750,
+        "capacity": 5,
+        "rooms": 3,
+        "beds": 3,
+        "bathrooms": 2,
+        "type": "house",
+        "imgUrls": [
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753340291/c5ada681-1a6a-407f-8caa-1c41ddbd8611_wmtsdg.avif",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753340298/1fc52698-cc7b-4d70-9841-c58d2c32faa0_rjotwh.avif",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753340295/ac78516d-e2b5-40fb-bd4d-5d0063de07a3_cmujvt.avif",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753340304/c9b3d7f6-f1ec-40e3-be57-c7809312cfd0_wueir5.avif",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753340301/ca2698c7-c17d-4e02-b52d-958624fcaffb_x3icbi.avif"
+        ],
+        "rating": 4.85,
+        "guestFavorite": false,
+        "location": {
+            "country": "Israel",
+            "city": "Tel Aviv",
+            "address": "HaYarkon St 210, Tel Aviv",
+            "lat": 32.0871,
+            "lng": 34.7687
+        },
+        "amenities": [
+            "WiFi",
+            "TV",
+            "Kitchen",
+            "Washer"
+        ],
+        "msgs": [],
+        "unavailableDates": [],
+        "lastSearchValue": "",
+        "createdAt": 1753278900219
+    },
+    {
+        "_id": "Xy6Tn2",
+        "host_id": "b11",
+        "title": "Cozy Cabin in Colorado",
+        "description": "Perfect mountain escape",
+        "price": 450,
+        "capacity": 4,
+        "rooms": 2,
+        "beds": 2,
+        "bathrooms": 1,
+        "type": "cabin",
+        "imgUrls": [
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753340983/e224d57b-71b9-441b-9a1c-3a1ae00b5225_ircphc.avif",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753340985/30c61fc9-31fc-468f-a260-f30d7b1b9c9f_j7nsmz.avif",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753340979/ee8b59f1-4099-4a77-b53d-f10cab40ea3e_ohh7ej.avif",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753340975/7a3a1c50-0b6a-46c1-bd09-9956b3fcf8c6_ev2bhp.avif",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753340972/7326e034-c0fe-438c-b2aa-13f68d3cc23d_kunfyp.avif"
+        ],
+        "rating": 4.78,
+        "guestFavorite": true,
+        "location": {
+            "country": "USA",
+            "city": "Denver",
+            "address": "Aspen Dr 33, Colorado",
+            "lat": 39.7392,
+            "lng": -104.9903
+        },
+        "amenities": [
+            "WiFi",
+            "Fireplace",
+            "Kitchen",
+            "Hot tub"
+        ],
+        "msgs": [],
+        "unavailableDates": [],
+        "lastSearchValue": "",
+        "createdAt": 1753278900219
+    },
+    {
+        "_id": "Uv9PQ3",
+        "host_id": "b12",
+        "title": "Urban Loft NYC",
+        "description": "Modern loft in Manhattan",
+        "price": 880,
+        "capacity": 3,
+        "rooms": 1,
+        "beds": 1,
+        "bathrooms": 1,
+        "type": "loft",
+        "imgUrls": [
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753341156/4eecddb5-afea-4c76-86ba-eb0cc34833fb_xupq4c.avif",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753341163/70b2af9e-e231-4500-baa2-8373bb8b7b73_smoswd.avif",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753341159/97a3a6e1-0acc-4528-adf6-90fcc4457fe3_d6elxo.avif",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753341152/76d8e02d-9c1e-4647-a2cf-9920c3806cbc_jefmfu.avif",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753341148/59020628-2ff5-481d-a455-f654e9455df0_smqrzg.avif"
+        ],
+        "rating": 4.91,
+        "guestFavorite": false,
+        "location": {
+            "country": "USA",
+            "city": "New York",
+            "address": "5th Avenue 22, Manhattan",
+            "lat": 40.7128,
+            "lng": -74.006
+        },
+        "amenities": [
+            "WiFi",
+            "AC",
+            "TV",
+            "Elevator"
+        ],
+        "msgs": [],
+        "unavailableDates": [],
+        "lastSearchValue": "",
+        "createdAt": 1753278900219
+    },
+    {
+        "_id": "Lm3BR4",
+        "host_id": "b13",
+        "title": "Charming London Flat",
+        "description": "Bright and spacious flat in the heart of London",
+        "price": 720,
+        "capacity": 4,
+        "rooms": 2,
+        "beds": 2,
+        "bathrooms": 1,
+        "type": "apartment",
+        "imgUrls": [
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753341353/f795f7a9-3ec6-486e-9216-736cb043b911_zzecae.avif",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753341349/09348f3a-c299-45f5-9c8d-8ad132ca2e8d_rtd6bz.avif",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753341365/402839fd-73e6-4b1f-873a-f7fb293bac6d_e5u5m2.avif",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753341362/1633393f-4db0-420e-8a60-d7846b0ede8d_zfzsnv.avif",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753341357/ee4039d0-1459-4379-94d1-a1057fb21200_yfobhy.avif"
+        ],
+        "rating": 4.88,
+        "guestFavorite": true,
+        "location": {
+            "country": "UK",
+            "city": "London",
+            "address": "Baker St 221B, London",
+            "lat": 51.5238,
+            "lng": -0.1586
+        },
+        "amenities": [
+            "WiFi",
+            "Kitchen",
+            "Washer",
+            "Heating"
+        ],
+        "msgs": [],
+        "unavailableDates": [],
+        "lastSearchValue": "",
+        "createdAt": 1753278900219
+    },
+    {
+        "_id": "Np6QM7",
+        "host_id": "b14",
+        "title": "Historic Cottage in Bath",
+        "description": "Quaint countryside stay",
+        "price": 520,
+        "capacity": 3,
+        "rooms": 2,
+        "beds": 2,
+        "bathrooms": 1,
+        "type": "cottage",
+        "imgUrls": [
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753341618/312c5022-aa13-4239-9a1c-b0f63c2486e1_g4iunv.avif",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753341631/712d2880-c419-4216-87a3-50ee4c47558f_ktachm.avif",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753341627/d36322f8-0ef0-4a33-9333-595399b6fda9_tw6nza.avif",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753341622/75b56300-f887-424f-a915-7c0a7c4fe25a_e3jeqd.avif",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753341607/93b42711-1db0-4c92-8ca3-3e30991479d2_rndwm2.avif"
+        ],
+        "rating": 4.75,
+        "guestFavorite": false,
+        "location": {
+            "country": "UK",
+            "city": "Bath",
+            "address": "Royal Crescent 10, Bath",
+            "lat": 51.3813,
+            "lng": -2.3599
+        },
+        "amenities": [
+            "WiFi",
+            "Fireplace",
+            "Garden"
+        ],
+        "msgs": [],
+        "unavailableDates": [],
+        "lastSearchValue": "",
+        "createdAt": 1753278900219
+    },
+    {
+        "_id": "Qs8TL1",
+        "host_id": "b15",
+        "title": "Luxury Apartment Manchester",
+        "description": "Central apartment with city view",
+        "price": 680,
+        "capacity": 4,
+        "rooms": 2,
+        "beds": 2,
+        "bathrooms": 2,
+        "type": "apartment",
+        "imgUrls": [
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753342058/9ae7651b-3877-4f88-967b-e93536107ee2_npmfxe.avif",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753342065/68b96c4e-0a11-4db0-8531-b501cf67b17f_esp8bm.avif",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753342061/998c21b2-9f5a-488d-b848-c054e8ee4b0e_httdr3.avif",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753342071/13aa247d-fe3e-4d22-adce-03aaf6e05d4f_q5zn1t.avif",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753342068/00fba130-ba5e-444a-b0a4-e31984c22ea9_ytjrxp.avif"
+        ],
+        "rating": 4.80,
+        "guestFavorite": true,
+        "location": {
+            "country": "UK",
+            "city": "Manchester",
+            "address": "Deansgate 40, Manchester",
+            "lat": 53.4808,
+            "lng": -2.2426
+        },
+        "amenities": [
+            "WiFi",
+            "Kitchen",
+            "Gym"
+        ],
+        "msgs": [],
+        "unavailableDates": [],
+        "lastSearchValue": "",
+        "createdAt": 1753278900219
+    },
+    {
+        "_id": "Hv4NK2",
+        "host_id": "b16",
+        "title": "Modern Studio Birmingham",
+        "description": "Ideal for solo travelers or couples",
+        "price": 410,
+        "capacity": 2,
+        "rooms": 1,
+        "beds": 1,
+        "bathrooms": 1,
+        "type": "studio",
+        "imgUrls": [
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753341961/5ead42f1-97ab-494c-a811-6c069367219a_pgsyzw.avif",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753341959/566ab8cc-e8f2-4713-9b3c-22d892e32132_odeyny.avif",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753341956/0e71f656-8434-453d-b6b7-fbf5b6de385b_vspscy.avif",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753341953/b99dfbcb-c9d4-4126-896d-4d8b559e8219_hper61.avif",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753341950/8ba4b45d-c011-434f-ad4a-f49aec4e3af6_iimlcj.avif"
+        ],
+        "rating": 4.66,
+        "guestFavorite": false,
+        "location": {
+            "country": "UK",
+            "city": "Birmingham",
+            "address": "Colmore Row 30, Birmingham",
+            "lat": 52.4862,
+            "lng": -1.8904
+        },
+        "amenities": [
+            "WiFi",
+            "TV",
+            "Kitchenette"
+        ],
+        "msgs": [],
+        "unavailableDates": [],
+        "lastSearchValue": "",
+        "createdAt": 1753278900219
+    },
+    {
+        "_id": "Zt1WD6",
+        "host_id": "b17",
+        "title": "Lake House in the Cotswolds",
+        "description": "Tranquil escape with lake view",
+        "price": 900,
+        "capacity": 6,
+        "rooms": 3,
+        "beds": 4,
+        "bathrooms": 2,
+        "type": "house",
+        "imgUrls": [
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753342257/e5bc0e89-d4e9-400e-8353-5e3c436e221c_jkrsnc.avif",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753342260/1610bd54-73a7-4e82-927c-f165281a7249_dwbdrn.avif",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753342251/614c7567-7569-45ae-a03b-aef4f6849c8c_pyntjm.avif",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753342254/6dbc4729-a883-4211-9474-ec7477fca3a9_l5nn6z.jpg",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753342248/a29a9f34-2b48-43fe-858d-2ad778c013d4_cary7j.avif"
+        ],
+        "rating": 4.93,
+        "guestFavorite": true,
+        "location": {
+            "country": "UK",
+            "city": "Cotswolds",
+            "address": "Lakeview Road 12, Cotswolds",
+            "lat": 51.833,
+            "lng": -1.8433
+        },
+        "amenities": [
+            "WiFi",
+            "Fireplace",
+            "Hot tub",
+            "Lake Access"
+        ],
+        "msgs": [],
+        "unavailableDates": [],
+        "lastSearchValue": "",
+        "createdAt": 1753278900219
+    },
+    {
+        "_id": "Bw3PJ1",
+        "host_id": "b18",
+        "title": "Rustic Barn in Yorkshire",
+        "description": "Converted barn with stunning views",
+        "price": 580,
+        "capacity": 4,
+        "rooms": 2,
+        "beds": 3,
+        "bathrooms": 1,
+        "type": "barn",
+        "imgUrls": [
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753342410/b5ccd946-9a3b-4c45-bc3a-55574d40c11d_ifq83m.avif",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753342407/a73020ea-43d8-45cf-b6de-895f5bca1c01_txu0q8.avif",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753342413/7c9c80e7-2237-43bc-b71d-6ae402f3d482_er62jb.avif",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753342404/2b99a4a6-48ce-42f1-ab96-a1fbd96521e0_gnip3y.avif",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753342393/c7a272ef-4f52-4282-878c-44d62c6d4ff9_hu4lwq.avif"
+        ],
+        "rating": 4.81,
+        "guestFavorite": false,
+        "location": {
+            "country": "UK",
+            "city": "Yorkshire",
+            "address": "Hilltop Lane 7, Yorkshire",
+            "lat": 53.9915,
+            "lng": -1.5412
+        },
+        "amenities": [
+            "WiFi",
+            "Garden",
+            "Fireplace"
         ],
         "msgs": [],
         "unavailableDates": [],

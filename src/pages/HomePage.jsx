@@ -49,7 +49,7 @@ export function HomePage() {
             <img src={arrow1} alt="Arrow icon" className="arrow-icon" />
           </Link>
         </div>
-        <HomesList location="Tel Aviv-Yafo" />
+        <HomesList location="Tel Aviv" />
       </div>
 
       {loggedInUser?.searching_history?.length > 0 && (
