@@ -23,11 +23,14 @@ export async function updateFavoritesUser(userId, homeId) {
       user.favorites.splice(idx, 1)
     }
 
-    await userService.update(user)
+    const updatedUser = await userService.update(user)
 
+    store.dispatch({ type: SET_USER, user: updatedUser })
     store.dispatch({ type: SET_USERS, users: await userService.getUsers() })
+
+    return updatedUser
   } catch (err) {
-    console.log("user.actions: cannot update users", err)
+    console.log("user.actions: cannot update user", err)
   }
 }
 

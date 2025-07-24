@@ -36,16 +36,18 @@ function remove(userId) {
 
 async function update(userToUpdate) {
   const user = await getById(userToUpdate._id)
+
   const updatedUser = await storageService.put(STORAGE_KEY_USER_DB, {
     ...user,
     ...userToUpdate,
   })
-  if (getLoggedinUser()?.id === updatedUser.id) saveLocalUser(updatedUser)
+  if (getLoggedinUser()?._id === updatedUser._id) saveLocalUser(updatedUser)
   return updatedUser
 }
 
 async function login(userCred) {
   const users = await storageService.query(STORAGE_KEY_USER_DB)
+ 
   const user = users.find(
     (user) =>
       user.username === userCred.username && user.password === userCred.password
@@ -84,7 +86,7 @@ function getEmptyUser() {
 
 function saveLocalUser(user) {
   const minimalUser = {
-    id: user._id,
+    _id: user._id || user.id,
     firstName: user.firstName,
     lastName: user.lastName,
     favorites: user.favorites || [],

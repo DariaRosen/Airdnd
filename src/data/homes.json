@@ -1049,7 +1049,11 @@
             "WiFi",
             "AC",
             "Kitchen",
-            "TV"
+            "TV",
+            "Washer",
+            "Balcony",
+            "Refrigerator"
+
         ],
         "msgs": [],
         "unavailableDates": [],

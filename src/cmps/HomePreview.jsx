@@ -16,9 +16,10 @@ export function HomePreview({ home }) {
     setIsLiked(loggedInUser?.favorites?.includes(home._id) || false)
   }, [loggedInUser, home._id])
 
-  const toggleHeart = (homeId) => {
-    updateFavoritesUser(loggedInUser.id, homeId)
-    setIsLiked((prevIsLiked) => !prevIsLiked)
+  const toggleHeart = async (homeId) => {
+    setIsLiked((prev) => !prev)
+    const updatedUser = await updateFavoritesUser(loggedInUser._id, homeId)
+    setIsLiked(updatedUser.favorites.includes(homeId))
   }
   return (
     <article className="home-preview">
@@ -39,7 +40,6 @@ export function HomePreview({ home }) {
             <span>Guest favorite</span>
           </div>
         )}
-
       </div>
 
       <Link
