@@ -44,7 +44,7 @@ export function HomePage() {
 
       <div className="section-wrapper">
         <div className="text-with-icon">
-          <Link to="/filter" state={{ location: "Tel Aviv-Yafo" }}>
+          <Link to="/filter?location=UK">
             Popular homes in Tel Aviv-Yafo
             <img src={arrow1} alt="Arrow icon" className="arrow-icon" />
           </Link>
@@ -66,7 +66,7 @@ export function HomePage() {
 
       <div className="section-wrapper">
         <div className="text-with-icon">
-          <Link to="/filter" state={{ location: "Gran Vía" }}>
+          <Link to="/filter?location=Gran Vía">
             Stay near Gran Via
             <img src={arrow1} alt="Arrow icon" className="arrow-icon" />
           </Link>
@@ -76,7 +76,7 @@ export function HomePage() {
 
       <div className="section-wrapper">
         <div className="text-with-icon">
-          <Link to="/filter" state={{ location: "USA" }}>
+          <Link to="/filter?location=USA">
             Popular homes in USA
             <img src={arrow1} alt="Arrow icon" className="arrow-icon" />
           </Link>
@@ -86,7 +86,7 @@ export function HomePage() {
 
       <div className="section-wrapper">
         <div className="text-with-icon">
-          <Link to="/filter" state={{ checkIn, checkOut }}>
+          <Link to={`/filter?checkIn=${checkIn}&checkOut=${checkOut}`}>
             Available next month
             <img src={arrow1} alt="Arrow icon" className="arrow-icon" />
           </Link>
@@ -96,13 +96,16 @@ export function HomePage() {
 
       <div className="section-wrapper">
         <div className="text-with-icon">
-          <Link to="/filter" state={{ location: "UK" }}>
+          <Link to="/filter?location=UK" className="full-link">
             Homes in United Kingdom
             <img src={arrow1} alt="Arrow icon" className="arrow-icon" />
           </Link>
         </div>
+
         <HomesList location="UK" />
       </div>
+
+
 
       <hr />
     </div>

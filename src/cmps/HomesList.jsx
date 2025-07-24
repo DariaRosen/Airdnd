@@ -18,7 +18,6 @@ export function HomesList({ location, checkIn, checkOut }) {
   const prev = () => {
     setStartIdx((prev) => Math.max(prev - 1, 0))
   }
-  console.log('homes', homes);
   // 🔍 Filter homes based on props
   const filteredHomes = homes.filter(home => {
     const matchesLocation = location ? utilService.doesHomeMatchLocation(home, location) : true
@@ -27,7 +26,6 @@ export function HomesList({ location, checkIn, checkOut }) {
   })
   const total = filteredHomes.length
   const visibleHomes = filteredHomes.slice(startIdx, startIdx + itemsPerPage)
-console.log('visibleHomes', visibleHomes);
 
   return (
     <section className="home-carousel-wrapper">
