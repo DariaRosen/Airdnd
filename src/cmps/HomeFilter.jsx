@@ -23,13 +23,21 @@ export function HomeFilter() {
   })
 
   return (
-    <section className="home-filter">
-      <h2>{filteredHomes.length} homes within map area</h2>
-      <div className="home-grid">
-        {filteredHomes.map(home => (
-          <HomePreview key={home._id} home={home} />
-        ))}
-      </div>
-    </section>
+<section className="home-filter">
+  <h2>{filteredHomes.length} homes within map area</h2>
+
+  <div className="home-filter-layout">
+    <div className="homes-grid">
+      {filteredHomes.map(home => (
+        <HomePreview key={home._id} home={home} />
+      ))}
+    </div>
+
+    <div className="map-placeholder">
+      Map
+    </div>
+  </div>
+</section>
+
   )
 }
