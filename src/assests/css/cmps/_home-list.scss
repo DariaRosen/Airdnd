@@ -3,7 +3,7 @@
   gap: 15px;
   list-style: none;
   padding: 0;
-  margin: 0;
+  margin-top: 10px!important;
   scroll-behavior: smooth;
 
   > .home-preview {
@@ -69,15 +69,15 @@
   z-index: 10;
 }
 
-// .home-carousel-header button {
-//   width: 36px;
-//   height: 36px;
-//   font-size: 20px;
-//   border-radius: 50%;
-//   border: none;
-//   background: rgba(255, 255, 255, 0.9);
-//   cursor: pointer;
-// }
+.home-carousel-header button {
+  width: 36px;
+  height: 36px;
+  font-size: 20px;
+  border-radius: 50%!important;
+  border: 1px solid $bg-gray !important;
+  background: $bg-lightest-gray!important;
+  cursor: pointer;
+}
 
 .home-carousel-wrapper {
   position: relative; // this is the relative container for arrows
@@ -85,8 +85,6 @@
 }
 
 .circle-arrow-btn {
-  background-color: #e5e5e5;
-  border: none;
   border-radius: 50%;
   width: 32px;
   height: 32px;
