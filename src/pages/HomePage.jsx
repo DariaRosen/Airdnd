@@ -51,7 +51,7 @@ export function HomePage() {
   }
 
   return (
-    <div className="main-page">
+    <div className="home-page">
       {loggedInUser?.searching_history?.length > 0 && (
         <div className="continue-searching">
           <hr />

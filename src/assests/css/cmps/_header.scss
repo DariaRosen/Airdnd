@@ -4,9 +4,14 @@
   gap: 1rem;
   padding: 1rem 2rem;
   border-bottom: 1px solid #ddd;
-  background-color: #ffffff;
+  background: linear-gradient(
+    to bottom,
+    $bg-white,
+    $bg-lightest-gray 50%,
+  ); /* light to darker gray */
   z-index: 1000;
   position: relative;
+  height: 200px;
 }
 
 .logo-wrapper {
@@ -89,10 +94,10 @@
   margin: 20px auto 0;
   margin-top: 5px;
   margin-bottom: 15px;
-  border: 1px solid #ccc;
+  border: 1px solid $bg-light-gray;
   border-radius: 50px;
-  background-color: #fff;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  background-color: $bg-white;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
   max-width: 800px;
   width: 100%;
 }
@@ -109,7 +114,6 @@
   flex-grow: 1;
   z-index: 100; // keeps it above header base
 }
-
 
 .search-title {
   font-size: 12px;
@@ -148,7 +152,7 @@
   margin: 7px 7px 7px 0;
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
   cursor: pointer;
-  z-index: 2000!important; /* ensure it stays on top */
+  z-index: 2000 !important; /* ensure it stays on top */
 }
 
 .magnifying-glass-icon {
@@ -183,8 +187,6 @@
   border-radius: 30px;
 }
 
-
-
 .search-option {
   padding: 6px 0;
   cursor: pointer;
@@ -212,7 +214,6 @@
   object-fit: contain;
   flex-shrink: 0;
 }
-
 
 .search-item.destination {
   flex-grow: 2;
@@ -260,10 +261,10 @@
 .separator.inner {
   padding: 0 0.25rem;
   font-size: 28px;
-  font-weight: 100!important;
+  font-weight: 100 !important;
 }
 
-.search-suggestion-destinations{
+.search-suggestion-destinations {
   font-size: 12px;
   color: $text-dark;
 }

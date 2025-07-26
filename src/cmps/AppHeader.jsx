@@ -119,7 +119,6 @@ export function AppHeader() {
                     {getSuggestedDestinations().map(({ title, subtitle }, idx) => (
                       <li key={idx} className="suggestion-item">
                         <img src={utilService.getImageSrcForTitle(title)} alt={title} className="suggestion-icon" />
-                        {/* <img src="/Airdnd/icons/search_destinations_icons/Paris.png" alt={title} className="suggestion-icon" /> */}
                         <div>
                           <div className="suggestion-title">{title}</div>
                           <div className="suggestion-subtitle">{subtitle}</div>
