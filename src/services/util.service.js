@@ -14,7 +14,9 @@ export const utilService = {
   updateImageUrlsFromAssets,
   getNextMonthDates,
   doesHomeMatchLocation,
-  doesHomeMatchDates
+  doesHomeMatchDates,
+  getSuggestedDestinations,
+  getImageSrcForTitle,
 }
 
 function makeId(length = 6) {
@@ -202,6 +204,84 @@ async function getLocationSuggestions(term) {
   return locations.filter(loc => loc.toLowerCase().startsWith(lowerTerm))
 }
 
+export function getSuggestedDestinations() {
+  return [
+    {
+      title: "Nearby",
+      subtitle: "Find what's around you"
+    },
+    {
+      title: "Tel Aviv-Yafo, Israel",
+      subtitle: "Because your wishlist has stays in Tel Aviv-Yafo"
+    },
+    {
+      title: "Rome, Italy",
+      subtitle: "For sights like Trevi Fountain"
+    },
+    {
+      title: "Madrid, Spain",
+      subtitle: "For its bustling nightlife"
+    },
+    {
+      title: "Modi'in-Maccabim-Re'ut, Israel",
+      subtitle: "Near you"
+    },
+    {
+      title: "Athens, Greece",
+      subtitle: "For its stunning architecture"
+    },
+    {
+      title: "Pardes Hanna-Karkur, Israel",
+      subtitle: "For a trip abroad"
+    },
+    {
+      title: "Barcelona, Spain",
+      subtitle: "Popular beach destination"
+    },
+    {
+      title: "Zichron Yaakov, Israel",
+      subtitle: "Near you"
+    },
+    {
+      title: "Paphos, Cyprus",
+      subtitle: "For sights like Aphrodite's Rock"
+    },
+    {
+      title: "Lisbon, Portugal",
+      subtitle: "For its top-notch dining"
+    },
+    {
+      title: "Larnaca, Cyprus",
+      subtitle: "For a trip abroad"
+    },
+    {
+      title: "Prague, Czechia",
+      subtitle: "For sights like Prague Castle"
+    },
+    {
+      title: "Paris, France",
+      subtitle: "For its bustling nightlife"
+    },
+    {
+      title: "Limassol, Cyprus",
+      subtitle: "For its seaside allure"
+    },
+    {
+      title: "Melbourne, Australia",
+      subtitle: "For sights like Eureka Tower"
+    },
+    {
+      title: "Budapest, Hungary",
+      subtitle: "For a trip abroad"
+    },
+    {
+      title: "London, United Kingdom",
+      subtitle: "For sights like Buckingham Palace"
+    }
+  ]
+}
+
+
 function updateImageUrlsFromAssets(homes, cloudinaryAssets) {
   const assets = cloudinaryAssets.resources
   console.log('homes', homes)
@@ -283,4 +363,13 @@ function getDatesBetween(startStr, endStr) {
 function formatDateToDDMMYY(dateStr) {
   const [year, month, day] = dateStr.split("-")
   return `${day}${month}${year.slice(-2)}`
+}
+
+function getImageSrcForTitle(title) {
+
+  const fileName = title
+  const test = `/Airdnd/icons/search_destinations_icons/${fileName}.png`;
+  console.log('test', test);
+  
+  return test;
 }

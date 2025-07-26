@@ -2,6 +2,8 @@ import { useEffect, useRef, useState } from 'react'
 import { debounce, utilService } from '../services/util.service'
 import { AirdndIcon } from "./AirdndIcon"
 import { useNavigate, Link } from "react-router-dom"
+import { getSuggestedDestinations } from '../services/util.service.js'
+
 
 export function AppHeader() {
   const navigate = useNavigate()
@@ -27,6 +29,8 @@ export function AppHeader() {
 
   const debouncedFetchLocations = debounce(async (term) => {
     const locations = await utilService.getLocationSuggestions(term)
+    console.log("locations", locations);
+
     setLocationSuggestions(locations)
   }, 300)
 
@@ -35,6 +39,8 @@ export function AppHeader() {
     setLocationInput(value)
     debouncedFetchLocations(value)
   }
+
+  console.log('isLocationOpen:', isLocationOpen)
 
   return (
     <section className="header">
@@ -107,14 +113,22 @@ export function AppHeader() {
             />
             {isLocationOpen && (
               <div className="search-dropdown">
-                <div className="search-option nearby">Nearby</div>
-                <div className="search-option find-around">Find what's around me</div>
-                {locationSuggestions.length > 0 && (
+                <div className="search-suggestion-destinations">Suggested destinations</div>
+                {isLocationOpen && (
                   <ul className="suggestions-list">
-                    {locationSuggestions.map((loc, idx) => (
-                      <li key={idx} className="suggestion-item">{loc}</li>
+                    {getSuggestedDestinations().map(({ title, subtitle }, idx) => (
+                      <li key={idx} className="suggestion-item">
+                        <img src={utilService.getImageSrcForTitle(title)} alt={title} className="suggestion-icon" />
+                        {/* <img src="/Airdnd/icons/search_destinations_icons/Paris.png" alt={title} className="suggestion-icon" /> */}
+                        <div>
+                          <div className="suggestion-title">{title}</div>
+                          <div className="suggestion-subtitle">{subtitle}</div>
+                        </div>
+                      </li>
                     ))}
                   </ul>
+
+
                 )}
               </div>
             )}
