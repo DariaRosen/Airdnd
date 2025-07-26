@@ -5,11 +5,13 @@
   padding: 0;
   margin-top: 10px!important;
   scroll-behavior: smooth;
+  // flex-grow: 1;
+  // flex-basis: 300;
 
   > .home-preview {
-    flex: 0 1 14%; // flex-grow:0, shrink:1, basis:14%
+    flex: 1 1 14%; // flex-grow:0, shrink:1, basis:14%
     min-width: 140px; // won't get smaller than this
-    max-width: 200px; // won't get bigger than this
+    max-width: 300px; // won't get bigger than this
   }
 }
 
