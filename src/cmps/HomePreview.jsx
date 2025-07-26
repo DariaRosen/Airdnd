@@ -45,7 +45,7 @@ export function HomePreview({ home }) {
 
       <Link to={`/home/${home._id}`}>
         <h4>{home.title}</h4>
-
+        <p>{dateRange}</p>
         <p className="price-rating">
           <span className="price">{home.price}₪ for 1 night</span>
           <span className="rating">
