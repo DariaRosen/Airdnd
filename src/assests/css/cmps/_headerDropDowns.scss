@@ -1,0 +1,58 @@
+.date-container {
+  position: relative;
+}
+
+.date-dropdown {
+  position: absolute;
+  top: 64px; 
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 100;
+  border-radius: 32px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+  background-color: white;
+  padding: 24px;
+}
+.guest-dropdown {
+  position: absolute;
+  top: 100%;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  padding: 1rem;
+  width: 300px;
+  z-index: 20;
+}
+
+.guest-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+
+  .label {
+    font-weight: bold;
+  }
+
+  .desc {
+    font-size: 0.8rem;
+    color: #888;
+  }
+
+  .btns {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+
+    button {
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      border: 1px solid #ccc;
+      background: none;
+      font-size: 1.2rem;
+    }
+  }
+}
+
+

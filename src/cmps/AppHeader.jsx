@@ -3,6 +3,12 @@ import { debounce, utilService } from "../services/util.service"
 import { AirdndIcon } from "./AirdndIcon"
 import { useNavigate, Link } from "react-router-dom"
 import { getSuggestedDestinations } from "../services/util.service.js"
+import { DateRange } from "react-date-range"
+import "react-date-range/dist/styles.css"
+import "react-date-range/dist/theme/default.css"
+import { LocationSearch } from "./LocationSearch.jsx"
+import { DateSearch } from "./DateSearch.jsx"
+import { GuestSearch } from "./GuestSearch.jsx"
 
 export function AppHeader() {
   const navigate = useNavigate()
@@ -15,6 +21,22 @@ export function AppHeader() {
   const [locationSuggestions, setLocationSuggestions] = useState([])
   const [isTyping, setIsTyping] = useState(false)
   //const [isSearchExpanded, setIsSearchExpanded] = useState(false)
+  const [isCalendarOpen, setIsCalendarOpen] = useState(false)
+  const [isDateOpen, setIsDateOpen] = useState(false)
+
+  const [dateRange, setDateRange] = useState([
+    {
+      startDate: null,
+      endDate: null,
+      key: "selection",
+    },
+  ])
+  const [guests, setGuests] = useState({
+    adults: 0,
+    children: 0,
+    infants: 0,
+    pets: 0,
+  })
 
   const whereRef = useRef()
 
@@ -44,6 +66,9 @@ export function AppHeader() {
   const handleLocationSelect = (title) => {
     setLocationInput(title)
     setIsLocationOpen(false)
+  }
+  const handleDateChange = (ranges) => {
+    setDateRange([ranges.selection])
   }
 
   return (
@@ -84,105 +109,30 @@ export function AppHeader() {
 
       <div className="search-bar">
         {/* WHERE */}
-        <div className="search-group location-container">
-          <div className="search-item" ref={whereRef}>
-            <div
-              className="search-title clickable"
-              onClick={() => setIsLocationOpen(!isLocationOpen)}
-            >
-              Where
-            </div>
-            <input
-              type="text"
-              className="search-input"
-              placeholder="Search destinations"
-              value={locationInput}
-              onChange={handleLocationInput}
-              onFocus={() => setIsLocationOpen(true)}
-            />
-            {isLocationOpen && (
-              <div className="search-dropdown">
-                {isTyping ? (
-                  <ul className="suggestions-list">
-                    {locationSuggestions.map((loc, idx) => (
-                      <li
-                        key={idx}
-                        className="suggestion-item"
-                        onClick={() => handleLocationSelect(loc)}
-                      >
-                        <img src="/Airdnd/public/icons/locationdrop.svg" alt="location img" className="suggestion-icon small-icon"/>
-                        <div className="suggestion-title">{loc}</div>
-                      </li>
-                    ))}
-                  </ul>
-                ) : (
-                  <>
-                    <div className="search-suggestion-destinations">
-                      Suggested destinations
-                    </div>
-                    <ul className="suggestions-list">
-                      {getSuggestedDestinations().map(
-                        ({ title, subtitle }, idx) => (
-                          <li
-                            key={idx}
-                            className="suggestion-item"
-                            onClick={() => handleLocationSelect(title)}
-                          >
-                            <img
-                              src={utilService.getImageSrcForTitle(title)}
-                              alt={title}
-                              className="suggestion-icon"
-                            />
-                            <div>
-                              <div className="suggestion-title">{title}</div>
-                              <div className="suggestion-subtitle">
-                                {subtitle}
-                              </div>
-                            </div>
-                          </li>
-                        )
-                      )}
-                    </ul>
-                  </>
-                )}
-              </div>
-            )}
-          </div>
-        </div>
+        <LocationSearch
+          locationInput={locationInput}
+          setLocationInput={setLocationInput}
+        />
 
         {/* SEPARATOR */}
         <div className="separator">|</div>
 
         {/* CHECK-IN / CHECK-OUT */}
-        <div className="search-group date-container">
-          <div className="search-item">
-            <div className="search-title">Check in</div>
-            <div className="search-value">Add dates</div>
-          </div>
-          <div className="separator inner">|</div>
-          <div className="search-item">
-            <div className="search-title">Check out</div>
-            <div className="search-value">Add dates</div>
-          </div>
-        </div>
+        <DateSearch dateRange={dateRange} setDateRange={setDateRange} />
 
         {/* SEPARATOR */}
         <div className="separator">|</div>
 
         {/* WHO + SEARCH ICON */}
-        <div className="search-group guests-container">
-          <div className="search-item">
-            <div className="search-title">Who</div>
-            <div className="search-value">Add guests</div>
-          </div>
-          <Link to="/home" className="magnifying-glass-wrapper">
-            <img
-              src={magnifying_glass}
-              alt="Search"
-              className="magnifying-glass-icon"
-            />
-          </Link>
-        </div>
+        <GuestSearch guests={guests} setGuests={setGuests} />
+
+        <Link to="/home" className="magnifying-glass-wrapper">
+          <img
+            src={magnifying_glass}
+            alt="Search"
+            className="magnifying-glass-icon"
+          />
+        </Link>
       </div>
     </section>
   )
