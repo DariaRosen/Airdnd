@@ -1,0 +1,30 @@
+.header-compact {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: white;
+  height: auto;
+  padding: 0.5rem 1.5rem;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+
+  .search-bar {
+    transform: scale(0.9);
+    max-width: 600px;
+    gap: 1rem;
+    padding: 0.3rem 0.8rem;
+  }
+
+  .search-title {
+    font-size: 10px;
+  }
+
+  .search-input {
+    font-size: 12px;
+  }
+
+  .magnifying-glass-wrapper {
+    width: 36px;
+    height: 36px;
+    padding: 10px;
+  }
+}

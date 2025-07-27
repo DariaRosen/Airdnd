@@ -1,17 +1,17 @@
 import React from "react"
 import { HashRouter as Router, Routes, Route } from "react-router-dom"
 import { AppHeader } from "./cmps/AppHeader"
-import { AppFooter } from './cmps/AppFooter'
+import { AppFooter } from "./cmps/AppFooter"
 import { HomePage } from "./pages/HomePage"
 import { HomeDetails } from "./pages/HomeDetails"
 import { HomesList } from "./cmps/HomesList"
-import { UserMsg } from './cmps/UserMsg'
-import { HomeFilter } from './cmps/HomeFilter';
+import { UserMsg } from "./cmps/UserMsg"
+import { HomeFilter } from "./cmps/HomeFilter"
 
 export function App() {
   return (
-    <section className="main-container">
-      <Router>
+    <Router>
+      <section className="main-container">
         <AppHeader />
         <main className="container">
           <Routes>
@@ -23,8 +23,8 @@ export function App() {
         </main>
         <AppFooter />
         <UserMsg />
-      </Router>
-    </section>
+      </section>
+    </Router>
   )
 }
 

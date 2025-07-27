@@ -369,7 +369,6 @@ function getImageSrcForTitle(title) {
 
   const fileName = title
   const test = `/Airdnd/icons/search_destinations_icons/${fileName}.png`;
-  console.log('test', test);
   
   return test;
 }
