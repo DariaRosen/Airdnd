@@ -2,6 +2,7 @@ import { useEffect, useState, useMemo } from 'react'
 import { useSelector } from "react-redux"
 import { HomePreview } from "./HomePreview.jsx"
 import { utilService } from "../services/util.service.js"
+import { MapView } from './MapView'
 
 export function HomeFilter() {
   const [params, setParams] = useState({ location: '', checkIn: '', checkOut: '' })
@@ -35,8 +36,8 @@ export function HomeFilter() {
           ))}
         </div>
 
-        <div className="map-placeholder">
-          Map
+        <div className="map-placeholder" style={{ width: '400px', height: '400px' }}>
+          <MapView />
         </div>
       </div>
     </section>
