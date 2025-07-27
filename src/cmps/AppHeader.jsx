@@ -43,38 +43,12 @@ export function AppHeader() {
   console.log('isLocationOpen:', isLocationOpen)
 
   return (
-    <section className="header">
+    <section className="header full">
       {/* LOGO + ICONS */}
       <div className="logo-wrapper">
         <Link to="/" className="logo-link">
           <AirdndIcon />
         </Link>
-
-        <div className="video-container">
-          {/* Video Icons */}
-          {[
-            {
-              src: 'house-twirl-selected',
-              title: 'Homes'
-            },
-            {
-              src: 'balloon-twirl',
-              title: 'Experiences'
-            },
-            {
-              src: 'consierge-twirl',
-              title: 'Services'
-            }
-          ].map(({ src, title }) => (
-            <div className="video-item" key={title}>
-              <video className="logo-video" autoPlay loop muted playsInline poster={`https://a0.muscache.com/im/pictures/airbnb-platform-assets/AirbnbPlatformAssets-search-bar-icons/original/${src}.png?im_w=240`}>
-                <source src={`https://a0.muscache.com/videos/search-bar-icons/webm/${src}.webm`} type="video/webm" />
-                <source src={`https://a0.muscache.com/videos/search-bar-icons/hevc/${src}.mov`} type="video/mp4" />
-              </video>
-              <span className="video-title">{title}</span>
-            </div>
-          ))}
-        </div>
 
         {/* Right Icons */}
         <div className="icon-container">
@@ -170,3 +144,4 @@ export function AppHeader() {
     </section>
   )
 }
+
