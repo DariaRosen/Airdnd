@@ -6,7 +6,7 @@ import { HomePage } from "./pages/HomePage"
 import { HomeDetails } from "./pages/HomeDetails"
 import { HomesList } from "./cmps/HomesList"
 import { UserMsg } from "./cmps/UserMsg"
-import { HomeFilter } from "./cmps/HomeFilter"
+import { HomeBrowserWithMap } from "./cmps/HomeBrowserWithMap"
 
 export function App() {
   return (
@@ -18,7 +18,7 @@ export function App() {
             <Route path="/" element={<HomePage />} />
             <Route path="/home/:homeId" element={<HomeDetails />} />
             <Route path="/list" element={<HomesList />} />
-            <Route path="/filter" element={<HomeFilter />} />
+            <Route path="/filter" element={<HomeBrowserWithMap />} />
           </Routes>
         </main>
         <AppFooter />

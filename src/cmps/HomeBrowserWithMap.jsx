@@ -2,10 +2,11 @@ import { useEffect, useState, useMemo } from 'react'
 import { useSelector } from "react-redux"
 import { HomePreview } from "./HomePreview.jsx"
 import { utilService } from "../services/util.service.js"
-import { MapView } from './MapView'
+import { MapView } from './MapView.jsx'
 
-export function HomeFilter() {
+export function HomeBrowserWithMap() {
   const [params, setParams] = useState({ location: '', checkIn: '', checkOut: '' })
+  const [showMap, setShowMap] = useState(false)
 
   useEffect(() => {
     const hash = window.location.hash // "#/filter?location=UK"
@@ -25,6 +26,18 @@ export function HomeFilter() {
     return matchesLocation && matchesDates
   })
 
+  useEffect(() => {
+    if (filteredHomes.length > 0) {
+      // Wait for next paint after render to ensure <HomePreview /> elements are in DOM
+      const timeoutId = setTimeout(() => {
+        setShowMap(true)
+      }, 0)
+      return () => clearTimeout(timeoutId)
+    } else {
+      setShowMap(false)
+    }
+  }, [filteredHomes])
+
   return (
     <section className="home-filter">
       <h2>{filteredHomes.length} homes within map area</h2>
@@ -36,9 +49,9 @@ export function HomeFilter() {
           ))}
         </div>
 
-        <div className="map-placeholder" style={{ width: '400px', height: '400px' }}>
-          <MapView />
-        </div>
+        {/* <div className="map-placeholder" style={{ width: '400px', height: '400px' }}>
+          {showMap && <MapView homes={filteredHomes} />}
+        </div> */}
       </div>
     </section>
   )
