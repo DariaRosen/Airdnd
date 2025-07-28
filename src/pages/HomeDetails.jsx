@@ -5,6 +5,7 @@ import { userService } from "../services/user.service"
 import { useSelector } from "react-redux"
 import { amenities } from "../assests/amenities"
 import {AirdndIcon} from "../cmps/AirdndIcon"
+import {BookingSearch} from "../cmps/BookingSearch"
 
 export function HomeDetails() {
   const [home, setHome] = useState(null)
@@ -104,7 +105,11 @@ export function HomeDetails() {
           </section>
         </section>
 
-        <aside className="side-panel">booking future</aside>
+        <aside className="side-panel">
+
+            <BookingSearch />
+
+        </aside>
       </section>
 
       {selectedImgIdx !== null && (

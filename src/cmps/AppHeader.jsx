@@ -85,8 +85,8 @@ export function AppHeader() {
   const handleSearchClick = () => {
     const filter = {
       location: locationInput,
-      checkIn: dateRange[0].startDate?.toISOString(),
-      checkOut: dateRange[0].endDate?.toISOString(),
+      checkIn: dateRange[0].startDate?.toISOString().slice(0, 10),
+      checkOut: dateRange[0].endDate?.toISOString().slice(0, 10),
       capacity: guests.adults + guests.children,
     }
 
