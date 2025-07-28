@@ -127,12 +127,16 @@ export function setMarkers(homes) {
     gMarkers.forEach(marker => marker.setMap(null))
     gMarkers = []
 
+    const bounds = new google.maps.LatLngBounds()
+
     homes.forEach(home => {
         const { location, title, price } = home
         if (!location?.lat || !location?.lng) return
 
+        const position = { lat: location.lat, lng: location.lng }
+
         const marker = new google.maps.Marker({
-            position: { lat: location.lat, lng: location.lng },
+            position,
             map: gMap,
             title: title || '',
             icon: getCustomMarkerIcon(price, false),
@@ -147,17 +151,43 @@ export function setMarkers(homes) {
         })
 
         gMarkers.push(marker)
+
+        // Extend bounds to include this marker
+        bounds.extend(position)
     })
+
+    if (!bounds.isEmpty()) {
+        // Calculate padded bounds with extra vertical space at top and bottom
+        const northEast = bounds.getNorthEast()
+        const southWest = bounds.getSouthWest()
+
+        const latSpan = northEast.lat() - southWest.lat()
+        const lngSpan = northEast.lng() - southWest.lng()
+
+        const paddingFactor = 0.25 // 25% vertical padding
+
+        // Extend more at top and bottom to push north marker down and south marker up
+        const newNorthLat = northEast.lat() + latSpan * paddingFactor
+        const newSouthLat = southWest.lat() - latSpan * paddingFactor
+
+        const paddedNorthEast = new google.maps.LatLng(newNorthLat, northEast.lng())
+        const paddedSouthWest = new google.maps.LatLng(newSouthLat, southWest.lng())
+
+        const paddedBounds = new google.maps.LatLngBounds(paddedSouthWest, paddedNorthEast)
+
+        gMap.fitBounds(paddedBounds)
+    }
 }
 
 
-function getCustomMarkerIcon(price, isHovered = false) {
-  const width = isHovered ? 88 : 80
-  const height = isHovered ? 44 : 40
-  const fontSize = isHovered ? 18 : 16
-  const radius = isHovered ? 22 : 20
 
-  const svg = `
+function getCustomMarkerIcon(price, isHovered = false) {
+    const width = isHovered ? 88 : 80
+    const height = isHovered ? 44 : 40
+    const fontSize = isHovered ? 18 : 16
+    const radius = isHovered ? 22 : 20
+
+    const svg = `
     <svg xmlns="http://www.w3.org/2000/svg" width="${width}" height="${height}">
       <rect rx="${radius}" ry="${radius}" x="0" y="0" width="${width}" height="${height}"
         fill="#fff" stroke="#ccc" stroke-width="1" />
@@ -165,11 +195,11 @@ function getCustomMarkerIcon(price, isHovered = false) {
         font-size="${fontSize}" font-family="Arial" font-weight="bold">₪${price}</text>
     </svg>
   `
-  return {
-    url: 'data:image/svg+xml;charset=UTF-8,' + encodeURIComponent(svg),
-    scaledSize: new google.maps.Size(width, height),
-    anchor: new google.maps.Point(width / 2, height / 2),
-  }
+    return {
+        url: 'data:image/svg+xml;charset=UTF-8,' + encodeURIComponent(svg),
+        scaledSize: new google.maps.Size(width, height),
+        anchor: new google.maps.Point(width / 2, height / 2),
+    }
 }
 
 

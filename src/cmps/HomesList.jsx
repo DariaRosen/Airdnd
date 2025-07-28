@@ -25,7 +25,7 @@ export function HomesList({ location, checkIn, checkOut }) {
     window.addEventListener("resize", handleResize)
     return () => window.removeEventListener("resize", handleResize)
   }, [])
-
+  
   const filteredHomes = homes.filter(home => {
     const matchesLocation = location ? utilService.doesHomeMatchLocation(home, location) : true
     const matchesDates = (checkIn && checkOut) ? utilService.doesHomeMatchDates(home, checkIn, checkOut) : true
@@ -35,6 +35,9 @@ export function HomesList({ location, checkIn, checkOut }) {
   const total = filteredHomes.length
   const endIdx = Math.min(startIdx + visibleCount, total)
   const visibleHomes = filteredHomes.slice(startIdx, endIdx)
+
+  console.log(`Visible homes: ${visibleHomes.length}, Total homes: ${total}`);
+  
 
   const next = () => {
     setStartIdx(prev => Math.min(prev + 1, total - visibleCount))

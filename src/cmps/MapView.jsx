@@ -4,8 +4,8 @@ import { mapService } from "../services/map.service"
 import { useSelector } from "react-redux" //
 
 
-export function MapView() {
-  const homes = useSelector(state => state.homeModule.homes)
+export function MapView({ homes }) {
+  // const homes = useSelector(state => state.homeModule.homes)
 
   useEffect(() => {
     mapService.initMap().then(() => {

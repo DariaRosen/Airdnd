@@ -69,7 +69,7 @@ export function HomePage() {
 
       <div className="section-wrapper">
         <div className="text-with-icon">
-          <Link to="/filter?location=UK">
+          <Link to="/filter?location=Tel Aviv">
             Popular homes in Tel Aviv-Yafo
             <img src={arrow1} alt="Arrow icon" className="arrow-icon" />
           </Link>
