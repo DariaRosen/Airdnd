@@ -113,6 +113,7 @@ function getEmptyHome() {
     type: "apartment",
     imgUrls: [],
     rating: 0,
+    numberOfRaters: 0,
     guestFavorite: false,
     location: {
       country: "",

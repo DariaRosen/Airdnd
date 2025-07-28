@@ -1,6 +1,6 @@
 import { useEffect, useState, useMemo } from 'react'
 import { useSelector } from "react-redux"
-import { HomePreview } from "./HomePreview.jsx"
+import { HomePreviewBrowser } from "./HomePreviewBrowser.jsx"
 import { utilService } from "../services/util.service.js"
 import { MapView } from './MapView.jsx'
 
@@ -47,7 +47,7 @@ export function HomeBrowserWithMap() {
 
         <div className="homes-grid" >
           {filteredHomes.map(home => (
-            <HomePreview key={home._id} home={home} />
+            <HomePreviewBrowser key={home._id} home={home}/>
           ))}
         </div>
 
