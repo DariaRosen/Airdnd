@@ -127,86 +127,91 @@ export function loadGoogleMaps(apiKey) {
 var gCustomMarkers = []
 
 export function setMarkers(homes) {
-  // Remove old custom markers from the map
-  if (gCustomMarkers.length) {
-    gCustomMarkers.forEach(marker => marker.setMap(null))
-    gCustomMarkers = []
-  }
+    // Remove old custom markers from the map
+    if (gCustomMarkers.length) {
+        gCustomMarkers.forEach(marker => marker.setMap(null))
+        gCustomMarkers = []
+    }
 
-  // If no homes, nothing to do
-  if (!homes || homes.length === 0) return
+    // If no homes, nothing to do
+    if (!homes || homes.length === 0) return
 
-  // Calculate bounds to fit all markers
-  const bounds = new google.maps.LatLngBounds()
+    // Calculate bounds to fit all markers
+    const bounds = new google.maps.LatLngBounds()
 
-  homes.forEach(home => {
-    const { location, price } = home
-    if (!location?.lat || !location?.lng) return
+    homes.forEach(home => {
+        const { location, price } = home
+        if (!location?.lat || !location?.lng) return
 
-    const position = new google.maps.LatLng(location.lat, location.lng)
+        const position = new google.maps.LatLng(location.lat, location.lng)
 
-    // Create your HTML custom marker
-    const customMarker = new CustomMarker(position, gMap, price)
+        // Create your HTML custom marker
+        //const customMarker = new CustomMarker(position, gMap, price)
+        const CustomMarker = createCustomMarkerClass()
+        const marker = new CustomMarker(position, gMap, price)
 
-    gCustomMarkers.push(customMarker)
-    bounds.extend(position)
-  })
+        gCustomMarkers.push(marker)
+        bounds.extend(position)
+    })
 
-  if (!bounds.isEmpty()) {
-    // Optionally add vertical padding for better positioning
-    const northEast = bounds.getNorthEast()
-    const southWest = bounds.getSouthWest()
+    if (!bounds.isEmpty()) {
+        // Optionally add vertical padding for better positioning
+        const northEast = bounds.getNorthEast()
+        const southWest = bounds.getSouthWest()
 
-    const latSpan = northEast.lat() - southWest.lat()
-    const paddingFactor = 0.25
+        const latSpan = northEast.lat() - southWest.lat()
+        const paddingFactor = 0.25
 
-    const paddedNorthLat = northEast.lat() + latSpan * paddingFactor
-    const paddedSouthLat = southWest.lat() - latSpan * paddingFactor
+        const paddedNorthLat = northEast.lat() + latSpan * paddingFactor
+        const paddedSouthLat = southWest.lat() - latSpan * paddingFactor
 
-    const paddedBounds = new google.maps.LatLngBounds(
-      new google.maps.LatLng(paddedSouthLat, southWest.lng()),
-      new google.maps.LatLng(paddedNorthLat, northEast.lng())
-    )
+        const paddedBounds = new google.maps.LatLngBounds(
+            new google.maps.LatLng(paddedSouthLat, southWest.lng()),
+            new google.maps.LatLng(paddedNorthLat, northEast.lng())
+        )
 
-    gMap.fitBounds(paddedBounds)
-  }
+        gMap.fitBounds(paddedBounds)
+    }
 }
 
-// class CustomMarker extends google.maps.OverlayView {
-//   constructor(position, map, price) {
-//     super()
-//     this.position = position
-//     this.map = map
-//     this.price = price
-//     this.div = null
-//     this.setMap(map)
-//   }
+export function createCustomMarkerClass() {
+    return class CustomMarker extends google.maps.OverlayView {
+        constructor(position, map, price) {
+            super()
+            this.position = position
+            this.map = map
+            this.price = price
+            this.div = null
+            this.setMap(map)
+        }
 
-//   onAdd() {
-//     this.div = document.createElement('div')
-//     this.div.className = 'custom-marker'
-//     this.div.innerText = `₪${this.price}`
-//     this.getPanes().overlayMouseTarget.appendChild(this.div)
-//   }
+        onAdd() {
+            this.div = document.createElement('div')
+            this.div.className = 'custom-marker'
+            this.div.innerText = `₪${this.price}`
+            this.getPanes().overlayMouseTarget.appendChild(this.div)
+        }
 
-//   draw() {
-//     const projection = this.getProjection()
-//     const pos = projection.fromLatLngToDivPixel(this.position)
-//     if (this.div) {
-//       this.div.style.left = pos.x + 'px'
-//       this.div.style.top = pos.y + 'px'
-//       this.div.style.position = 'absolute'
-//       this.div.style.transform = 'translate(-50%, -50%)'
-//     }
-//   }
+        draw() {
+            const projection = this.getProjection()
+            const pos = projection.fromLatLngToDivPixel(this.position)
+            if (this.div) {
+                this.div.style.left = pos.x + 'px'
+                this.div.style.top = pos.y + 'px'
+                this.div.style.position = 'absolute'
+                this.div.style.transform = 'translate(-50%, -50%)'
+            }
+        }
 
-//   onRemove() {
-//     if (this.div) {
-//       this.div.parentNode.removeChild(this.div)
-//       this.div = null
-//     }
-//   }
-// }
+        onRemove() {
+            if (this.div) {
+                this.div.parentNode.removeChild(this.div)
+                this.div = null
+            }
+        }
+    }
+}
+
 
 
 
