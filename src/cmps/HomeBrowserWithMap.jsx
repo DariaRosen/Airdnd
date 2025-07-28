@@ -40,19 +40,22 @@ export function HomeBrowserWithMap() {
 
   return (
     <section className="home-filter">
-      <h2>{filteredHomes.length} homes within map area</h2>
-
       <div className="home-filter-layout">
-        <div className="homes-grid">
+        <h2>
+          Over {filteredHomes.length} homes in {params.location || 'your search'}
+        </h2>
+
+        <div className="homes-grid" >
           {filteredHomes.map(home => (
             <HomePreview key={home._id} home={home} />
           ))}
         </div>
 
-        <div className="map-placeholder" style={{ width: '400px', height: '400px' }}>
+        <div className="map-placeholder">
           {showMap && <MapView homes={filteredHomes} />}
         </div>
       </div>
     </section>
+
   )
 }
