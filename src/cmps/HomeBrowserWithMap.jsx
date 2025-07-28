@@ -49,9 +49,9 @@ export function HomeBrowserWithMap() {
           ))}
         </div>
 
-        {/* <div className="map-placeholder" style={{ width: '400px', height: '400px' }}>
+        <div className="map-placeholder" style={{ width: '400px', height: '400px' }}>
           {showMap && <MapView homes={filteredHomes} />}
-        </div> */}
+        </div>
       </div>
     </section>
   )

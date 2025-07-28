@@ -6,13 +6,15 @@ export const mapService = {
     panTo,
     lookupAddressGeo,
     addClickListener,
-    loadGoogleMaps
+    loadGoogleMaps,
+    setMarkers
 }
 
 // TODO: Enter your API Key
 const API_KEY = 'AIzaSyBljDF6gKT-m-nzL0Okmu4xNduoBEd2m3k'
 var gMap
 var gMarker
+var gMarkers = []
 
 function initMap(lat = 32.0749831, lng = 34.9120554) {
     return _connectGoogleApi()
@@ -118,5 +120,38 @@ export function loadGoogleMaps(apiKey) {
     script.onload = () => resolve(window.google.maps)
     script.onerror = (err) => reject(err)
     document.body.appendChild(script)
+  })
+}
+
+export function setMarkers(homes) {
+  // Remove existing markers
+  gMarkers.forEach(marker => marker.setMap(null))
+  gMarkers = []
+
+  homes.forEach(home => {
+    const { location, title, price } = home
+    if (!location?.lat || !location?.lng) return
+
+    const marker = new google.maps.Marker({
+      position: { lat: location.lat, lng: location.lng },
+      map: gMap,
+      title: title || '',
+      label: {
+        text: `₪${price}`,
+        color: 'white',
+        fontSize: '14px',
+        fontWeight: 'bold',
+      },
+      icon: {
+        path: google.maps.SymbolPath.CIRCLE,
+        scale: 18,
+        fillColor: '#ff385c',
+        fillOpacity: 0.9,
+        strokeWeight: 1,
+        strokeColor: '#fff'
+      }
+    })
+
+    gMarkers.push(marker)
   })
 }
