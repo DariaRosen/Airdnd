@@ -172,41 +172,41 @@ export function setMarkers(homes) {
   }
 }
 
-class CustomMarker extends google.maps.OverlayView {
-  constructor(position, map, price) {
-    super()
-    this.position = position
-    this.map = map
-    this.price = price
-    this.div = null
-    this.setMap(map)
-  }
+// class CustomMarker extends google.maps.OverlayView {
+//   constructor(position, map, price) {
+//     super()
+//     this.position = position
+//     this.map = map
+//     this.price = price
+//     this.div = null
+//     this.setMap(map)
+//   }
 
-  onAdd() {
-    this.div = document.createElement('div')
-    this.div.className = 'custom-marker'
-    this.div.innerText = `₪${this.price}`
-    this.getPanes().overlayMouseTarget.appendChild(this.div)
-  }
+//   onAdd() {
+//     this.div = document.createElement('div')
+//     this.div.className = 'custom-marker'
+//     this.div.innerText = `₪${this.price}`
+//     this.getPanes().overlayMouseTarget.appendChild(this.div)
+//   }
 
-  draw() {
-    const projection = this.getProjection()
-    const pos = projection.fromLatLngToDivPixel(this.position)
-    if (this.div) {
-      this.div.style.left = pos.x + 'px'
-      this.div.style.top = pos.y + 'px'
-      this.div.style.position = 'absolute'
-      this.div.style.transform = 'translate(-50%, -50%)'
-    }
-  }
+//   draw() {
+//     const projection = this.getProjection()
+//     const pos = projection.fromLatLngToDivPixel(this.position)
+//     if (this.div) {
+//       this.div.style.left = pos.x + 'px'
+//       this.div.style.top = pos.y + 'px'
+//       this.div.style.position = 'absolute'
+//       this.div.style.transform = 'translate(-50%, -50%)'
+//     }
+//   }
 
-  onRemove() {
-    if (this.div) {
-      this.div.parentNode.removeChild(this.div)
-      this.div = null
-    }
-  }
-}
+//   onRemove() {
+//     if (this.div) {
+//       this.div.parentNode.removeChild(this.div)
+//       this.div = null
+//     }
+//   }
+// }
 
 
 

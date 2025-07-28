@@ -2,6 +2,7 @@ import { DateRange } from "react-date-range"
 import "react-date-range/dist/styles.css"
 import "react-date-range/dist/theme/default.css"
 import { useState, useEffect, useRef } from "react"
+import { setFilterBy } from "../store/homes/homes.action.js"
 
 export function DateSearch({ dateRange, setDateRange }) {
   const [isDateOpen, setIsDateOpen] = useState(false)

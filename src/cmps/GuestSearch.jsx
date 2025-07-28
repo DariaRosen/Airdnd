@@ -3,6 +3,7 @@ import { useState, useEffect, useRef } from "react"
 export function GuestSearch({ guests, setGuests }) {
   const [isOpen, setIsOpen] = useState(false)
   const dropdownRef = useRef()
+  const guestCount = guests.adults + guests.children
 
   useEffect(() => {
     const handleClickOutside = (e) => {
@@ -26,7 +27,29 @@ export function GuestSearch({ guests, setGuests }) {
     <div className="search-group guest-container" ref={dropdownRef}>
       <div className="search-item" onClick={() => setIsOpen(!isOpen)}>
         <div className="search-title">Who</div>
-        <div className="search-value">Add guests</div>
+        <div className="search-value">
+          {guests.adults + guests.children + guests.infants + guests.pets > 0
+            ? (() => {
+                const parts = []
+
+                const totalGuests = guests.adults + guests.children
+                if (totalGuests > 0)
+                  parts.push(
+                    `${totalGuests} guest${totalGuests > 1 ? "s" : ""}`
+                  )
+                if (guests.infants > 0)
+                  parts.push(
+                    `${guests.infants} infant${guests.infants > 1 ? "s" : ""}`
+                  )
+                if (guests.pets > 0)
+                  parts.push(`${guests.pets} pet${guests.pets > 1 ? "s" : ""}`)
+
+                return parts.length > 2
+                  ? parts.slice(0, 2).join(", ") + " ..."
+                  : parts.join(", ")
+              })()
+            : "Add guests"}
+        </div>
       </div>
 
       {isOpen && (

@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react"
 import { debounce, utilService } from "../services/util.service"
 import { AirdndIcon } from "./AirdndIcon"
-import { useNavigate, Link } from "react-router-dom"
+import { useNavigate, Link, useLocation } from "react-router-dom"
 import { getSuggestedDestinations } from "../services/util.service.js"
 import { DateRange } from "react-date-range"
 import "react-date-range/dist/styles.css"
@@ -9,12 +9,16 @@ import "react-date-range/dist/theme/default.css"
 import { LocationSearch } from "./LocationSearch.jsx"
 import { DateSearch } from "./DateSearch.jsx"
 import { GuestSearch } from "./GuestSearch.jsx"
+import { setFilterBy } from "../store/homes/homes.action.js"
+import { useFilterSearchParams } from "../customHooks/useFilterSearchParams"
 
 export function AppHeader() {
   const navigate = useNavigate()
   const globus = "/Airdnd/icons/globus.svg"
   const select = "/Airdnd/icons/select.svg"
   const magnifying_glass = "/Airdnd/icons/magnifying_glass.svg"
+  const location = useLocation()
+  const setExistSearchParams = useFilterSearchParams()
 
   const [isLocationOpen, setIsLocationOpen] = useState(false)
   const [locationInput, setLocationInput] = useState("")
@@ -50,6 +54,14 @@ export function AppHeader() {
     return () => document.removeEventListener("mousedown", handleClickOutside)
   }, [])
 
+  useEffect(() => {
+    if (location.pathname === "/") {
+      setLocationInput("")
+      setDateRange([{ startDate: null, endDate: null, key: "selection" }])
+      setGuests({ adults: 0, children: 0, infants: 0, pets: 0 })
+    }
+  }, [location.pathname])
+
   const debouncedFetchLocations = debounce(async (term) => {
     const locations = await utilService.getLocationSuggestions(term)
 
@@ -69,6 +81,23 @@ export function AppHeader() {
   }
   const handleDateChange = (ranges) => {
     setDateRange([ranges.selection])
+  }
+  const handleSearchClick = () => {
+    const filter = {
+      location: locationInput,
+      checkIn: dateRange[0].startDate?.toISOString(),
+      checkOut: dateRange[0].endDate?.toISOString(),
+      capacity: guests.adults + guests.children,
+    }
+
+    setFilterBy(filter)
+
+    const params = new URLSearchParams()
+    for (const key in filter) {
+      if (filter[key]) params.set(key, filter[key])
+    }
+
+    navigate(`/filter?${params.toString()}`)
   }
 
   return (
@@ -126,13 +155,13 @@ export function AppHeader() {
         {/* WHO + SEARCH ICON */}
         <GuestSearch guests={guests} setGuests={setGuests} />
 
-        <Link to="/home" className="magnifying-glass-wrapper">
+        <div className="magnifying-glass-wrapper" onClick={handleSearchClick}>
           <img
             src={magnifying_glass}
             alt="Search"
             className="magnifying-glass-icon"
           />
-        </Link>
+        </div>
       </div>
     </section>
   )

@@ -10,6 +10,8 @@ import {
   SET_FILTER,
 } from "./homes.reducer"
 
+//setFilterBy({ location: "", checkIn: "", checkOut: "", capacity: "" }) reset filterBy
+
 export async function loadHomes(filterBy) {
   try {
     const homes = await homeService.query(filterBy)

@@ -36,7 +36,7 @@ export function HomesList({ location, checkIn, checkOut }) {
   const endIdx = Math.min(startIdx + visibleCount, total)
   const visibleHomes = filteredHomes.slice(startIdx, endIdx)
 
-  console.log(`Visible homes: ${visibleHomes.length}, Total homes: ${total}`);
+
   
 
   const next = () => {

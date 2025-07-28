@@ -50,7 +50,7 @@ export function homeReducer(state = initialState, action) {
       }
 
     case SET_FILTER:
-      return { ...state, filterBy: action.filterBy }
+      return { ...state, filterBy: {...state.filterBy,...action.filterBy }}
 
     case SET_IS_LOADING:
       return { ...state, isLoading: action.isLoading }
