@@ -27,7 +27,7 @@ function initMap(lat = 32.0749831, lng = 34.9120554) {
         })
 }
 
-function panTo({lat, lng, zoom=15}) {
+function panTo({ lat, lng, zoom = 15 }) {
     const laLatLng = new google.maps.LatLng(lat, lng)
     gMap.panTo(laLatLng)
     gMap.setZoom(zoom)
@@ -47,8 +47,8 @@ function lookupAddressGeo(geoOrAddress) {
         .then(res => {
             if (!res.results.length) return new Error('Found nothing')
             res = res.results[0]
-            const {formatted_address, geometry} = res
-            
+            const { formatted_address, geometry } = res
+
             const geo = {
                 address: formatted_address.substring(formatted_address.indexOf(' ')).trim(),
                 lat: geometry.location.lat,
@@ -63,7 +63,7 @@ function lookupAddressGeo(geoOrAddress) {
 function addClickListener(cb) {
     gMap.addListener('click', (mapsMouseEvent) => {
         const geo = { lat: mapsMouseEvent.latLng.lat(), lng: mapsMouseEvent.latLng.lng() }
-        lookupAddressGeo(geo).then(cb)  
+        lookupAddressGeo(geo).then(cb)
     })
 }
 
@@ -108,50 +108,68 @@ function _connectGoogleApi() {
 // map.service.js
 
 export function loadGoogleMaps(apiKey) {
-  return new Promise((resolve, reject) => {
-    if (window.google && window.google.maps) {
-      resolve(window.google.maps)
-      return
-    }
+    return new Promise((resolve, reject) => {
+        if (window.google && window.google.maps) {
+            resolve(window.google.maps)
+            return
+        }
 
-    const script = document.createElement('script')
-    script.src = `https://maps.googleapis.com/maps/api/js?key=${apiKey}`
-    script.async = true
-    script.onload = () => resolve(window.google.maps)
-    script.onerror = (err) => reject(err)
-    document.body.appendChild(script)
-  })
+        const script = document.createElement('script')
+        script.src = `https://maps.googleapis.com/maps/api/js?key=${apiKey}`
+        script.async = true
+        script.onload = () => resolve(window.google.maps)
+        script.onerror = (err) => reject(err)
+        document.body.appendChild(script)
+    })
 }
 
 export function setMarkers(homes) {
-  // Remove existing markers
-  gMarkers.forEach(marker => marker.setMap(null))
-  gMarkers = []
+    gMarkers.forEach(marker => marker.setMap(null))
+    gMarkers = []
 
-  homes.forEach(home => {
-    const { location, title, price } = home
-    if (!location?.lat || !location?.lng) return
+    homes.forEach(home => {
+        const { location, title, price } = home
+        if (!location?.lat || !location?.lng) return
 
-    const marker = new google.maps.Marker({
-      position: { lat: location.lat, lng: location.lng },
-      map: gMap,
-      title: title || '',
-      label: {
-        text: `₪${price}`,
-        color: 'white',
-        fontSize: '14px',
-        fontWeight: 'bold',
-      },
-      icon: {
-        path: google.maps.SymbolPath.CIRCLE,
-        scale: 18,
-        fillColor: '#ff385c',
-        fillOpacity: 0.9,
-        strokeWeight: 1,
-        strokeColor: '#fff'
-      }
+        const marker = new google.maps.Marker({
+            position: { lat: location.lat, lng: location.lng },
+            map: gMap,
+            title: title || '',
+            icon: getCustomMarkerIcon(price, false),
+        })
+
+        // Simulate hover
+        marker.addListener('mouseover', () => {
+            marker.setIcon(getCustomMarkerIcon(price, true))
+        })
+        marker.addListener('mouseout', () => {
+            marker.setIcon(getCustomMarkerIcon(price, false))
+        })
+
+        gMarkers.push(marker)
     })
-
-    gMarkers.push(marker)
-  })
 }
+
+
+function getCustomMarkerIcon(price, isHovered = false) {
+  const width = isHovered ? 88 : 80
+  const height = isHovered ? 44 : 40
+  const fontSize = isHovered ? 18 : 16
+  const radius = isHovered ? 22 : 20
+
+  const svg = `
+    <svg xmlns="http://www.w3.org/2000/svg" width="${width}" height="${height}">
+      <rect rx="${radius}" ry="${radius}" x="0" y="0" width="${width}" height="${height}"
+        fill="#fff" stroke="#ccc" stroke-width="1" />
+      <text x="50%" y="55%" text-anchor="middle" fill="#000"
+        font-size="${fontSize}" font-family="Arial" font-weight="bold">₪${price}</text>
+    </svg>
+  `
+  return {
+    url: 'data:image/svg+xml;charset=UTF-8,' + encodeURIComponent(svg),
+    scaledSize: new google.maps.Size(width, height),
+    anchor: new google.maps.Point(width / 2, height / 2),
+  }
+}
+
+

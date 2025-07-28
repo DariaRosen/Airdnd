@@ -1,6 +1,6 @@
-// import { DateRange } from "react-date-range"
-// import "react-date-range/dist/styles.css"
-// import "react-date-range/dist/theme/default.css"
+import { DateRange } from "react-date-range"
+import "react-date-range/dist/styles.css"
+import "react-date-range/dist/theme/default.css"
 import { useState, useEffect, useRef } from "react"
 
 export function DateSearch({ dateRange, setDateRange }) {
