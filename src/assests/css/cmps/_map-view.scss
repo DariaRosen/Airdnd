@@ -1,0 +1,17 @@
+.custom-marker {
+  background: white;
+  border: 1px solid #ccc;
+  border-radius: 20px;
+  padding: 5px 10px;
+  font-family: Arial, sans-serif;
+  font-weight: bold;
+  font-size: 14px;
+  cursor: pointer;
+  box-shadow: 0 0 4px rgba(0,0,0,0.15);
+  transition: transform 0.2s ease;
+
+  &:hover {
+    font-size: 18px;
+    transform: scale(1.1);
+  }
+}

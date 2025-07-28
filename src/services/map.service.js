@@ -123,83 +123,90 @@ export function loadGoogleMaps(apiKey) {
     })
 }
 
+// Keep a global array to track your custom markers
+var gCustomMarkers = []
+
 export function setMarkers(homes) {
-    gMarkers.forEach(marker => marker.setMap(null))
-    gMarkers = []
+  // Remove old custom markers from the map
+  if (gCustomMarkers.length) {
+    gCustomMarkers.forEach(marker => marker.setMap(null))
+    gCustomMarkers = []
+  }
 
-    const bounds = new google.maps.LatLngBounds()
+  // If no homes, nothing to do
+  if (!homes || homes.length === 0) return
 
-    homes.forEach(home => {
-        const { location, title, price } = home
-        if (!location?.lat || !location?.lng) return
+  // Calculate bounds to fit all markers
+  const bounds = new google.maps.LatLngBounds()
 
-        const position = { lat: location.lat, lng: location.lng }
+  homes.forEach(home => {
+    const { location, price } = home
+    if (!location?.lat || !location?.lng) return
 
-        const marker = new google.maps.Marker({
-            position,
-            map: gMap,
-            title: title || '',
-            icon: getCustomMarkerIcon(price, false),
-        })
+    const position = new google.maps.LatLng(location.lat, location.lng)
 
-        // Simulate hover
-        marker.addListener('mouseover', () => {
-            marker.setIcon(getCustomMarkerIcon(price, true))
-        })
-        marker.addListener('mouseout', () => {
-            marker.setIcon(getCustomMarkerIcon(price, false))
-        })
+    // Create your HTML custom marker
+    const customMarker = new CustomMarker(position, gMap, price)
 
-        gMarkers.push(marker)
+    gCustomMarkers.push(customMarker)
+    bounds.extend(position)
+  })
 
-        // Extend bounds to include this marker
-        bounds.extend(position)
-    })
+  if (!bounds.isEmpty()) {
+    // Optionally add vertical padding for better positioning
+    const northEast = bounds.getNorthEast()
+    const southWest = bounds.getSouthWest()
 
-    if (!bounds.isEmpty()) {
-        // Calculate padded bounds with extra vertical space at top and bottom
-        const northEast = bounds.getNorthEast()
-        const southWest = bounds.getSouthWest()
+    const latSpan = northEast.lat() - southWest.lat()
+    const paddingFactor = 0.25
 
-        const latSpan = northEast.lat() - southWest.lat()
-        const lngSpan = northEast.lng() - southWest.lng()
+    const paddedNorthLat = northEast.lat() + latSpan * paddingFactor
+    const paddedSouthLat = southWest.lat() - latSpan * paddingFactor
 
-        const paddingFactor = 0.25 // 25% vertical padding
+    const paddedBounds = new google.maps.LatLngBounds(
+      new google.maps.LatLng(paddedSouthLat, southWest.lng()),
+      new google.maps.LatLng(paddedNorthLat, northEast.lng())
+    )
 
-        // Extend more at top and bottom to push north marker down and south marker up
-        const newNorthLat = northEast.lat() + latSpan * paddingFactor
-        const newSouthLat = southWest.lat() - latSpan * paddingFactor
-
-        const paddedNorthEast = new google.maps.LatLng(newNorthLat, northEast.lng())
-        const paddedSouthWest = new google.maps.LatLng(newSouthLat, southWest.lng())
-
-        const paddedBounds = new google.maps.LatLngBounds(paddedSouthWest, paddedNorthEast)
-
-        gMap.fitBounds(paddedBounds)
-    }
+    gMap.fitBounds(paddedBounds)
+  }
 }
 
+class CustomMarker extends google.maps.OverlayView {
+  constructor(position, map, price) {
+    super()
+    this.position = position
+    this.map = map
+    this.price = price
+    this.div = null
+    this.setMap(map)
+  }
 
+  onAdd() {
+    this.div = document.createElement('div')
+    this.div.className = 'custom-marker'
+    this.div.innerText = `₪${this.price}`
+    this.getPanes().overlayMouseTarget.appendChild(this.div)
+  }
 
-function getCustomMarkerIcon(price, isHovered = false) {
-    const width = isHovered ? 88 : 80
-    const height = isHovered ? 44 : 40
-    const fontSize = isHovered ? 18 : 16
-    const radius = isHovered ? 22 : 20
-
-    const svg = `
-    <svg xmlns="http://www.w3.org/2000/svg" width="${width}" height="${height}">
-      <rect rx="${radius}" ry="${radius}" x="0" y="0" width="${width}" height="${height}"
-        fill="#fff" stroke="#ccc" stroke-width="1" />
-      <text x="50%" y="55%" text-anchor="middle" fill="#000"
-        font-size="${fontSize}" font-family="Arial" font-weight="bold">₪${price}</text>
-    </svg>
-  `
-    return {
-        url: 'data:image/svg+xml;charset=UTF-8,' + encodeURIComponent(svg),
-        scaledSize: new google.maps.Size(width, height),
-        anchor: new google.maps.Point(width / 2, height / 2),
+  draw() {
+    const projection = this.getProjection()
+    const pos = projection.fromLatLngToDivPixel(this.position)
+    if (this.div) {
+      this.div.style.left = pos.x + 'px'
+      this.div.style.top = pos.y + 'px'
+      this.div.style.position = 'absolute'
+      this.div.style.transform = 'translate(-50%, -50%)'
     }
+  }
+
+  onRemove() {
+    if (this.div) {
+      this.div.parentNode.removeChild(this.div)
+      this.div = null
+    }
+  }
 }
+
 
 
