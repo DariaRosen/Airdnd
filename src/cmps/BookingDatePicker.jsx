@@ -1,7 +1,13 @@
 import { DateRange } from "react-date-range"
 import { useState, useEffect, useRef } from "react"
 
-export function BookingDatePicker({ checkIn, checkOut, setCheckIn, setCheckOut, disabledDates }) {
+export function BookingDatePicker({
+  checkIn,
+  checkOut,
+  setCheckIn,
+  setCheckOut,
+  disabledDates,
+}) {
   const [isOpen, setIsOpen] = useState(false)
   const dateRef = useRef()
 
@@ -17,8 +23,8 @@ export function BookingDatePicker({ checkIn, checkOut, setCheckIn, setCheckOut, 
 
   const handleChange = (ranges) => {
     const range = ranges.selection
-    setCheckIn(range.startDate.toISOString())
-    setCheckOut(range.endDate.toISOString())
+    setCheckIn(range.startDate.toISOString().slice(0,10))
+    setCheckOut(range.endDate.toISOString().slice(0,10))
   }
 
   return (
@@ -40,17 +46,31 @@ export function BookingDatePicker({ checkIn, checkOut, setCheckIn, setCheckOut, 
       {isOpen && (
         <div className="date-dropdown">
           <DateRange
+            showDateDisplay={false}
+            showMonthAndYearPickers={false}
             onChange={handleChange}
-            ranges={[{
-              startDate: checkIn ? new Date(checkIn) : new Date(),
-              endDate: checkOut ? new Date(checkOut) : new Date(),
-              key: 'selection'
-            }]}
+            ranges={[
+              {
+                startDate: checkIn ? new Date(checkIn) : new Date(),
+                endDate: checkOut ? new Date(checkOut) : new Date(),
+                key: "selection",
+              },
+            ]}
             minDate={new Date()}
             disabledDates={disabledDates}
             moveRangeOnFirstSelection={false}
             months={2}
             direction="horizontal"
+            classNames={{
+              day: "custom-day",
+              daySelected: "custom-day-selected",
+              dayDisabled: "custom-day-disabled",
+              dayToday: "custom-today",
+              month: "custom-month",
+              calendarWrapper: "custom-calendar-wrapper",
+              monthAndYearWrapper: "custom-month-header",
+              weekDay: "custom-weekday",
+            }}
           />
         </div>
       )}

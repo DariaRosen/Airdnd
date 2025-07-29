@@ -47,6 +47,8 @@ export function DateSearch({ dateRange, setDateRange }) {
       {isDateOpen && (
         <div className="date-dropdown">
           <DateRange
+            showDateDisplay={false}
+            showMonthAndYearPickers={false}
             editableDateInputs={true}
             onChange={handleDateChange}
             moveRangeOnFirstSelection={false}

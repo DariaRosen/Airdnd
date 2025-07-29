@@ -82,7 +82,6 @@ export function BookingSearch({ home }) {
       <h3>
         {home.price}$ <span style={{ fontSize: "16px" }}>night</span>
       </h3>
-
       <BookingDatePicker
         checkIn={checkIn}
         checkOut={checkOut}
