@@ -23,17 +23,19 @@
     margin-bottom: 0rem; // reduce bottom margin
   }
 
-  a{
+  a {
     text-decoration: none;
     color: inherit; // inherit color from parent
   }
 
   img {
     width: 100%; // fill the container width
+    height: 100%;
     aspect-ratio: 1 / 1; // makes it a square (1:1)
     object-fit: cover; // crop to fill square without stretching
     border-radius: 15px; // rounded corners
     display: block;
+    object-position: center center; // Always crop from center
   }
 }
 
@@ -41,15 +43,6 @@
   position: relative;
   width: 100%;
   aspect-ratio: 1 / 1; // Square container
-
-  img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover; // Crop image, don't stretch
-    object-position: center center; // Always crop from center
-    border-radius: 15px;
-    display: block;
-  }
 }
 
 .heart-icon {

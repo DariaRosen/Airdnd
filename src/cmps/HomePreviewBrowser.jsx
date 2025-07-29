@@ -46,23 +46,31 @@ export function HomePreviewBrowser({ home }) {
             <Link to={`/home/${home._id}`}>
 
 
-                <p className="full-properties">
-
+                <div className="full-properties">
                     <span className="title-rating">
-                        {home.title}
-                        <FaStar className="star-icon" />
-                        {home.rating}
-                        {home.numberOfRaters}
+                        <span className="title">
+                            {/* {home.title.length > 25
+                                ? home.title.slice(0, 25) + "..."
+                                : home.title} */}
+                                {home.title}
+                        </span>
+                        <span className="rating-block">
+                            <FaStar className="star-icon" />
+                            {home.rating} ({home.numberOfRaters})
+                        </span>
                     </span>
 
-                    <p>{home.description}</p>
-                    <p>{home.beds} beds</p>
-                    <p>{dateRange}</p>
+
+
+                    <p className="description">{home.description}</p>
+                    <p className="beds">{home.beds} beds</p>
+                    <p className="date-range-browser">{dateRange}</p>
+
                     <span className="price">
-                        {home.price}₪ for 1 night
-                        *{home.price * 2}₪ total
+                        {home.price}₪ for 1 night • {home.price * 2}₪ total
                     </span>
-                </p>
+                </div>
+
             </Link>
         </article>
     )
