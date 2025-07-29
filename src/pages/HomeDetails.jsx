@@ -107,7 +107,7 @@ export function HomeDetails() {
 
         <aside className="side-panel">
 
-            <BookingSearch />
+            <BookingSearch home={home} />
 
         </aside>
       </section>
