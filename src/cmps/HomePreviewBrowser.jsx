@@ -7,6 +7,7 @@ import { updateFavoritesUser } from "../store/user/user.action"
 
 export function HomePreviewBrowser({ home }) {
     const dateRange = getFormattedDateRange() // returns something like "Jul 15–17"
+    const [currentImgIdx, setCurrentImgIdx] = useState(0)
     const loggedInUser = useSelector(
         (storeState) => storeState.userModule.loggedInUser
     )
@@ -16,6 +17,10 @@ export function HomePreviewBrowser({ home }) {
         setIsLiked(loggedInUser?.favorites?.includes(home._id) || false)
     }, [loggedInUser, home._id])
 
+    useEffect(() => {
+        setCurrentImgIdx(0)
+    }, [home._id])
+
     const toggleHeart = async (homeId) => {
         setIsLiked((prev) => !prev)
         const updatedUser = await updateFavoritesUser(loggedInUser._id, homeId)
@@ -24,9 +29,32 @@ export function HomePreviewBrowser({ home }) {
     return (
         <article className="home-preview-browser">
             <div className="img-container">
-                <Link to={`/home/${home._id}`}>
-                    <img src={home.imgUrls[0]} alt={home.title} />
-                </Link>
+
+                <div className="carousel-container">
+                    <button
+                        className="carousel-btn left"
+                        onClick={(e) => {
+                            e.stopPropagation()
+                            setCurrentImgIdx((prevIdx) => (prevIdx === 0 ? home.imgUrls.length - 1 : prevIdx - 1))
+                        }}
+                    >
+                        <img src="/Airdnd/icons/arrow1.svg" alt="Previous" className="arrow-icon rotate-left" />
+                    </button>
+
+                    <Link to={`/home/${home._id}`}>
+                        <img src={home.imgUrls[currentImgIdx]} alt={home.title} />
+                    </Link>
+
+                    <button
+                        className="carousel-btn right"
+                        onClick={(e) => {
+                            e.stopPropagation()
+                            setCurrentImgIdx((prevIdx) => (prevIdx === home.imgUrls.length - 1 ? 0 : prevIdx + 1))
+                        }}
+                    >
+                        <img src="/Airdnd/icons/arrow1.svg" alt="Next" className="arrow-icon" />
+                    </button>
+                </div>
 
                 <img
                     src={isLiked ? "./icons/heart_pink.svg" : "./icons/heart.svg"}
@@ -44,23 +72,14 @@ export function HomePreviewBrowser({ home }) {
             </div>
 
             <Link to={`/home/${home._id}`}>
-
-
                 <div className="full-properties">
                     <span className="title-rating">
-                        <span className="title">
-                            {/* {home.title.length > 25
-                                ? home.title.slice(0, 25) + "..."
-                                : home.title} */}
-                            {home.title}
-                        </span>
+                        <span className="title">{home.title}</span>
                         <span className="rating-block">
                             <FaStar className="star-icon" />
                             {home.rating} ({home.numberOfRaters})
                         </span>
                     </span>
-
-
 
                     <p className="description">{home.description}</p>
                     <p className="beds">{home.beds} beds</p>
@@ -71,10 +90,9 @@ export function HomePreviewBrowser({ home }) {
                         <span>night</span> •
                         <span className="total-price"> ₪{home.price * 2} total</span>
                     </span>
-
                 </div>
-
             </Link>
         </article>
     )
+
 }
