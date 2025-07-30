@@ -7,6 +7,7 @@ import { MapView } from './MapView.jsx'
 export function HomeBrowserWithMap() {
   const [params, setParams] = useState({ location: '', checkIn: '', checkOut: '' })
   const [showMap, setShowMap] = useState(false)
+  const [hoveredHomeId, setHoveredHomeId] = useState(null)
 
   useEffect(() => {
     const hash = window.location.hash // "#/filter?location=UK"
@@ -42,17 +43,21 @@ export function HomeBrowserWithMap() {
     <section className="home-filter">
       <div className="home-filter-layout">
         <h2>
-          Over {filteredHomes.length} homes in {params.location || 'your search'}
+          {filteredHomes.length} homes in {params.location || 'your search'}
         </h2>
 
         <div className="homes-grid" >
           {filteredHomes.map(home => (
-            <HomePreviewBrowser key={home._id} home={home}/>
+            <HomePreviewBrowser
+              key={home._id}
+              home={home}
+              onHover={setHoveredHomeId}
+            />
           ))}
         </div>
 
         <div className="map-placeholder">
-          {showMap && <MapView homes={filteredHomes} />}
+          <MapView homes={filteredHomes} hoveredHomeId={hoveredHomeId} />
         </div>
       </div>
     </section>

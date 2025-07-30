@@ -126,7 +126,7 @@ export function loadGoogleMaps(apiKey) {
 // Keep a global array to track your custom markers
 var gCustomMarkers = []
 
-export function setMarkers(homes) {
+export function setMarkers(homes, hoveredHomeId) {
     // Remove old custom markers from the map
     if (gCustomMarkers.length) {
         gCustomMarkers.forEach(marker => marker.setMap(null))
@@ -146,9 +146,9 @@ export function setMarkers(homes) {
         const position = new google.maps.LatLng(location.lat, location.lng)
 
         // Create your HTML custom marker
-        //const customMarker = new CustomMarker(position, gMap, price)
         const CustomMarker = createCustomMarkerClass()
-        const marker = new CustomMarker(position, gMap, price)
+        const isHovered = hoveredHomeId === home._id
+        const marker = new CustomMarker(position, gMap, price, isHovered)
 
         gCustomMarkers.push(marker)
         bounds.extend(position)
@@ -176,12 +176,13 @@ export function setMarkers(homes) {
 
 export function createCustomMarkerClass() {
     return class CustomMarker extends google.maps.OverlayView {
-        constructor(position, map, price) {
+        constructor(position, map, price, isHovered = false) {
             super()
             this.position = position
             this.map = map
             this.price = price
             this.div = null
+            this.isHovered = isHovered
             this.setMap(map)
         }
 
@@ -189,13 +190,21 @@ export function createCustomMarkerClass() {
             this.div = document.createElement('div')
             this.div.className = 'custom-marker'
             this.div.innerText = `₪${this.price}`
-            this.getPanes().overlayMouseTarget.appendChild(this.div)
+
+            // Add hovered class if applicable
+            if (this.isHovered) {
+                this.div.classList.add('hovered-marker')
+            }
+
+            const panes = this.getPanes()
+            panes.overlayMouseTarget.appendChild(this.div)
         }
 
         draw() {
             const projection = this.getProjection()
             const pos = projection.fromLatLngToDivPixel(this.position)
-            if (this.div) {
+
+            if (pos && this.div) {
                 this.div.style.left = pos.x + 'px'
                 this.div.style.top = pos.y + 'px'
                 this.div.style.position = 'absolute'
@@ -204,13 +213,14 @@ export function createCustomMarkerClass() {
         }
 
         onRemove() {
-            if (this.div) {
+            if (this.div && this.div.parentNode) {
                 this.div.parentNode.removeChild(this.div)
                 this.div = null
             }
         }
     }
 }
+
 
 
 

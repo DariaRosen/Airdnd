@@ -4,16 +4,15 @@ import { mapService } from "../services/map.service"
 import { useSelector } from "react-redux" //
 
 
-export function MapView({ homes }) {
-  // const homes = useSelector(state => state.homeModule.homes)
+export function MapView({ homes, hoveredHomeId }) {
 
   useEffect(() => {
     mapService.initMap().then(() => {
       if (homes?.length) {
-        mapService.setMarkers(homes)
+        mapService.setMarkers(homes, hoveredHomeId)
       }
     })
-  }, [homes])
+  }, [homes, hoveredHomeId])
 
   return <div className="map" style={{ height: '100%', width: '100%' }}></div>
 }

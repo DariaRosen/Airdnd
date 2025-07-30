@@ -5,7 +5,7 @@ import { useState, useEffect } from "react"
 import { useSelector } from "react-redux"
 import { updateFavoritesUser } from "../store/user/user.action"
 
-export function HomePreviewBrowser({ home }) {
+export function HomePreviewBrowser({ home, onHover }) {
     const dateRange = getFormattedDateRange() // returns something like "Jul 15–17"
     const [currentImgIdx, setCurrentImgIdx] = useState(0)
     const loggedInUser = useSelector(
@@ -27,7 +27,11 @@ export function HomePreviewBrowser({ home }) {
         setIsLiked(updatedUser.favorites.includes(homeId))
     }
     return (
-        <article className="home-preview-browser">
+        <article className="home-preview-browser"
+            onMouseEnter={() => onHover(home._id)}
+            onMouseLeave={() => onHover(null)}
+        >
+
             <div className="img-container">
 
                 <div className="carousel-container">
