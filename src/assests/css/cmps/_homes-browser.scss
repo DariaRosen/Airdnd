@@ -2,12 +2,11 @@
   display: grid;
   grid-template-rows: auto 1fr;
   grid-template-columns: 1fr;
-  gap: 1rem;
+  gap: 1rem 2rem;
   align-items: start;
   margin-top: 25px;
-  
 
-  h2{
+  h2 {
     grid-column: 1;
     grid-row: 1;
     font-size: 1rem;

@@ -307,7 +307,7 @@ function updateImageUrlsFromAssets(homes, cloudinaryAssets) {
   })
 }
 
-function getNextMonthDates({ fromDay = 10, toDay = 15 } = {}) {
+function getNextMonthDates({ fromDay = 32, toDay = 32 } = {}) {
   const today = new Date()
   const nextMonth = new Date(today.getFullYear(), today.getMonth() + 1, 1)
 
