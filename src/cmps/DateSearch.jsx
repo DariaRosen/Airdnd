@@ -21,6 +21,9 @@ export function DateSearch({ dateRange, setDateRange }) {
   const handleDateChange = (ranges) => {
     setDateRange([ranges.selection])
   }
+  const customDayRenderer = (date) => {
+    return <div className="custom-day">{date.getDate()}</div>
+  }
 
   return (
     <div className="search-group date-container" ref={dateRef}>
@@ -47,15 +50,18 @@ export function DateSearch({ dateRange, setDateRange }) {
       {isDateOpen && (
         <div className="date-dropdown">
           <DateRange
-            showDateDisplay={false}
-            showMonthAndYearPickers={false}
-            editableDateInputs={true}
             onChange={handleDateChange}
             moveRangeOnFirstSelection={false}
             ranges={dateRange}
-            minDate={new Date()}
+            showDateDisplay={false}
+            showMonthAndYearPickers={false}
+            editableDateInputs={true}
             months={2}
             direction="horizontal"
+            minDate={new Date()}
+            // rangeColors={["#ff385c"]}
+            dayContentRenderer={customDayRenderer}
+
           />
         </div>
       )}

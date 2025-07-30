@@ -80,7 +80,7 @@ export function BookingSearch({ home }) {
   return isDatesSelected ? (
     <section className="booking-form">
       <h3>
-        {home.price}$ <span style={{ fontSize: "16px" }}>night</span>
+        {home.price}₪ <span style={{ fontSize: "16px" }}>night</span>
       </h3>
       <BookingDatePicker
         checkIn={checkIn}
