@@ -1,5 +1,5 @@
 .home-preview-browser {
-  flex: 0 0 250px;
+  flex: 0 0 270px;
   border-radius: 5px;
   display: flex;
   flex-direction: column;
@@ -34,31 +34,21 @@
   aspect-ratio: 1 / 1; // Square container
 }
 
-.price-rating {
+.price-rating-browser {
   display: flex;
   align-items: center;
   gap: 8px;
   font-size: 12px !important;
   color: $text-gray; /* unify color for price and star */
 
-  .rating {
+  .rating-browser {
     display: flex;
     align-items: center;
     gap: 4px;
     color: inherit; /* inherit from .price-rating */
     font-size: 12px !important; /* same as font-size above */
     margin-top: 0 !important;
-
-    .star-icon {
-      color: inherit; /* same color as text */
-      font-size: 6px; /* same as font-size above */
-      vertical-align: middle; /* aligns star nicely */
-      color: $text-gray !important; /* unify color for price and star */
-    }
   }
-}
-
-.full-properties {
 }
 
 .full-properties .title-rating {
@@ -87,9 +77,14 @@
   align-items: center;
   gap: 4px;
   white-space: nowrap; // keep rating on one line
-  flex-shrink: 0;       // prevent shrinking on small screens
+  flex-shrink: 0; // prevent shrinking on small screens
 }
 
+.full-properties .star-icon {
+  color: $text-dark; /* same color as text */
+  font-size: 12px; /* same as font-size above */
+  vertical-align: middle; /* aligns star nicely */
+}
 .description {
   overflow: hidden; /* hide overflowing text      */
   white-space: nowrap; /* keep everything on one line */
@@ -99,10 +94,21 @@
   color: $text-gray;
 }
 
-.price,
+.price-browser,
 .beds,
 .date-range-browser {
   font-size: 16px;
   font-weight: 400;
   color: $text-gray;
 }
+
+  .night-price {
+    color: black;
+    font-weight: 500;
+  }
+
+  .total-price {
+    text-decoration: underline;
+    text-underline-offset: 2px;
+    font-weight: 400;
+  }

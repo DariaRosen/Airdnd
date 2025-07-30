@@ -52,7 +52,7 @@ export function HomePreviewBrowser({ home }) {
                             {/* {home.title.length > 25
                                 ? home.title.slice(0, 25) + "..."
                                 : home.title} */}
-                                {home.title}
+                            {home.title}
                         </span>
                         <span className="rating-block">
                             <FaStar className="star-icon" />
@@ -66,9 +66,12 @@ export function HomePreviewBrowser({ home }) {
                     <p className="beds">{home.beds} beds</p>
                     <p className="date-range-browser">{dateRange}</p>
 
-                    <span className="price">
-                        {home.price}₪ for 1 night • {home.price * 2}₪ total
+                    <span className="price-browser">
+                        <span className="night-price">₪{home.price} </span>
+                        <span>night</span> •
+                        <span className="total-price"> ₪{home.price * 2} total</span>
                     </span>
+
                 </div>
 
             </Link>
