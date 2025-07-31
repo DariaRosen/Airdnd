@@ -106,6 +106,7 @@ export function AppHeader() {
       <div className="logo-wrapper">
         <Link to="/" className="logo-link">
           <AirdndIcon />
+          <span style={{ fontSize: '1.8rem', fontWeight: 600, color: '#FF385C', padding:5  }}>airdnd</span>
         </Link>
 
         {/* Right Icons */}

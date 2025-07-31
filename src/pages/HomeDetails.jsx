@@ -4,8 +4,8 @@ import { homeService } from "../services/home.service"
 import { userService } from "../services/user.service"
 import { useSelector } from "react-redux"
 import { amenities } from "../assests/amenities"
-import {AirdndIcon} from "../cmps/AirdndIcon"
-import {BookingSearch} from "../cmps/BookingSearch"
+import { AirdndIcon } from "../cmps/AirdndIcon"
+import { BookingSearch } from "../cmps/BookingSearch"
 
 export function HomeDetails() {
   const [home, setHome] = useState(null)
@@ -87,7 +87,9 @@ export function HomeDetails() {
               return (
                 <div className="amenity" key={amenity}>
                   <img
-                    src={`/Airdnd/public/icons/amenities/${match.icon}.svg`}
+                    src={`${import.meta.env.BASE_URL}icons/amenities/${
+                      match.icon
+                    }.svg`}
                     alt={match.label}
                   />
                   <span>{match.label}</span>
@@ -106,9 +108,7 @@ export function HomeDetails() {
         </section>
 
         <aside className="side-panel">
-
-            <BookingSearch home={home} />
-
+          <BookingSearch home={home} />
         </aside>
       </section>
 
