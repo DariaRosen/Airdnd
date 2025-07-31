@@ -13,7 +13,7 @@ export const homeService = {
 }
 window.hs = homeService
 
-const STORAGE_KEY = "homeDB"
+const STORAGE_KEY = "homesCollection"
 _createHomes()
 
 async function query(filterBy = { txt: "", maxPrice: 0 }) {

@@ -3,7 +3,7 @@ import { utilService } from "./util.service.js"
 import usersData from "../data/users.json"
 
 const STORAGE_KEY_LOGGEDIN_USER = "loggedinUser"
-const STORAGE_KEY_USER_DB = "userDB"
+const STORAGE_KEY_USER_DB = "usersCollection"
 
 export const userService = {
   login,
