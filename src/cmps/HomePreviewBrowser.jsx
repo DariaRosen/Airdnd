@@ -92,7 +92,9 @@ export function HomePreviewBrowser({ home, onHover }) {
                     <span className="price-browser">
                         <span className="night-price">₪{home.price} </span>
                         <span>night</span> •
-                        <span className="total-price"> ₪{home.price * 2} total</span>
+                        <span className="total-price"> </span>
+                        <span className="nis">₪</span>
+                        <span className="total-price">{home.price * 2}</span>
                     </span>
                 </div>
             </Link>
