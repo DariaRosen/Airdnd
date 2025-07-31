@@ -126,7 +126,7 @@ export function loadGoogleMaps(apiKey) {
 // Keep a global array to track your custom markers
 var gCustomMarkers = []
 
-export function setMarkers(homes, hoveredHomeId) {
+export function setMarkers(homes, hoveredHomeId, onMarkerClick) {
     // Remove old custom markers from the map
     if (gCustomMarkers.length) {
         gCustomMarkers.forEach(marker => marker.setMap(null))
@@ -148,7 +148,7 @@ export function setMarkers(homes, hoveredHomeId) {
         // Create your HTML custom marker
         const CustomMarker = createCustomMarkerClass()
         const isHovered = hoveredHomeId === home._id
-        const marker = new CustomMarker(position, gMap, price, isHovered)
+        const marker = new CustomMarker(position, gMap, price, isHovered, home._id, onMarkerClick)
 
         gCustomMarkers.push(marker)
         bounds.extend(position)
@@ -176,13 +176,15 @@ export function setMarkers(homes, hoveredHomeId) {
 
 export function createCustomMarkerClass() {
     return class CustomMarker extends google.maps.OverlayView {
-        constructor(position, map, price, isHovered = false) {
+        constructor(position, map, price, isHovered = false, homeId, onMarkerClick) {
             super()
             this.position = position
             this.map = map
             this.price = price
             this.div = null
             this.isHovered = isHovered
+            this.homeId = homeId
+            this.onMarkerClick = onMarkerClick
             this.setMap(map)
         }
 
@@ -195,6 +197,14 @@ export function createCustomMarkerClass() {
             if (this.isHovered) {
                 this.div.classList.add('hovered-marker')
             }
+
+            this.div.style.cursor = 'pointer'
+            // Add click listener to div
+            this.div.addEventListener('click', () => {
+                if (this.onMarkerClick) {
+                    this.onMarkerClick(this.homeId)
+                }
+            })
 
             const panes = this.getPanes()
             panes.overlayMouseTarget.appendChild(this.div)

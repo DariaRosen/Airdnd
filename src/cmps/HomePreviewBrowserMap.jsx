@@ -5,7 +5,7 @@ import { useState, useEffect } from "react"
 import { useSelector } from "react-redux"
 import { updateFavoritesUser } from "../store/user/user.action"
 
-export function HomePreviewBrowser({ home, onHover }) {
+export function HomePreviewBrowserMap({ home, onHover }) {
     const dateRange = getFormattedDateRange() // returns something like "Jul 15–17"
     const [currentImgIdx, setCurrentImgIdx] = useState(0)
     const loggedInUser = useSelector(

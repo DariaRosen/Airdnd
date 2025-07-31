@@ -7,7 +7,7 @@
   font-weight: bold;
   font-size: 14px;
   cursor: pointer;
-  box-shadow: 0 0 4px rgba(0,0,0,0.15);
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.15);
   transition: transform 0.2s ease;
 
   &:hover {
@@ -19,4 +19,36 @@
 .custom-marker.hovered-marker {
   background-color: black;
   color: white;
+}
+
+.home-preview-container {
+  position: absolute; /* overlay on top of the map */
+  bottom: 20px; /* place near bottom or adjust */
+  left: 20px; /* adjust horizontal position */
+  width: 320px; /* set a fixed width */
+  max-height: 400px; /* limit max height */
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  overflow: auto;
+  z-index: 10; /* on top of map */
+  padding: 16px 12px 12px 12px;
+  box-sizing: border-box;
+}
+
+.home-preview-container .close-btn {
+  position: absolute;
+  top: 6px;
+  right: 8px;
+  background: none;
+  border: none;
+  font-size: 18px;
+  font-weight: bold;
+  color: #333;
+  cursor: pointer;
+  z-index: 11;
+}
+
+.home-preview-container .close-btn:hover {
+  color: #ff5a5f;
 }
