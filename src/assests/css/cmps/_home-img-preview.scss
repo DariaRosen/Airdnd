@@ -91,6 +91,7 @@
   z-index: 2;
 }
 
+// Carousel Dots
 .carousel-dots {
   position: absolute;
   bottom: 10px;
@@ -112,5 +113,41 @@
       height: 6px;
       background-color: rgba(255, 255, 255, 1);
     }
+  }
+}
+
+// Carousel Image Animation
+.carousel-img {
+  animation-duration: 0.4s;
+  animation-fill-mode: both;
+
+  &.slide-right {
+    animation-name: slideInFromRight;
+  }
+
+  &.slide-left {
+    animation-name: slideInFromLeft;
+  }
+}
+
+@keyframes slideInFromRight {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0%);
+    opacity: 1;
+  }
+}
+
+@keyframes slideInFromLeft {
+  from {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0%);
+    opacity: 1;
   }
 }

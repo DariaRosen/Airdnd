@@ -6,8 +6,8 @@ import { updateFavoritesUser } from "../store/user/user.action"
 export function HomeImgPreview({ home, onHover = () => { }, showCarousel = true }) {
   const [currentImgIdx, setCurrentImgIdx] = useState(0)
   const [isLiked, setIsLiked] = useState(false)
+  const [slideDirection, setSlideDirection] = useState('')
   const loggedInUser = useSelector(storeState => storeState.userModule.loggedInUser)
-
 
   useEffect(() => {
     setIsLiked(loggedInUser?.favorites?.includes(home._id) || false)
@@ -38,6 +38,7 @@ export function HomeImgPreview({ home, onHover = () => { }, showCarousel = true 
               className="carousel-btn left"
               onClick={(e) => {
                 e.stopPropagation()
+                setSlideDirection('left')
                 setCurrentImgIdx(prevIdx => prevIdx - 1)
               }}
             >
@@ -45,9 +46,14 @@ export function HomeImgPreview({ home, onHover = () => { }, showCarousel = true 
             </button>
           )}
 
-
           <Link to={`/home/${home._id}`}>
-            <img src={imgToShow} alt={home.title} />
+            <img
+              key={imgToShow}
+              src={imgToShow}
+              alt={home.title}
+              className={`carousel-img slide-${slideDirection}`}
+              onAnimationEnd={() => setSlideDirection('')}
+            />
           </Link>
 
           {hasCarousel && currentImgIdx < home.imgUrls.length - 1 && (
@@ -55,13 +61,13 @@ export function HomeImgPreview({ home, onHover = () => { }, showCarousel = true 
               className="carousel-btn right"
               onClick={(e) => {
                 e.stopPropagation()
+                setSlideDirection('right')
                 setCurrentImgIdx(prevIdx => prevIdx + 1)
               }}
             >
               <img src="/Airdnd/icons/arrow1.svg" className="arrow-icon" />
             </button>
           )}
-
 
           {/* Dots below the image */}
           {hasCarousel && (
@@ -89,7 +95,8 @@ export function HomeImgPreview({ home, onHover = () => { }, showCarousel = true 
                 return home.imgUrls.slice(start, start + maxDots).map((_, idx) => {
                   let activeDotIdx = 2 // by default, highlight the middle dot
                   if (currentImgIdx < 2) activeDotIdx = currentImgIdx
-                  else if (currentImgIdx >= totalImgs - 2) activeDotIdx = maxDots - (totalImgs - currentImgIdx)
+                  else if (currentImgIdx >= totalImgs - 2)
+                    activeDotIdx = maxDots - (totalImgs - currentImgIdx)
 
                   return (
                     <span
@@ -101,8 +108,6 @@ export function HomeImgPreview({ home, onHover = () => { }, showCarousel = true 
               })()}
             </div>
           )}
-
-
         </div>
 
         <img
@@ -110,14 +115,13 @@ export function HomeImgPreview({ home, onHover = () => { }, showCarousel = true 
           className="heart-icon"
           onClick={toggleHeart}
         />
-        {
-          home.guestFavorite && (
-            <div className="guest-fav-tag">
-              <span>Guest favorite</span>
-            </div>
-          )
-        }
-      </div >
-    </article >
+
+        {home.guestFavorite && (
+          <div className="guest-fav-tag">
+            <span>Guest favorite</span>
+          </div>
+        )}
+      </div>
+    </article>
   )
 }
