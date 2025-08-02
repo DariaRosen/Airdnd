@@ -208,6 +208,15 @@ export function createCustomMarkerClass() {
 
             const panes = this.getPanes()
             panes.overlayMouseTarget.appendChild(this.div)
+            this.div.style.zIndex = this.isHovered ? '999' : '1'
+
+            // Hover effect to raise z-index
+            this.div.addEventListener('mouseenter', () => {
+                this.div.style.zIndex = '1000'
+            })
+            this.div.addEventListener('mouseleave', () => {
+                this.div.style.zIndex = this.isHovered ? '999' : '1'
+            })
         }
 
         draw() {

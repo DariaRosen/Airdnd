@@ -86,15 +86,10 @@ export function HomePreviewBrowserMap({ home, onHover }) {
                     </span>
 
                     <p className="description">{home.description}</p>
-                    <p className="beds">{home.beds} beds</p>
-                    <p className="date-range-browser">{dateRange}</p>
-
                     <span className="price-browser">
                         <span className="night-price">₪{home.price} </span>
                         <span>night</span> •
-                        <span className="total-price"> </span>
-                        <span className="nis">₪</span>
-                        <span className="total-price">{home.price * 2} total</span>
+                        <span className="date-range-browser">{dateRange}</span>
                     </span>
                 </div>
             </Link>
