@@ -9,7 +9,7 @@ export function HomeBrowserWithMap() {
   const [params, setParams] = useState({ location: '', checkIn: '', checkOut: '' })
   const [showMap, setShowMap] = useState(false)
   const [hoveredHomeId, setHoveredHomeId] = useState(null)
-  console.log('hoveredHomeId :', hoveredHomeId)
+  
   useEffect(() => {
     const hash = window.location.hash // "#/filter?location=UK"
     const queryString = hash.split('?')[1] || ''

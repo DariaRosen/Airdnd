@@ -2,7 +2,7 @@ import { Link } from "react-router-dom"
 import { FaStar } from "react-icons/fa"
 import { getFormattedDateRange } from "../services/home.service"
 
-export function HomeTextPreview({ home, variant = "main", onHover }) {
+export function HomeTextPreview({ home, variant = "main", onHover = () => { } }) {
   const dateRange = getFormattedDateRange()
 
   return (
@@ -11,6 +11,7 @@ export function HomeTextPreview({ home, variant = "main", onHover }) {
         to={`/home/${home._id}`}
         onMouseEnter={() => onHover(home._id)}
         onMouseLeave={() => onHover(null)}
+        style={{ textDecoration: 'none' }}
       >
         {variant === "main" && (
           <div className="main">

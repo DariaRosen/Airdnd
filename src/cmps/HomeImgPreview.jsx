@@ -33,38 +33,49 @@ export function HomeImgPreview({ home, onHover = () => { }, showCarousel = true 
     >
       <div className={`img-container ${hasCarousel ? 'hoverable' : ''}`}>
         <div className="carousel-container">
-          {hasCarousel && (
+          {hasCarousel && currentImgIdx > 0 && (
             <button
               className="carousel-btn left"
               onClick={(e) => {
                 e.stopPropagation()
-                setCurrentImgIdx((prevIdx) =>
-                  prevIdx === 0 ? home.imgUrls.length - 1 : prevIdx - 1
-                )
+                setCurrentImgIdx(prevIdx => prevIdx - 1)
               }}
             >
               <img src="/Airdnd/icons/arrow1.svg" className="arrow-icon rotate-left" />
             </button>
           )}
 
+
           <Link to={`/home/${home._id}`}>
             <img src={imgToShow} alt={home.title} />
           </Link>
 
-          {hasCarousel && (
+          {hasCarousel && currentImgIdx < home.imgUrls.length - 1 && (
             <button
               className="carousel-btn right"
               onClick={(e) => {
                 e.stopPropagation()
-                setCurrentImgIdx((prevIdx) =>
-                  prevIdx === home.imgUrls.length - 1 ? 0 : prevIdx + 1
-                )
+                setCurrentImgIdx(prevIdx => prevIdx + 1)
               }}
             >
               <img src="/Airdnd/icons/arrow1.svg" className="arrow-icon" />
             </button>
           )}
+
+
+          {/* Dots below the image */}
+          {hasCarousel && (
+            <div className="carousel-dots">
+              {home.imgUrls.map((_, idx) => (
+                <span
+                  key={idx}
+                  className={`dot ${currentImgIdx === idx ? 'active' : ''}`}
+                />
+              ))}
+            </div>
+          )}
         </div>
+
         <img
           src={isLiked ? "./icons/heart_pink.svg" : "./icons/heart.svg"}
           className="heart-icon"

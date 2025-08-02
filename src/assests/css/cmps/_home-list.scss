@@ -5,37 +5,16 @@
   padding: 0;
   margin-top: 12px!important;
   scroll-behavior: smooth;
-  // flex-grow: 1;
-  // flex-basis: 300;
+
 
   > .home-preview {
     flex: 1 1 14%; // flex-grow:0, shrink:1, basis:14%
     min-width: 140px; // won't get smaller than this
     max-width: 300px; // won't get bigger than this
+    text-decoration: none;
   }
 }
 
-.home-preview {
-  border-radius: 5px;
-  display: flex;
-  flex-direction: column;
-  overflow: hidden;
-  cursor: pointer;
-  font-family: "Segoe UI", sans-serif;
-
-  p {
-    color: $text-gray;
-    font-size: rem(12px);
-    font-weight: 450;
-  }
-
-  h4 {
-    color: $text-dark;
-    font-size: rem(14px);
-    font-weight: 500;
-  }
-
-}
 .home-carousel {
   overflow: hidden; // or keep overflow-x auto if you want scrolling
 }
