@@ -1,0 +1,122 @@
+[
+  {
+    "_id": "res101",
+    "home_id": "Fo7IG9",
+    "guest_id": "a3",
+    "host_id": "b9",
+    "checkIn": "2025-08-15",
+    "checkOut": "2025-08-18",
+    "pricePerNight": 670,
+    "discount": 0.1,
+    "tax": 180.9,
+    "totalPrice": 2010.9
+  },
+  {
+    "_id": "res102",
+    "home_id": "Rk2LJ8",
+    "guest_id": "a2",
+    "host_id": "b10",
+    "checkIn": "2025-09-01",
+    "checkOut": "2025-09-05",
+    "pricePerNight": 750,
+    "discount": 0,
+    "tax": 300,
+    "totalPrice": 3300
+  },
+  {
+    "_id": "res103",
+    "home_id": "Xy6Tn2",
+    "guest_id": "a1",
+    "host_id": "b11",
+    "checkIn": "2025-07-20",
+    "checkOut": "2025-07-25",
+    "pricePerNight": 450,
+    "discount": 0.15,
+    "tax": 191.25,
+    "totalPrice": 1186.25
+  },
+  {
+    "_id": "res104",
+    "home_id": "Uv9PQ3",
+    "guest_id": "a3",
+    "host_id": "b12",
+    "checkIn": "2025-08-10",
+    "checkOut": "2025-08-12",
+    "pricePerNight": 880,
+    "discount": 0.05,
+    "tax": 167,
+    "totalPrice": 1777
+  },
+  {
+    "_id": "res105",
+    "home_id": "Lm3BR4",
+    "guest_id": "a2",
+    "host_id": "b13",
+    "checkIn": "2025-08-22",
+    "checkOut": "2025-08-28",
+    "pricePerNight": 720,
+    "discount": 0.2,
+    "tax": 259.2,
+    "totalPrice": 3719.2
+  },
+  {
+    "_id": "res106",
+    "home_id": "Np6QM7",
+    "guest_id": "a1",
+    "host_id": "b14",
+    "checkIn": "2025-09-10",
+    "checkOut": "2025-09-14",
+    "pricePerNight": 520,
+    "discount": 0.1,
+    "tax": 187.2,
+    "totalPrice": 2207.2
+  },
+  {
+    "_id": "res107",
+    "home_id": "Qs8TL1",
+    "guest_id": "a3",
+    "host_id": "b15",
+    "checkIn": "2025-07-28",
+    "checkOut": "2025-07-30",
+    "pricePerNight": 680,
+    "discount": 0.15,
+    "tax": 115.6,
+    "totalPrice": 1271.6
+  },
+  {
+    "_id": "res108",
+    "home_id": "Hv4NK2",
+    "guest_id": "a2",
+    "host_id": "b16",
+    "checkIn": "2025-08-05",
+    "checkOut": "2025-08-07",
+    "pricePerNight": 410,
+    "discount": 0,
+    "tax": 82,
+    "totalPrice": 902
+  },
+  {
+    "_id": "res109",
+    "home_id": "Zt1WD6",
+    "guest_id": "a1",
+    "host_id": "b17",
+    "checkIn": "2025-09-15",
+    "checkOut": "2025-09-20",
+    "pricePerNight": 900,
+    "discount": 0.05,
+    "tax": 427.5,
+    "totalPrice": 4727.5
+  },
+  {
+    "_id": "res110",
+    "home_id": "Bw3PJ1",
+    "guest_id": "a3",
+    "host_id": "b18",
+    "checkIn": "2025-07-18",
+    "checkOut": "2025-07-22",
+    "pricePerNight": 580,
+    "discount": 0.1,
+    "tax": 208.8,
+    "totalPrice": 2358.8
+  }
+]

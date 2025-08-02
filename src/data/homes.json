@@ -1359,7 +1359,11 @@
             "Balcony"
         ],
         "msgs": [],
-        "unavailableDates": [],
+        "unavailableDates": [
+            "150825",
+            "160825",
+            "170825"
+        ],
         "lastSearchValue": "",
         "createdAt": 1753278900219
     },
@@ -1398,7 +1402,12 @@
             "Washer"
         ],
         "msgs": [],
-        "unavailableDates": [],
+        "unavailableDates": [
+            "100925",
+            "110925",
+            "120925",
+            "130925"
+        ],
         "lastSearchValue": "",
         "createdAt": 1753278900219
     },
@@ -1437,7 +1446,13 @@
             "Hot tub"
         ],
         "msgs": [],
-        "unavailableDates": [],
+        "unavailableDates": [
+            "151125",
+            "161125",
+            "171125",
+            "181125",
+            "191125"
+        ],
         "lastSearchValue": "",
         "createdAt": 1753278900219
     },
@@ -1476,7 +1491,12 @@
             "Elevator"
         ],
         "msgs": [],
-        "unavailableDates": [],
+        "unavailableDates": [
+            "201225",
+            "211225",
+            "221225",
+            "231225"
+        ],
         "lastSearchValue": "",
         "createdAt": 1753278900219
     },
@@ -1515,7 +1535,12 @@
             "Heating"
         ],
         "msgs": [],
-        "unavailableDates": [],
+        "unavailableDates": [
+            "121125",
+            "131125",
+            "141125",
+            "151125"
+        ],
         "lastSearchValue": "",
         "createdAt": 1753278900219
     },
@@ -1553,7 +1578,13 @@
             "Garden"
         ],
         "msgs": [],
-        "unavailableDates": [],
+        "unavailableDates": [
+            "051225",
+            "061225",
+            "071225",
+            "081225",
+            "091225"
+        ],
         "lastSearchValue": "",
         "createdAt": 1753278900219
     },
@@ -1591,7 +1622,13 @@
             "Gym"
         ],
         "msgs": [],
-        "unavailableDates": [],
+        "unavailableDates": [
+            "151025",
+            "161025",
+            "171025",
+            "181025",
+            "191025"
+        ],
         "lastSearchValue": "",
         "createdAt": 1753278900219
     },
@@ -1629,7 +1666,12 @@
             "Kitchenette"
         ],
         "msgs": [],
-        "unavailableDates": [],
+        "unavailableDates": [
+            "170925",
+            "180925",
+            "190925",
+            "200925"
+        ],
         "lastSearchValue": "",
         "createdAt": 1753278900219
     },
@@ -1668,7 +1710,14 @@
             "Lake Access"
         ],
         "msgs": [],
-        "unavailableDates": [],
+        "unavailableDates": [
+            "121025",
+            "131025",
+            "141025",
+            "151025",
+            "161025",
+            "171025"
+        ],
         "lastSearchValue": "",
         "createdAt": 1753278900219
     },
@@ -1706,7 +1755,12 @@
             "Fireplace"
         ],
         "msgs": [],
-        "unavailableDates": [],
+        "unavailableDates": [
+            "040925",
+            "050925",
+            "060925",
+            "070925"
+        ],
         "lastSearchValue": "",
         "createdAt": 1753278900219
     }
