@@ -35,28 +35,6 @@
     font-weight: 500;
   }
 
-  img {
-    width: 100%; // fill the container width
-    aspect-ratio: 1 / 1; // square image
-    object-fit: cover;
-    border-radius: 15px;
-  }
-
-  &:hover .actions {
-    transform: translateY(0);
-  }
-
-  .rating {
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    font-size: rem(16px);
-    margin-top: 8px;
-
-    .star-icon {
-      color: $clr-yellow;
-    }
-  }
 }
 .home-carousel {
   overflow: hidden; // or keep overflow-x auto if you want scrolling

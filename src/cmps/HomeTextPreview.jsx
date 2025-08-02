@@ -13,7 +13,7 @@ export function HomeTextPreview({ home, variant = "main", onHover }) {
         onMouseLeave={() => onHover(null)}
       >
         {variant === "main" && (
-          <>
+          <div className="main">
             <h4>{home.title}</h4>
             <p>{dateRange}</p>
             <p className="price-rating">
@@ -23,11 +23,11 @@ export function HomeTextPreview({ home, variant = "main", onHover }) {
                 {home.rating}
               </span>
             </p>
-          </>
+          </div>
         )}
 
         {variant === "browser" && (
-          <div className="full-properties">
+          <div className="browser">
             <span className="title-rating">
               <span className="title">{home.title}</span>
               <span className="rating-block">
@@ -47,7 +47,7 @@ export function HomeTextPreview({ home, variant = "main", onHover }) {
         )}
 
         {variant === "map" && (
-          <div className="full-properties">
+          <div className="map">
             <span className="title-rating">
               <span className="title">{home.title}</span>
               <span className="rating-block">

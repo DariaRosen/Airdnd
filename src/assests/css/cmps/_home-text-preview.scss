@@ -1,0 +1,198 @@
+.main {
+  .price-rating {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 12px;
+    color: $text-gray; // unified color for price and star
+
+    .rating {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      margin: 0; // replaces margin-top: 0
+      font-size: inherit; // cleaner than repeating 12px
+      color: inherit;
+
+      .star-icon {
+        font-size: 8px; // if you're sure this is desired
+        vertical-align: middle;
+        color: $text-gray;
+      }
+    }
+  }
+}
+
+.browser {
+  .price-rating-browser {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 12px !important;
+    color: $text-gray; /* unify color for price and star */
+
+    .rating-browser {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      color: inherit; /* inherit from .price-rating */
+      font-size: 12px !important; /* same as font-size above */
+      margin-top: 0 !important;
+    }
+  }
+
+  .title-rating {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    justify-content: space-between; // 👈 pushes title left and rating right
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    color: $text-dark;
+    font-size: 16px;
+    font-weight: 600;
+  }
+
+  .title {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    display: inline-block;
+    max-width: 180px; // or however much space you want to allow
+  }
+
+  .rating-block {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    white-space: nowrap; // keep rating on one line
+    flex-shrink: 0; // prevent shrinking on small screens
+  }
+
+  .star-icon {
+    color: $text-dark; /* same color as text */
+    font-size: 12px; /* same as font-size above */
+    vertical-align: middle; /* aligns star nicely */
+  }
+  .description {
+    overflow: hidden; /* hide overflowing text      */
+    white-space: nowrap; /* keep everything on one line */
+    text-overflow: ellipsis; /* add the …                   */
+    font-size: 16px;
+    font-weight: 400;
+    color: $text-gray;
+  }
+
+  .price-browser,
+  .beds,
+  .date-range-browser {
+    font-size: 16px;
+    font-weight: 400;
+    color: $text-gray;
+  }
+
+  .night-price {
+    color: black;
+    font-weight: 500;
+  }
+
+  .total-price {
+    text-decoration: underline;
+    text-underline-offset: 2px;
+    font-weight: 400;
+  }
+  .nis {
+    font-size: 20px;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+    font-weight: 400;
+  }
+}
+
+.map {
+  .price-rating-browser {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 12px !important;
+    color: $text-gray; /* unify color for price and star */
+
+    .rating-browser {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      color: inherit; /* inherit from .price-rating */
+      font-size: 12px !important; /* same as font-size above */
+      margin-top: 0 !important;
+    }
+  }
+
+  .title-rating {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    justify-content: space-between; // 👈 pushes title left and rating right
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    color: $text-dark;
+    font-size: 16px;
+    font-weight: 600;
+  }
+
+  .title {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    display: inline-block;
+    max-width: 180px; // or however much space you want to allow
+  }
+
+  .rating-block {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    white-space: nowrap; // keep rating on one line
+    flex-shrink: 0; // prevent shrinking on small screens
+  }
+
+  .star-icon {
+    color: $text-dark; /* same color as text */
+    font-size: 12px; /* same as font-size above */
+    vertical-align: middle; /* aligns star nicely */
+  }
+  .description {
+    overflow: hidden; /* hide overflowing text      */
+    white-space: nowrap; /* keep everything on one line */
+    text-overflow: ellipsis; /* add the …                   */
+    font-size: 16px;
+    font-weight: 400;
+    color: $text-gray;
+  }
+
+  .price-browser,
+  .beds,
+  .date-range-browser {
+    font-size: 16px;
+    font-weight: 400;
+    color: $text-gray;
+  }
+
+  .night-price {
+    color: black;
+    font-weight: 500;
+  }
+
+  .total-price {
+    text-decoration: underline;
+    text-underline-offset: 2px;
+    font-weight: 400;
+  }
+  .nis {
+    font-size: 20px;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+    font-weight: 400;
+  }
+}

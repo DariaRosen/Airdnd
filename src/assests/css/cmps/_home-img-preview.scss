@@ -1,10 +1,13 @@
 .img-container {
   position: relative;
-  width: 100%;
-  aspect-ratio: 1 / 1; // Square container
-}
 
-// CAROUSEL SECTION
+  &.hoverable:hover {
+    .carousel-btn {
+      opacity: 1;
+      pointer-events: auto;
+    }
+  }
+}
 
 .carousel-container {
   position: relative;
@@ -32,7 +35,7 @@
     z-index: 10;
     opacity: 0;
     transition: opacity 0.3s ease;
-    pointer-events: none; /* so buttons don’t block clicks when invisible */
+    pointer-events: none;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
 
     &.left {
@@ -50,11 +53,40 @@
   }
 }
 
-.carousel-container:hover .carousel-btn {
-  opacity: 1;
-  pointer-events: auto;
-}
-
 .arrow-icon.rotate-left {
   transform: rotate(180deg);
+}
+
+.heart-icon {
+  position: absolute;
+  top: 11px;
+  right: 8px;
+  width: 24px !important;
+  height: 24px !important;
+  object-fit: contain;
+  z-index: 1;
+  stroke: #fff !important;
+  stroke-width: 2 !important;
+  cursor: pointer;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  opacity: 1;
+  transform: none;
+
+    &:hover {
+    transform: scale(1.15);
+  }
+}
+
+.guest-fav-tag {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  background-color: white;
+  color: $text-dark;
+  font-weight: 700;
+  font-size: 11px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  z-index: 2;
 }
