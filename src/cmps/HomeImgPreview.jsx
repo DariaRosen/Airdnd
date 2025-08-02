@@ -66,14 +66,43 @@ export function HomeImgPreview({ home, onHover = () => { }, showCarousel = true 
           {/* Dots below the image */}
           {hasCarousel && (
             <div className="carousel-dots">
-              {home.imgUrls.map((_, idx) => (
-                <span
-                  key={idx}
-                  className={`dot ${currentImgIdx === idx ? 'active' : ''}`}
-                />
-              ))}
+              {(() => {
+                const totalImgs = home.imgUrls.length
+                const maxDots = 5
+                let start = 0
+
+                if (totalImgs <= maxDots) {
+                  // Less than or equal to 5 images — show all, highlight the current one directly
+                  return home.imgUrls.map((_, idx) => (
+                    <span
+                      key={idx}
+                      className={`dot ${currentImgIdx === idx ? 'active' : ''}`}
+                    />
+                  ))
+                }
+
+                // More than 5 images — need to slide the visible window of dots
+                if (currentImgIdx < 2) start = 0
+                else if (currentImgIdx >= totalImgs - 2) start = totalImgs - maxDots
+                else start = currentImgIdx - 2
+
+                return home.imgUrls.slice(start, start + maxDots).map((_, idx) => {
+                  let activeDotIdx = 2 // by default, highlight the middle dot
+                  if (currentImgIdx < 2) activeDotIdx = currentImgIdx
+                  else if (currentImgIdx >= totalImgs - 2) activeDotIdx = maxDots - (totalImgs - currentImgIdx)
+
+                  return (
+                    <span
+                      key={start + idx}
+                      className={`dot ${idx === activeDotIdx ? 'active' : ''}`}
+                    />
+                  )
+                })
+              })()}
             </div>
           )}
+
+
         </div>
 
         <img
