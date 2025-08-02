@@ -1,9 +1,8 @@
 import { useState, useRef, useEffect } from "react";
-import { HomePreview } from "./HomePreview.jsx";
-import { Link } from 'react-router-dom'
 import { utilService } from "../services/util.service.js"
 import { useSelector } from "react-redux"
-import { CgLayoutGrid } from "react-icons/cg";
+import { HomeImgPreview } from "./HomeImgPreview.jsx";
+import { HomeTextPreview } from "./HomeTextPreview.jsx";
 
 export function HomesList({ location, checkIn, checkOut }) {
   const homes = useSelector(storeState => storeState.homeModule.homes)
@@ -25,7 +24,7 @@ export function HomesList({ location, checkIn, checkOut }) {
     window.addEventListener("resize", handleResize)
     return () => window.removeEventListener("resize", handleResize)
   }, [])
-  
+
   const filteredHomes = homes.filter(home => {
     const matchesLocation = location ? utilService.doesHomeMatchLocation(home, location) : true
     const matchesDates = (checkIn && checkOut) ? utilService.doesHomeMatchDates(home, checkIn, checkOut) : true
@@ -37,7 +36,7 @@ export function HomesList({ location, checkIn, checkOut }) {
   const visibleHomes = filteredHomes.slice(startIdx, endIdx)
 
 
-  
+
 
   const next = () => {
     setStartIdx(prev => Math.min(prev + 1, total - visibleCount))
@@ -71,7 +70,8 @@ export function HomesList({ location, checkIn, checkOut }) {
         <ul className="home-list">
           {visibleHomes.map(home => (
             <li className="home-preview" key={home._id}>
-              <HomePreview home={home} />
+              <HomeImgPreview home={home} showCarousel={false} />
+              <HomeTextPreview home={home} variant="main" />
             </li>
           ))}
         </ul>

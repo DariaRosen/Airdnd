@@ -1,0 +1,60 @@
+.img-container {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1 / 1; // Square container
+}
+
+// CAROUSEL SECTION
+
+.carousel-container {
+  position: relative;
+  display: inline-block;
+
+  img {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    border-radius: 15px;
+    display: block;
+  }
+
+  .carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(255, 255, 255, 0.8);
+    border: none;
+    border-radius: 50%;
+    padding: 8px;
+    width: 28px;
+    height: 28px;
+    cursor: pointer;
+    z-index: 10;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none; /* so buttons don’t block clicks when invisible */
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+
+    &.left {
+      left: 8px;
+    }
+
+    &.right {
+      right: 8px;
+    }
+
+    .arrow-icon {
+      width: 14px;
+      height: 14px;
+    }
+  }
+}
+
+.carousel-container:hover .carousel-btn {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.arrow-icon.rotate-left {
+  transform: rotate(180deg);
+}

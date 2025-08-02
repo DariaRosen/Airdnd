@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react"
 import { mapService } from "../services/map.service"
-import { HomePreviewBrowserMap } from "./HomePreviewBrowserMap.jsx"
+import { HomeImgPreview } from "./HomeImgPreview.jsx"
+import { HomeTextPreview } from "./HomeTextPreview.jsx"
 
 export function MapView({ homes, hoveredHomeId }) {
   const isMapReady = useRef(false)
@@ -42,7 +43,17 @@ export function MapView({ homes, hoveredHomeId }) {
       {selectedHome && (
         <div className="home-preview-container" ref={previewRef}>
           <button className="close-btn" onClick={() => setSelectedHomeId(null)}>✕</button>
-          <HomePreviewBrowserMap home={selectedHome} onHover={() => {}} />
+          <div>
+            <HomeImgPreview
+              home={selectedHome}
+              onHover={() => { }}
+            />
+            <HomeTextPreview
+              home={selectedHome}
+              onHover={() => { }}
+              variant="map"
+            />
+          </div>
         </div>
       )}
     </>

@@ -1,14 +1,15 @@
 import { useEffect, useState, useMemo } from 'react'
 import { useSelector } from "react-redux"
-import { HomePreviewBrowser } from "./HomePreviewBrowser.jsx"
 import { utilService } from "../services/util.service.js"
 import { MapView } from './MapView.jsx'
+import { HomeImgPreview } from "./HomeImgPreview.jsx";
+import { HomeTextPreview } from "./HomeTextPreview.jsx"
 
 export function HomeBrowserWithMap() {
   const [params, setParams] = useState({ location: '', checkIn: '', checkOut: '' })
   const [showMap, setShowMap] = useState(false)
   const [hoveredHomeId, setHoveredHomeId] = useState(null)
-
+  console.log('hoveredHomeId :', hoveredHomeId)
   useEffect(() => {
     const hash = window.location.hash // "#/filter?location=UK"
     const queryString = hash.split('?')[1] || ''
@@ -48,11 +49,19 @@ export function HomeBrowserWithMap() {
 
         <div className="homes-grid" >
           {filteredHomes.map(home => (
-            <HomePreviewBrowser
-              key={home._id}
-              home={home}
-              onHover={setHoveredHomeId}
-            />
+            <div key={home._id}>
+              <HomeImgPreview
+                home={home}
+                onHover={setHoveredHomeId}
+                className="home-preview"
+              />
+              <HomeTextPreview
+                home={home}
+                onHover={setHoveredHomeId}
+                variant="browser"
+                className="home-preview"
+              />
+            </div>
           ))}
         </div>
 
