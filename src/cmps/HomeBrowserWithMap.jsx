@@ -2,38 +2,46 @@ import { useEffect, useState, useMemo } from 'react'
 import { useSelector } from "react-redux"
 import { utilService } from "../services/util.service.js"
 import { MapView } from './MapView.jsx'
-import { HomeImgPreview } from "./HomeImgPreview.jsx";
+import { HomeImgPreview } from "./HomeImgPreview.jsx"
 import { HomeTextPreview } from "./HomeTextPreview.jsx"
+import { loadHomes } from "../store/homes/homes.action.js"
 
 export function HomeBrowserWithMap() {
   const [params, setParams] = useState({ location: '', checkIn: '', checkOut: '' })
   const [showMap, setShowMap] = useState(false)
   const [hoveredHomeId, setHoveredHomeId] = useState(null)
-  
-  useEffect(() => {
-    const hash = window.location.hash // "#/filter?location=UK"
-    const queryString = hash.split('?')[1] || ''
-    const urlParams = new URLSearchParams(queryString)
-    const location = urlParams.get('location')
-    const checkIn = urlParams.get('checkIn')
-    const checkOut = urlParams.get('checkOut')
-    setParams({ location, checkIn, checkOut })
-  }, [])
 
   const homes = useSelector((storeState) => storeState.homeModule.homes)
 
+  // Parse query params from URL
+  useEffect(() => {
+    const hash = window.location.hash // "#/filter?location=Tel%20Aviv"
+    const queryString = hash.split('?')[1] || ''
+    const urlParams = new URLSearchParams(queryString)
+
+    const location = urlParams.get('location') || ''
+    const checkIn = urlParams.get('checkIn') || ''
+    const checkOut = urlParams.get('checkOut') || ''
+
+    const newParams = { location, checkIn, checkOut }
+    setParams(newParams)
+
+    // ✅ Call backend with filterBy
+    loadHomes(newParams)
+
+  }, [window.location.hash]) // run again if user navigates to another filter
+
   const filteredHomes = homes.filter(home => {
     const matchesLocation = params.location ? utilService.doesHomeMatchLocation(home, params.location) : true
-    const matchesDates = (params.checkIn && params.checkOut) ? utilService.doesHomeMatchDates(home, params.checkIn, params.checkOut) : true
+    const matchesDates = (params.checkIn && params.checkOut)
+      ? utilService.doesHomeMatchDates(home, params.checkIn, params.checkOut)
+      : true
     return matchesLocation && matchesDates
   })
 
   useEffect(() => {
     if (filteredHomes.length > 0) {
-      // Wait for next paint after render to ensure <HomePreview /> elements are in DOM
-      const timeoutId = setTimeout(() => {
-        setShowMap(true)
-      }, 0)
+      const timeoutId = setTimeout(() => setShowMap(true), 0)
       return () => clearTimeout(timeoutId)
     } else {
       setShowMap(false)
@@ -47,7 +55,7 @@ export function HomeBrowserWithMap() {
           {filteredHomes.length} homes in {params.location || 'your search'}
         </h2>
 
-        <div className="homes-grid" >
+        <div className="homes-grid">
           {filteredHomes.map(home => (
             <div key={home._id}>
               <HomeImgPreview
@@ -70,6 +78,5 @@ export function HomeBrowserWithMap() {
         </div>
       </div>
     </section>
-
   )
 }
