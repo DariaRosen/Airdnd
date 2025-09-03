@@ -111,7 +111,7 @@ export function AppHeader() {
 
         {/* Right Icons */}
         <div className="icon-container">
-          <div className="host-text">Become a host</div>
+          <div className="host-text" onClick={() => navigate('/become-host')}>Become a host</div>
 
           <Link to="/home" className="logo-link">
             <div className="icon-wrapper">

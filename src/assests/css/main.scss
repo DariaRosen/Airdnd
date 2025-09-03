@@ -15,6 +15,7 @@
 // Pages
 @import "./pages/home-page";
 @import "./pages/home-details";
+@import "./pages/become-host-login";
 
 
 // Components
@@ -29,8 +30,7 @@
 @import "./cmps/booking-form";
 @import "./cmps/home-img-preview";
 @import "./cmps/home-text-preview";
-
-
+@import "./cmps/mini-header";
 
 .bottom-div {
   height: 0px;
