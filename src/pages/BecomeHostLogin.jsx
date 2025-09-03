@@ -26,9 +26,12 @@ export function BecomeHostLogin() {
                 </div>
 
 
-                <p>
+                <p className="info-txt">
                     We’ll call or text you to confirm your number. Standard message and data
-                    rates apply. Privacy Policy
+                    rates apply.
+                </p>
+                <p className="privacy-txt">
+                   Privacy Policy
                 </p>
 
                 <button>Continue</button>

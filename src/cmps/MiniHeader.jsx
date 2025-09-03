@@ -34,12 +34,14 @@ export function MiniHeader() {
       <div className="logo-wrapper">
         <Link to="/" className="logo-link">
           <AirdndIcon />
-          <span style={{ fontSize: '1.8rem', fontWeight: 600, color: '#FF385C', padding:5  }}>airdnd</span>
+          <span style={{ fontSize: '1.8rem', fontWeight: 600, color: '#FF385C', padding: 5 }}>airdnd</span>
         </Link>
 
         {/* Right Icons */}
         <div className="icon-container">
-          <div className="host-text">Become a host</div>
+          <div className="host-text-wrapper" >
+            <div className="host-text">Become a host</div>
+          </div>
 
           <Link to="/home" className="logo-link">
             <div className="icon-wrapper">
