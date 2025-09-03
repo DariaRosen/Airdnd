@@ -2,6 +2,7 @@ import { useParams, Link } from "react-router-dom"
 import { useState, useEffect, useMemo } from "react"
 import { homeService } from "../services/home.service"
 import { userService } from "../services/user.service"
+import { bookingService } from "../services/booking.service"
 import { useSelector } from "react-redux"
 import { amenities } from "../assests/amenities"
 import { AirdndIcon } from "../cmps/AirdndIcon"
@@ -72,11 +73,9 @@ export function HomeDetails() {
       <section className="content-grid">
         <section className="main-content-details">
           <h3>{`Entire ${home.type} in ${home.location.city}, ${home.location.country}`}</h3>
-          <h4>{`${home.capacity} guests · ${home.rooms} rooms · ${
-            home.beds
-          } bed${home.beds > 1 ? "s" : ""} · ${home.bathrooms} bath${
-            home.bathrooms > 1 ? "s" : ""
-          }  `}</h4>
+          <h4>{`${home.capacity} guests · ${home.rooms} rooms · ${home.beds
+            } bed${home.beds > 1 ? "s" : ""} · ${home.bathrooms} bath${home.bathrooms > 1 ? "s" : ""
+            }  `}</h4>
           <h3>What this place offers</h3>
           <section className="amenities">
             {home.amenities.slice(0, 6).map((amenity) => {
@@ -87,9 +86,8 @@ export function HomeDetails() {
               return (
                 <div className="amenity" key={amenity}>
                   <img
-                    src={`${import.meta.env.BASE_URL}icons/amenities/${
-                      match.icon
-                    }.svg`}
+                    src={`${import.meta.env.BASE_URL}icons/amenities/${match.icon
+                      }.svg`}
                     alt={match.label}
                   />
                   <span>{match.label}</span>

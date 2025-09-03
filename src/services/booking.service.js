@@ -30,28 +30,18 @@ async function remove(bookingId) {
   return await storageService.remove(STORAGE_KEY, bookingId)
 }
 
-async function save(booking) {
+async function save(booking, checkIn, checkOut) {
   let savedBooking
 
-  if (booking._id) {
-    savedBooking = await storageService.put(STORAGE_KEY, booking)
-  } else {
-    const home = await homeService.getById(booking.homeId)
-    const newBooking = {
-      ...booking,
-      _id: utilService.makeId(),
-      createdAt: Date.now(),
-    }
-
-    // Mark unavailable dates in home
-    const dates = _getDatesInRange(newBooking.checkIn, newBooking.checkOut)
-    home.unavailableDates.push(...dates)
-    home.unavailableDates = [...new Set(home.unavailableDates)] // remove duplicates
-    await homeService.save(home)
-
-    savedBooking = await storageService.post(STORAGE_KEY, newBooking)
+    console.log(booking)
+  const newBooking = {
+    _id: utilService.makeId(),
+    homeId: booking._id,
+    checkIn,
+    checkOut,
+    createdAt: Date.now()
   }
-
+  savedBooking = await storageService.post(STORAGE_KEY, newBooking)
   return savedBooking
 }
 

@@ -17,6 +17,7 @@ export const utilService = {
   doesHomeMatchDates,
   getSuggestedDestinations,
   getImageSrcForTitle,
+  getDateRange,
 }
 
 function makeId(length = 6) {
@@ -372,3 +373,23 @@ function getImageSrcForTitle(title) {
   
   return test;
 }
+
+  function formatDate(dateStr) {
+    const date = new Date(dateStr)
+    const day = String(date.getDate()).padStart(2, "0")
+    const month = String(date.getMonth() + 1).padStart(2, "0")
+    const year = String(date.getFullYear()).slice(2)
+    return `${day}${month}${year}`
+  }
+  function getDateRange(startStr, endStr) {
+    const start = new Date(startStr)
+    const end = new Date(endStr)
+    const dates = []
+
+    while (start <= end) {
+      dates.push(formatDate(start.toISOString()))
+      start.setDate(start.getDate() + 1)
+    }
+
+    return dates
+  }

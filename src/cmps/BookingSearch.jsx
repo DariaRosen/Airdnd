@@ -4,6 +4,8 @@ import { useBookingParams } from "../customHooks/useBookingParams"
 import { homeService } from "../services/home.service"
 import { DateRange } from "react-date-range"
 import { BookingDatePicker } from "./BookingDatePicker"
+import { bookingService } from "../services/booking.service"
+import { utilService } from "../services/util.service"
 
 export function BookingSearch({ home }) {
   const { checkIn, setCheckIn, checkOut, setCheckOut, guests, setGuests } =
@@ -44,27 +46,10 @@ export function BookingSearch({ home }) {
 
     console.log("Checking availability...", { checkIn, checkOut, guests })
   }
-  function formatDate(dateStr) {
-    const date = new Date(dateStr)
-    const day = String(date.getDate()).padStart(2, "0")
-    const month = String(date.getMonth() + 1).padStart(2, "0")
-    const year = String(date.getFullYear()).slice(2)
-    return `${day}${month}${year}`
-  }
-  function getDateRange(startStr, endStr) {
-    const start = new Date(startStr)
-    const end = new Date(endStr)
-    const dates = []
 
-    while (start <= end) {
-      dates.push(formatDate(start.toISOString()))
-      start.setDate(start.getDate() + 1)
-    }
 
-    return dates
-  }
   async function onReserve() {
-    const newDates = getDateRange(checkIn, checkOut)
+    const newDates = utilService.getDateRange(checkIn, checkOut)
 
     home.unavailableDates = [
       ...new Set([...home.unavailableDates, ...newDates]),
@@ -74,6 +59,12 @@ export function BookingSearch({ home }) {
       console.log("Home updated successfully")
     } catch (err) {
       console.error("Failed to update home:", err)
+    }
+    try {
+      await bookingService.save(home, checkIn, checkOut)
+      console.log("New home added to booking collection")
+    } catch (err) {
+      console.error("Failed to add to booking collection home:", err)
     }
   }
 
