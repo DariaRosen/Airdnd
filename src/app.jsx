@@ -1,5 +1,5 @@
 import React from "react"
-import { HashRouter as Router, Routes, Route, Outlet} from "react-router-dom"
+import { HashRouter as Router, Routes, Route, Outlet } from "react-router-dom"
 import { AppHeader } from "./cmps/AppHeader"
 import { AppFooter } from "./cmps/AppFooter"
 import { HomeBrowserWithMap } from "./pages/HomeBrowserWithMap"
@@ -9,6 +9,7 @@ import { HomesList } from "./cmps/HomesList"
 import { UserMsg } from "./cmps/UserMsg"
 import { BecomeHostLogin } from "./pages/BecomeHostLogin"
 import { MiniHeader } from "./cmps/MiniHeader"
+import { ConfirmationPage } from "./cmps/ConfirmationPage"
 
 function DefaultLayout() {
   return (
@@ -45,6 +46,7 @@ export function App() {
           <Route path="/home/:homeId" element={<HomeDetails />} />
           <Route path="/list" element={<HomesList />} />
           <Route path="/filter" element={<HomeBrowserWithMap />} />
+          <Route path="/confirmation" element={<ConfirmationPage />} />
         </Route>
 
         <Route element={<HostLayout />}>

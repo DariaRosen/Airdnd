@@ -32,8 +32,7 @@ async function remove(bookingId) {
 
 async function save(booking, checkIn, checkOut) {
   let savedBooking
-
-    console.log(booking)
+  
   const newBooking = {
     _id: utilService.makeId(),
     homeId: booking._id,

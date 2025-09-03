@@ -1,4 +1,4 @@
-import { useSearchParams } from "react-router-dom"
+import { useSearchParams, useNavigate } from "react-router-dom"
 import { useState, useEffect, useRef } from "react"
 import { useBookingParams } from "../customHooks/useBookingParams"
 import { homeService } from "../services/home.service"
@@ -12,6 +12,7 @@ export function BookingSearch({ home }) {
     useBookingParams()
   const [isDatePickerOpen, setIsDatePickerOpen] = useState(false)
   const calendarRef = useRef()
+  const navigate = useNavigate()
 
   const isDatesSelected = checkIn && checkOut
   const disabledDates = home.unavailableDates.map((str) => {
@@ -67,6 +68,14 @@ export function BookingSearch({ home }) {
       console.error("Failed to add to booking collection home:", err)
     }
   }
+  async function handleReserve() {
+    try {
+      await onReserve()           
+      navigate('/confirmation')   
+    } catch (err) {
+      console.error('Reservation failed', err)
+    }
+  }
 
   return isDatesSelected ? (
     <section className="booking-form">
@@ -91,7 +100,7 @@ export function BookingSearch({ home }) {
           ))}
         </select>
       </div>
-      <button onClick={onReserve}>Reserve</button>
+      <button onClick={handleReserve}>Reserve</button>
     </section>
   ) : (
     <section className="booking-form">
