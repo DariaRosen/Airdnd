@@ -1,6 +1,5 @@
 [
     {
-        "_id": "mHhQ8g",
         "host_id": "a1",
         "title": "Rustic Countryside House",
         "description": "Country house with a garden and a view of green fields",
@@ -54,7 +53,6 @@
         "createdAt": 1753278900218
     },
     {
-        "_id": "HMLE3x",
         "host_id": "a2",
         "title": "Modern Loft Downtown",
         "description": "Modern loft in the city center with a fully equipped kitchen",
@@ -104,7 +102,6 @@
         "createdAt": 1753278900218
     },
     {
-        "_id": "lF06GX",
         "host_id": "a3",
         "title": "Desert Eco Dome",
         "description": "Eco living dome in the heart of the desert",
@@ -153,7 +150,6 @@
         "createdAt": 1753278900218
     },
     {
-        "_id": "MtPdvy",
         "host_id": "a4",
         "title": "Lakeview Cottage",
         "description": "Magical cottage by the lake with kayaks",
@@ -205,7 +201,6 @@
         "createdAt": 1753278900219
     },
     {
-        "_id": "WDdSID",
         "host_id": "a5",
         "title": "Treehouse Escape",
         "description": "High tree house among the trees with breathtaking views",
@@ -254,7 +249,6 @@
         "createdAt": 1753278900219
     },
     {
-        "_id": "Ii1cMB",
         "host_id": "a6",
         "title": "Ski Chalet",
         "description": "Cozy ski chalet near the slopes",
@@ -307,7 +301,6 @@
         "createdAt": 1753278900219
     },
     {
-        "_id": "TmWqdi",
         "host_id": "a7",
         "title": "Historic City Flat",
         "description": "Historic apartment in the old city with high ceilings",
@@ -358,7 +351,6 @@
         "createdAt": 1753278900219
     },
     {
-        "_id": "qA6bZi",
         "host_id": "a8",
         "title": "Rooftop Studio TLV",
         "description": "Studio with a rooftop terrace in the heart of Tel Aviv",
@@ -407,7 +399,6 @@
         "createdAt": 1753278900219
     },
     {
-        "_id": "6r5E7D",
         "host_id": "a9",
         "title": "Canal View Apartment",
         "description": "Beautiful apartment with a view of the canals of Amsterdam",
@@ -457,7 +448,6 @@
         "createdAt": 1753278900219
     },
     {
-        "_id": "GKxLMu",
         "host_id": "a10",
         "title": "Tropical Jungle Bungalow",
         "description": "Bungalow nestled in the jungle with an outdoor shower",
@@ -506,7 +496,6 @@
         "createdAt": 1753278900219
     },
     {
-        "_id": "P8OCBG",
         "host_id": "a11",
         "title": "Central Park Apartment",
         "description": "Charming apartment near Central Park with a fully equipped kitchen",
@@ -558,7 +547,6 @@
         "createdAt": 1753278900219
     },
     {
-        "_id": "4veGSy",
         "host_id": "a12",
         "title": "Brooklyn Loft",
         "description": "Industrial loft in Williamsburg",
@@ -607,7 +595,6 @@
         "createdAt": 1753278900219
     },
     {
-        "_id": "qZTIn4",
         "host_id": "a13",
         "title": "Times Square Studio",
         "description": "Compact studio in the heart of Manhattan, just minutes from Times Square",
@@ -656,7 +643,6 @@
         "createdAt": 1753278900219
     },
     {
-        "_id": "KfbcU8",
         "host_id": "a14",
         "title": "Harlem Brownstone",
         "description": "Classic brownstone apartment in Harlem",
@@ -710,7 +696,6 @@
         "createdAt": 1753278900219
     },
     {
-        "_id": "TN5rI7",
         "host_id": "a15",
         "title": "SoHo Artist Loft",
         "description": "Spacious loft in the trendy SoHo area",
@@ -763,7 +748,6 @@
         "createdAt": 1753278900219
     },
     {
-        "_id": "BQYI8F",
         "host_id": "a16",
         "title": "Sheinkin Studio",
         "description": "Stylish studio on the bustling Sheinkin Street",
@@ -813,7 +797,6 @@
         "createdAt": 1753278900219
     },
     {
-        "_id": "9WEts9",
         "host_id": "a17",
         "title": "Luxury Neve Tzedek Apartment",
         "description": "Luxury apartment in the heart of the historic Neve Tzedek neighborhood",
@@ -862,7 +845,6 @@
         "createdAt": 1753278900219
     },
     {
-        "_id": "Fo7IN1",
         "host_id": "a18",
         "title": "Rooftop Loft Dizengoff",
         "description": "Loft with a private rooftop terrace on Dizengoff Street",
@@ -912,7 +894,6 @@
         "createdAt": 1753278900219
     },
     {
-        "_id": "0PAGNW",
         "host_id": "a19",
         "title": "Old North Family Flat",
         "description": "Spacious family apartment in the old north of Tel Aviv",
@@ -961,7 +942,6 @@
         "createdAt": 1753278900219
     },
     {
-        "_id": "iuZzH3",
         "host_id": "a20",
         "title": "Florentin Urban Pad",
         "description": "Stylish urban pad in the vibrant Florentin neighborhood",
@@ -1011,7 +991,6 @@
         "createdAt": 1753278900219
     },
     {
-        "_id": "gV1",
         "host_id": "b1",
         "title": "Apartment in Gran Vía",
         "description": "Beautiful apartment in the heart of Madrid with a view of Gran Vía",
@@ -1053,7 +1032,6 @@
         "createdAt": 1753278900219
     },
     {
-        "_id": "gV2",
         "host_id": "b2",
         "title": "Apartment in Gran Vía",
         "description": "Modern apartment close to major attractions",
@@ -1092,7 +1070,6 @@
         "createdAt": 1753278900219
     },
     {
-        "_id": "gV3",
         "host_id": "b3",
         "title": "Apartment in Gran Vía",
         "description": "Cozy apartment in the heart of Madrid",
@@ -1130,7 +1107,6 @@
         "createdAt": 1753278900219
     },
     {
-        "_id": "gV4",
         "host_id": "b4",
         "title": "Apartment in Gran Vía",
         "description": "New apartment with a modern and cozy design",
@@ -1170,7 +1146,6 @@
         "createdAt": 1753278900219
     },
     {
-        "_id": "gV5",
         "host_id": "b5",
         "title": "Apartment in Gran Vía",
         "description": "Bright apartment with large windows overlooking the main street",
@@ -1208,7 +1183,6 @@
         "createdAt": 1753278900219
     },
     {
-        "_id": "gV6",
         "host_id": "b6",
         "title": "Room in Gran Vía",
         "description": "Cozy room in the heart of Madrid",
@@ -1246,7 +1220,6 @@
         "createdAt": 1753278900219
     },
     {
-        "_id": "gV7",
         "host_id": "b7",
         "title": "Apartment in Gran Vía",
         "description": "Cozy apartment for families in the heart of Madrid",
@@ -1286,7 +1259,6 @@
         "createdAt": 1753278900219
     },
     {
-        "_id": "gV8",
         "host_id": "b8",
         "title": "Apartment in Gran Vía",
         "description": "Spacious apartment with stunning views of the Madrid rooftops",
@@ -1325,7 +1297,6 @@
         "createdAt": 1753278900219
     },
     {
-        "_id": "Fo7IG9",
         "host_id": "b9",
         "title": "Modern Flat in Tel Aviv",
         "description": "Stylish and modern flat in the heart of Tel Aviv",
@@ -1368,7 +1339,6 @@
         "createdAt": 1753278900219
     },
     {
-        "_id": "Rk2LJ8",
         "host_id": "b10",
         "title": "Beachfront Retreat TLV",
         "description": "Luxurious beachfront property with stunning sea views",
@@ -1412,7 +1382,6 @@
         "createdAt": 1753278900219
     },
     {
-        "_id": "Xy6Tn2",
         "host_id": "b11",
         "title": "Cozy Cabin in Colorado",
         "description": "Perfect mountain getaway",
@@ -1457,7 +1426,6 @@
         "createdAt": 1753278900219
     },
     {
-        "_id": "Uv9PQ3",
         "host_id": "b12",
         "title": "Urban Loft NYC",
         "description": "Modern loft in Manhattan",
@@ -1501,7 +1469,6 @@
         "createdAt": 1753278900219
     },
     {
-        "_id": "Lm3BR4",
         "host_id": "b13",
         "title": "Charming London Flat",
         "description": "Bright and spacious flat in the heart of London",
@@ -1545,7 +1512,6 @@
         "createdAt": 1753278900219
     },
     {
-        "_id": "Np6QM7",
         "host_id": "b14",
         "title": "Historic Cottage in Bath",
         "description": "Quaint countryside stay",
@@ -1589,7 +1555,6 @@
         "createdAt": 1753278900219
     },
     {
-        "_id": "Qs8TL1",
         "host_id": "b15",
         "title": "Luxury Apartment Manchester",
         "description": "Central apartment with city view",
@@ -1633,7 +1598,6 @@
         "createdAt": 1753278900219
     },
     {
-        "_id": "Hv4NK2",
         "host_id": "b16",
         "title": "Modern Studio Birmingham",
         "description": "Ideal for solo travelers or couples",
@@ -1676,7 +1640,6 @@
         "createdAt": 1753278900219
     },
     {
-        "_id": "Zt1WD6",
         "host_id": "b17",
         "title": "Lake House in the Cotswolds",
         "description": "Tranquil escape with lake view",
@@ -1722,7 +1685,6 @@
         "createdAt": 1753278900219
     },
     {
-        "_id": "Bw3PJ1",
         "host_id": "b18",
         "title": "Rustic Barn in Yorkshire",
         "description": "Converted barn with stunning views",

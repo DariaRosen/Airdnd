@@ -3,7 +3,7 @@ import { useEffect, useState } from "react"
 import { useSelector } from "react-redux"
 import { updateFavoritesUser } from "../store/user/user.action"
 
-export function HomeImgPreview({ home, onHover = () => { }, showCarousel = true }) {
+export function HomeImgPreview({ home, onHover = () => { }, showCarousel = true, variant = "grid" }) {
   const [currentImgIdx, setCurrentImgIdx] = useState(0)
   const [isLiked, setIsLiked] = useState(false)
   const [slideDirection, setSlideDirection] = useState('')
@@ -28,6 +28,7 @@ export function HomeImgPreview({ home, onHover = () => { }, showCarousel = true 
 
   return (
     <article
+      className={`home-img-preview ${variant}`}   // ← variant class here
       onMouseEnter={() => hasCarousel && onHover(home._id)}
       onMouseLeave={() => hasCarousel && onHover(null)}
     >

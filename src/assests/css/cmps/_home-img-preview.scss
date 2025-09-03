@@ -72,7 +72,7 @@
   opacity: 1;
   transform: none;
 
-    &:hover {
+  &:hover {
     transform: scale(1.15);
   }
 }
@@ -149,5 +149,22 @@
   to {
     transform: translateX(0%);
     opacity: 1;
+  }
+}
+
+.home-img-preview.grid {
+}
+
+.home-img-preview.map {
+  width: 320px; // smaller for map popup
+  .carousel-container img {
+    height: 230px; // fixed height
+    aspect-ratio: auto; // override square
+    border-radius: 12px;
+    height: 100%;
+  }
+  .carousel-btn img {
+    height: 12px;
+    width: 12px;
   }
 }
