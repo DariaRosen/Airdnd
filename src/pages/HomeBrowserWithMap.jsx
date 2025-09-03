@@ -1,9 +1,9 @@
 import { useEffect, useState, useMemo } from 'react'
 import { useSelector } from "react-redux"
 import { utilService } from "../services/util.service.js"
-import { MapView } from './MapView.jsx'
-import { HomeImgPreview } from "./HomeImgPreview.jsx"
-import { HomeTextPreview } from "./HomeTextPreview.jsx"
+import { MapView } from '../cmps/MapView.jsx'
+import { HomeImgPreview } from "../cmps/HomeImgPreview.jsx"
+import { HomeTextPreview } from "../cmps/HomeTextPreview.jsx"
 import { loadHomes } from "../store/homes/homes.action.js"
 
 export function HomeBrowserWithMap() {

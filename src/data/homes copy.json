@@ -1,0 +1,1729 @@
+[
+    {
+        "host_id": "a1",
+        "title": "Rustic Countryside House",
+        "description": "Country house with a garden and a view of green fields",
+        "price": 450,
+        "capacity": 4,
+        "rooms": 3,
+        "beds": 3,
+        "bathrooms": 2,
+        "type": "house",
+        "imgUrls": [
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753044844/pexels-pixabay-534151_ddjwj9.jpg",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753619145/Capture_habjwk.jpg",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753044859/pexels-tobiasbjorkli-2360673_yb9gxr.jpg",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753044858/pexels-enginakyurt-3620234_onvo4m.jpg",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753044847/pexels-arnon-suksumran-367077-996220_droyxa.jpg"
+        ],
+        "rating": 4.85,
+        "numberOfRaters": 100,
+        "guestFavorite": false,
+        "location": {
+            "country": "UK",
+            "city": "Cotswolds",
+            "address": "High St, Bourton-on-the-Water, GL54 2AP",
+            "lat": 51.8857,
+            "lng": -1.7578
+        },
+        "amenities": [
+            "WiFi",
+            "Fireplace",
+            "Garden",
+            "Washer",
+            "TV",
+            "Balcony",
+            "Kitchen",
+            "AC"
+        ],
+        "msgs": [],
+        "unavailableDates": [
+            "210825",
+            "290825",
+            "020925",
+            "171025",
+            "050825",
+            "060825",
+            "120825",
+            "150825",
+            "140925",
+            "110825"
+        ],
+        "lastSearchValue": "",
+        "createdAt": 1753278900218
+    },
+    {
+        "host_id": "a2",
+        "title": "Modern Loft Downtown",
+        "description": "Modern loft in the city center with a fully equipped kitchen",
+        "price": 600,
+        "capacity": 3,
+        "rooms": 4,
+        "beds": 5,
+        "bathrooms": 2,
+        "type": "loft",
+        "imgUrls": [
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753044767/pexels-fotoaibe-1571471_m96y8r.jpg",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753044761/pexels-fotoaibe-1571461_toq1c8.jpg",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753044761/pexels-atbo-66986-245208_trblw7.jpg",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753044769/pexels-notswervo-2398375_fquvyz.jpg",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753903907/Capture_c5xctm.jpg"
+        ],
+        "rating": 4.56,
+        "numberOfRaters": 85,
+        "guestFavorite": false,
+        "location": {
+            "country": "Germany",
+            "city": "Berlin",
+            "address": "Rosenthaler Str. 72A, 10119 Berlin",
+            "lat": 52.5291,
+            "lng": 13.4011
+        },
+        "amenities": [
+            "WiFi",
+            "Kitchen",
+            "Washer",
+            "TV"
+        ],
+        "msgs": [],
+        "unavailableDates": [
+            "191025",
+            "120925",
+            "290725",
+            "181025",
+            "020825",
+            "090825",
+            "220825",
+            "310725",
+            "030925",
+            "160925"
+        ],
+        "lastSearchValue": "",
+        "createdAt": 1753278900218
+    },
+    {
+        "host_id": "a3",
+        "title": "Desert Eco Dome",
+        "description": "Eco living dome in the heart of the desert",
+        "price": 390,
+        "capacity": 2,
+        "rooms": 2,
+        "beds": 1,
+        "bathrooms": 1,
+        "type": "dome",
+        "imgUrls": [
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753044576/Capture_xuekzf.jpg",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753044596/pexels-fotios-photos-1090638_hpdxwc.jpg",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753904150/cvvvf_ude6ap.jpg",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753904148/Capture_htene0.jpg",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753044600/pexels-pixabay-271743_iwobyf.jpg",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753044625/pexels-mtk402-2098912_uel8ym.jpg"
+        ],
+        "rating": 4.84,
+        "numberOfRaters": 70,
+        "guestFavorite": false,
+        "location": {
+            "country": "Israel",
+            "city": "Mitzpe Ramon",
+            "address": "Ma'ale Ben Tur St 1, Mitzpe Ramon",
+            "lat": 30.6063,
+            "lng": 34.8011
+        },
+        "amenities": [
+            "Refrigerator",
+            "Fire extinguisher"
+        ],
+        "msgs": [],
+        "unavailableDates": [
+            "220825",
+            "131025",
+            "140825",
+            "070925",
+            "090825",
+            "091025",
+            "240925",
+            "110825",
+            "210925",
+            "280825"
+        ],
+        "lastSearchValue": "",
+        "createdAt": 1753278900218
+    },
+    {
+        "host_id": "a4",
+        "title": "Lakeview Cottage",
+        "description": "Magical cottage by the lake with kayaks",
+        "price": 500,
+        "capacity": 5,
+        "rooms": 2,
+        "beds": 3,
+        "bathrooms": 1,
+        "type": "cabin",
+        "imgUrls": [
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753904337/Capture_vfsgpn.jpg",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753044734/pexels-naimbic-2029663_mchara.jpg",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753044720/pexels-emrecan-2079449_zl5e37.jpg",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753044708/pexels-heyho-6487944_y1wovd.jpg",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753044701/pexels-heyho-6301176_ugkdz2.jpg",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753044701/pexels-heyho-6301176_ugkdz2.jpg",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753044686/pexels-asphotograpy-94865_rsm7ho.jpg",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753044696/pexels-dilara-aksoy-354420321-18005100_fdc6ui.jpg"
+        ],
+        "rating": 4.6,
+        "numberOfRaters": 90,
+        "guestFavorite": false,
+        "location": {
+            "country": "Canada",
+            "city": "Muskoka",
+            "address": "1072 Elgin House Rd, Port Carling, ON",
+            "lat": 45.1116,
+            "lng": -79.5795
+        },
+        "amenities": [
+            "Wine glasses",
+            "Fireplace",
+            "WiFi"
+        ],
+        "msgs": [],
+        "unavailableDates": [
+            "061025",
+            "140925",
+            "050825",
+            "050925",
+            "060925",
+            "130925",
+            "071025",
+            "240925",
+            "240825",
+            "220825"
+        ],
+        "lastSearchValue": "",
+        "createdAt": 1753278900219
+    },
+    {
+        "host_id": "a5",
+        "title": "Treehouse Escape",
+        "description": "High tree house among the trees with breathtaking views",
+        "price": 420,
+        "capacity": 2,
+        "rooms": 2,
+        "beds": 1,
+        "bathrooms": 1,
+        "type": "treehouse",
+        "imgUrls": [
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753100027/Capture_iszrp5.jpg",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753100049/pexels-designecologist-1046639_uwzppz.jpg",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753100052/pexels-designecologist-1239221_crulw7.jpg",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753100053/pexels-pixabay-262048_iyx1gj.jpg",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753100061/pexels-designecologist-1248583_vj6qqx.jpg"
+        ],
+        "rating": 4.55,
+        "numberOfRaters": 65,
+        "guestFavorite": false,
+        "location": {
+            "country": "USA",
+            "city": "Atlanta",
+            "address": "135 Waddell St NE, Atlanta, GA",
+            "lat": 33.7537,
+            "lng": -84.3555
+        },
+        "amenities": [
+            "WiFi",
+            "Pets allowed",
+            "Nature View"
+        ],
+        "msgs": [],
+        "unavailableDates": [
+            "111025",
+            "240725",
+            "240925",
+            "150825",
+            "300725",
+            "210825",
+            "190825",
+            "121025",
+            "250925",
+            "260825"
+        ],
+        "lastSearchValue": "",
+        "createdAt": 1753278900219
+    },
+    {
+        "host_id": "a6",
+        "title": "Ski Chalet",
+        "description": "Cozy ski chalet near the slopes",
+        "price": 750,
+        "capacity": 6,
+        "rooms": 3,
+        "beds": 4,
+        "bathrooms": 3,
+        "type": "chalet",
+        "imgUrls": [
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753099976/Capture_owo7x7.jpg",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753099983/pexels-happiness-maker-229649-1071285_ijw8fv.jpg",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753099978/pexels-kamenczak-775219_god6rq.jpg",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753099998/pexels-itsterrymag-2635038_msvzja.jpg",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753099989/pexels-quark-studio-1159039-2507016_onrben.jpg",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753100150/pexels-zvolskiy-2082093_jw1cp7.jpg",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753100116/pexels-christa-grover-977018-2121121_vez2xf.jpg",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753099994/pexels-element5-1125136_jzxzez.jpg",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753100096/pexels-jonathanborba-3101547_wtru5d.jpg"
+        ],
+        "rating": 0.76,
+        "numberOfRaters": 20,
+        "guestFavorite": false,
+        "location": {
+            "country": "Switzerland",
+            "city": "Zermatt",
+            "address": "Bahnhofstrasse 50, 3920 Zermatt",
+            "lat": 46.0207,
+            "lng": 7.7491
+        },
+        "amenities": [
+            "Fireplace",
+            "Free parking",
+            "WiFi"
+        ],
+        "msgs": [],
+        "unavailableDates": [
+            "210925",
+            "260825",
+            "270725",
+            "250925",
+            "190925",
+            "101025",
+            "090825",
+            "040825",
+            "170925",
+            "300825"
+        ],
+        "lastSearchValue": "",
+        "createdAt": 1753278900219
+    },
+    {
+        "host_id": "a7",
+        "title": "Historic City Flat",
+        "description": "Historic apartment in the old city with high ceilings",
+        "price": 540,
+        "capacity": 3,
+        "rooms": 2,
+        "beds": 2,
+        "bathrooms": 2,
+        "type": "apartment",
+        "imgUrls": [
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753044643/Capture_mt6kp5.jpg",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753044651/pexels-bui-huy-857169-1750029_eftvqa.jpg",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753044675/pexels-eye4dtail-129494_ro37e5.jpg",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753044663/pexels-fotoaibe-1643383_f61kb6.jpg",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753044707/pexels-heyho-6186825_lpaj7d.jpg",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753044706/pexels-heyho-6198661_ivkyjq.jpg",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753044683/pexels-bintimalu-1485657_xjgjdc.jpg"
+        ],
+        "rating": 4.07,
+        "numberOfRaters": 40,
+        "guestFavorite": true,
+        "location": {
+            "country": "Spain",
+            "city": "Barcelona",
+            "address": "Carrer de Ferran, 08002 Barcelona",
+            "lat": 41.3809,
+            "lng": 2.1755
+        },
+        "amenities": [
+            "WiFi",
+            "Balcony",
+            "Washer"
+        ],
+        "msgs": [],
+        "unavailableDates": [
+            "130825",
+            "151025",
+            "061025",
+            "200925",
+            "040825",
+            "310725",
+            "290725",
+            "081025",
+            "250725",
+            "021025"
+        ],
+        "lastSearchValue": "",
+        "createdAt": 1753278900219
+    },
+    {
+        "host_id": "a8",
+        "title": "Rooftop Studio TLV",
+        "description": "Studio with a rooftop terrace in the heart of Tel Aviv",
+        "price": 460,
+        "capacity": 2,
+        "rooms": 1,
+        "beds": 1,
+        "bathrooms": 1,
+        "type": "studio",
+        "imgUrls": [
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753904604/Capture_bru3hk.jpg",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753615079/Capture_nenrjz.jpg",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753615080/Capturesdsd_kdx0nj.jpg",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753615079/gbdf_gxx58w.jpg",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753044824/pexels-almapapi-2396108_iofzgq.jpg"
+        ],
+        "rating": 4.79,
+        "numberOfRaters": 55,
+        "guestFavorite": true,
+        "location": {
+            "country": "Israel",
+            "city": "Tel Aviv-Yafo",
+            "address": "Sheinkin St 45, Tel Aviv-Yafo",
+            "lat": 32.0663,
+            "lng": 34.7741
+        },
+        "amenities": [
+            "WiFi",
+            "AC",
+            "Toaster"
+        ],
+        "msgs": [],
+        "unavailableDates": [
+            "240825",
+            "260825",
+            "121025",
+            "150925",
+            "270925",
+            "220825",
+            "110925",
+            "031025",
+            "070825",
+            "180825"
+        ],
+        "lastSearchValue": "",
+        "createdAt": 1753278900219
+    },
+    {
+        "host_id": "a9",
+        "title": "Canal View Apartment",
+        "description": "Beautiful apartment with a view of the canals of Amsterdam",
+        "price": 690,
+        "capacity": 4,
+        "rooms": 4,
+        "beds": 3,
+        "bathrooms": 2,
+        "type": "apartment",
+        "imgUrls": [
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753044569/pexels-dtanpt-1329711_cwqsoz.jpg",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753044540/pexels-hemanthnirujogi-2555635_bzqiby.jpg",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753044533/pexels-charlotte-may-5824485_zbjnle.jpg",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753044506/pexels-daliladalprat-2043569_a2fsxb.jpg",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753044501/pexels-catscoming-707581_bzsgmf.jpg",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753044485/Capture_crdakb.jpg"
+        ],
+        "rating": 4.52,
+        "numberOfRaters": 75,
+        "guestFavorite": true,
+        "location": {
+            "country": "Netherlands",
+            "city": "Amsterdam",
+            "address": "Herengracht 541, 1017 BW Amsterdam",
+            "lat": 52.3648,
+            "lng": 4.8936
+        },
+        "amenities": [
+            "WiFi",
+            "Coffee",
+            "Hot water"
+        ],
+        "msgs": [],
+        "unavailableDates": [
+            "150925",
+            "070925",
+            "071025",
+            "300825",
+            "250925",
+            "131025",
+            "041025",
+            "111025",
+            "230725",
+            "170925"
+        ],
+        "lastSearchValue": "",
+        "createdAt": 1753278900219
+    },
+    {
+        "host_id": "a10",
+        "title": "Tropical Jungle Bungalow",
+        "description": "Bungalow nestled in the jungle with an outdoor shower",
+        "price": 370,
+        "capacity": 2,
+        "rooms": 1,
+        "beds": 1,
+        "bathrooms": 1,
+        "type": "bungalow",
+        "imgUrls": [
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753100054/Capture_c4zdod.jpg",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753100144/pexels-zvolskiy-2062426_h6drm1.jpg",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753100113/pexels-emrecan-2079246_bd9ikp.jpg",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753618983/dvfgbg_x2bj5f.jpg",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753618987/cvnhjk_rkk79a.jpg"
+        ],
+        "rating": 4.6,
+        "numberOfRaters": 50,
+        "guestFavorite": false,
+        "location": {
+            "country": "Costa Rica",
+            "city": "Puerto Viejo",
+            "address": "Calle 213, Puerto Viejo de Talamanca",
+            "lat": 9.6586,
+            "lng": -82.7542
+        },
+        "amenities": [
+            "Fire extinguisher",
+            "Bikes",
+            "WiFi"
+        ],
+        "msgs": [],
+        "unavailableDates": [
+            "270925",
+            "040925",
+            "220825",
+            "170925",
+            "080825",
+            "300925",
+            "201025",
+            "250925",
+            "021025",
+            "150825"
+        ],
+        "lastSearchValue": "",
+        "createdAt": 1753278900219
+    },
+    {
+        "host_id": "a11",
+        "title": "Central Park Apartment",
+        "description": "Charming apartment near Central Park with a fully equipped kitchen",
+        "price": 720,
+        "capacity": 4,
+        "rooms": 3,
+        "beds": 3,
+        "bathrooms": 3,
+        "type": "apartment",
+        "imgUrls": [
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753044587/pexels-pixabay-279607_tcvnkc.jpg",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753044597/pexels-mikebirdy-144632_rirmxl.jpg",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753044580/pexels-heyho-6527054_xvzxoh.jpg",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753044576/pexels-falling4utah-1080721_mujt6t.jpg",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753044562/pexels-curtis-adams-1694007-3935352_zskv3q.jpg",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753044560/pexels-alex-qian-1180283-2343466_ghdjf0.jpg",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753044558/pexels-curtis-adams-1694007-3935336_irivwe.jpg",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753044558/pexels-element5-1125130_ya8ji5.jpg"
+        ],
+        "rating": 4.87,
+        "numberOfRaters": 120,
+        "guestFavorite": true,
+        "location": {
+            "country": "USA",
+            "city": "New York",
+            "address": "15 Central Park West, New York, NY 10023",
+            "lat": 40.7712,
+            "lng": -73.9801
+        },
+        "amenities": [
+            "WiFi",
+            "Washer",
+            "Self check-in"
+        ],
+        "msgs": [],
+        "unavailableDates": [
+            "050925",
+            "070925",
+            "171025",
+            "260725",
+            "130925",
+            "071025",
+            "240825",
+            "230725",
+            "061025",
+            "090825"
+        ],
+        "lastSearchValue": "",
+        "createdAt": 1753278900219
+    },
+    {
+        "host_id": "a12",
+        "title": "Brooklyn Loft",
+        "description": "Industrial loft in Williamsburg",
+        "price": 680,
+        "capacity": 3,
+        "rooms": 2,
+        "beds": 2,
+        "bathrooms": 1,
+        "type": "loft",
+        "imgUrls": [
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753044493/pexels-life-of-pix-2459_zzmyx2.jpg",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753044485/pexels-asphotograpy-932095_itacfa.jpg",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753044477/pexels-designecologist-1005058_fhqma5.jpg",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753617914/dfdfdf_dqckpo.jpg",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753617917/fdfdfd_qientz.jpg"
+        ],
+        "rating": 4.6,
+        "numberOfRaters": 80,
+        "guestFavorite": false,
+        "location": {
+            "country": "USA",
+            "city": "New York",
+            "address": "76 N 4th St, Brooklyn, NY 11249",
+            "lat": 40.7175,
+            "lng": -73.9613
+        },
+        "amenities": [
+            "WiFi",
+            "Kitchen",
+            "Work Desk"
+        ],
+        "msgs": [],
+        "unavailableDates": [
+            "240725",
+            "220825",
+            "100825",
+            "180925",
+            "110925",
+            "080825",
+            "160925",
+            "021025",
+            "260725",
+            "071025"
+        ],
+        "lastSearchValue": "",
+        "createdAt": 1753278900219
+    },
+    {
+        "host_id": "a13",
+        "title": "Times Square Studio",
+        "description": "Compact studio in the heart of Manhattan, just minutes from Times Square",
+        "price": 580,
+        "capacity": 2,
+        "rooms": 1,
+        "beds": 1,
+        "bathrooms": 1,
+        "type": "studio",
+        "imgUrls": [
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753100040/pexels-pixabay-275484_t6c4ah.jpg",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753100031/pexels-pixabay-265097_jz45d4.jpg",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753100030/pexels-pixabay-262034_cto9xk.jpg",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753618231/scsc_ujferz.jpg",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753618215/fdfdw_jaaszv.jpg"
+        ],
+        "rating": 4.77,
+        "numberOfRaters": 90,
+        "guestFavorite": true,
+        "location": {
+            "country": "USA",
+            "city": "New York",
+            "address": "1600 Broadway, New York, NY 10019",
+            "lat": 40.7591,
+            "lng": -73.9845
+        },
+        "amenities": [
+            "AC",
+            "WiFi",
+            "Shampoo"
+        ],
+        "msgs": [],
+        "unavailableDates": [
+            "190825",
+            "270725",
+            "100925",
+            "081025",
+            "111025",
+            "270825",
+            "010825",
+            "121025",
+            "181025",
+            "030925"
+        ],
+        "lastSearchValue": "",
+        "createdAt": 1753278900219
+    },
+    {
+        "host_id": "a14",
+        "title": "Harlem Brownstone",
+        "description": "Classic brownstone apartment in Harlem",
+        "price": 490,
+        "capacity": 4,
+        "rooms": 3,
+        "beds": 3,
+        "bathrooms": 2,
+        "type": "house",
+        "imgUrls": [
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753044618/pexels-fotoaibe-1571468_ygt1op.jpg",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753044628/pexels-heyho-8135269_kqtrsx.jpg",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753044629/pexels-isaw-company-66472-1249171_u9brkk.jpg",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753044638/pexels-jenna-hamra-248942-1662529_svn6tw.jpg",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753044634/pexels-nietjuhart-796620_fo1w8x.jpg",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753044641/pexels-itsterrymag-3623785_qsgy6v.jpg",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753044639/pexels-itsterrymag-2631746_wze966.jpg",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753044642/pexels-solliefoto-298842_imkhtp.jpg",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753044678/pexels-sevenstormphotography-439382_ks0ns8.jpg",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753044646/pexels-shvets-production-7561276_chkk1y.jpg"
+        ],
+        "rating": 4.69,
+        "numberOfRaters": 60,
+        "guestFavorite": false,
+        "location": {
+            "country": "USA",
+            "city": "New York",
+            "address": "147 W 120th St, New York, NY 10027",
+            "lat": 40.8054,
+            "lng": -73.9512
+        },
+        "amenities": [
+            "WiFi",
+            "Smoke Alarm",
+            "Washer"
+        ],
+        "msgs": [],
+        "unavailableDates": [
+            "230725",
+            "240925",
+            "130825",
+            "100825",
+            "081025",
+            "051025",
+            "030825",
+            "061025",
+            "220825",
+            "080925"
+        ],
+        "lastSearchValue": "",
+        "createdAt": 1753278900219
+    },
+    {
+        "host_id": "a15",
+        "title": "SoHo Artist Loft",
+        "description": "Spacious loft in the trendy SoHo area",
+        "price": 850,
+        "capacity": 5,
+        "rooms": 3,
+        "beds": 3,
+        "bathrooms": 4,
+        "type": "loft",
+        "imgUrls": [
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753099989/pexels-fotoaibe-1571457_dksnck.jpg",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753099988/pexels-fotoaibe-1571453_u6aimi.jpg",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753099993/pexels-fotoaibe-1571459_hwxhh8.jpg",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753099999/pexels-fotoaibe-1571460_mvnige.jpg",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753100002/pexels-fotoaibe-1669799_kyriai.jpg",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753100003/pexels-fotoaibe-1643383_tgjbti.jpg",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753100010/pexels-fotoaibe-3741317_jjc73r.jpg",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753100015/pexels-marketingtuig-87223_cfc7gd.jpg",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753100018/pexels-nadine-wuchenauer-695910-1563650_mesuws.jpg"
+        ],
+        "rating": 4.85,
+        "numberOfRaters": 110,
+        "guestFavorite": false,
+        "location": {
+            "country": "USA",
+            "city": "New York",
+            "address": "101 Wooster St, New York, NY 10012",
+            "lat": 40.7251,
+            "lng": -74.0021
+        },
+        "amenities": [
+            "WiFi",
+            "AC",
+            "Safe"
+        ],
+        "msgs": [],
+        "unavailableDates": [
+            "260925",
+            "050825",
+            "140925",
+            "051025",
+            "220925",
+            "300825",
+            "021025",
+            "060925",
+            "110925",
+            "111025"
+        ],
+        "lastSearchValue": "",
+        "createdAt": 1753278900219
+    },
+    {
+        "host_id": "a16",
+        "title": "Sheinkin Studio",
+        "description": "Stylish studio on the bustling Sheinkin Street",
+        "price": 490,
+        "capacity": 2,
+        "rooms": 1,
+        "beds": 1,
+        "bathrooms": 1,
+        "type": "studio",
+        "imgUrls": [
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753277731/shenkin1_tazhde.jpg",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753277733/shenkin2_dkoj87.jpg",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753615461/fgfg_irjjiu.jpg",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753615462/Capture_aj7hbn.jpg",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753615462/Capturevbcbc_f4srdw.jpg",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753045280/pexels-hbozman-1058770_jegbvl.jpg"
+        ],
+        "rating": 4.57,
+        "numberOfRaters": 95,
+        "guestFavorite": true,
+        "location": {
+            "country": "Israel",
+            "city": "Tel Aviv-Yafo",
+            "address": "Sheinkin St 23, Tel Aviv-Yafo",
+            "lat": 32.0683,
+            "lng": 34.7729
+        },
+        "amenities": [
+            "WiFi",
+            "AC",
+            "Balcony"
+        ],
+        "msgs": [],
+        "unavailableDates": [
+            "200925",
+            "120925",
+            "080925",
+            "090925",
+            "110925",
+            "110825",
+            "260925",
+            "030825",
+            "111025",
+            "240925"
+        ],
+        "lastSearchValue": "",
+        "createdAt": 1753278900219
+    },
+    {
+        "host_id": "a17",
+        "title": "Luxury Neve Tzedek Apartment",
+        "description": "Luxury apartment in the heart of the historic Neve Tzedek neighborhood",
+        "price": 880,
+        "capacity": 4,
+        "rooms": 3,
+        "beds": 2,
+        "bathrooms": 2,
+        "type": "apartment",
+        "imgUrls": [
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753044752/pexels-heyho-7546323_zs9iq8.jpg",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753615739/Capture_gkvhrz.jpg",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753044755/pexels-pixabay-259950_cokems.jpg",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753044728/pexels-jvdm-1454804_sgftbx.jpg",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753044722/pexels-clickerhappy-349749_pub5zo.jpg"
+        ],
+        "rating": 3.87,
+        "numberOfRaters": 30,
+        "guestFavorite": true,
+        "location": {
+            "country": "Israel",
+            "city": "Tel Aviv-Yafo",
+            "address": "Shabazi St 50, Tel Aviv-Yafo",
+            "lat": 32.0596,
+            "lng": 34.7621
+        },
+        "amenities": [
+            "WiFi",
+            "Washer",
+            "Kitchen"
+        ],
+        "msgs": [],
+        "unavailableDates": [
+            "190925",
+            "110825",
+            "050925",
+            "151025",
+            "190825",
+            "090925",
+            "250725",
+            "070825",
+            "280925",
+            "310725"
+        ],
+        "lastSearchValue": "",
+        "createdAt": 1753278900219
+    },
+    {
+        "host_id": "a18",
+        "title": "Rooftop Loft Dizengoff",
+        "description": "Loft with a private rooftop terrace on Dizengoff Street",
+        "price": 720,
+        "capacity": 3,
+        "rooms": 2,
+        "beds": 2,
+        "bathrooms": 2,
+        "type": "loft",
+        "imgUrls": [
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753044807/pexels-pixabay-271682_bk7ds8.jpg",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753044835/pexels-pixabay-276514_kb88dq.jpg",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753044821/pexels-cottonbro-5146876_e1r7uq.jpg",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753044813/pexels-cottonbro-5158461_jpak69.jpg",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753044808/pexels-luis-ruiz-1416244_nanupk.jpg",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753044801/pexels-pixabay-271816_sd13zi.jpg"
+        ],
+        "rating": 4.73,
+        "numberOfRaters": 65,
+        "guestFavorite": false,
+        "location": {
+            "country": "Israel",
+            "city": "Tel Aviv-Yafo",
+            "address": "Dizengoff St 190, Tel Aviv-Yafo",
+            "lat": 32.0942,
+            "lng": 34.7749
+        },
+        "amenities": [
+            "WiFi",
+            "Pets allowed",
+            "AC"
+        ],
+        "msgs": [],
+        "unavailableDates": [
+            "150825",
+            "010925",
+            "140925",
+            "170825",
+            "160825",
+            "021025",
+            "121025",
+            "191025",
+            "230725",
+            "051025"
+        ],
+        "lastSearchValue": "",
+        "createdAt": 1753278900219
+    },
+    {
+        "host_id": "a19",
+        "title": "Old North Family Flat",
+        "description": "Spacious family apartment in the old north of Tel Aviv",
+        "price": 650,
+        "capacity": 5,
+        "rooms": 4,
+        "beds": 4,
+        "bathrooms": 4,
+        "type": "apartment",
+        "imgUrls": [
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753044812/pexels-keeganjchecks-12715463_pwyo1a.jpg",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753044797/pexels-heyho-6207945_q8qana.jpg",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753616152/Capture_ohawav.jpg",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753044784/pexels-ilya-shakir-1278798-2440471_frzlj2.jpg",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753044771/pexels-fotoaibe-1571462_jmghnh.jpg"
+        ],
+        "rating": 4.77,
+        "numberOfRaters": 85,
+        "guestFavorite": false,
+        "location": {
+            "country": "Israel",
+            "city": "Tel Aviv-Yafo",
+            "address": "Weizmann St 15, Tel Aviv-Yafo",
+            "lat": 32.0937,
+            "lng": 34.7879
+        },
+        "amenities": [
+            "WiFi",
+            "Hammock",
+            "Self check-in"
+        ],
+        "msgs": [],
+        "unavailableDates": [
+            "131025",
+            "150925",
+            "120925",
+            "210925",
+            "021025",
+            "200925",
+            "151025",
+            "060825",
+            "121025",
+            "031025"
+        ],
+        "lastSearchValue": "",
+        "createdAt": 1753278900219
+    },
+    {
+        "host_id": "a20",
+        "title": "Florentin Urban Pad",
+        "description": "Stylish urban pad in the vibrant Florentin neighborhood",
+        "price": 430,
+        "capacity": 2,
+        "rooms": 1,
+        "beds": 1,
+        "bathrooms": 2,
+        "type": "studio",
+        "imgUrls": [
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753044657/pexels-heyho-8135114_lmyink.jpg",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753044591/pexels-element5-1470171_jjsrs2.jpg",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1754165653/Capture_l6nisy.jpg",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753616268/Capture_yhnkvh.jpg",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753044603/pexels-eric-mufasa-578798-1350789_wn18ll.jpg",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753044591/pexels-element5-1470171_jjsrs2.jpg"
+        ],
+        "rating": 4.21,
+        "numberOfRaters": 40,
+        "guestFavorite": false,
+        "location": {
+            "country": "Israel",
+            "city": "Tel Aviv-Yafo",
+            "address": "Abarbanel St 56, Tel Aviv-Yafo",
+            "lat": 32.0541,
+            "lng": 34.7666
+        },
+        "amenities": [
+            "WiFi",
+            "Workspace",
+            "Coffee"
+        ],
+        "msgs": [],
+        "unavailableDates": [
+            "091025",
+            "150825",
+            "170825",
+            "210825",
+            "200925",
+            "230725",
+            "170925",
+            "230925",
+            "080925",
+            "310825"
+        ],
+        "lastSearchValue": "",
+        "createdAt": 1753278900219
+    },
+    {
+        "host_id": "b1",
+        "title": "Apartment in Gran Vía",
+        "description": "Beautiful apartment in the heart of Madrid with a view of Gran Vía",
+        "price": 553,
+        "capacity": 2,
+        "rooms": 2,
+        "beds": 1,
+        "bathrooms": 1,
+        "type": "apartment",
+        "imgUrls": [
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753302380/fc387248-4231-46ae-ac9c-9c853f0ab89a_qo8ind.avif",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753302377/4d2f55f8-c5df-413c-97f7-fd193474fbac_toxlol.avif",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753302376/3d6226ac-f9a5-4933-b183-325545ee027a_bsygsz.avif",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753302373/8eb14937-5a5c-454d-a759-13aa6b830be5_ry0ixb.avif",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753302372/091ba0e9-ce26-4d8e-8979-28550274b699_dxfdex.webp"
+        ],
+        "rating": 4.8,
+        "numberOfRaters": 60,
+        "guestFavorite": true,
+        "location": {
+            "country": "Spain",
+            "city": "Madrid",
+            "address": "Gran Vía 12, Madrid",
+            "lat": 40.4201,
+            "lng": -3.7058
+        },
+        "amenities": [
+            "WiFi",
+            "AC",
+            "Kitchen",
+            "TV",
+            "Washer",
+            "Balcony",
+            "Refrigerator"
+        ],
+        "msgs": [],
+        "unavailableDates": [],
+        "lastSearchValue": "",
+        "createdAt": 1753278900219
+    },
+    {
+        "host_id": "b2",
+        "title": "Apartment in Gran Vía",
+        "description": "Modern apartment close to major attractions",
+        "price": 504,
+        "capacity": 3,
+        "rooms": 2,
+        "beds": 2,
+        "bathrooms": 1,
+        "type": "apartment",
+        "imgUrls": [
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753302268/d13f4a10-38a4-4338-87ca-d900489404e8_klpgdu.avif",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753302265/918cd6ba-551f-491a-b812-3cb3f227d5bc_csivru.avif",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753302263/11623388-9a74-49f0-ad8e-28871805b039_cy5bv6.avif",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753302260/fca2b526-a7e3-4317-8b32-149f5ad13d13_pjx7e0.avif",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753302258/5ae584e0-54e7-478c-aebf-25edaa1ce987_rcmc09.avif"
+        ],
+        "rating": 4.81,
+        "numberOfRaters": 45,
+        "guestFavorite": true,
+        "location": {
+            "country": "Spain",
+            "city": "Madrid",
+            "address": "Gran Vía 45, Madrid",
+            "lat": 40.4215,
+            "lng": -3.7059
+        },
+        "amenities": [
+            "WiFi",
+            "Kitchen",
+            "Washer",
+            "Balcony"
+        ],
+        "msgs": [],
+        "unavailableDates": [],
+        "lastSearchValue": "",
+        "createdAt": 1753278900219
+    },
+    {
+        "host_id": "b3",
+        "title": "Apartment in Gran Vía",
+        "description": "Cozy apartment in the heart of Madrid",
+        "price": 453,
+        "capacity": 2,
+        "rooms": 1,
+        "beds": 1,
+        "bathrooms": 1,
+        "type": "apartment",
+        "imgUrls": [
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753302153/bc74256f-40f8-48e4-9a15-666d1986d3b4_s35kov.avif",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753302152/14d4a597-1221-4245-acbc-0e759137a7e4_b0y0d7.avif",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753302150/99f66295-6972-4204-93ac-39c24f8f7c09_vlmcjy.avif",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753302147/0ea08138-b1f2-40d4-857f-c565ddbd9d05_gmsyl8.avif",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753302146/831d82d5-9576-4411-b2ea-a39ab9ed9f81_k6sk2x.avif"
+        ],
+        "rating": 4.83,
+        "numberOfRaters": 30,
+        "guestFavorite": false,
+        "location": {
+            "country": "Spain",
+            "city": "Madrid",
+            "address": "Gran Vía 31, Madrid",
+            "lat": 40.4207,
+            "lng": -3.7057
+        },
+        "amenities": [
+            "WiFi",
+            "TV",
+            "AC"
+        ],
+        "msgs": [],
+        "unavailableDates": [],
+        "lastSearchValue": "",
+        "createdAt": 1753278900219
+    },
+    {
+        "host_id": "b4",
+        "title": "Apartment in Gran Vía",
+        "description": "New apartment with a modern and cozy design",
+        "price": 488,
+        "capacity": 4,
+        "rooms": 3,
+        "beds": 3,
+        "bathrooms": 1,
+        "type": "apartment",
+        "imgUrls": [
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753302043/f7f55367-00e9-4bb6-8604-e23fcacb41c8_bmftxy.avif",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753302040/cd9d7b7b-8416-40c6-b4fa-cef9f7dc23f2_xigouy.avif",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753302039/d7711155-bbf8-4829-a11f-c78d5a685b48_sksux6.avif",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753302036/58c1c774-4888-45fa-86da-6c53d63b0206_iub7aa.avif",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753302036/066b736b-93ce-4224-a6e9-5d22f524db98_xyxpe3.avif"
+        ],
+        "rating": 4.76,
+        "numberOfRaters": 50,
+        "guestFavorite": true,
+        "location": {
+            "country": "Spain",
+            "city": "Madrid",
+            "address": "Gran Vía 50, Madrid",
+            "lat": 40.4203,
+            "lng": -3.7060
+        },
+        "amenities": [
+            "WiFi",
+            "Kitchen",
+            "Washer",
+            "AC",
+            "TV"
+        ],
+        "msgs": [],
+        "unavailableDates": [],
+        "lastSearchValue": "",
+        "createdAt": 1753278900219
+    },
+    {
+        "host_id": "b5",
+        "title": "Apartment in Gran Vía",
+        "description": "Bright apartment with large windows overlooking the main street",
+        "price": 555,
+        "capacity": 2,
+        "rooms": 2,
+        "beds": 1,
+        "bathrooms": 1,
+        "type": "apartment",
+        "imgUrls": [
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753301927/2eb5342b-1c0f-491a-a44f-5b5d80f12836_nqwa9r.avif",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753301927/2eb5342b-1c0f-491a-a44f-5b5d80f12836_nqwa9r.avif",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753301925/31b384df-4335-4d55-88d5-304f08d09d11_c1o0ka.avif",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753301924/411b3bcc-ad9e-4ef2-85be-e4288cf6b123_k5c2r2.avif",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753301923/3bde1afd-9381-4fb0-92f6-010388de242a_hsjlmm.avif"
+        ],
+        "rating": 4.89,
+        "numberOfRaters": 70,
+        "guestFavorite": false,
+        "location": {
+            "country": "Spain",
+            "city": "Madrid",
+            "address": "Gran Vía 21, Madrid",
+            "lat": 40.4210,
+            "lng": -3.7056
+        },
+        "amenities": [
+            "WiFi",
+            "Kitchen",
+            "Balcony"
+        ],
+        "msgs": [],
+        "unavailableDates": [],
+        "lastSearchValue": "",
+        "createdAt": 1753278900219
+    },
+    {
+        "host_id": "b6",
+        "title": "Room in Gran Vía",
+        "description": "Cozy room in the heart of Madrid",
+        "price": 302,
+        "capacity": 1,
+        "rooms": 1,
+        "beds": 1,
+        "bathrooms": 1,
+        "type": "room",
+        "imgUrls": [
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753301831/3c928ded-57ec-446a-9049-f84387c4eb91_glawau.avif",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753301828/f5ddef38-0167-4843-ba1c-ba6cdfda38d1_ng4te3.avif",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753301828/82b25633-f21d-4434-9223-c62f2ff6656f_fxlcyl.avif",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753301827/d443d20f-d71b-4e3a-9f8b-1ab4da34c3e3_yqp5k6.avif",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753301827/c1ca8ceb-19cd-459f-b6b1-67c0db9e1609_tg2mr8.avif"
+        ],
+        "rating": 4.89,
+        "numberOfRaters": 25,
+        "guestFavorite": true,
+        "location": {
+            "country": "Spain",
+            "city": "Madrid",
+            "address": "Gran Vía 38, Madrid",
+            "lat": 40.4209,
+            "lng": -3.7054
+        },
+        "amenities": [
+            "WiFi",
+            "TV",
+            "AC"
+        ],
+        "msgs": [],
+        "unavailableDates": [],
+        "lastSearchValue": "",
+        "createdAt": 1753278900219
+    },
+    {
+        "host_id": "b7",
+        "title": "Apartment in Gran Vía",
+        "description": "Cozy apartment for families in the heart of Madrid",
+        "price": 610,
+        "capacity": 4,
+        "rooms": 3,
+        "beds": 3,
+        "bathrooms": 2,
+        "type": "apartment",
+        "imgUrls": [
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753301502/2a3f33e0-401e-4e9e-9f71-df200390d7cc_rq8dos.avif",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753301503/b5e83b30-b424-4d49-9fe0-2fc1e66ca5a5_w3xtzk.avif",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753301501/15dfa1ef-54c3-463d-9d78-1269b344ee40_v5tzvd.avif",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753301501/5663bbad-fc7b-4fea-9dd2-753648ca901c_l0sx1s.avif",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753301501/fb4096bd-71b2-47f8-9123-296cf29790e0_ulhcwx.avif"
+        ],
+        "rating": 4.87,
+        "numberOfRaters": 55,
+        "guestFavorite": true,
+        "location": {
+            "country": "Spain",
+            "city": "Madrid",
+            "address": "Gran Vía 70, Madrid",
+            "lat": 40.4212,
+            "lng": -3.7062
+        },
+        "amenities": [
+            "WiFi",
+            "Kitchen",
+            "AC",
+            "Washer",
+            "TV"
+        ],
+        "msgs": [],
+        "unavailableDates": [],
+        "lastSearchValue": "",
+        "createdAt": 1753278900219
+    },
+    {
+        "host_id": "b8",
+        "title": "Apartment in Gran Vía",
+        "description": "Spacious apartment with stunning views of the Madrid rooftops",
+        "price": 590,
+        "capacity": 3,
+        "rooms": 2,
+        "beds": 2,
+        "bathrooms": 1,
+        "type": "apartment",
+        "imgUrls": [
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753301194/adfa122f-5f3a-4742-9d1c-966f715ba79d_xp4iys.avif",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753301194/98643849-5468-4d09-8188-69b088f7bd6b_b02cto.avif",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753301194/af24e0b7-06d9-460f-bc1a-34bd1b411c77_ugrh4a.avif",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753301193/5d6a7dc0-bad1-49d4-b6e2-edf7388323a3_dl9ct9.avif",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753301194/5d249344-f465-442c-b58b-59ed41c07515_sbpvxj.avif"
+        ],
+        "rating": 4.84,
+        "numberOfRaters": 40,
+        "guestFavorite": false,
+        "location": {
+            "country": "Spain",
+            "city": "Madrid",
+            "address": "Gran Vía 5, Madrid",
+            "lat": 40.4206,
+            "lng": -3.7055
+        },
+        "amenities": [
+            "WiFi",
+            "AC",
+            "Balcony",
+            "Kitchen"
+        ],
+        "msgs": [],
+        "unavailableDates": [],
+        "lastSearchValue": "",
+        "createdAt": 1753278900219
+    },
+    {
+        "host_id": "b9",
+        "title": "Modern Flat in Tel Aviv",
+        "description": "Stylish and modern flat in the heart of Tel Aviv",
+        "price": 670,
+        "capacity": 4,
+        "rooms": 2,
+        "beds": 2,
+        "bathrooms": 1,
+        "type": "apartment",
+        "imgUrls": [
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753340123/426408162_rzecca.jpg",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753340003/fdf30671-c876-4c1a-bb94-b5c3320d7ec5_w07rvc.avif",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753617284/vdvd_sxzfy5.jpg",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753617281/ddfdg_mgqog8.jpg",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753339964/c136797e-2f84-4866-866e-278bb85116f2_kymf6h.avif"
+        ],
+        "rating": 4.92,
+        "numberOfRaters": 80,
+        "guestFavorite": true,
+        "location": {
+            "country": "Israel",
+            "city": "Tel Aviv",
+            "address": "Dizengoff St 100, Tel Aviv",
+            "lat": 32.0805,
+            "lng": 34.7806
+        },
+        "amenities": [
+            "WiFi",
+            "AC",
+            "Kitchen",
+            "Balcony"
+        ],
+        "msgs": [],
+        "unavailableDates": [
+            "150825",
+            "160825",
+            "170825"
+        ],
+        "lastSearchValue": "",
+        "createdAt": 1753278900219
+    },
+    {
+        "host_id": "b10",
+        "title": "Beachfront Retreat TLV",
+        "description": "Luxurious beachfront property with stunning sea views",
+        "price": 750,
+        "capacity": 5,
+        "rooms": 3,
+        "beds": 3,
+        "bathrooms": 2,
+        "type": "house",
+        "imgUrls": [
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753340291/c5ada681-1a6a-407f-8caa-1c41ddbd8611_wmtsdg.avif",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753340298/1fc52698-cc7b-4d70-9841-c58d2c32faa0_rjotwh.avif",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753340295/ac78516d-e2b5-40fb-bd4d-5d0063de07a3_cmujvt.avif",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753340304/c9b3d7f6-f1ec-40e3-be57-c7809312cfd0_wueir5.avif",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753340301/ca2698c7-c17d-4e02-b52d-958624fcaffb_x3icbi.avif"
+        ],
+        "rating": 4.85,
+        "numberOfRaters": 90,
+        "guestFavorite": false,
+        "location": {
+            "country": "Israel",
+            "city": "Tel Aviv",
+            "address": "HaYarkon St 210, Tel Aviv",
+            "lat": 32.0871,
+            "lng": 34.7687
+        },
+        "amenities": [
+            "WiFi",
+            "TV",
+            "Kitchen",
+            "Washer"
+        ],
+        "msgs": [],
+        "unavailableDates": [
+            "100925",
+            "110925",
+            "120925",
+            "130925"
+        ],
+        "lastSearchValue": "",
+        "createdAt": 1753278900219
+    },
+    {
+        "host_id": "b11",
+        "title": "Cozy Cabin in Colorado",
+        "description": "Perfect mountain getaway",
+        "price": 450,
+        "capacity": 4,
+        "rooms": 2,
+        "beds": 2,
+        "bathrooms": 1,
+        "type": "cabin",
+        "imgUrls": [
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753340983/e224d57b-71b9-441b-9a1c-3a1ae00b5225_ircphc.avif",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753340985/30c61fc9-31fc-468f-a260-f30d7b1b9c9f_j7nsmz.avif",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753340975/7a3a1c50-0b6a-46c1-bd09-9956b3fcf8c6_ev2bhp.avif",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753618530/dfthuju_qx86bk.jpg",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753618527/ffrffr_gukciw.jpg"
+        ],
+        "rating": 4.78,
+        "numberOfRaters": 55,
+        "guestFavorite": true,
+        "location": {
+            "country": "USA",
+            "city": "Denver",
+            "address": "Aspen Dr 33, Colorado",
+            "lat": 39.7392,
+            "lng": -104.9903
+        },
+        "amenities": [
+            "WiFi",
+            "Fireplace",
+            "Kitchen",
+            "Hot tub"
+        ],
+        "msgs": [],
+        "unavailableDates": [
+            "151125",
+            "161125",
+            "171125",
+            "181125",
+            "191125"
+        ],
+        "lastSearchValue": "",
+        "createdAt": 1753278900219
+    },
+    {
+        "host_id": "b12",
+        "title": "Urban Loft NYC",
+        "description": "Modern loft in Manhattan",
+        "price": 880,
+        "capacity": 3,
+        "rooms": 1,
+        "beds": 1,
+        "bathrooms": 1,
+        "type": "loft",
+        "imgUrls": [
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753341156/4eecddb5-afea-4c76-86ba-eb0cc34833fb_xupq4c.avif",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753341163/70b2af9e-e231-4500-baa2-8373bb8b7b73_smoswd.avif",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753341159/97a3a6e1-0acc-4528-adf6-90fcc4457fe3_d6elxo.avif",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753618676/cdcdcd_civbps.jpg",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753341148/59020628-2ff5-481d-a455-f654e9455df0_smqrzg.avif"
+        ],
+        "rating": 4.91,
+        "numberOfRaters": 65,
+        "guestFavorite": false,
+        "location": {
+            "country": "USA",
+            "city": "New York",
+            "address": "5th Avenue 22, Manhattan",
+            "lat": 40.7128,
+            "lng": -74.006
+        },
+        "amenities": [
+            "WiFi",
+            "AC",
+            "TV",
+            "Elevator"
+        ],
+        "msgs": [],
+        "unavailableDates": [
+            "201225",
+            "211225",
+            "221225",
+            "231225"
+        ],
+        "lastSearchValue": "",
+        "createdAt": 1753278900219
+    },
+    {
+        "host_id": "b13",
+        "title": "Charming London Flat",
+        "description": "Bright and spacious flat in the heart of London",
+        "price": 720,
+        "capacity": 4,
+        "rooms": 2,
+        "beds": 2,
+        "bathrooms": 1,
+        "type": "apartment",
+        "imgUrls": [
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753341353/f795f7a9-3ec6-486e-9216-736cb043b911_zzecae.avif",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753341365/402839fd-73e6-4b1f-873a-f7fb293bac6d_e5u5m2.avif",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753341357/ee4039d0-1459-4379-94d1-a1057fb21200_yfobhy.avif",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753619320/mjnbg_et7gkr.jpg",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753619325/dthuki_ayfam2.jpg"
+        ],
+        "rating": 4.88,
+        "numberOfRaters": 75,
+        "guestFavorite": true,
+        "location": {
+            "country": "UK",
+            "city": "London",
+            "address": "Baker St 221B, London",
+            "lat": 51.5238,
+            "lng": -0.1586
+        },
+        "amenities": [
+            "WiFi",
+            "Kitchen",
+            "Washer",
+            "Heating"
+        ],
+        "msgs": [],
+        "unavailableDates": [
+            "121125",
+            "131125",
+            "141125",
+            "151125"
+        ],
+        "lastSearchValue": "",
+        "createdAt": 1753278900219
+    },
+    {
+        "host_id": "b14",
+        "title": "Historic Cottage in Bath",
+        "description": "Quaint countryside stay",
+        "price": 520,
+        "capacity": 3,
+        "rooms": 2,
+        "beds": 2,
+        "bathrooms": 1,
+        "type": "cottage",
+        "imgUrls": [
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753341618/312c5022-aa13-4239-9a1c-b0f63c2486e1_g4iunv.avif",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753619447/jmjnhbgvfd_n294eb.jpg",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753341627/d36322f8-0ef0-4a33-9333-595399b6fda9_tw6nza.avif",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753341622/75b56300-f887-424f-a915-7c0a7c4fe25a_e3jeqd.avif",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753341607/93b42711-1db0-4c92-8ca3-3e30991479d2_rndwm2.avif"
+        ],
+        "rating": 4.75,
+        "numberOfRaters": 120,
+        "guestFavorite": false,
+        "location": {
+            "country": "UK",
+            "city": "Bath",
+            "address": "Royal Crescent 10, Bath",
+            "lat": 51.3813,
+            "lng": -2.3599
+        },
+        "amenities": [
+            "WiFi",
+            "Fireplace",
+            "Garden"
+        ],
+        "msgs": [],
+        "unavailableDates": [
+            "051225",
+            "061225",
+            "071225",
+            "081225",
+            "091225"
+        ],
+        "lastSearchValue": "",
+        "createdAt": 1753278900219
+    },
+    {
+        "host_id": "b15",
+        "title": "Luxury Apartment Manchester",
+        "description": "Central apartment with city view",
+        "price": 680,
+        "capacity": 4,
+        "rooms": 2,
+        "beds": 2,
+        "bathrooms": 2,
+        "type": "apartment",
+        "imgUrls": [
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753342058/9ae7651b-3877-4f88-967b-e93536107ee2_npmfxe.avif",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753342065/68b96c4e-0a11-4db0-8531-b501cf67b17f_esp8bm.avif",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753342061/998c21b2-9f5a-488d-b848-c054e8ee4b0e_httdr3.avif",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753342071/13aa247d-fe3e-4d22-adce-03aaf6e05d4f_q5zn1t.avif",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753342068/00fba130-ba5e-444a-b0a4-e31984c22ea9_ytjrxp.avif"
+        ],
+        "rating": 4.80,
+        "numberOfRaters": 95,
+        "guestFavorite": true,
+        "location": {
+            "country": "UK",
+            "city": "Manchester",
+            "address": "Deansgate 40, Manchester",
+            "lat": 53.4808,
+            "lng": -2.2426
+        },
+        "amenities": [
+            "WiFi",
+            "Kitchen",
+            "Gym"
+        ],
+        "msgs": [],
+        "unavailableDates": [
+            "151025",
+            "161025",
+            "171025",
+            "181025",
+            "191025"
+        ],
+        "lastSearchValue": "",
+        "createdAt": 1753278900219
+    },
+    {
+        "host_id": "b16",
+        "title": "Modern Studio Birmingham",
+        "description": "Ideal for solo travelers or couples",
+        "price": 410,
+        "capacity": 2,
+        "rooms": 1,
+        "beds": 1,
+        "bathrooms": 1,
+        "type": "studio",
+        "imgUrls": [
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753341961/5ead42f1-97ab-494c-a811-6c069367219a_pgsyzw.avif",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753341959/566ab8cc-e8f2-4713-9b3c-22d892e32132_odeyny.avif",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753341956/0e71f656-8434-453d-b6b7-fbf5b6de385b_vspscy.avif",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753341953/b99dfbcb-c9d4-4126-896d-4d8b559e8219_hper61.avif",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753341950/8ba4b45d-c011-434f-ad4a-f49aec4e3af6_iimlcj.avif"
+        ],
+        "rating": 4.66,
+        "numberOfRaters": 80,
+        "guestFavorite": false,
+        "location": {
+            "country": "UK",
+            "city": "Birmingham",
+            "address": "Colmore Row 30, Birmingham",
+            "lat": 52.4862,
+            "lng": -1.8904
+        },
+        "amenities": [
+            "WiFi",
+            "TV",
+            "Kitchenette"
+        ],
+        "msgs": [],
+        "unavailableDates": [
+            "170925",
+            "180925",
+            "190925",
+            "200925"
+        ],
+        "lastSearchValue": "",
+        "createdAt": 1753278900219
+    },
+    {
+        "host_id": "b17",
+        "title": "Lake House in the Cotswolds",
+        "description": "Tranquil escape with lake view",
+        "price": 900,
+        "capacity": 6,
+        "rooms": 3,
+        "beds": 4,
+        "bathrooms": 2,
+        "type": "house",
+        "imgUrls": [
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753342257/e5bc0e89-d4e9-400e-8353-5e3c436e221c_jkrsnc.avif",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753342260/1610bd54-73a7-4e82-927c-f165281a7249_dwbdrn.avif",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753342251/614c7567-7569-45ae-a03b-aef4f6849c8c_pyntjm.avif",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753342254/6dbc4729-a883-4211-9474-ec7477fca3a9_l5nn6z.jpg",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753342248/a29a9f34-2b48-43fe-858d-2ad778c013d4_cary7j.avif"
+        ],
+        "rating": 4.93,
+        "numberOfRaters": 150,
+        "guestFavorite": true,
+        "location": {
+            "country": "UK",
+            "city": "Cotswolds",
+            "address": "Lakeview Road 12, Cotswolds",
+            "lat": 51.833,
+            "lng": -1.8433
+        },
+        "amenities": [
+            "WiFi",
+            "Fireplace",
+            "Hot tub",
+            "Lake Access"
+        ],
+        "msgs": [],
+        "unavailableDates": [
+            "121025",
+            "131025",
+            "141025",
+            "151025",
+            "161025",
+            "171025"
+        ],
+        "lastSearchValue": "",
+        "createdAt": 1753278900219
+    },
+    {
+        "host_id": "b18",
+        "title": "Rustic Barn in Yorkshire",
+        "description": "Converted barn with stunning views",
+        "price": 580,
+        "capacity": 4,
+        "rooms": 2,
+        "beds": 3,
+        "bathrooms": 1,
+        "type": "barn",
+        "imgUrls": [
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753342410/b5ccd946-9a3b-4c45-bc3a-55574d40c11d_ifq83m.avif",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753342407/a73020ea-43d8-45cf-b6de-895f5bca1c01_txu0q8.avif",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753342413/7c9c80e7-2237-43bc-b71d-6ae402f3d482_er62jb.avif",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753619614/Capture_remmva.jpg",
+            "https://res.cloudinary.com/dool6mmp1/image/upload/v1753342393/c7a272ef-4f52-4282-878c-44d62c6d4ff9_hu4lwq.avif"
+        ],
+        "rating": 4.81,
+        "numberOfRaters": 110,
+        "guestFavorite": false,
+        "location": {
+            "country": "UK",
+            "city": "Yorkshire",
+            "address": "Hilltop Lane 7, Yorkshire",
+            "lat": 53.9915,
+            "lng": -1.5412
+        },
+        "amenities": [
+            "WiFi",
+            "Garden",
+            "Fireplace"
+        ],
+        "msgs": [],
+        "unavailableDates": [
+            "040925",
+            "050925",
+            "060925",
+            "070925"
+        ],
+        "lastSearchValue": "",
+        "createdAt": 1753278900219
+    }
+]

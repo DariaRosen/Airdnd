@@ -1,0 +1,32 @@
+[
+    {
+        "firstName": "Reuven",
+        "lastName": "Cohen",
+        "username": "reuven321",
+        "password": "1234",
+        "email": "reuven@gmail.com",
+        "imgUrl": "",
+        "favorites": [],
+        "searching_history": []
+    },
+    {
+        "firstName": "Daria",
+        "lastName": "Levi",
+        "username": "daria123",
+        "password": "abcd",
+        "email": "daria@gmail.com",
+        "imgUrl": "",
+        "favorites": [],
+        "searching_history": []
+    },
+    {
+        "firstName": "Avi",
+        "lastName": "Nissim",
+        "username": "avi",
+        "password": "1111",
+        "email": "avi@host.com",
+        "imgUrl": "",
+        "favorites": [],
+        "searching_history": []
+    }
+]
