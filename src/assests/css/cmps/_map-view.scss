@@ -32,7 +32,6 @@
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
   overflow: auto;
   z-index: 10; /* on top of map */
-  padding: 16px 12px 12px 12px;
   box-sizing: border-box;
 }
 
@@ -51,4 +50,21 @@
 
 .home-preview-container .close-btn:hover {
   color: #ff5a5f;
+}
+
+.home-preview-container > div {
+  display: flex;
+  flex-direction: column;
+  height: 300px; /* total card height */
+}
+
+.home-preview-container .img-wrapper {
+  flex: 2;       /* takes 2 parts */
+  width: 100%;
+  overflow: hidden;
+}
+
+.home-preview-container .text-wrapper {
+  flex: 1;       /* takes 1 part */
+  padding: 8px;
 }

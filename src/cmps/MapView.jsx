@@ -47,6 +47,7 @@ export function MapView({ homes, hoveredHomeId }) {
             <HomeImgPreview
               home={selectedHome}
               onHover={() => { }}
+              variant="map"
             />
             <HomeTextPreview
               home={selectedHome}
