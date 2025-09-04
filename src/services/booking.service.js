@@ -1,8 +1,6 @@
 import { storageService } from "./async-storage.service.js"
 import { utilService } from "./util.service.js"
-import { homeService } from "./home.service.js"
-
-const STORAGE_KEY = "bookingCollection"
+import bookingsData from "../data/bookings.json"
 
 export const bookingService = {
   query,
@@ -14,6 +12,7 @@ export const bookingService = {
   getHostBookings,
 }
 
+const STORAGE_KEY = "bookingCollection"
 _createBookings()
 
 window.bookingService = bookingService
@@ -32,7 +31,7 @@ async function remove(bookingId) {
 
 async function save(booking, checkIn, checkOut) {
   let savedBooking
-  
+
   const newBooking = {
     _id: utilService.makeId(),
     homeId: booking._id,
@@ -67,14 +66,24 @@ async function getUserBookings(userId) {
 
 async function getHostBookings(hostId) {
   const bookings = await query()
-  return bookings.filter(b => b.hostId === hostId)
+  console.log("bookings", bookings);
+  console.log("hostId", hostId);
+  bookings.forEach(b => {
+    console.log("host_id:", b.host_id);
+  });
+
+
+  const a = bookings.filter(b => b.host_id === hostId)
+  console.log("filtered bookings", a);
+  return a
 }
 
 // Helpers
 function _createBookings() {
   let bookings = utilService.loadFromStorage(STORAGE_KEY)
   if (!bookings || !bookings.length) {
-    utilService.saveToStorage(STORAGE_KEY, [])
+    bookings = bookingsData
+    utilService.saveToStorage(STORAGE_KEY, bookings)
   }
 }
 

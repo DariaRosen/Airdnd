@@ -322,8 +322,8 @@
   flex-shrink: 0;
 }
 
-.mini-header{
-   position: sticky;
+.mini-header {
+  position: sticky;
   top: 0;
   display: flex;
   flex-direction: column;
@@ -332,4 +332,11 @@
   border-bottom: 1px solid #ddd;
   z-index: 1000;
   width: 100%;
+}
+
+.title-container h1 {
+  text-align: center;
+  font-size: 1.8rem;
+  font-weight: 600;
+  margin: 0;
 }

@@ -25,14 +25,19 @@ export function WelcomeHost() {
             {/* Listing container */}
             <div className="listing-container">
                 <h1>Welcome back, Daria</h1>
-
                 <div className="dashboard">
-                    <button className="create-btn">
-                        <span className="icon"> <img
-                            src={dashboardIcon}
-                            alt="Dashboard icon"
-                            className="icon-gray-circle"
-                        /></span> Dashboard
+                    <button
+                        className="create-btn"
+                        onClick={() => navigate("/host-dashboard")}
+                    >
+                        <span className="icon">
+                            <img
+                                src={dashboardIcon}
+                                alt="Dashboard icon"
+                                className="icon-gray-circle"
+                            />
+                        </span>
+                        Dashboard
                     </button>
                 </div>
 
