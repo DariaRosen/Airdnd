@@ -20,7 +20,7 @@ export function BecomeHostLogin() {
         setErrors(newErrors);
 
         if (!hasError) {
-            navigate("/welcome-back");
+            navigate("/welcome-host");
         }
     };
 

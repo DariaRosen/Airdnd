@@ -8,7 +8,7 @@ import { HomesList } from "./cmps/HomesList"
 import { UserMsg } from "./cmps/UserMsg"
 import { BecomeHostLogin } from "./pages/BecomeHostLogin"
 import { ConfirmationPage } from "./cmps/ConfirmationPage"
-import { WelcomeBack } from './pages/WelcomeBack.jsx';
+import { WelcomeHost } from './pages/WelcomeHost.jsx';
 
 function DefaultLayout() {
   return (
@@ -49,7 +49,7 @@ export function App() {
 
         <Route element={<HostLayout />}>
           <Route path="/become-host" element={<BecomeHostLogin />} />
-          <Route path="/welcome-back" element={<WelcomeBack />} />
+          <Route path="/welcome-host" element={<WelcomeHost />} />
         </Route>
       </Routes>
     </Router>
