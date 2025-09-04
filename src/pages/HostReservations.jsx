@@ -28,7 +28,7 @@ export function HostReservations() {
         loadBookings();
     }, [user._id]);
 
-    // Support function: calculate number of days reserved
+    // Calculate days reserved
     const getDaysReserved = (checkIn, checkOut) => {
         const inDate = new Date(checkIn);
         const outDate = new Date(checkOut);
@@ -36,7 +36,7 @@ export function HostReservations() {
         return Math.ceil(diffTime / (1000 * 60 * 60 * 24));
     };
 
-    // Filtering
+    // Filter bookings
     const filteredBookings = hostBookings.filter((b) => {
         return (
             b.guest_id.toLowerCase().includes(filters.guestId.toLowerCase()) &&
@@ -45,7 +45,7 @@ export function HostReservations() {
         );
     });
 
-    // Sorting
+    // Sort bookings
     const sortedBookings = [...filteredBookings].sort((a, b) => {
         if (sortKey === "checkIn" || sortKey === "checkOut") {
             const dateA = new Date(a[sortKey]);
@@ -81,11 +81,11 @@ export function HostReservations() {
     };
 
     return (
-        <section className="host-bookings">
+        <section className="host-reservations">
             <HostDashboardHeader />
-            <h1>Host Bookings</h1>
+            <h1>Host Reservations</h1>
 
-            <div style={{ marginBottom: "1rem", display: "flex", gap: "1rem" }}>
+            <div className="filters">
                 <input
                     type="text"
                     name="guestId"
@@ -109,7 +109,7 @@ export function HostReservations() {
                 />
             </div>
 
-            <table border="1" cellPadding="8" style={{ width: "100%", borderCollapse: "collapse" }}>
+            <table className="bookings-table">
                 <thead>
                     <tr>
                         <th onClick={() => handleSort("status")}>Status</th>
@@ -125,7 +125,9 @@ export function HostReservations() {
                 <tbody>
                     {sortedBookings.map((b) => (
                         <tr key={b._id}>
-                            <td>{b.status}</td> {/* Status first */}
+                            <td className={`status-${b.status.toLowerCase().replace(/ /g, "-")}`}>
+                                {b.status}
+                            </td>
                             <td>{b._id}</td>
                             <td>{b.home_id}</td>
                             <td>{b.guest_id}</td>

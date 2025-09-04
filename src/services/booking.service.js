@@ -105,3 +105,4 @@ function _getDatesInRange(start, end) {
 
   return dates
 }
+
