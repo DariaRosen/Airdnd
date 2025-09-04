@@ -41,7 +41,7 @@ export function MapView({ homes, hoveredHomeId }) {
       <div className="map" style={{ height: '100%', width: '100%', position: 'relative' }}></div>
 
       {selectedHome && (
-        <div className="home-preview-container" ref={previewRef}>
+        <div className="home-preview-container-map" ref={previewRef}>
           <button className="close-btn" onClick={() => setSelectedHomeId(null)}>✕</button>
           <div>
             <HomeImgPreview

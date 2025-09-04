@@ -156,15 +156,17 @@
 }
 
 .home-img-preview.map {
-  width: 320px; // smaller for map popup
   .carousel-container img {
-    height: 230px; // fixed height
+    width: 320px; // smaller for map popup
+    height: 215px; // fixed height
     aspect-ratio: auto; // override square
-    border-radius: 12px;
-    height: 100%;
+    border-radius: 12px 12px 0 0; /* top-left, top-right, bottom-right, bottom-left */
+    object-fit: cover; /* crops while keeping aspect ratio */
+    object-position: center; /* centers the crop */
   }
   .carousel-btn img {
     height: 12px;
     width: 12px;
   }
 }
+

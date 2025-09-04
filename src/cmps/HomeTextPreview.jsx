@@ -56,7 +56,7 @@ export function HomeTextPreview({ home, variant = "main", onHover = () => { } })
                 {home.rating} ({home.numberOfRaters})
               </span>
             </span>
-            <p className="description">{home.description}</p>
+            <p className="description-map">{home.description}</p>
             <span className="price-browser">
               <span className="night-price">₪{home.price} </span>
               <span>night</span> •

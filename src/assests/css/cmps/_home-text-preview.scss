@@ -163,6 +163,7 @@
     color: $text-dark;
     font-size: 16px;
     font-weight: 600;
+    padding-left: 10px;
   }
 
   .title {
@@ -179,6 +180,7 @@
     gap: 4px;
     white-space: nowrap; // keep rating on one line
     flex-shrink: 0; // prevent shrinking on small screens
+    padding-right: 10px;
   }
 
   .star-icon {
@@ -186,13 +188,16 @@
     font-size: 12px; /* same as font-size above */
     vertical-align: middle; /* aligns star nicely */
   }
-  .description {
+  .description-map {
     overflow: hidden; /* hide overflowing text      */
     white-space: nowrap; /* keep everything on one line */
     text-overflow: ellipsis; /* add the …                   */
     font-size: 16px;
     font-weight: 400;
     color: $text-gray;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-bottom: unset;
   }
 
   .price-browser,
@@ -206,6 +211,7 @@
   .night-price {
     color: black;
     font-weight: 500;
+    padding-left: 10px;
   }
 
   .total-price {

@@ -21,12 +21,12 @@
   color: white;
 }
 
-.home-preview-container {
+.home-preview-container-map {
   position: absolute; /* overlay on top of the map */
   bottom: 20px; /* place near bottom or adjust */
   left: 20px; /* adjust horizontal position */
   width: 320px; /* set a fixed width */
-  max-height: 400px; /* limit max height */
+  height: 310px; /* set a fixed height */
   background-color: white;
   border-radius: 12px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
@@ -35,36 +35,76 @@
   box-sizing: border-box;
 }
 
-.home-preview-container .close-btn {
+.home-preview-container-map .close-btn {
   position: absolute;
   top: 6px;
   right: 8px;
-  background: none;
-  border: none;
   font-size: 18px;
   font-weight: bold;
   color: #333;
   cursor: pointer;
   z-index: 11;
+  background: rgba(255, 255, 255, 0.8); /* semi-transparent circle */
+  border: 1px solid #ddd; /* subtle border */
+  border-radius: 50%; /* makes it circular */
+  width: 28px; /* fixed size circle */
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15); /* optional subtle shadow */
+  transition: background 0.2s ease, color 0.2s ease;
 }
 
-.home-preview-container .close-btn:hover {
-  color: #ff5a5f;
+.home-preview-container-map .close-btn:hover {
+  color: #333;
 }
 
-.home-preview-container > div {
+.home-preview-container-map .heart-icon {
+  position: absolute;
+  top: 9px;
+  right: 50px;
+  width: 50px; // circle size
+  height: 50px; // circle size
+  border-radius: 50%; // makes it circular
+  background-color: rgba(255, 255, 255, 0.8); // semi-transparent circle
+  display: flex;
+  align-items: center;
+  justify-content: center; // centers heart inside
+  cursor: pointer;
+  z-index: 11;
+  transition: background 0.2s, transform 0.3s ease;
+}
+
+.home-preview-container-map .heart-icon:hover {
+  background-color: rgba(255, 255, 255, 0.5);
+  transform: scale(1.1);
+}
+
+.home-preview-container-map .heart-icon svg {
+  width: 20px; /* fixed heart size */
+  height: 20px;
+  max-width: 20px; /* prevent scaling */
+  max-height: 20px; /* prevent scaling */
+  flex-shrink: 0; /* don’t shrink */
+  stroke: #fff;
+  stroke-width: 2;
+  transform: translateX(-2px);
+}
+
+.home-preview-container-map > div {
   display: flex;
   flex-direction: column;
   height: 300px; /* total card height */
 }
 
-.home-preview-container .img-wrapper {
-  flex: 2;       /* takes 2 parts */
+.home-preview-container-map .img-wrapper {
+  flex: 2; /* takes 2 parts */
   width: 100%;
   overflow: hidden;
 }
 
-.home-preview-container .text-wrapper {
-  flex: 1;       /* takes 1 part */
+.home-preview-container-map .text-wrapper {
+  flex: 1; /* takes 1 part */
   padding: 8px;
 }
