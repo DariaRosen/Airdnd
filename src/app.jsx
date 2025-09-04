@@ -1,4 +1,3 @@
-import React from "react"
 import { HashRouter as Router, Routes, Route, Outlet } from "react-router-dom"
 import { AppHeader } from "./cmps/AppHeader"
 import { AppFooter } from "./cmps/AppFooter"
@@ -8,8 +7,8 @@ import { HomeDetails } from "./pages/HomeDetails"
 import { HomesList } from "./cmps/HomesList"
 import { UserMsg } from "./cmps/UserMsg"
 import { BecomeHostLogin } from "./pages/BecomeHostLogin"
-import { MiniHeader } from "./cmps/MiniHeader"
 import { ConfirmationPage } from "./cmps/ConfirmationPage"
+import { WelcomeBack } from './pages/WelcomeBack.jsx';
 
 function DefaultLayout() {
   return (
@@ -27,7 +26,6 @@ function DefaultLayout() {
 function HostLayout() {
   return (
     <>
-      <MiniHeader />
       <main className="container">
         <Outlet />
       </main>
@@ -51,6 +49,7 @@ export function App() {
 
         <Route element={<HostLayout />}>
           <Route path="/become-host" element={<BecomeHostLogin />} />
+          <Route path="/welcome-back" element={<WelcomeBack />} />
         </Route>
       </Routes>
     </Router>

@@ -29,7 +29,7 @@ export function MiniHeader() {
   }, [location.pathname])
 
   return (
-    <section className="header full">
+    <section className="mini-header">
       {/* LOGO + ICONS */}
       <div className="logo-wrapper">
         <Link to="/" className="logo-link">

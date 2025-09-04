@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { MiniHeader } from "../cmps/MiniHeader";
 
 export function BecomeHostLogin() {
     const navigate = useNavigate();
@@ -25,6 +26,7 @@ export function BecomeHostLogin() {
 
     return (
         <section className="become-host-login">
+            <MiniHeader />
             <div className="become-host-login-content">
                 <h1>Log in or sign up</h1>
                 <h2>Welcome to Airbnb</h2>

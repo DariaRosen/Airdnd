@@ -2,9 +2,14 @@
 .become-host-login {
   display: flex;
   justify-content: center;
-  margin-top: 100px;
   background-color: #fff;
-  padding: 2rem 0;
+  flex-direction: column;
+  align-items: center;
+  gap: 10rem;
+}
+
+.become-host-login > .mini-header {
+  width: 100%;
 }
 
 /* Card / Content Box */
