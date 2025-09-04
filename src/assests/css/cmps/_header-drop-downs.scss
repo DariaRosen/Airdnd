@@ -3,76 +3,134 @@
 }
 
 .date-dropdown {
-  display: flex;
-  justify-content: center;
-  align-items: center;
   position: absolute;
   top: 100%;
+  left: 58%;
+  transform: translateX(-50%);
   z-index: 10;
   background-color: $bg-white;
-  box-shadow: 0 2px 16px rgba(0, 0, 0, 0.1);
-  padding: 24px;
-  left: 44%;
-  transform: translateX(-50%);
+  border: 1px solid $border-light-gray;
+  border-radius: 24px;
+  box-shadow: 0 12px 32px $bg-black-opacity;
+  padding: 16px;
   width: 800px;
-  border: 1px solid $bg-light-gray;
-  border-radius: 50px;
 
   .rdrCalendarWrapper {
-    font-family: Airbnb Cereal, sans-serif;
+    display: flex;
+    font-family: Airbnb Cereal, system-ui, sans-serif;
     border: none;
-    width: 100%;
+    align-items: center;
   }
 
-  .rdrMonthAndYearPickers,
-  .rdrDateDisplayWrapper {
-    display: none;
+  .rdrDefinedRangesWrapper { display: none }
+  .rdrMonthAndYearPickers { display: none }
+
+  .rdrMonthAndYearWrapper {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 12px 12px;
   }
 
-  .rdrMonth {
-    padding: 0 16px;
-    width: 100%;
+  .rdrNextPrevButton {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: $bg-white;
+    border: 1px solid $border-lightest-gray;
+    box-shadow: 0 1px 2px $fill-black-opacity;
   }
 
-  .rdrDayToday .rdrDayNumber span::after {
-    content: none;
+  .rdrMonthName {
+    font-weight: 600;
+    color: $text-dark;
+    font-size: 14px;
+    padding: 8px 12px;
   }
-  .rdrDay {
-    padding: 20px;
+
+  .rdrWeekDay {
+    color: $text-gray;
+    font-size: 12px;
   }
+
+  .rdrMonth { padding: 0 12px }
+  .rdrDay { padding: 6px }
+
   .rdrDayNumber {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 44px;
-    height: 44px;
-    border-radius: 50%;
+    width: 36px;
+    height: 36px;
     margin: 2px auto;
-    font-size: 14px;
-    transition: background-color 0.2s ease;
+    border-radius: 50%;
+    font-size: 13px;
+    color: $text-dark;
+    transition: background-color .15s ease;
   }
 
-  .rdrDayNumber span {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  .rdrDay:hover .rdrDayNumber {
+    background-color: $bg-lightest-gray;
+
   }
-  .rdrDay:hover {
-    background-color: #f0f0f0;
+
+  .rdrDayToday .rdrDayNumber span::after {
+    content: "";
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: $fill-primary-pink;
+    position: relative;
+    bottom: -10px;
+    display: inline-block;
+  }
+
+  // טווח נבחר
+  .rdrInRange {
+    background: rgba(white, 0.16);
   }
 
   .rdrStartEdge,
-  .rdrEndEdge,
-  .rdrInRange {
-    background: #000000;
-    color: white;
+  .rdrEndEdge {
+    background: $bg-primary-pink;
+    color: $text-white;
   }
 
-  .rdrSelected {
-    background: #383536;
+  .rdrSelected,
+  .rdrSelected .rdrDayNumber,
+  .rdrStartEdge .rdrDayNumber,
+  .rdrEndEdge .rdrDayNumber {
+    background: $bg-primary-pink;
+    color: $text-white;
+    border-radius: 50%;
   }
+
+  .rdrStartEdge { 
+    border-top-left-radius: 9999px !important; 
+    border-bottom-left-radius: 9999px !important; 
+  }
+  .rdrEndEdge { 
+    border-top-right-radius: 9999px !important; 
+    border-bottom-right-radius: 9999px !important; 
+  }
+
+  .rdrInRange .rdrDayNumber span { color: $text-dark }
+
+  // Disabled
+  .rdrDayPassive .rdrDayNumber span,
+  .rdrDayDisabled .rdrDayNumber span {
+    color: $text-light-gray;
+    
+  }
+  .rdrDayDisabled .rdrDayNumber { opacity: .6 }
+    .rdrDayStartPreview,
+  .rdrDayEndPreview {
+    background: rgba(grey, .08);
+    box-shadow: none !important;
+  }
+
+
 }
 
 .guest-dropdown {
@@ -116,4 +174,3 @@
     }
   }
 }
-

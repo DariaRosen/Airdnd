@@ -12,7 +12,7 @@ export function ConfirmationPage() {
             <div className="confirmation-icon">✔</div>
             <h1 className="confirmation-title">Thank you for your reservation!</h1>
             <p className="confirmation-text">
-                Your booking has been confirmed. A confirmation email has been sent with all the details.
+                Your booking has been confirmed.
             </p>
             <button className="confirmation-button" onClick={handleBack}>
                 Back Home
