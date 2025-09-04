@@ -42,7 +42,10 @@ export function WelcomeHost() {
                 </div>
 
                 <div className="reservations">
-                    <button className="create-btn">
+                    <button 
+                    className="create-btn"
+                    onClick={() => navigate("/host-reservations")}
+                    >
                         <span className="icon"> <img
                             src={reservationsIcon}
                             alt="Reservations icon"

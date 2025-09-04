@@ -10,6 +10,7 @@ import { BecomeHostLogin } from "./pages/BecomeHostLogin"
 import { ConfirmationPage } from "./cmps/ConfirmationPage"
 import { WelcomeHost } from './pages/WelcomeHost.jsx';
 import { HostDashboard } from "./pages/HostDashboard.jsx"
+import { HostReservations } from "./pages/HostReservations.jsx"
 
 function DefaultLayout() {
   return (
@@ -52,6 +53,7 @@ export function App() {
           <Route path="/become-host" element={<BecomeHostLogin />} />
           <Route path="/welcome-host" element={<WelcomeHost />} />
           <Route path="/host-dashboard" element={<HostDashboard />} />
+          <Route path="/host-reservations" element={<HostReservations />} />
         </Route>
       </Routes>
     </Router>

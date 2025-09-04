@@ -9,7 +9,8 @@
     "pricePerNight": 670,
     "discount": 0.1,
     "tax": 180.9,
-    "totalPrice": 2010.9
+    "totalPrice": 2010.9,
+    "status": "Paid"
   },
   {
     "_id": "res102",
@@ -21,7 +22,8 @@
     "pricePerNight": 750,
     "discount": 0,
     "tax": 300,
-    "totalPrice": 3300
+    "totalPrice": 3300,
+    "status": "Pending"
   },
   {
     "_id": "res103",
@@ -33,7 +35,8 @@
     "pricePerNight": 450,
     "discount": 0.15,
     "tax": 191.25,
-    "totalPrice": 1186.25
+    "totalPrice": 1186.25,
+    "status": "Paid"
   },
   {
     "_id": "res104",
@@ -45,7 +48,8 @@
     "pricePerNight": 880,
     "discount": 0.05,
     "tax": 167,
-    "totalPrice": 1777
+    "totalPrice": 1777,
+    "status": "Paid"
   },
   {
     "_id": "res105",
@@ -57,7 +61,8 @@
     "pricePerNight": 720,
     "discount": 0.2,
     "tax": 259.2,
-    "totalPrice": 3719.2
+    "totalPrice": 3719.2,
+    "status": "Paid"
   },
   {
     "_id": "res106",
@@ -69,7 +74,8 @@
     "pricePerNight": 520,
     "discount": 0.1,
     "tax": 187.2,
-    "totalPrice": 2207.2
+    "totalPrice": 2207.2,
+    "status": "New"
   },
   {
     "_id": "res107",
@@ -81,7 +87,8 @@
     "pricePerNight": 680,
     "discount": 0.15,
     "tax": 115.6,
-    "totalPrice": 1271.6
+    "totalPrice": 1271.6,
+    "status": "Paid"
   },
   {
     "_id": "res108",
@@ -93,7 +100,8 @@
     "pricePerNight": 410,
     "discount": 0,
     "tax": 82,
-    "totalPrice": 902
+    "totalPrice": 902,
+    "status": "Canceled by Guest"
   },
   {
     "_id": "res109",
@@ -105,7 +113,8 @@
     "pricePerNight": 900,
     "discount": 0.05,
     "tax": 427.5,
-    "totalPrice": 4727.5
+    "totalPrice": 4727.5,
+    "status": "New"
   },
   {
     "_id": "res110",
@@ -117,6 +126,7 @@
     "pricePerNight": 580,
     "discount": 0.1,
     "tax": 208.8,
-    "totalPrice": 2358.8
+    "totalPrice": 2358.8,
+    "status": "Canceled by Host"
   }
 ]
