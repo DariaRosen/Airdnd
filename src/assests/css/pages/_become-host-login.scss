@@ -1,11 +1,13 @@
+/* Container */
 .become-host-login {
   display: flex;
   justify-content: center;
   margin-top: 100px;
-  // width: 400px;
   background-color: #fff;
+  padding: 2rem 0;
 }
 
+/* Card / Content Box */
 .become-host-login-content {
   background: #fff;
   border: 1px solid #ddd;
@@ -16,13 +18,14 @@
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
 }
 
+/* Headings */
 .become-host-login-content h1 {
   text-align: center;
   font-size: 1.25rem;
   font-weight: 600;
   margin-bottom: 1rem;
   border-bottom: 1px solid #ddd;
-  padding-bottom: 30px;
+  padding-bottom: 1rem;
 }
 
 .become-host-login-content h2 {
@@ -32,6 +35,7 @@
   text-align: left;
 }
 
+/* Phone input wrapper */
 .phone-input-wrapper {
   display: flex;
   flex-direction: column;
@@ -49,18 +53,45 @@
 
 .phone-input-wrapper input {
   flex: 1;
+  transition: border-color 0.2s, background-color 0.2s;
 }
 
-.become-host-login-content p {
+/* Error state */
+.phone-input-wrapper .input-error {
+  border-color: red;
+  background-color: rgb(235, 197, 210);
+}
+
+.phone-input-wrapper .phone-error {
+  color: red;
+  font-size: 12px;
+  margin: 2px 0 6px 0;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+/* Circle with exclamation for required */
+.phone-input-wrapper .phone-error::before {
+  content: "!";
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  line-height: 16px;
+  text-align: center;
+  border-radius: 50%;
+  background-color: red;
+  color: white;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+/* Informational text */
+.info-txt {
   font-size: 0.8rem;
   color: #555;
   line-height: 1.4;
-}
-
-.become-host-login-content p a {
-  color: #000;
-  font-weight: 500;
-  text-decoration: underline;
+  margin-bottom: 0.5rem;
 }
 
 .privacy-txt {
@@ -71,6 +102,15 @@
   text-decoration: underline;
 }
 
+/* Links inside informational text */
+.info-txt a,
+.privacy-txt a {
+  color: #000;
+  font-weight: 500;
+  text-decoration: underline;
+}
+
+/* Button */
 .become-host-login-content button {
   width: 100%;
   padding: 14px;
