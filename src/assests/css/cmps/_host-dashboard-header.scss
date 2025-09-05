@@ -1,0 +1,27 @@
+.tabs-container {
+  display: flex;
+  gap: 1.5rem;
+  margin-top: 1rem;
+  margin-left: auto;
+}
+
+.tab-link {
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: #717171;
+  text-decoration: none;
+  padding-bottom: 4px;
+  border-bottom: 2px solid transparent;
+  transition: all 0.2s ease;
+}
+
+.tab-link:hover {
+  color: #000;
+  border-bottom: 2px solid #ddd;
+}
+
+.tab-link.active {
+  color: #FF385C;          /* Airbnb pink */
+  font-weight: 600;
+  border-bottom: 2px solid #FF385C;
+}

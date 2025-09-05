@@ -30,9 +30,9 @@ export function HostDashboard() {
 
 
     // ✅ Calculate statistics
-    const totalReservations = hostBookings.length
+    const totalBookings = hostBookings.length
     const totalEarnings = hostBookings.reduce((sum, res) => sum + res.totalPrice, 0)
-    const avgPrice = totalReservations > 0 ? (totalEarnings / totalReservations).toFixed(2) : 0
+    const avgPrice = totalBookings > 0 ? (totalEarnings / totalBookings).toFixed(2) : 0
 
     const today = new Date()
     const upcoming = hostBookings.filter(res => new Date(res.checkIn) > today).length
@@ -44,10 +44,10 @@ export function HostDashboard() {
 
             <div className="stats">
                 <DashboardsCharts bookings={hostBookings} />
-                <p><strong>Total Reservations:</strong> {totalReservations}</p>
-                <p><strong>Upcoming Reservations:</strong> {upcoming}</p>
+                <p><strong>Total Bookings:</strong> {totalBookings}</p>
+                <p><strong>Upcoming Bookings:</strong> {upcoming}</p>
                 <p><strong>Total Earnings:</strong> ${totalEarnings.toFixed(2)}</p>
-                <p><strong>Average per Reservation:</strong> ${avgPrice}</p>
+                <p><strong>Average per Booking:</strong> ${avgPrice}</p>
             </div>
         </section>
     )

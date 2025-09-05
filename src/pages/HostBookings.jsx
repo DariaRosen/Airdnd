@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { bookingService } from "../services/booking.service";
 import { HostDashboardHeader } from "../cmps/HostDashboardHeader";
 
-export function HostReservations() {
+export function HostBookings() {
     const user = {
         _id: "b1",
         firstName: "Harry",
@@ -14,7 +14,7 @@ export function HostReservations() {
     const [hostBookings, setHostBookings] = useState([]);
     const [filters, setFilters] = useState({
         guestId: "",
-        reservationId: "",
+        bookingId: "",
         homeId: ""
     });
     const [sortKey, setSortKey] = useState("checkIn");
@@ -40,7 +40,7 @@ export function HostReservations() {
     const filteredBookings = hostBookings.filter((b) => {
         return (
             b.guest_id.toLowerCase().includes(filters.guestId.toLowerCase()) &&
-            b._id.toLowerCase().includes(filters.reservationId.toLowerCase()) &&
+            b._id.toLowerCase().includes(filters.bookingId.toLowerCase()) &&
             b.home_id.toLowerCase().includes(filters.homeId.toLowerCase())
         );
     });
@@ -81,9 +81,9 @@ export function HostReservations() {
     };
 
     return (
-        <section className="host-reservations">
+        <section className="host-bookings">
             <HostDashboardHeader />
-            <h1>Host Reservations</h1>
+            <h1>Host Bookings</h1>
 
             <div className="filters">
                 <input
@@ -95,9 +95,9 @@ export function HostReservations() {
                 />
                 <input
                     type="text"
-                    name="reservationId"
-                    placeholder="Filter by Reservation ID"
-                    value={filters.reservationId}
+                    name="bookingId"
+                    placeholder="Filter by Booking ID"
+                    value={filters.bookingId}
                     onChange={handleFilterChange}
                 />
                 <input
@@ -113,7 +113,7 @@ export function HostReservations() {
                 <thead>
                     <tr>
                         <th onClick={() => handleSort("status")}>Status</th>
-                        <th onClick={() => handleSort("_id")}>Reservation ID</th>
+                        <th onClick={() => handleSort("_id")}>Booking ID</th>
                         <th onClick={() => handleSort("home_id")}>Home ID</th>
                         <th onClick={() => handleSort("guest_id")}>Guest ID</th>
                         <th onClick={() => handleSort("checkIn")}>Check In</th>

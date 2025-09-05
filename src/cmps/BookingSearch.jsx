@@ -73,7 +73,7 @@ export function BookingSearch({ home }) {
       await onReserve()           
       navigate('/confirmation')   
     } catch (err) {
-      console.error('Reservation failed', err)
+      console.error('Booking failed', err)
     }
   }
 

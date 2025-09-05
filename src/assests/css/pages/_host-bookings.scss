@@ -1,39 +1,39 @@
-.host-reservations {
+.host-bookings {
   padding: 2rem;
 }
 
-.host-reservations h1 {
+.host-bookings h1 {
   font-size: 2.5rem;
   margin-bottom: 1rem;
   text-align: center;
 }
 
-.host-reservations .filters {
+.host-bookings .filters {
   display: flex;
   gap: 1rem;
   margin-bottom: 1rem;
 }
 
-.host-reservations .filters input {
+.host-bookings .filters input {
   padding: 0.5rem;
   font-size: 1rem;
   flex: 1;
 }
 
-.host-reservations table {
+.host-bookings table {
   width: 100%;
   border-collapse: collapse;
 }
 
-.host-reservations th,
-.host-reservations td {
+.host-bookings th,
+.host-bookings td {
   padding: 0.5rem;
   text-align: left;
   border: 1px solid #ddd;
   cursor: pointer;
 }
 
-.host-reservations th {
+.host-bookings th {
   background-color: #f4f4f4;
 }
 

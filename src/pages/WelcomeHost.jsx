@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom'
 export function WelcomeHost() {
     const navigate = useNavigate()
     const addListingIcon = "/Airdnd/icons/add-listing.svg"
-    const reservationsIcon = "/Airdnd/icons/list-check-svgrepo-com.svg"
+    const bookingIcon = "/Airdnd/icons/list-check-svgrepo-com.svg"
     const dashboardIcon = "/Airdnd/icons/dashboard-svgrepo-com.svg"
     return (
         <section className="welcome-host">
@@ -41,16 +41,16 @@ export function WelcomeHost() {
                     </button>
                 </div>
 
-                <div className="reservations">
-                    <button 
-                    className="create-btn"
-                    onClick={() => navigate("/host-reservations")}
+                <div className="bookings">
+                    <button
+                        className="create-btn"
+                        onClick={() => navigate("/host-bookings")}
                     >
                         <span className="icon"> <img
-                            src={reservationsIcon}
-                            alt="Reservations icon"
+                            src={bookingIcon}
+                            alt="Bookings icon"
                             className="icon-gray-circle"
-                        /></span> Reservations
+                        /></span> Bookings
                     </button>
                 </div>
 
