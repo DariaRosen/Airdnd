@@ -3,6 +3,7 @@ import "react-date-range/dist/styles.css"
 import "react-date-range/dist/theme/default.css"
 import { useState, useEffect, useRef } from "react"
 import { setFilterBy } from "../store/homes/homes.action.js"
+import { DatePicker } from '@mantine/dates'
 
 export function DateSearch({ dateRange, setDateRange }) {
   const [isDateOpen, setIsDateOpen] = useState(false)
@@ -23,6 +24,12 @@ export function DateSearch({ dateRange, setDateRange }) {
   }
   const customDayRenderer = (date) => {
     return <div className="custom-day">{date.getDate()}</div>
+  }
+
+  const mantineValue = [dateRange[0].startDate, dateRange[0].endDate]
+  const handleMantineChange = next => {
+    const [start, end] = next || []
+    setDateRange([{ startDate: start, endDate: end, key: 'selection' }])
   }
 
   return (
@@ -49,7 +56,7 @@ export function DateSearch({ dateRange, setDateRange }) {
 
       {isDateOpen && (
         <div className="date-dropdown">
-          <DateRange
+          {/* <DateRange
             onChange={handleDateChange}
             moveRangeOnFirstSelection={false}
             ranges={dateRange}
@@ -61,7 +68,15 @@ export function DateSearch({ dateRange, setDateRange }) {
             minDate={new Date()}
             // rangeColors={["#ff385c"]}
             dayContentRenderer={customDayRenderer}
+          /> */}
 
+
+          <DatePicker
+            type="range"
+            value={mantineValue}
+            onChange={handleMantineChange}
+            minDate={new Date()}
+            numberOfColumns={2}
           />
         </div>
       )}

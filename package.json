@@ -13,10 +13,14 @@
     "deploy": "gh-pages -d dist"
   },
   "dependencies": {
+    "@mantine/core": "^8.2.8",
+    "@mantine/dates": "^8.2.8",
+    "@mantine/hooks": "^8.2.8",
     "@reduxjs/toolkit": "^2.8.2",
     "animate.css": "^4.1.1",
     "chart.js": "^4.5.0",
     "cookie-parser": "^1.4.7",
+    "dayjs": "^1.11.18",
     "express": "^5.1.0",
     "react": "^18.2.0",
     "react-chartjs-2": "^5.3.0",

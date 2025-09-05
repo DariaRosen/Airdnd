@@ -21,6 +21,10 @@
     border: none;
     align-items: center;
   }
+  .rdrDayHovered{
+    border: none;
+    outline: none;
+  }
 
   .rdrDefinedRangesWrapper { display: none }
   .rdrMonthAndYearPickers { display: none }
