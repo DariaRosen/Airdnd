@@ -55,7 +55,10 @@ export function WelcomeHost() {
                 </div>
 
                 <div className="new-listing">
-                    <button className="create-btn">
+                    <button 
+                    className="create-btn"
+                    onClick={() => navigate("/host-listing")}
+                    >
                         <span className="icon"> <img
                             src={addListingIcon}
                             alt="Add Listing icon"

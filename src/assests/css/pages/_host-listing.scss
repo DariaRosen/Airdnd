@@ -1,0 +1,105 @@
+.new-listing {
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  font-family: "Airbnb Cereal App", "Helvetica Neue", Arial, sans-serif;
+}
+
+.host-listing h2 {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  color: #222;
+  font-weight: 600;
+  text-align: center;
+}
+
+.listing-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.listing-form label {
+  display: flex;
+  flex-direction: column;
+  font-size: 1rem;
+  color: #444;
+  font-weight: 500;
+}
+
+.listing-form input,
+.listing-form textarea,
+.listing-form select {
+  margin-top: 0.5rem;
+  padding: 0.75rem 1rem;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  font-size: 1rem;
+  outline: none;
+  transition: border-color 0.2s ease;
+}
+
+.listing-form input:focus,
+.listing-form textarea:focus,
+.listing-form select:focus {
+  border-color: #ff385c;
+  box-shadow: 0 0 0 3px rgba(255, 56, 92, 0.2);
+}
+
+.listing-form textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+fieldset {
+  border: none;
+  padding: 0;
+  margin: 0;
+}
+
+fieldset legend {
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: #222;
+}
+
+fieldset label {
+  font-weight: 400;
+  font-size: 0.95rem;
+  margin-bottom: 0.35rem;
+}
+
+fieldset input[type="checkbox"] {
+  margin-right: 0.5rem;
+}
+
+button {
+  align-self: flex-start;
+  padding: 0.75rem 1.5rem;
+  background: #ff385c;
+  color: #fff;
+  border: none;
+  border-radius: 12px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+button:hover {
+  background: #e31c5f;
+}
+
+button[type="button"] {
+  background: #f7f7f7;
+  color: #222;
+  border: 1px solid #ddd;
+  font-weight: 500;
+}
+
+button[type="button"]:hover {
+  background: #f0f0f0;
+}

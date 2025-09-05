@@ -51,8 +51,8 @@ export function HostDashboardHeader() {
         <Link to="/host-bookings" className={`tab-link ${isActive("/host-bookings") ? "active" : ""}`}>
           Bookings
         </Link>
-        <Link to="/host-listings" className={`tab-link ${isActive("/host-listings") ? "active" : ""}`}>
-          Add New Home
+        <Link to="/host-listing" className={`tab-link ${isActive("/host-listing") ? "active" : ""}`}>
+          Add New Listing
         </Link>
       </div>
     </section>

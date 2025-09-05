@@ -1,4 +1,3 @@
-import { MiniHeader } from "../cmps/MiniHeader"
 import { useEffect, useState } from "react"
 import { bookingService } from "../services/booking.service"
 import { HostDashboardHeader } from "../cmps/HostDashboardHeader"
