@@ -103,3 +103,35 @@ button[type="button"] {
 button[type="button"]:hover {
   background: #f0f0f0;
 }
+
+.property-details-row {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1.5rem;
+  flex-wrap: wrap; /* makes it responsive */
+}
+
+.property-details-row label {
+  flex: 1;
+  min-width: 130px; /* so they don’t get too small */
+  display: flex;
+  flex-direction: column;
+  font-size: 0.95rem;
+}
+
+.property-details-row input,
+.property-details-row select {
+  margin-top: 0.5rem;
+  padding: 0.65rem 1rem;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  font-size: 1rem;
+  outline: none;
+  transition: border-color 0.2s ease;
+}
+
+.property-details-row input:focus,
+.property-details-row select:focus {
+  border-color: #ff385c;
+  box-shadow: 0 0 0 3px rgba(255, 56, 92, 0.2);
+}

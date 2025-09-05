@@ -1,18 +1,9 @@
 import { useState } from "react"
 import { HostDashboardHeader } from "../cmps/HostDashboardHeader"
-
-const ALL_AMENITIES = [
-    "WiFi",
-    "Fireplace",
-    "Garden",
-    "Washer",
-    "TV",
-    "Balcony",
-    "Kitchen",
-    "AC",
-]
+import { AmenitySelector } from "../cmps/AmenitySelector"
 
 export function HostListing() {
+    const [amenities, setAmenities] = useState([])
     const [form, setForm] = useState({
         title: "",
         description: "",
@@ -98,55 +89,50 @@ export function HostListing() {
 
                     <label>
                         Price (per night):
-                        <input type="number" name="price" value={form.price} onChange={handleChange} required />
-                    </label>
+                        <div className="price-input">
+                            <input type="number" placeholder="Enter price" />
+                            <select>
+                                <option value="NIS">NIS</option>
+                                <option value="USD">USD</option>
+                                <option value="CAD">CAD</option>
+                                <option value="EUR">EURO</option>
+                            </select>
+                        </div>                    </label>
 
-                    <label>
-                        Capacity:
-                        <input type="number" name="capacity" value={form.capacity} onChange={handleChange} required />
-                    </label>
+                    <div className="property-details-row">
+                        <label>
+                            Capacity:
+                            <input type="number" placeholder="e.g. 4" />
+                        </label>
+                        <label>
+                            Rooms:
+                            <input type="number" placeholder="e.g. 3" />
+                        </label>
+                        <label>
+                            Beds:
+                            <input type="number" placeholder="e.g. 3" />
+                        </label>
+                        <label>
+                            Bathrooms:
+                            <input type="number" placeholder="e.g. 2" />
+                        </label>
+                        <label>
+                            Type:
+                            <select>
+                                <option value="house">House</option>
+                                <option value="apartment">Apartment</option>
+                                <option value="villa">Villa</option>
+                                <option value="cabin">Cabin</option>
+                            </select>
+                        </label>
+                    </div>
 
-                    <label>
-                        Rooms:
-                        <input type="number" name="rooms" value={form.rooms} onChange={handleChange} />
-                    </label>
 
-                    <label>
-                        Beds:
-                        <input type="number" name="beds" value={form.beds} onChange={handleChange} />
-                    </label>
-
-                    <label>
-                        Bathrooms:
-                        <input type="number" name="bathrooms" value={form.bathrooms} onChange={handleChange} />
-                    </label>
-
-                    <label>
-                        Type:
-                        <select name="type" value={form.type} onChange={handleChange}>
-                            <option value="house">House</option>
-                            <option value="apartment">Apartment</option>
-                            <option value="cabin">Cabin</option>
-                            <option value="villa">Villa</option>
-                        </select>
-                    </label>
-
-                    <fieldset>
-                        <legend>Amenities</legend>
-                        {ALL_AMENITIES.map((amenity) => (
-                            <label key={amenity} style={{ display: "block" }}>
-                                <input
-                                    type="checkbox"
-                                    checked={form.amenities.includes(amenity)}
-                                    onChange={() => handleAmenityToggle(amenity)}
-                                />
-                                {amenity}
-                            </label>
-                        ))}
-                    </fieldset>
+                    <h2>Select Amenities</h2>
+                    <AmenitySelector amenities={amenities} setAmenities={setAmenities} />
+                    <p>Location: {amenities.join(", ")}</p>
 
                     <fieldset>
-                        <legend>Location</legend>
                         <input
                             type="text"
                             placeholder="Country"
@@ -187,7 +173,7 @@ export function HostListing() {
                     </fieldset>
 
                     <fieldset>
-                        <legend>Images</legend>
+                        <p>Images:</p>
                         {form.imgUrls.map((url, idx) => (
                             <input
                                 key={idx}

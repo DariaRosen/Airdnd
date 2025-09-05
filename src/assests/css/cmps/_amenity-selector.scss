@@ -1,0 +1,60 @@
+.amenity-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 1rem;
+}
+
+.amenity-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1rem;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  background: #fff;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.amenity-item input {
+  display: none; /* hide native checkbox */
+}
+
+.amenity-section {
+  margin: 2rem 0;
+}
+
+.amenity-category {
+  margin-bottom: 2.5rem;
+}
+
+.amenity-category h3 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: #333;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 0.5rem;
+}
+
+.amenity-item:hover {
+  border-color: #ff385c;
+  box-shadow: 0 0 0 3px rgba(255, 56, 92, 0.15);
+}
+
+.amenity-item.selected {
+  border-color: #ff385c;
+  background: #fff0f3;
+  font-weight: 600;
+  color: #ff385c;
+}
+
+.amenity-item.selected .icon {
+  color: #ff385c;
+}
+
+.amenity-item .icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
