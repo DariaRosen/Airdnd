@@ -22,10 +22,11 @@
   padding: 1rem;
   border-radius: 12px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-  /* Use clamp to control width: min 300px, preferred 33% row, max 500px */
-  flex: 1 1 clamp(300px, 33%, 500px);
+  /* Use clamp to control width: min 400px, preferred 40% row, max 650px */
+  flex: 1 1 clamp(400px, 40%, 650px);
   text-align: center;
   max-height: 350px;
+  max-width: 450px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;

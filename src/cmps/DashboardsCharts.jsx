@@ -166,37 +166,30 @@ export function DashboardsCharts({ bookings }) {
 
             <div
                 className="charts-container"
-                style={{
-                    display: "grid",
-                    gridTemplateColumns: "repeat(auto-fit, minmax(400px, 1fr))",
-                    gap: "2rem",
-                    justifyItems: "center",
-                    marginTop: "1rem"
-                }}
             >
-                <div className="chart-card" style={{ maxWidth: "500px" }}>
+                <div className="chart-card">
                     <h3>Monthly Income</h3>
-                    <Bar data={barData} options={{ responsive: true }} />
+                    <Bar data={barData} options={{ responsive: true, maintainAspectRatio: false }} />
                 </div>
-                <div className="chart-card" style={{ maxWidth: "500px" }}>
+                <div className="chart-card">
                     <h3>Orders by Nights</h3>
-                    <Pie data={pieData} options={{ responsive: true }} />
+                    <Pie data={pieData} options={{ responsive: true, maintainAspectRatio: false }} />
                 </div>
-                <div className="chart-card" style={{ maxWidth: "500px" }}>
+                <div className="chart-card">
                     <h3>Bookings Over Time</h3>
-                    <Line data={lineData} options={{ responsive: true }} />
+                    <Line data={lineData} options={{ responsive: true, maintainAspectRatio: false }} />
                 </div>
-                <div className="chart-card" style={{ maxWidth: "500px" }}>
+                <div className="chart-card">
                     <h3>Booking Status Breakdown</h3>
-                    <Doughnut data={doughnutData} options={{ responsive: true }} />
+                    <Doughnut data={doughnutData} options={{ responsive: true, maintainAspectRatio: false }} />
                 </div>
-                <div className="chart-card" style={{ maxWidth: "500px" }}>
+                <div className="chart-card">
                     <h3>Revenue per Home</h3>
-                    <Bar data={revenuePerHomeData} options={{ responsive: true }} />
+                    <Bar data={revenuePerHomeData} options={{ responsive: true, maintainAspectRatio: false }} />
                 </div>
-                <div className="chart-card" style={{ maxWidth: "500px" }}>
+                <div className="chart-card">
                     <h3>Booking Frequency by Weekday</h3>
-                    <Bar data={bookingWeekdayData} options={{ responsive: true }} />
+                    <Bar data={bookingWeekdayData} options={{ responsive: true, maintainAspectRatio: false }} />
                 </div>
             </div>
         </div>
