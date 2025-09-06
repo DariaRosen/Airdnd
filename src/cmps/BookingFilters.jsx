@@ -17,7 +17,11 @@ export function BookingFilters({ filters, onChange }) {
     // Generate year options dynamically
     const currentYear = new Date().getFullYear();
     const years = Array.from({ length: 5 }, (_, i) => currentYear - i);
-    const months = Array.from({ length: 12 }, (_, i) => i + 1);
+    const months = [
+        "January", "February", "March", "April", "May", "June",
+        "July", "August", "September", "October", "November", "December"
+    ];
+
 
     return (
         <div className="booking-filters">
@@ -39,8 +43,8 @@ export function BookingFilters({ filters, onChange }) {
 
             <select name="month" value={localFilters.month} onChange={handleChange}>
                 <option value="">All Months</option>
-                {months.map((m) => (
-                    <option key={m} value={m}>{m}</option>
+                {months.map((m, index) => (
+                    <option key={index} value={index + 1}>{m}</option> // value = 1–12
                 ))}
             </select>
 

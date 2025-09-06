@@ -1,5 +1,39 @@
 .host-dashboard h1 {
     font-size: 2.5rem;
-    margin-bottom: 0.5rem;
+    margin-bottom: 1rem;
     text-align: center;
+}
+
+.dashboard-stats {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+    margin-bottom: 2rem;
+}
+
+.stat-card {
+    background: #fff;
+    padding: 1rem 1.5rem;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    min-width: 160px;
+    text-align: center;
+}
+
+.stat-card p {
+    font-size: 0.9rem;
+    color: #555;
+    margin-bottom: 0.3rem;
+}
+
+.stat-card h2 {
+    font-size: 1.4rem;
+    margin: 0;
+    font-weight: 600;
+}
+
+.dashboard-charts-wrapper {
+    width: 100%;
+    margin-top: 1rem;
 }
