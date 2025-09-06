@@ -54,7 +54,7 @@ export function WelcomeHost() {
                     </button>
                 </div>
 
-                <div className="new-listing">
+                <div className="listing">
                     <button 
                     className="create-btn"
                     onClick={() => navigate("/host-listing")}

@@ -8,18 +8,18 @@
 }
 
 /* Header */
-.welcome-header {
+.welcome-host .welcome-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   width: 100%;
 }
 
-.welcome-icon {
+.welcome-host .welcome-icon {
   height: 50px;
 }
 
-.header-buttons button {
+.welcome-host .header-buttons button {
   margin-left: 1rem;
   padding: 8px 16px;
   font-size: 17px;
@@ -28,51 +28,79 @@
   border: 1px solid #ccc;
   cursor: pointer;
   background-color: #fff;
+  color: #000;
+  transition: background 0.3s, color 0.3s;
+}
+
+.welcome-host .header-buttons button:hover {
+  background: #e31c5f;
+  color: white;
 }
 
 /* Listing container */
-.listing-container {
+.welcome-host .listing-container {
   display: flex;
   flex-direction: column;
   gap: 2rem;
-  max-width: 900px;
+  width: 100%;
   align-items: center;
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  font-family: "Airbnb Cereal App", "Helvetica Neue", Arial, sans-serif;
 }
 
-.listing-container .icon-gray-circle {
-  width: 30px;
-  height: 30px;
-}
-
-.listing-container h1 {
+.welcome-host .listing-container h1 {
   font-size: 2.2rem;
   font-weight: bold;
   width: 100%;
-  
+  text-align: center;
 }
 
-/* Buttons */
-.dashboard,
-.bookings,
-.new-listing {
+/* Buttons wrapper */
+.welcome-host .dashboard,
+.welcome-host .bookings,
+.welcome-host .listing {
   width: 100%;
+  display: flex;
+  justify-content: center;
 }
 
-.create-btn {
+/* Create button */
+.welcome-host .create-btn {
   display: flex;
   align-items: center;
-  justify-content: center; /* center icon + text */
-  gap: 1rem;
-  padding: 12px;
+  justify-content: center;
+  gap: 1.25rem;
+  padding: 16px 24px; /* ✅ consistent padding */
   font-weight: 600;
   border: 1px solid #ccc;
   border-radius: 10px;
   cursor: pointer;
   background-color: #fff;
-  width: 100%; /* ✅ fill parent width */
-  font-size: 22px;
+  width: 60%;
+  font-size: 26px;
+  color: #000;
+  transition: background 0.3s, color 0.3s;
+  text-align: center;
 }
 
-.create-btn .icon {
-  font-size: 1.2rem;
+.welcome-host .create-btn:hover {
+  background-color: #e31c5f;
+  color: #fff;
+}
+
+.welcome-host .create-btn:hover .icon img {
+  filter: brightness(0) invert(1);  /* makes icon white */
+}
+
+/* Icons inside buttons */
+.welcome-host .create-btn .icon img {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+  display: block;
 }
