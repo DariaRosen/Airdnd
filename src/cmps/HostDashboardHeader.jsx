@@ -3,6 +3,7 @@ import { AirdndIcon } from "./AirdndIcon"
 import { Link, useLocation } from "react-router-dom"
 import "react-date-range/dist/styles.css"
 import "react-date-range/dist/theme/default.css"
+import { userService } from "../services/user.service"
 
 export function HostDashboardHeader() {
   const location = useLocation()
@@ -39,7 +40,7 @@ export function HostDashboardHeader() {
 
         {/* Title */}
         <div className="title-container">
-          <h1>Welcome, Daria Levi!</h1>
+          <h1>{userService.getGreeting()}, Harry Potter!</h1>
         </div>
       </div>
 

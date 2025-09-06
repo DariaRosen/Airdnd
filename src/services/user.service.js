@@ -16,6 +16,7 @@ export const userService = {
   remove,
   update,
   getEmptyUser,
+  getGreeting,
 }
 
 window.userService = userService
@@ -107,4 +108,14 @@ function _createUsers() {
     utilService.saveToStorage(STORAGE_KEY_USER_DB, users)
   }
   return users
+}
+
+function getGreeting() {
+    const now = new Date();
+    const hour = now.getHours();
+
+    if (hour >= 5 && hour < 12) return "Good morning";
+    if (hour >= 12 && hour < 17) return "Good afternoon";
+    if (hour >= 17 && hour < 21) return "Good evening";
+    return "Good night";
 }

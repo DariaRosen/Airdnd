@@ -81,64 +81,66 @@ export function HostBookings() {
     };
 
     return (
-        <section className="host-bookings">
+        <section className="bookings">
             <HostDashboardHeader />
-            <h1>Host Bookings</h1>
+            <div className="host-bookings">
+                <h1>Host Bookings</h1>
 
-            <div className="filters">
-                <input
-                    type="text"
-                    name="guestId"
-                    placeholder="Filter by Guest ID"
-                    value={filters.guestId}
-                    onChange={handleFilterChange}
-                />
-                <input
-                    type="text"
-                    name="bookingId"
-                    placeholder="Filter by Booking ID"
-                    value={filters.bookingId}
-                    onChange={handleFilterChange}
-                />
-                <input
-                    type="text"
-                    name="homeId"
-                    placeholder="Filter by Home ID"
-                    value={filters.homeId}
-                    onChange={handleFilterChange}
-                />
-            </div>
+                <div className="filters">
+                    <input
+                        type="text"
+                        name="guestId"
+                        placeholder="Filter by Guest ID"
+                        value={filters.guestId}
+                        onChange={handleFilterChange}
+                    />
+                    <input
+                        type="text"
+                        name="bookingId"
+                        placeholder="Filter by Booking ID"
+                        value={filters.bookingId}
+                        onChange={handleFilterChange}
+                    />
+                    <input
+                        type="text"
+                        name="homeId"
+                        placeholder="Filter by Home ID"
+                        value={filters.homeId}
+                        onChange={handleFilterChange}
+                    />
+                </div>
 
-            <table className="bookings-table">
-                <thead>
-                    <tr>
-                        <th onClick={() => handleSort("status")}>Status</th>
-                        <th onClick={() => handleSort("_id")}>Booking ID</th>
-                        <th onClick={() => handleSort("home_id")}>Home ID</th>
-                        <th onClick={() => handleSort("guest_id")}>Guest ID</th>
-                        <th onClick={() => handleSort("checkIn")}>Check In</th>
-                        <th onClick={() => handleSort("checkOut")}>Check Out</th>
-                        <th onClick={() => handleSort("daysReserved")}>Days Reserved</th>
-                        <th onClick={() => handleSort("totalPrice")}>Total Price</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {sortedBookings.map((b) => (
-                        <tr key={b._id}>
-                            <td className={`status-${b.status.toLowerCase().replace(/ /g, "-")}`}>
-                                {b.status}
-                            </td>
-                            <td>{b._id}</td>
-                            <td>{b.home_id}</td>
-                            <td>{b.guest_id}</td>
-                            <td>{b.checkIn}</td>
-                            <td>{b.checkOut}</td>
-                            <td>{getDaysReserved(b.checkIn, b.checkOut)}</td>
-                            <td>${b.totalPrice.toFixed(2)}</td>
+                <table className="bookings-table">
+                    <thead>
+                        <tr>
+                            <th onClick={() => handleSort("status")}>Status</th>
+                            <th onClick={() => handleSort("_id")}>Booking ID</th>
+                            <th onClick={() => handleSort("home_id")}>Home ID</th>
+                            <th onClick={() => handleSort("guest_id")}>Guest ID</th>
+                            <th onClick={() => handleSort("checkIn")}>Check In</th>
+                            <th onClick={() => handleSort("checkOut")}>Check Out</th>
+                            <th onClick={() => handleSort("daysReserved")}>Days Reserved</th>
+                            <th onClick={() => handleSort("totalPrice")}>Total Price</th>
                         </tr>
-                    ))}
-                </tbody>
-            </table>
+                    </thead>
+                    <tbody>
+                        {sortedBookings.map((b) => (
+                            <tr key={b._id}>
+                                <td className={`status-${b.status.toLowerCase().replace(/ /g, "-")}`}>
+                                    {b.status}
+                                </td>
+                                <td>{b._id}</td>
+                                <td>{b.home_id}</td>
+                                <td>{b.guest_id}</td>
+                                <td>{b.checkIn}</td>
+                                <td>{b.checkOut}</td>
+                                <td>{getDaysReserved(b.checkIn, b.checkOut)}</td>
+                                <td>${b.totalPrice.toFixed(2)}</td>
+                            </tr>
+                        ))}
+                    </tbody>
+                </table>
+            </div>
         </section>
     );
 }

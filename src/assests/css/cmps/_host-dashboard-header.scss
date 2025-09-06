@@ -21,7 +21,21 @@
 }
 
 .tab-link.active {
-  color: #FF385C;          /* Airbnb pink */
+  color: #ff385c; /* Airbnb pink */
   font-weight: 600;
-  border-bottom: 2px solid #FF385C;
+  border-bottom: 2px solid #ff385c;
+}
+
+.logo-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.logo-text {
+  font-size: 1.8rem;
+  // font-weight: bold;
+  color: #ff385c; /* Airbnb pink */
+  font-weight: 600;
+  padding: 5px;
 }
