@@ -1,21 +1,19 @@
 import { useEffect, useState } from "react";
 import { bookingService } from "../services/booking.service";
 import { HostDashboardHeader } from "../cmps/HostDashboardHeader";
+import { BookingFilters } from "../cmps/BookingFilters";
 
 export function HostBookings() {
-    const user = {
-        _id: "b1",
-        firstName: "Harry",
-        lastName: "Potter",
-        username: "harry123",
-        email: "harry@gmail.com",
-    };
+    const user = { _id: "b1", firstName: "Harry" };
 
     const [hostBookings, setHostBookings] = useState([]);
     const [filters, setFilters] = useState({
         guestId: "",
         bookingId: "",
-        homeId: ""
+        homeId: "",
+        status: "",
+        year: "",
+        month: "",
     });
     const [sortKey, setSortKey] = useState("checkIn");
     const [sortOrder, setSortOrder] = useState("asc");
@@ -23,61 +21,53 @@ export function HostBookings() {
     useEffect(() => {
         async function loadBookings() {
             const bookings = await bookingService.getHostBookings(user._id);
-            setHostBookings(bookings);
+            // Remove duplicates by _id
+            const uniqueBookings = [...new Map(bookings.map(b => [b._id, b])).values()];
+            setHostBookings(uniqueBookings);
         }
         loadBookings();
     }, [user._id]);
 
-    // Calculate days reserved
     const getDaysReserved = (checkIn, checkOut) => {
         const inDate = new Date(checkIn);
         const outDate = new Date(checkOut);
-        const diffTime = outDate - inDate;
-        return Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+        return Math.ceil((outDate - inDate) / (1000 * 60 * 60 * 24));
     };
 
-    // Filter bookings
     const filteredBookings = hostBookings.filter((b) => {
+        const bDate = new Date(b.checkIn);
         return (
-            b.guest_id.toLowerCase().includes(filters.guestId.toLowerCase()) &&
-            b._id.toLowerCase().includes(filters.bookingId.toLowerCase()) &&
-            b.home_id.toLowerCase().includes(filters.homeId.toLowerCase())
+            (!filters.guestId || b.guest_id.toLowerCase().includes(filters.guestId.toLowerCase())) &&
+            (!filters.bookingId || b._id.toLowerCase().includes(filters.bookingId.toLowerCase())) &&
+            (!filters.homeId || b.home_id.toLowerCase().includes(filters.homeId.toLowerCase())) &&
+            (!filters.status || b.status.toLowerCase() === filters.status.toLowerCase()) &&
+            (!filters.year || bDate.getFullYear() === parseInt(filters.year)) &&
+            (!filters.month || bDate.getMonth() + 1 === parseInt(filters.month))
         );
     });
 
-    // Sort bookings
     const sortedBookings = [...filteredBookings].sort((a, b) => {
         if (sortKey === "checkIn" || sortKey === "checkOut") {
-            const dateA = new Date(a[sortKey]);
-            const dateB = new Date(b[sortKey]);
-            return sortOrder === "asc" ? dateA - dateB : dateB - dateA;
+            return sortOrder === "asc"
+                ? new Date(a[sortKey]) - new Date(b[sortKey])
+                : new Date(b[sortKey]) - new Date(a[sortKey]);
         } else if (sortKey === "totalPrice" || sortKey === "daysReserved") {
             const valA = sortKey === "daysReserved" ? getDaysReserved(a.checkIn, a.checkOut) : a[sortKey];
             const valB = sortKey === "daysReserved" ? getDaysReserved(b.checkIn, b.checkOut) : b[sortKey];
             return sortOrder === "asc" ? valA - valB : valB - valA;
         } else if (sortKey === "status") {
-            return sortOrder === "asc"
-                ? a.status.localeCompare(b.status)
-                : b.status.localeCompare(a.status);
+            return sortOrder === "asc" ? a.status.localeCompare(b.status) : b.status.localeCompare(a.status);
         } else {
-            return sortOrder === "asc"
-                ? a[sortKey].localeCompare(b[sortKey])
-                : b[sortKey].localeCompare(a[sortKey]);
+            return sortOrder === "asc" ? a[sortKey].localeCompare(b[sortKey]) : b[sortKey].localeCompare(a[sortKey]);
         }
     });
 
     const handleSort = (key) => {
-        if (sortKey === key) {
-            setSortOrder(sortOrder === "asc" ? "desc" : "asc");
-        } else {
+        if (sortKey === key) setSortOrder(sortOrder === "asc" ? "desc" : "asc");
+        else {
             setSortKey(key);
             setSortOrder("asc");
         }
-    };
-
-    const handleFilterChange = (e) => {
-        const { name, value } = e.target;
-        setFilters((prev) => ({ ...prev, [name]: value }));
     };
 
     return (
@@ -86,29 +76,7 @@ export function HostBookings() {
             <div className="host-bookings">
                 <h1>Host Bookings</h1>
 
-                <div className="filters">
-                    <input
-                        type="text"
-                        name="guestId"
-                        placeholder="Filter by Guest ID"
-                        value={filters.guestId}
-                        onChange={handleFilterChange}
-                    />
-                    <input
-                        type="text"
-                        name="bookingId"
-                        placeholder="Filter by Booking ID"
-                        value={filters.bookingId}
-                        onChange={handleFilterChange}
-                    />
-                    <input
-                        type="text"
-                        name="homeId"
-                        placeholder="Filter by Home ID"
-                        value={filters.homeId}
-                        onChange={handleFilterChange}
-                    />
-                </div>
+                <BookingFilters filters={filters} onChange={setFilters} className="booking-filters" />
 
                 <table className="bookings-table">
                     <thead>
@@ -126,9 +94,7 @@ export function HostBookings() {
                     <tbody>
                         {sortedBookings.map((b) => (
                             <tr key={b._id}>
-                                <td className={`status-${b.status.toLowerCase().replace(/ /g, "-")}`}>
-                                    {b.status}
-                                </td>
+                                <td className={`status-${b.status.toLowerCase().replace(/ /g, "-")}`}>{b.status}</td>
                                 <td>{b._id}</td>
                                 <td>{b.home_id}</td>
                                 <td>{b.guest_id}</td>

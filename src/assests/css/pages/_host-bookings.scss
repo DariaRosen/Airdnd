@@ -8,15 +8,11 @@
   text-align: center;
 }
 
-.host-bookings .filters {
+.host-bookings .booking-filters {
   display: flex;
   gap: 1rem;
   margin-bottom: 1rem;
-}
-
-.host-bookings .filters input {
-  padding: 0.5rem;
-  font-size: 1rem;
+  font-size: 1.2rem;
   flex: 1;
 }
 
