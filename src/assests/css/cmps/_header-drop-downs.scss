@@ -2,140 +2,140 @@
   position: relative;
 }
 
-.date-dropdown {
-  position: absolute;
-  top: 100%;
-  left: 58%;
-  transform: translateX(-50%);
-  z-index: 10;
-  background-color: $bg-white;
-  border: 1px solid $border-light-gray;
-  border-radius: 24px;
-  box-shadow: 0 12px 32px $bg-black-opacity;
-  padding: 16px;
-  width: 800px;
+// .date-dropdown {
+//   position: absolute;
+//   top: 100%;
+//   left: 58%;
+//   transform: translateX(-50%);
+//   z-index: 10;
+//   background-color: $bg-white;
+//   border: 1px solid $border-light-gray;
+//   border-radius: 24px;
+//   box-shadow: 0 12px 32px $bg-black-opacity;
+//   padding: 16px;
+//   width: 800px;
 
-  .rdrCalendarWrapper {
-    display: flex;
-    font-family: Airbnb Cereal, system-ui, sans-serif;
-    border: none;
-    align-items: center;
-  }
-  .rdrDayHovered{
-    border: none;
-    outline: none;
-  }
+//   .rdrCalendarWrapper {
+//     display: flex;
+//     font-family: Airbnb Cereal, system-ui, sans-serif;
+//     border: none;
+//     align-items: center;
+//   }
+//   .rdrDayHovered{
+//     border: none;
+//     outline: none;
+//   }
 
-  .rdrDefinedRangesWrapper { display: none }
-  .rdrMonthAndYearPickers { display: none }
+//   .rdrDefinedRangesWrapper { display: none }
+//   .rdrMonthAndYearPickers { display: none }
 
-  .rdrMonthAndYearWrapper {
-    position: relative;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 8px 12px 12px;
-  }
+//   .rdrMonthAndYearWrapper {
+//     position: relative;
+//     display: flex;
+//     justify-content: space-between;
+//     align-items: center;
+//     padding: 8px 12px 12px;
+//   }
 
-  .rdrNextPrevButton {
-    width: 32px;
-    height: 32px;
-    border-radius: 50%;
-    background: $bg-white;
-    border: 1px solid $border-lightest-gray;
-    box-shadow: 0 1px 2px $fill-black-opacity;
-  }
+//   .rdrNextPrevButton {
+//     width: 32px;
+//     height: 32px;
+//     border-radius: 50%;
+//     background: $bg-white;
+//     border: 1px solid $border-lightest-gray;
+//     box-shadow: 0 1px 2px $fill-black-opacity;
+//   }
 
-  .rdrMonthName {
-    font-weight: 600;
-    color: $text-dark;
-    font-size: 14px;
-    padding: 8px 12px;
-  }
+//   .rdrMonthName {
+//     font-weight: 600;
+//     color: $text-dark;
+//     font-size: 14px;
+//     padding: 8px 12px;
+//   }
 
-  .rdrWeekDay {
-    color: $text-gray;
-    font-size: 12px;
-  }
+//   .rdrWeekDay {
+//     color: $text-gray;
+//     font-size: 12px;
+//   }
 
-  .rdrMonth { padding: 0 12px }
-  .rdrDay { padding: 6px }
+//   .rdrMonth { padding: 0 12px }
+//   .rdrDay { padding: 6px }
 
-  .rdrDayNumber {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 36px;
-    height: 36px;
-    margin: 2px auto;
-    border-radius: 50%;
-    font-size: 13px;
-    color: $text-dark;
-    transition: background-color .15s ease;
-  }
+//   .rdrDayNumber {
+//     display: flex;
+//     align-items: center;
+//     justify-content: center;
+//     width: 36px;
+//     height: 36px;
+//     margin: 2px auto;
+//     border-radius: 50%;
+//     font-size: 13px;
+//     color: $text-dark;
+//     transition: background-color .15s ease;
+//   }
 
-  .rdrDay:hover .rdrDayNumber {
-    background-color: $bg-lightest-gray;
+//   .rdrDay:hover .rdrDayNumber {
+//     background-color: $bg-lightest-gray;
 
-  }
+//   }
 
-  .rdrDayToday .rdrDayNumber span::after {
-    content: "";
-    width: 4px;
-    height: 4px;
-    border-radius: 50%;
-    background: $fill-primary-pink;
-    position: relative;
-    bottom: -10px;
-    display: inline-block;
-  }
+//   .rdrDayToday .rdrDayNumber span::after {
+//     content: "";
+//     width: 4px;
+//     height: 4px;
+//     border-radius: 50%;
+//     background: $fill-primary-pink;
+//     position: relative;
+//     bottom: -10px;
+//     display: inline-block;
+//   }
 
-  // טווח נבחר
-  .rdrInRange {
-    background: rgba(white, 0.16);
-  }
+//   // טווח נבחר
+//   .rdrInRange {
+//     background: rgba(white, 0.16);
+//   }
 
-  .rdrStartEdge,
-  .rdrEndEdge {
-    background: $bg-primary-pink;
-    color: $text-white;
-  }
+//   .rdrStartEdge,
+//   .rdrEndEdge {
+//     background: $bg-primary-pink;
+//     color: $text-white;
+//   }
 
-  .rdrSelected,
-  .rdrSelected .rdrDayNumber,
-  .rdrStartEdge .rdrDayNumber,
-  .rdrEndEdge .rdrDayNumber {
-    background: $bg-primary-pink;
-    color: $text-white;
-    border-radius: 50%;
-  }
+//   .rdrSelected,
+//   .rdrSelected .rdrDayNumber,
+//   .rdrStartEdge .rdrDayNumber,
+//   .rdrEndEdge .rdrDayNumber {
+//     background: $bg-primary-pink;
+//     color: $text-white;
+//     border-radius: 50%;
+//   }
 
-  .rdrStartEdge { 
-    border-top-left-radius: 9999px !important; 
-    border-bottom-left-radius: 9999px !important; 
-  }
-  .rdrEndEdge { 
-    border-top-right-radius: 9999px !important; 
-    border-bottom-right-radius: 9999px !important; 
-  }
+//   .rdrStartEdge { 
+//     border-top-left-radius: 9999px !important; 
+//     border-bottom-left-radius: 9999px !important; 
+//   }
+//   .rdrEndEdge { 
+//     border-top-right-radius: 9999px !important; 
+//     border-bottom-right-radius: 9999px !important; 
+//   }
 
-  .rdrInRange .rdrDayNumber span { color: $text-dark }
+//   .rdrInRange .rdrDayNumber span { color: $text-dark }
 
-  // Disabled
-  .rdrDayPassive .rdrDayNumber span,
-  .rdrDayDisabled .rdrDayNumber span {
-    color: $text-light-gray;
-    
-  }
-  .rdrDayDisabled .rdrDayNumber { opacity: .6 }
-    .rdrDayStartPreview,
-  .rdrDayEndPreview {
-    background: rgba(grey, .08);
-    box-shadow: none !important;
-  }
+//   // Disabled
+//   .rdrDayPassive .rdrDayNumber span,
+//   .rdrDayDisabled .rdrDayNumber span {
+//     color: $text-light-gray;
+
+//   }
+//   .rdrDayDisabled .rdrDayNumber { opacity: .6 }
+//     .rdrDayStartPreview,
+//   .rdrDayEndPreview {
+//     background: rgba(grey, .08);
+//     box-shadow: none !important;
+//   }
 
 
-}
+// }
 
 .guest-dropdown {
   position: absolute;
@@ -177,4 +177,145 @@
       font-size: 1.2rem;
     }
   }
+}
+
+
+// .date-dropdown {
+//   position: absolute;
+//   top: 100%;
+//   left: 40%;
+//   transform: translateX(-50%);
+//   z-index: 10;
+//   background-color: $bg-white;
+//   border: 1px solid $border-light-gray;
+//   border-radius: 24px;
+//   box-shadow: 0 12px 32px $bg-black-opacity;
+//   padding: 16px;
+//   width: 800px;
+// }
+
+.date-dropdown {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 100%;
+  left: 40%;
+  transform: translateX(-50%);
+  z-index: 10;
+  background-color: $bg-white;
+  border: 1px solid $border-light-gray;
+  border-radius: 24px;
+  box-shadow: 0 12px 32px $bg-black-opacity;
+  padding: 16px;
+  width: 800px;
+
+  .no-square-day {
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    outline: none !important;
+    padding: 0 !important;
+    width: 45px !important;
+    height: 45px !important;
+    aspect-ratio: 1 / 1;
+    padding: 0 !important;
+    margin: 4px !important;
+    border-radius: 50% !important;
+  }
+
+  .no-square-day:hover,
+  .no-square-day:focus,
+  .no-square-day:focus-visible,
+  .no-square-day[data-selected],
+  .no-square-day[data-in-range],
+  .no-square-day[data-first-in-range],
+  .no-square-day[data-last-in-range] {
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    outline: none !important;
+  }
+
+  .day-cell {
+    position: relative;
+    display: grid;
+    place-items: center;
+    background: transparent;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+
+    &.range-start,
+    &.range-end {
+      background: #000;
+      color: #fff;
+    }
+
+    &.range-start.in-range,
+    &.range-end.in-range {
+      background: #000;
+      color: #fff;
+    }
+
+    .mantine-Month-day {
+      background: transparent !important;
+      border: none !important;
+
+    }
+
+    border-radius: 50%;
+
+    .day-number {
+      font-weight: 500;
+    }
+
+
+    &.in-range {
+      background: rgba(0, 0, 0, 0.08);
+    }
+
+    &.range-start,
+    &.range-end {
+      background: black;
+      color: #fff;
+    }
+
+    &:hover {
+      border: 1.5px solid #000;
+      background: transparent;
+      color: #000;
+
+    }
+  }
+
+  .dp-header {
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+    margin: 0 0 8px 0 !important;
+  }
+
+  .dp-title {
+    background: transparent !important;
+    border: none !important;
+    padding: 0 !important;
+    margin: 0 auto 8px auto !important;
+    font-weight: 600;
+    font-size: 16px;
+    text-align: center;
+  }
+
+  .dp-nav {
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    padding: 4px !important;
+    color: #000;
+  }
+
+
+
+
 }
