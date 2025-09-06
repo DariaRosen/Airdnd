@@ -1,35 +1,42 @@
 .dashboard-charts {
-    margin-top: 1.5rem;
+  margin-top: 1.5rem;
 }
 
 .charts-filters {
-    margin-bottom: 1rem;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  justify-content: center; /* center the row if there is extra space */
 }
 
 .charts-container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center; /* center if less than 3 items */
 }
 
 .chart-card {
-    background: #fff;
-    padding: 1rem;
-    border-radius: 12px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-    flex: 1 1 200px; /* responsive, min width 200px */
-    max-width: 500px;
-    text-align: center;
+  background: #fff;
+  padding: 1rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  /* Use clamp to control width: min 300px, preferred 33% row, max 500px */
+  flex: 1 1 clamp(300px, 33%, 500px);
+  text-align: center;
+  max-height: 350px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .chart-card h3 {
-    font-size: 1rem;
-    margin-bottom: 0.5rem;
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
 }
 
 .chart-pie {
-    height: 300px;
+  height: 300px;
 }
