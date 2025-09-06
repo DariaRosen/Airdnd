@@ -91,35 +91,20 @@ export function HostBookings() {
                                 { key: "daysReserved", label: "Days Reserved" },
                                 { key: "totalPrice", label: "Total Price" },
                             ].map((col) => (
-                                <th key={col.key} onClick={() => handleSort(col.key)} style={{ cursor: "pointer", userSelect: "none" }}>
-                                    <span>{col.label}</span>
-                                    <span style={{ marginLeft: 4 }}>
-                                        {/* Up Arrow */}
-                                        <span
-                                            style={{
-                                                display: "inline-block",
-                                                fontSize: sortKey === col.key && sortOrder === "asc" ? "1.1em" : "0.8em",
-                                                color: sortKey === col.key && sortOrder === "asc" ? "black" : "#ccc",
-                                            }}
-                                        >
-                                            ▲
+                                <th key={col.key} className="sortable" onClick={() => handleSort(col.key)}>
+                                    <div className="th-content">
+                                        <span className="col-label">{col.label}</span>
+                                        <span className="sort-indicator">
+                                            <span className={`asc ${sortKey === col.key && sortOrder === "asc" ? "active" : ""}`}>▲</span>
+                                            <span className={`desc ${sortKey === col.key && sortOrder === "desc" ? "active" : ""}`}>▼</span>
                                         </span>
-                                        {/* Down Arrow */}
-                                        <span
-                                            style={{
-                                                display: "inline-block",
-                                                fontSize: sortKey === col.key && sortOrder === "desc" ? "1.1em" : "0.8em",
-                                                color: sortKey === col.key && sortOrder === "desc" ? "black" : "#ccc",
-                                                marginLeft: 2,
-                                            }}
-                                        >
-                                            ▼
-                                        </span>
-                                    </span>
+                                    </div>
                                 </th>
+
                             ))}
                         </tr>
                     </thead>
+
 
                     <tbody>
                         {sortedBookings.map((b) => (

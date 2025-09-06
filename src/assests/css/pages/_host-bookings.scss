@@ -19,6 +19,30 @@
 .host-bookings table {
   width: 100%;
   border-collapse: collapse;
+  user-select: none;
+  table-layout: fixed; /* <-- ensures equal column widths */
+}
+
+.sort-indicator {
+  display: flex;
+  flex-direction: row;
+  margin-left: 4px;
+}
+
+.sort-indicator span {
+  font-size: 0.8em;
+  color: #ccc;
+  transition: all 0.2s ease;
+}
+
+.sort-indicator .asc.active,
+.sort-indicator .desc.active {
+  font-size: 1.1em;
+  color: black;
+}
+
+.sort-indicator .desc {
+  margin-left: 2px;
 }
 
 .host-bookings th,
@@ -26,7 +50,13 @@
   padding: 0.5rem;
   text-align: left;
   border: 1px solid #ddd;
-  cursor: pointer;
+  overflow: hidden; /* ensures long text won't break layout */
+  text-overflow: ellipsis; /* adds ... for overflowed text */
+  white-space: nowrap; /* prevents wrapping */
+  height: 40px; /* set a fixed height */
+}
+.host-bookings tbody tr {
+  transition: all 0.15s ease;
 }
 
 .host-bookings th {
@@ -57,4 +87,21 @@
 .status-canceled-by-guest {
   color: #d35400; /* Dark orange */
   font-weight: bold;
+}
+
+.bookings-table th.sortable {
+  cursor: pointer;
+  background-color: #f4f4f4;
+}
+
+.bookings-table th .col-label {
+  margin-right: 0.5rem; /* some spacing from arrows */
+}
+
+.bookings-table th .th-content {
+  display: flex;
+  justify-content: space-between; /* label left, arrows right */
+  align-items: center;
+  white-space: nowrap; /* prevent stacking */
+  height: 30px; /* fixed height for the header content */
 }
