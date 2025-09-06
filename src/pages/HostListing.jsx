@@ -1,6 +1,7 @@
 import { useState } from "react"
 import { HostDashboardHeader } from "../cmps/HostDashboardHeader"
 import { AmenitySelector } from "../cmps/AmenitySelector"
+import { ImageUploader } from "../cmps/ImageUploader"
 
 export function HostListing() {
     const [amenities, setAmenities] = useState([])
@@ -174,16 +175,11 @@ export function HostListing() {
 
                     <fieldset>
                         <p>Images:</p>
-                        {form.imgUrls.map((url, idx) => (
-                            <input
-                                key={idx}
-                                type="url"
-                                placeholder={`Image URL ${idx + 1}`}
-                                value={url}
-                                onChange={(ev) => handleImgChange(idx, ev.target.value)}
-                            />
-                        ))}
-                        <button type="button" onClick={addImageField}>+ Add another image</button>
+                        <ImageUploader
+                            onImagesChange={(files) => {
+                                setForm(prev => ({ ...prev, imgUrls: files }))
+                            }}
+                        />
                     </fieldset>
 
                     <button type="submit">Create Listing</button>
