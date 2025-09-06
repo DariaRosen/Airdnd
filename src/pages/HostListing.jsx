@@ -2,6 +2,7 @@ import { useState } from "react"
 import { HostDashboardHeader } from "../cmps/HostDashboardHeader"
 import { AmenitySelector } from "../cmps/AmenitySelector"
 import { ImageUploader } from "../cmps/ImageUploader"
+import { homeService } from "../services/home.service"
 
 export function HostListing() {
     const [amenities, setAmenities] = useState([])
@@ -67,8 +68,22 @@ export function HostListing() {
 
     function handleSubmit(ev) {
         ev.preventDefault()
-        console.log("New Listing:", form)
-        // Here call your homeService / API to save the new listing
+
+        // Merge amenities into form before saving
+        const homeToSave = { ...form, amenities }
+
+        homeService.save(homeToSave)
+            .then(savedHome => {
+                console.log("Listing saved:", savedHome)
+                alert("Listing created successfully!")
+                // Optionally reset the form
+                setForm(homeService.getEmptyHome())
+                setAmenities([])
+            })
+            .catch(err => {
+                console.error("Error saving listing:", err)
+                alert("Failed to create listing. Check console for errors.")
+            })
     }
 
     return (

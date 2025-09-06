@@ -70,7 +70,7 @@ async function save(home) {
   } else {
     const homeToSave = {
       ...home,
-      _id: makeId(),
+      _id: utilService.makeId(),
       //host: userService.getLoggedinUser(),
       unavailableDates: [],
     }
@@ -105,11 +105,11 @@ function getEmptyHome() {
   return {
     title: "",
     description: "",
-    price: getRandomIntInclusive(100, 1000),
-    capacity: getRandomIntInclusive(1, 10),
-    rooms: getRandomIntInclusive(1, 5),
-    beds: getRandomIntInclusive(1, 5),
-    bathrooms: getRandomIntInclusive(1, 5),
+    price: utilService.getRandomIntInclusive(100, 1000),
+    capacity: utilService.getRandomIntInclusive(1, 10),
+    rooms: utilService.getRandomIntInclusive(1, 5),
+    beds: utilService.getRandomIntInclusive(1, 5),
+    bathrooms: utilService.getRandomIntInclusive(1, 5),
     type: "apartment",
     imgUrls: [],
     rating: 0,
