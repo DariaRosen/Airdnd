@@ -35,9 +35,13 @@ export function HostDashboard() {
     const totalBookings = hostBookings.length
     const totalEarnings = validBookings.reduce((sum, res) => sum + res.totalPrice, 0)
     const avgPrice = totalBookings > 0 ? (totalEarnings / validBookings.length).toFixed(2) : 0
+    const canceledByHost = hostBookings.filter(
+        b => b.status.toLowerCase().replace(/\s+/g, "-") === "canceled-by-host"
+    ).length
 
-    const canceledByHost = hostBookings.filter(b => b.status.toLowerCase() === "canceled-by-host").length
-    const canceledByGuest = hostBookings.filter(b => b.status.toLowerCase() === "canceled-by-guest").length
+    const canceledByGuest = hostBookings.filter(
+        b => b.status.toLowerCase().replace(/\s+/g, "-") === "canceled-by-guest"
+    ).length
 
     const percentCanceledByHost = totalBookings ? ((canceledByHost / totalBookings) * 100).toFixed(1) : 0
     const percentCanceledByGuest = totalBookings ? ((canceledByGuest / totalBookings) * 100).toFixed(1) : 0

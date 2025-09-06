@@ -73,11 +73,9 @@ export function HostBookings() {
     return (
         <section className="bookings">
             <HostDashboardHeader />
+            <h1>Host Bookings</h1>
             <div className="host-bookings">
-                <h1>Host Bookings</h1>
-
                 <BookingFilters filters={filters} onChange={setFilters} className="booking-filters" />
-
                 <table className="bookings-table">
                     <thead>
                         <tr>
