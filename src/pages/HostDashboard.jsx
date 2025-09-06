@@ -25,11 +25,16 @@ export function HostDashboard() {
         loadBookings()
     }, [user._id])
 
+    // ✅ Filter out canceled bookings
+    const validBookings = hostBookings.filter(
+        b => b.status.toLowerCase() !== "canceled-by-host" &&
+            b.status.toLowerCase() !== "canceled-by-guest"
+    );
 
     // ✅ Calculate statistics
     const totalBookings = hostBookings.length
-    const totalEarnings = hostBookings.reduce((sum, res) => sum + res.totalPrice, 0)
-    const avgPrice = totalBookings > 0 ? (totalEarnings / totalBookings).toFixed(2) : 0
+    const totalEarnings = validBookings.reduce((sum, res) => sum + res.totalPrice, 0)
+    const avgPrice = totalBookings > 0 ? (totalEarnings / validBookings.length).toFixed(2) : 0
 
     const canceledByHost = hostBookings.filter(b => b.status.toLowerCase() === "canceled-by-host").length
     const canceledByGuest = hostBookings.filter(b => b.status.toLowerCase() === "canceled-by-guest").length
