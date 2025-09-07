@@ -1,5 +1,7 @@
 import { useState, useEffect, useRef } from 'react'
 import { DatePicker } from '@mantine/dates'
+import { useMediaQuery } from '@mantine/hooks'
+
 
 export function BookingDatePicker({
   checkIn,
@@ -55,6 +57,9 @@ export function BookingDatePicker({
     setCheckOut(toISO(end))
     if (start && end) setIsOpen(false)
   }
+  const isSm = useMediaQuery('(max-width: 640px)')
+  const isMd = useMediaQuery('(max-width: 1024px)')
+  const columns = isSm ? 1 : 2
 
   return (
     <div className="search-group date-container" ref={dateRef}>
@@ -80,7 +85,7 @@ export function BookingDatePicker({
             type="range"
             value={value}
             onChange={onChange}
-            numberOfColumns={2}
+            numberOfColumns={columns}  
             minDate={new Date()}
             excludeDate={excludeDate}
             classNames={{
