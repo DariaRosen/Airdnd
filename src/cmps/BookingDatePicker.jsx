@@ -1,5 +1,5 @@
-import { DateRange } from "react-date-range"
-import { useState, useEffect, useRef } from "react"
+import { useState, useEffect, useRef } from 'react'
+import { DatePicker } from '@mantine/dates'
 
 export function BookingDatePicker({
   checkIn,
@@ -12,19 +12,48 @@ export function BookingDatePicker({
   const dateRef = useRef()
 
   useEffect(() => {
-    const handleClickOutside = (e) => {
-      if (dateRef.current && !dateRef.current.contains(e.target)) {
-        setIsOpen(false)
-      }
+    const handleClickOutside = e => {
+      if (dateRef.current && !dateRef.current.contains(e.target)) setIsOpen(false)
     }
-    document.addEventListener("mousedown", handleClickOutside)
-    return () => document.removeEventListener("mousedown", handleClickOutside)
+    document.addEventListener('mousedown', handleClickOutside)
+    return () => document.removeEventListener('mousedown', handleClickOutside)
   }, [])
 
-  const handleChange = (ranges) => {
-    const range = ranges.selection
-    setCheckIn(range.startDate.toISOString().slice(0,10))
-    setCheckOut(range.endDate.toISOString().slice(0,10))
+  const value = [
+    checkIn ? new Date(checkIn) : null,
+    checkOut ? new Date(checkOut) : null,
+  ]
+
+  const toISO = d => d ? new Date(d).toISOString().slice(0, 10) : ''
+
+  const toDate = x => {
+    if (x instanceof Date) return x
+    if (typeof x === 'number' || typeof x === 'string') {
+      const d = new Date(x)
+      return isNaN(d.getTime()) ? null : d
+    }
+    return null
+  }
+
+  const sameDay = (a, b) => {
+    const da = toDate(a)
+    const db = toDate(b)
+    if (!da || !db) return false
+    return da.getFullYear() === db.getFullYear() &&
+           da.getMonth() === db.getMonth() &&
+           da.getDate() === db.getDate()
+  }
+
+  const excludeDate = date => {
+    if (!disabledDates?.length) return false
+    return disabledDates.some(d => sameDay(date, d))
+  }
+
+  const onChange = next => {
+    const [start, end] = next || []
+    setCheckIn(toISO(start))
+    setCheckOut(toISO(end))
+    if (start && end) setIsOpen(false)
   }
 
   return (
@@ -32,45 +61,28 @@ export function BookingDatePicker({
       <div className="search-item" onClick={() => setIsOpen(!isOpen)}>
         <div className="search-title">Check in</div>
         <div className="search-value">
-          {checkIn ? new Date(checkIn).toLocaleDateString() : "Add date"}
+          {checkIn ? new Date(checkIn).toLocaleDateString() : 'Add date'}
         </div>
       </div>
+
       <div className="separator inner">|</div>
+
       <div className="search-item" onClick={() => setIsOpen(!isOpen)}>
         <div className="search-title">Check out</div>
         <div className="search-value">
-          {checkOut ? new Date(checkOut).toLocaleDateString() : "Add date"}
+          {checkOut ? new Date(checkOut).toLocaleDateString() : 'Add date'}
         </div>
       </div>
 
       {isOpen && (
         <div className="date-dropdown">
-          <DateRange
-            showDateDisplay={false}
-            showMonthAndYearPickers={false}
-            onChange={handleChange}
-            ranges={[
-              {
-                startDate: checkIn ? new Date(checkIn) : new Date(),
-                endDate: checkOut ? new Date(checkOut) : new Date(),
-                key: "selection",
-              },
-            ]}
+          <DatePicker
+            type="range"
+            value={value}
+            onChange={onChange}
+            numberOfColumns={2}
             minDate={new Date()}
-            disabledDates={disabledDates}
-            moveRangeOnFirstSelection={false}
-            months={2}
-            direction="horizontal"
-            classNames={{
-              day: "custom-day",
-              daySelected: "custom-day-selected",
-              dayDisabled: "custom-day-disabled",
-              dayToday: "custom-today",
-              month: "custom-month",
-              calendarWrapper: "custom-calendar-wrapper",
-              monthAndYearWrapper: "custom-month-header",
-              weekDay: "custom-weekday",
-            }}
+            excludeDate={excludeDate}
           />
         </div>
       )}
