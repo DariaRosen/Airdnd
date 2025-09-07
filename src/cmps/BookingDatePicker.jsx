@@ -40,8 +40,8 @@ export function BookingDatePicker({
     const db = toDate(b)
     if (!da || !db) return false
     return da.getFullYear() === db.getFullYear() &&
-           da.getMonth() === db.getMonth() &&
-           da.getDate() === db.getDate()
+      da.getMonth() === db.getMonth() &&
+      da.getDate() === db.getDate()
   }
 
   const excludeDate = date => {
@@ -75,7 +75,7 @@ export function BookingDatePicker({
       </div>
 
       {isOpen && (
-        <div className="date-dropdown">
+        <div className="date-dropdown-booking">
           <DatePicker
             type="range"
             value={value}
@@ -83,7 +83,14 @@ export function BookingDatePicker({
             numberOfColumns={2}
             minDate={new Date()}
             excludeDate={excludeDate}
+            classNames={{
+              day: 'dp-day',
+              calendarHeader: 'dp-header',
+              calendarHeaderLevel: 'dp-title',
+              calendarHeaderControl: 'dp-nav',
+            }}
           />
+
         </div>
       )}
     </div>
