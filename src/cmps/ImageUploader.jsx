@@ -1,7 +1,8 @@
-import { useState } from "react"
+import { useState, useRef } from "react"
 
 export function ImageUploader({ onImagesChange }) {
     const [images, setImages] = useState([])
+    const fileInputRef = useRef(null)
 
     function handleImageUpload(e) {
         const files = Array.from(e.target.files)
@@ -24,16 +25,32 @@ export function ImageUploader({ onImagesChange }) {
         if (onImagesChange) onImagesChange(updated.map(img => img.file))
     }
 
+    function handleCustomButtonClick() {
+        fileInputRef.current.click()
+    }
+
     return (
         <div className="image-uploader">
             <label className="block font-medium">Upload at least 5 images</label>
+
+            {/* Hidden file input */}
             <input
                 type="file"
                 accept="image/*"
                 multiple
                 onChange={handleImageUpload}
-                className="block my-2"
+                ref={fileInputRef}
+                className="hidden-file-input"
             />
+
+            {/* Custom button */}
+            <button
+                type="button"
+                onClick={handleCustomButtonClick}
+                className="upload-btn"
+            >
+                Upload Images
+            </button>
 
             {images.length < 5 && (
                 <p className="text-red-500 text-sm">
@@ -44,10 +61,7 @@ export function ImageUploader({ onImagesChange }) {
             <div className="image-preview-grid">
                 {images.map((img, idx) => (
                     <div key={idx} className="image-preview relative">
-                        <img
-                            src={img.preview}
-                            alt={`preview-${idx}`}
-                        />
+                        <img src={img.preview} alt={`preview-${idx}`} />
                         <button
                             type="button"
                             onClick={() => handleRemove(idx)}
