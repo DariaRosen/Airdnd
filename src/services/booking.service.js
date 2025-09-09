@@ -10,7 +10,10 @@ export const bookingService = {
   getEmptyBooking,
   getUserBookings,
   getHostBookings,
-  updateBookingStatus
+  updateBookingStatus,
+  groupByMonth,
+  calculateMonthlyStats,
+  calculateTrends
 }
 
 const STORAGE_KEY = "bookingCollection"
@@ -67,15 +70,11 @@ async function getUserBookings(userId) {
 
 async function getHostBookings(hostId) {
   const bookings = await query()
-  console.log("bookings", bookings);
-  console.log("hostId", hostId);
   bookings.forEach(b => {
-    console.log("host_id:", b.host_id);
   });
 
 
   const a = bookings.filter(b => b.host_id === hostId)
-  console.log("filtered bookings", a);
   return a
 }
 
@@ -112,12 +111,83 @@ async function updateBookingStatus(bookingId, newStatus) {
     const bookings = await query()
     const idx = bookings.findIndex(b => b._id === bookingId)
     if (idx === -1) throw new Error("Booking not found")
-    
+
     bookings[idx].status = newStatus
     utilService.saveToStorage(STORAGE_KEY, bookings)
     return bookings[idx] // return the updated booking
   } catch (err) {
     console.error("bookingService.updateBookingStatus error:", err)
     throw err
+  }
+}
+
+function groupByMonth(bookings) {
+  return bookings.reduce((acc, b) => {
+    const d = new Date(b.checkIn)
+    const key = `${d.getFullYear()}-${d.getMonth() + 1}`
+    if (!acc[key]) acc[key] = []
+    acc[key].push(b)
+    return acc
+  }, {})
+}
+
+function calculateMonthlyStats(bookings) {
+  const months = groupByMonth(bookings)
+
+  const statsByMonth = {}
+  for (const [month, monthBookings] of Object.entries(months)) {
+    const income = monthBookings
+      .filter(b => b.status.toLowerCase() === "paid")
+      .reduce((sum, b) => sum + b.totalPrice, 0)
+
+    const totalBookings = monthBookings.length
+    const canceled = monthBookings.filter(
+      b => b.status.toLowerCase().includes("canceled")
+    ).length
+
+    statsByMonth[month] = { income, totalBookings, canceled }
+  }
+  return statsByMonth
+}
+
+function calculateTrends(bookings) {
+  const statsByMonth = calculateMonthlyStats(bookings)
+  const months = Object.keys(statsByMonth).sort()
+
+  if (months.length === 0) return { income: 0, totalBookings: 0, cancellationRate: 0, incomeChange: 0, totalBookingsChange: 0, cancellationChange: 0 }
+
+  const currentMonth = months[months.length - 1]
+  const pastMonths = months.slice(0, -1)
+
+  const current = statsByMonth[currentMonth]
+  const pastAverages = pastMonths.length
+    ? {
+      income: pastMonths.reduce((sum, m) => sum + statsByMonth[m].income, 0) / pastMonths.length,
+      totalBookings: pastMonths.reduce((sum, m) => sum + statsByMonth[m].totalBookings, 0) / pastMonths.length,
+      canceled: pastMonths.reduce((sum, m) => sum + statsByMonth[m].canceled, 0) / pastMonths.length,
+    }
+    : { income: 0, totalBookings: 0, canceled: 0 }
+
+  const cancellationRate = current.totalBookings
+    ? (current.canceled / current.totalBookings) * 100
+    : 0
+
+  const avgCancellationRate = pastAverages.totalBookings
+    ? (pastAverages.canceled / pastAverages.totalBookings) * 100
+    : 0
+
+  return {
+    income: current.income,
+    totalBookings: current.totalBookings,
+    cancellationRate,  // number
+    incomeChange: pastAverages.income
+      ? ((current.income - pastAverages.income) / pastAverages.income) * 100
+      : 0,
+    totalBookingsChange: pastAverages.totalBookings
+      ? ((current.totalBookings - pastAverages.totalBookings) / pastAverages.totalBookings) * 100
+      : 0,
+    cancellationChange: avgCancellationRate
+      ? ((cancellationRate - avgCancellationRate) / avgCancellationRate) * 100
+      : 0,
   }
 }

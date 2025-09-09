@@ -1,10 +1,10 @@
+import { useEffect, useState } from "react"
 import { AirdndIcon } from '../cmps/AirdndIcon'
 import { useNavigate } from 'react-router-dom'
 import { Link } from 'react-router-dom'
+import { bookingService } from "../services/booking.service"
+
 import {
-    PlusCircle,
-    CalendarCheck2,
-    LayoutDashboard,
     DollarSign,
     Heart,
     MessageSquare,
@@ -12,14 +12,103 @@ import {
     BookCheck,
     Home,
     XCircle,
-    Clock
 } from "lucide-react"
 
 export function WelcomeHost() {
     const navigate = useNavigate()
+    const user = { _id: "b1", firstName: "Harry" }
+
+    const [stats, setStats] = useState({
+        income: 0,
+        incomeChange: 0,
+        totalBookings: 0,
+        totalBookingsChange: 0,
+        cancellationRate: 0,
+        cancellationChange: 0,
+    })
+
+    useEffect(() => {
+        async function loadStats() {
+            const bookings = await bookingService.getHostBookings(user._id)
+            const s = bookingService.calculateTrends(bookings)
+            setStats(s)
+        }
+        loadStats()
+    }, [])
+
+    useEffect(() => {
+        async function loadBookings() {
+            const bookings = await bookingService.query()
+            const trends = bookingService.calculateTrends(bookings)
+            setStats(trends)
+        }
+        loadBookings()
+    }, [])
+
+    useEffect(() => {
+        async function loadStats() {
+            const bookings = await bookingService.getHostBookings(user._id)
+            if (!bookings.length) return
+
+            const now = new Date()
+            const thisMonth = now.getMonth()
+            const thisYear = now.getFullYear()
+
+            // Current month bookings
+            const currentMonthBookings = bookings.filter(b => {
+                const checkIn = new Date(b.checkIn)
+                return (
+                    checkIn.getMonth() === thisMonth &&
+                    checkIn.getFullYear() === thisYear &&
+                    b.status.toLowerCase() === "paid"
+                )
+            })
+
+            const lastMonthBookings = bookings.filter(b => {
+                const checkIn = new Date(b.checkIn)
+                return (
+                    checkIn.getMonth() === (thisMonth === 0 ? 11 : thisMonth - 1) &&
+                    checkIn.getFullYear() === (thisMonth === 0 ? thisYear - 1 : thisYear) &&
+                    b.status.toLowerCase() === "paid"
+                )
+            })
+
+            const currentIncome = currentMonthBookings.reduce((sum, b) => sum + b.totalPrice, 0)
+            const lastIncome = lastMonthBookings.reduce((sum, b) => sum + b.totalPrice, 0)
+
+            const incomeChange = lastIncome
+                ? ((currentIncome - lastIncome) / lastIncome) * 100
+                : 100
+
+            // Total bookings
+            const totalBookings = bookings.length
+            const lastMonthTotal = lastMonthBookings.length
+            const totalBookingsChange = lastMonthTotal
+                ? ((currentMonthBookings.length - lastMonthTotal) / lastMonthTotal) * 100
+                : 100
+
+            // Cancellation rate (canceled by host / total)
+            const canceledCount = bookings.filter(b => b.status.toLowerCase().includes("canceled")).length
+            const cancellationRate = (canceledCount / totalBookings) * 100
+
+            setStats({
+                income: currentIncome,
+                incomeChange,
+                totalBookings,
+                totalBookingsChange,
+                cancellationRate,
+                cancellationChange: 0
+            })
+        }
+
+        loadStats()
+    }, [user._id])
+
     const addListingIcon = "/Airdnd/icons/add-listing.svg"
     const bookingIcon = "/Airdnd/icons/list-check-svgrepo-com.svg"
     const dashboardIcon = "/Airdnd/icons/dashboard-svgrepo-com.svg"
+    console.log("stats.cancellationChange", stats.cancellationChange);
+
     return (
         <section className="welcome-host">
             {/* Header */}
@@ -38,12 +127,17 @@ export function WelcomeHost() {
                     </button>
                 </div>
             </div>
+
             {/* Dashboard Stats */}
             <section className="welcome-dashboard-stats">
                 <div className="stat-card">
                     <div className="stat-text">
-                        <p>This month income</p>
-                        <h2>$13,420 <span className="positive">+67%</span></h2>
+                        <p>Income</p>
+                        <h2>${stats.income.toFixed(2)}
+                            <span className={stats.incomeChange >= 0 ? "positive" : "negative"}>
+                                {Math.round(stats.incomeChange)}%
+                            </span>
+                        </h2>
                     </div>
                     <div className="stat-icon"><DollarSign size={28} /></div>
                 </div>
@@ -75,7 +169,11 @@ export function WelcomeHost() {
                 <div className="stat-card">
                     <div className="stat-text">
                         <p>Total Bookings</p>
-                        <h2>240 <span className="positive">+21%</span></h2>
+                        <h2>{stats.totalBookings}
+                            <span className={stats.totalBookingsChange >= 0 ? "positive" : "negative"}>
+                                {Math.round(stats.totalBookingsChange)}%
+                            </span>
+                        </h2>
                     </div>
                     <div className="stat-icon"><BookCheck size={28} /></div>
                 </div>
@@ -91,12 +189,17 @@ export function WelcomeHost() {
                 <div className="stat-card">
                     <div className="stat-text">
                         <p>Cancellation Rate</p>
-                        <h2>2% <span className="negative">-1%</span></h2>
+                        <h2>
+                            {stats.cancellationRate.toFixed(1)}%
+                            <span className={stats.cancellationChange >= 0 ? "negative" : "positive"}>
+                                {Math.round(stats.cancellationChange)}%
+                            </span>
+                        </h2>
                     </div>
                     <div className="stat-icon"><XCircle size={28} /></div>
                 </div>
-
             </section>
+
             {/* Listing container */}
             <div className="listing-container">
                 <h1>Welcome back, Daria</h1>
@@ -121,11 +224,14 @@ export function WelcomeHost() {
                         className="create-btn"
                         onClick={() => navigate("/host-bookings")}
                     >
-                        <span className="icon"> <img
-                            src={bookingIcon}
-                            alt="Bookings icon"
-                            className="icon-gray-circle"
-                        /></span> Bookings
+                        <span className="icon">
+                            <img
+                                src={bookingIcon}
+                                alt="Bookings icon"
+                                className="icon-gray-circle"
+                            />
+                        </span>
+                        Bookings
                     </button>
                 </div>
 
@@ -134,11 +240,14 @@ export function WelcomeHost() {
                         className="create-btn"
                         onClick={() => navigate("/host-listing")}
                     >
-                        <span className="icon"> <img
-                            src={addListingIcon}
-                            alt="Add Listing icon"
-                            className="icon-gray-circle"
-                        /></span> Create a new listing
+                        <span className="icon">
+                            <img
+                                src={addListingIcon}
+                                alt="Add Listing icon"
+                                className="icon-gray-circle"
+                            />
+                        </span>
+                        Create a new listing
                     </button>
                 </div>
             </div>

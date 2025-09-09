@@ -48,7 +48,7 @@ async function update(userToUpdate) {
 
 async function login(userCred) {
   const users = await storageService.query(STORAGE_KEY_USER_DB)
- 
+
   const user = users.find(
     (user) =>
       user.username === userCred.username && user.password === userCred.password
@@ -111,11 +111,12 @@ function _createUsers() {
 }
 
 function getGreeting() {
-    const now = new Date();
-    const hour = now.getHours();
+  const now = new Date();
+  const hour = now.getHours();
 
-    if (hour >= 5 && hour < 12) return "Good morning";
-    if (hour >= 12 && hour < 17) return "Good afternoon";
-    if (hour >= 17 && hour < 21) return "Good evening";
-    return "Good night";
+  if (hour >= 5 && hour < 12) return "Good morning";
+  if (hour >= 12 && hour < 17) return "Good afternoon";
+  if (hour >= 17 && hour < 21) return "Good evening";
+  return "Good night";
 }
+

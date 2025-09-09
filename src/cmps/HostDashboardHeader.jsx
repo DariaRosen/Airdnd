@@ -55,6 +55,9 @@ export function HostDashboardHeader() {
         <Link to="/host-listing" className={`tab-link ${isActive("/host-listing") ? "active" : ""}`}>
           Add New Listing
         </Link>
+        <Link to="/welcome-host" className={`tab-link ${isActive("/welcome-host") ? "active" : ""}`}>
+          Main Page
+        </Link>
       </div>
     </section>
   )
