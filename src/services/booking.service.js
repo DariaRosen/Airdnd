@@ -10,6 +10,7 @@ export const bookingService = {
   getEmptyBooking,
   getUserBookings,
   getHostBookings,
+  updateBookingStatus
 }
 
 const STORAGE_KEY = "bookingCollection"
@@ -106,3 +107,17 @@ function _getDatesInRange(start, end) {
   return dates
 }
 
+async function updateBookingStatus(bookingId, newStatus) {
+  try {
+    const bookings = await query()
+    const idx = bookings.findIndex(b => b._id === bookingId)
+    if (idx === -1) throw new Error("Booking not found")
+    
+    bookings[idx].status = newStatus
+    utilService.saveToStorage(STORAGE_KEY, bookings)
+    return bookings[idx] // return the updated booking
+  } catch (err) {
+    console.error("bookingService.updateBookingStatus error:", err)
+    throw err
+  }
+}

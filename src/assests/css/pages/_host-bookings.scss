@@ -105,3 +105,27 @@
   white-space: nowrap; /* prevent stacking */
   height: 30px; /* fixed height for the header content */
 }
+
+.status-actions {
+  display: flex;
+  justify-content: center;
+  gap: 0.3rem;
+}
+
+.status-actions button {
+  padding: 2px 6px;
+  font-size: 0.8rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.status-actions button:first-of-type {
+  background-color: #27ae60;
+  color: white;
+}
+
+.status-actions button:last-of-type {
+  background-color: #c0392b;
+  color: white;
+}

@@ -70,6 +70,22 @@ export function HostBookings() {
         }
     };
 
+    const handleStatusChange = async (bookingId, newStatus) => {
+        try {
+            // Call your booking service to update the status in the backend
+            await bookingService.updateBookingStatus(bookingId, newStatus);
+
+            // Update the local state so UI refreshes
+            setHostBookings(prev =>
+                prev.map(b => (b._id === bookingId ? { ...b, status: newStatus } : b))
+            );
+        } catch (err) {
+            console.error("Failed to update status:", err);
+            alert("Could not update status, try again.");
+        }
+    };
+
+
     return (
         <section className="bookings">
             <HostDashboardHeader />
@@ -79,6 +95,7 @@ export function HostBookings() {
                 <table className="bookings-table">
                     <thead>
                         <tr>
+                            <th>Actions</th> {/* New first column */}
                             {[
                                 { key: "status", label: "Status" },
                                 { key: "_id", label: "Booking ID" },
@@ -98,15 +115,23 @@ export function HostBookings() {
                                         </span>
                                     </div>
                                 </th>
-
                             ))}
                         </tr>
                     </thead>
 
-
                     <tbody>
                         {sortedBookings.map((b) => (
                             <tr key={b._id}>
+                                <td>
+                                    {b.status.toLowerCase() === "new" || b.status.toLowerCase() === "pending" ? (
+                                        <div className="status-actions">
+                                            <button onClick={() => handleStatusChange(b._id, "Paid")}>✅ Approve</button>
+                                            <button onClick={() => handleStatusChange(b._id, "Canceled by Host")}>❌ Reject</button>
+                                        </div>
+                                    ) : (
+                                        "No actions available"
+                                    )}
+                                </td>
                                 <td className={`status-${b.status.toLowerCase().replace(/ /g, "-")}`}>{b.status}</td>
                                 <td>{b._id}</td>
                                 <td>{b.home_id}</td>
@@ -119,6 +144,7 @@ export function HostBookings() {
                         ))}
                     </tbody>
                 </table>
+
             </div>
         </section>
     );
