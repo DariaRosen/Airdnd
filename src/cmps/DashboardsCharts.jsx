@@ -46,13 +46,10 @@ export function DashboardsCharts({ bookings }) {
         const bookingsByWeekday = Array(7).fill(0);
 
         if (bookings && bookings.length > 0) {
-            const allStatuses = [...new Set(bookings.map(b => b.status.toLowerCase()))];
             const allBookings = bookings;
             const validBookings = bookings.filter(b => {
                 const status = b.status.toLowerCase();
-                return !(
-                    status.includes("cancel") // catches canceled, cancelled, cancelled-by-host, etc.
-                );
+                return !status.includes("cancel"); // exclude canceled
             });
 
             // 🔵 Status breakdown → all bookings
@@ -148,6 +145,16 @@ export function DashboardsCharts({ bookings }) {
 
     const months = ["All", "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 
+    // 🔑 Chart explanations
+    const chartExplanations = {
+        bar: ["💡 Income per month", "❌ Excludes canceled orders"],
+        pie: ["💡 Length of stays (nights)", "❌ Excludes canceled orders"],
+        line: ["💡 Number of bookings per month", "Includes all bookings (canceled + active)"],
+        doughnut: ["💡 Distribution of booking statuses", "Includes canceled bookings"],
+        revenue: ["💡 Revenue distribution per home", "❌ Excludes canceled orders"],
+        weekday: ["💡 Bookings by check-in weekday", "❌ Excludes canceled bookings"]
+    };
+
     return (
         <div className="dashboard-charts">
             <div className="charts-filters">
@@ -164,32 +171,53 @@ export function DashboardsCharts({ bookings }) {
                 </select>
             </div>
 
-            <div
-                className="charts-container"
-            >
+            <div className="charts-container">
                 <div className="chart-card">
                     <h3>Monthly Income</h3>
                     <Bar data={barData} options={{ responsive: true, maintainAspectRatio: false }} />
+                    <div className="chart-tooltip">
+                        {chartExplanations.bar.map((line, i) => <div key={i}>{line}</div>)}
+                    </div>
                 </div>
+
                 <div className="chart-card">
                     <h3>Orders by Nights</h3>
                     <Pie data={pieData} options={{ responsive: true, maintainAspectRatio: false }} />
+                    <div className="chart-tooltip">
+                        {chartExplanations.pie.map((line, i) => <div key={i}>{line}</div>)}
+                    </div>
                 </div>
+
                 <div className="chart-card">
                     <h3>Bookings Over Time</h3>
                     <Line data={lineData} options={{ responsive: true, maintainAspectRatio: false }} />
+                    <div className="chart-tooltip">
+                        {chartExplanations.line.map((line, i) => <div key={i}>{line}</div>)}
+                    </div>
                 </div>
+
                 <div className="chart-card">
                     <h3>Booking Status Breakdown</h3>
                     <Doughnut data={doughnutData} options={{ responsive: true, maintainAspectRatio: false }} />
+                    <div className="chart-tooltip">
+                        {chartExplanations.doughnut.map((line, i) => <div key={i}>{line}</div>)}
+                    </div>
                 </div>
+
                 <div className="chart-card">
                     <h3>Revenue per Home</h3>
                     <Bar data={revenuePerHomeData} options={{ responsive: true, maintainAspectRatio: false }} />
+                    <div className="chart-tooltip">
+                        {chartExplanations.revenue.map((line, i) => <div key={i}>{line}</div>)}
+                    </div>
                 </div>
+
                 <div className="chart-card">
                     <h3>Booking Frequency by Weekday</h3>
                     <Bar data={bookingWeekdayData} options={{ responsive: true, maintainAspectRatio: false }} />
+                    <div className="chart-tooltip">
+                        {chartExplanations.weekday.map((line, i) => <div key={i}>{line}</div>)}
+                    </div>
                 </div>
             </div>
         </div>

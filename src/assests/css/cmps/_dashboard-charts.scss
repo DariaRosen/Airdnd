@@ -31,13 +31,40 @@
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
+  overflow: hidden;
+  position: relative;
 }
 
 .chart-card h3 {
   font-size: 1rem;
   margin-bottom: 0.5rem;
+  flex-shrink: 0;
 }
 
-.chart-pie {
-  height: 300px;
+.chart-tooltip {
+  visibility: hidden;
+  opacity: 0;
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  background: rgba(0, 0, 0, 0.8);
+  color: #fff;
+  font-size: 0.85rem;
+  padding: 0.4rem 0.7rem;
+  border-radius: 6px;
+  white-space: nowrap;
+  transition: opacity 0.2s ease-in-out;
+  z-index: 10;
+  pointer-events: none; /* tooltip doesn’t block chart hover */
+}
+
+.chart-card:hover .chart-tooltip {
+  visibility: visible;
+  opacity: 1;
+}
+
+.chart-card canvas {
+  max-height: 200px; /* or 220px, adjust as needed */
+  width: 100% !important;
+  height: auto !important;
 }
