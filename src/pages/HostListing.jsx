@@ -143,7 +143,7 @@ export function HostListing() {
                     </div>
 
 
-                    <h2>Select Amenities</h2>
+                    <h2>Select Amenities:</h2>
                     <AmenitySelector amenities={amenities} setAmenities={setAmenities} />
                     <p>Location: {amenities.join(", ")}</p>
 

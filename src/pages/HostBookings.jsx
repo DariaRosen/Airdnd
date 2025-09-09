@@ -129,10 +129,14 @@ export function HostBookings() {
                                             <button onClick={() => handleStatusChange(b._id, "Canceled by Host")}>❌ Reject</button>
                                         </div>
                                     ) : (
-                                        "No actions available"
+                                        <span className="status-gray">
+                                            {b.status.toLowerCase() === "paid" ? "Approved" : "Canceled"}
+                                        </span>
                                     )}
                                 </td>
-                                <td className={`status-${b.status.toLowerCase().replace(/ /g, "-")}`}>{b.status}</td>
+                                <td className={`status-${b.status.toLowerCase().replace(/ /g, "-")}`}>
+                                    {b.status}
+                                </td>
                                 <td>{b._id}</td>
                                 <td>{b.home_id}</td>
                                 <td>{b.guest_id}</td>
@@ -143,6 +147,7 @@ export function HostBookings() {
                             </tr>
                         ))}
                     </tbody>
+
                 </table>
 
             </div>

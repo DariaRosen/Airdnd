@@ -20,21 +20,14 @@
   display: none; /* hide native checkbox */
 }
 
-.amenity-section {
-  margin: 2rem 0;
-}
-
 .amenity-category {
   margin-bottom: 2.5rem;
 }
 
 .amenity-category h3 {
-  font-size: 1.2rem;
-  font-weight: 600;
-  margin-bottom: 1rem;
-  color: #333;
-  border-bottom: 1px solid #eee;
-  padding-bottom: 0.5rem;
+  font-size: 0.95rem;
+  color: #444;
+  font-weight: 500;
 }
 
 .amenity-item:hover {
