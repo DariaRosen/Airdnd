@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react"
 import { AirdndIcon } from '../cmps/AirdndIcon'
-import { useNavigate } from 'react-router-dom'
-import { Link } from 'react-router-dom'
+import { useNavigate, Link } from 'react-router-dom'
 import { bookingService } from "../services/booking.service"
 import { homeService } from "../services/home.service"
 import {
@@ -26,108 +25,50 @@ export function WelcomeHost() {
         cancellationRate: 0,
         cancellationChange: 0,
         wishlistCount: 0,
+        activeListings: 0,
+        homeRating: 0,
     })
 
     useEffect(() => {
-        async function loadStats() {
+        async function loadAllStats() {
+            // Host bookings
             const bookings = await bookingService.getHostBookings(user._id)
-            const s = bookingService.calculateTrends(bookings)
-            setStats(s)
-        }
-        loadStats()
-    }, [])
 
-    useEffect(() => {
-        async function loadBookings() {
-            const bookings = await bookingService.query()
+            // Trends (income, cancellation, bookings)
             const trends = bookingService.calculateTrends(bookings)
-            setStats(trends)
-        }
-        loadBookings()
-    }, [])
+            console.log("trends", trends);
 
-    useEffect(() => {
-        async function loadActiveListings() {
+            // Homes
             const userHomes = await homeService.getHomesByHost(user._id)
             console.log("userHomes", userHomes);
 
+            // Average rating
+            const ratings = await Promise.all(userHomes.map(home => homeService.getHomeRating(home._id)))
+            const validRatings = ratings.filter(r => typeof r === 'number')
+            const avgRating = validRatings.length
+                ? validRatings.reduce((sum, r) => sum + r, 0) / validRatings.length
+                : 0
+
+            // Wishlist count & active listings
             const wishlistCount = userHomes.reduce((sum, h) => sum + (h.addedToWishlist || 0), 0)
-            console.log("wishlistCount", wishlistCount);
+            const activeListings = userHomes.length
 
-
-            setStats(prev => ({
-                ...prev,
-                activeListings: userHomes.length,
-                wishlistCount
-            }))
-        }
-        loadActiveListings()
-    }, [user._id])
-
-    useEffect(() => {
-        async function loadStats() {
-            const bookings = await bookingService.getHostBookings(user._id)
-            if (!bookings.length) return
-
-            const now = new Date()
-            const thisMonth = now.getMonth()
-            const thisYear = now.getFullYear()
-
-            // Current month bookings
-            const currentMonthBookings = bookings.filter(b => {
-                const checkIn = new Date(b.checkIn)
-                return (
-                    checkIn.getMonth() === thisMonth &&
-                    checkIn.getFullYear() === thisYear &&
-                    b.status.toLowerCase() === "paid"
-                )
+            setStats({
+                ...trends,
+                homeRating: avgRating,
+                wishlistCount,
+                activeListings,
+                totalBookings: bookings.length // total bookings ever
             })
-
-            const lastMonthBookings = bookings.filter(b => {
-                const checkIn = new Date(b.checkIn)
-                return (
-                    checkIn.getMonth() === (thisMonth === 0 ? 11 : thisMonth - 1) &&
-                    checkIn.getFullYear() === (thisMonth === 0 ? thisYear - 1 : thisYear) &&
-                    b.status.toLowerCase() === "paid"
-                )
-            })
-
-            const currentIncome = currentMonthBookings.reduce((sum, b) => sum + b.totalPrice, 0)
-            const lastIncome = lastMonthBookings.reduce((sum, b) => sum + b.totalPrice, 0)
-
-            const incomeChange = lastIncome
-                ? ((currentIncome - lastIncome) / lastIncome) * 100
-                : 100
-
-            // Total bookings
-            const totalBookings = bookings.length
-            const lastMonthTotal = lastMonthBookings.length
-            const totalBookingsChange = lastMonthTotal
-                ? ((currentMonthBookings.length - lastMonthTotal) / lastMonthTotal) * 100
-                : 100
-
-            // Cancellation rate (canceled by host / total)
-            const canceledCount = bookings.filter(b => b.status.toLowerCase().includes("canceled")).length
-            const cancellationRate = (canceledCount / totalBookings) * 100
-
-            setStats(prev => ({
-                ...prev, // keep activeListings
-                income: currentIncome,
-                incomeChange,
-                totalBookings,
-                totalBookingsChange,
-                cancellationRate,
-                cancellationChange: 0,
-            }))
         }
 
-        loadStats()
+        loadAllStats()
     }, [user._id])
+
 
     const addListingIcon = "/Airdnd/icons/add-listing.svg"
     const bookingIcon = "/Airdnd/icons/list-check-svgrepo-com.svg"
     const dashboardIcon = "/Airdnd/icons/dashboard-svgrepo-com.svg"
-    console.log("stats.cancellationChange", stats.cancellationChange);
 
     return (
         <section className="welcome-host">
@@ -153,7 +94,8 @@ export function WelcomeHost() {
                 <div className="stat-card">
                     <div className="stat-text">
                         <p>Income</p>
-                        <h2>${stats.income.toLocaleString(undefined, { minimumFractionDigits: 0, maximumFractionDigits: 0 })}
+                        <h2>
+                            ${stats.income.toLocaleString(undefined, { minimumFractionDigits: 0 })}
                             <span className={stats.incomeChange >= 0 ? "positive" : "negative"}>
                                 {Math.round(stats.incomeChange)}%
                             </span>
@@ -181,7 +123,7 @@ export function WelcomeHost() {
                 <div className="stat-card">
                     <div className="stat-text">
                         <p>Rating</p>
-                        <h2>4.9 <span className="positive">+12%</span></h2>
+                        <h2>{stats.homeRating.toFixed(1)}</h2>
                     </div>
                     <div className="stat-icon"><Star size={28} /></div>
                 </div>
@@ -189,7 +131,8 @@ export function WelcomeHost() {
                 <div className="stat-card">
                     <div className="stat-text">
                         <p>Total Bookings</p>
-                        <h2>{stats.totalBookings}
+                        <h2>
+                            {stats.totalBookings}
                             <span className={stats.totalBookingsChange >= 0 ? "positive" : "negative"}>
                                 {Math.round(stats.totalBookingsChange)}%
                             </span>
@@ -200,7 +143,7 @@ export function WelcomeHost() {
 
                 <div className="stat-card">
                     <div className="stat-text">
-                        <p> Active Listings</p>
+                        <p>Active Listings</p>
                         <h2>{stats.activeListings}</h2>
                     </div>
                     <div className="stat-icon"><Home size={28} /></div>
@@ -223,49 +166,29 @@ export function WelcomeHost() {
             {/* Listing container */}
             <div className="listing-container">
                 <h1>Welcome back, Daria</h1>
+
                 <div className="dashboard">
-                    <button
-                        className="create-btn"
-                        onClick={() => navigate("/host-dashboard")}
-                    >
+                    <button className="create-btn" onClick={() => navigate("/host-dashboard")}>
                         <span className="icon">
-                            <img
-                                src={dashboardIcon}
-                                alt="Dashboard icon"
-                                className="icon-gray-circle"
-                            />
+                            <img src={dashboardIcon} alt="Dashboard icon" className="icon-gray-circle" />
                         </span>
                         Dashboard
                     </button>
                 </div>
 
                 <div className="bookings">
-                    <button
-                        className="create-btn"
-                        onClick={() => navigate("/host-bookings")}
-                    >
+                    <button className="create-btn" onClick={() => navigate("/host-bookings")}>
                         <span className="icon">
-                            <img
-                                src={bookingIcon}
-                                alt="Bookings icon"
-                                className="icon-gray-circle"
-                            />
+                            <img src={bookingIcon} alt="Bookings icon" className="icon-gray-circle" />
                         </span>
                         Bookings
                     </button>
                 </div>
 
                 <div className="listing">
-                    <button
-                        className="create-btn"
-                        onClick={() => navigate("/host-listing")}
-                    >
+                    <button className="create-btn" onClick={() => navigate("/host-listing")}>
                         <span className="icon">
-                            <img
-                                src={addListingIcon}
-                                alt="Add Listing icon"
-                                className="icon-gray-circle"
-                            />
+                            <img src={addListingIcon} alt="Add Listing icon" className="icon-gray-circle" />
                         </span>
                         Create a new listing
                     </button>

@@ -95,7 +95,7 @@ export function HostBookings() {
                 <table className="bookings-table">
                     <thead>
                         <tr>
-                            <th>Actions</th> {/* New first column */}
+                            <th>Actions</th>
                             {[
                                 { key: "status", label: "Status" },
                                 { key: "_id", label: "Booking ID" },

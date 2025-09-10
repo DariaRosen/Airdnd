@@ -151,15 +151,58 @@ function calculateMonthlyStats(bookings) {
 }
 
 function calculateTrends(bookings) {
+  const now = new Date()
+  const thisMonth = now.getMonth()
+  const thisYear = now.getFullYear()
+
+  // Current month bookings
+  const currentMonthBookings = bookings.filter(b => {
+    const checkIn = new Date(b.checkIn)
+    return (
+      checkIn.getMonth() === thisMonth &&
+      checkIn.getFullYear() === thisYear
+    )
+  })
+
+  // Paid bookings only
+  const currentMonthPaidBookings = bookings.filter(b => {
+    const checkIn = new Date(b.checkIn)
+    return (
+      checkIn.getMonth() === thisMonth &&
+      checkIn.getFullYear() === thisYear &&
+      b.status.toLowerCase() === "paid"
+    )
+  })
+
+  // Monthly stats (for income + averages)
   const statsByMonth = calculateMonthlyStats(bookings)
   const months = Object.keys(statsByMonth).sort()
 
-  if (months.length === 0) return { income: 0, totalBookings: 0, cancellationRate: 0, incomeChange: 0, totalBookingsChange: 0, cancellationChange: 0 }
+  if (months.length === 0) {
+    return {
+      income: 0,
+      totalBookings: 0,
+      cancellationRate: 0,
+      incomeChange: 0,
+      totalBookingsChange: 0,
+      cancellationChange: 0
+    }
+  }
 
-  const currentMonth = months[months.length - 1]
+  // Current month summary
+  const current = {
+    income: currentMonthPaidBookings.reduce(
+      (sum, b) => sum + (Number(b.totalPrice) || 0),
+      0
+    ),
+    totalBookings: currentMonthBookings.length,
+    canceled: currentMonthBookings.filter(b =>
+      b.status && b.status.toLowerCase().includes("canceled")
+    ).length
+  }
+
+  // Past months averages
   const pastMonths = months.slice(0, -1)
-
-  const current = statsByMonth[currentMonth]
   const pastAverages = pastMonths.length
     ? {
       income: pastMonths.reduce((sum, m) => sum + statsByMonth[m].income, 0) / pastMonths.length,
@@ -168,18 +211,39 @@ function calculateTrends(bookings) {
     }
     : { income: 0, totalBookings: 0, canceled: 0 }
 
-  const cancellationRate = current.totalBookings
-    ? (current.canceled / current.totalBookings) * 100
+  // 📊 Cancellation (all bookings)
+  const totalBookingsAll = bookings.length
+  const canceledAll = bookings.filter(b =>
+    b.status && b.status.toLowerCase().includes("canceled")
+  ).length
+
+  const cancellationRate = totalBookingsAll
+    ? (canceledAll / totalBookingsAll) * 100
     : 0
 
-  const avgCancellationRate = pastAverages.totalBookings
-    ? (pastAverages.canceled / pastAverages.totalBookings) * 100
+  // 📊 Past-only cancellation (exclude current month)
+  const pastBookingsOnly = bookings.filter(b => {
+    const checkIn = new Date(b.checkIn)
+    return (
+      checkIn.getFullYear() < thisYear ||
+      (checkIn.getFullYear() === thisYear && checkIn.getMonth() < thisMonth)
+    )
+  })
+
+  const totalPastBookings = pastBookingsOnly.length
+  const canceledPastBookings = pastBookingsOnly.filter(b =>
+    b.status && b.status.toLowerCase().includes("canceled")
+  ).length
+
+  const avgCancellationRate = totalPastBookings
+    ? (canceledPastBookings / totalPastBookings) * 100
     : 0
 
+  // Final trends object
   return {
     income: current.income,
     totalBookings: current.totalBookings,
-    cancellationRate,  // number
+    cancellationRate, // ✅ all-time cancellation %
     incomeChange: pastAverages.income
       ? ((current.income - pastAverages.income) / pastAverages.income) * 100
       : 0,

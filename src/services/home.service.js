@@ -1,6 +1,7 @@
 import { storageService } from "./async-storage.service"
 import { utilService } from "./util.service"
 import homesData from "../data/homes.json"
+import reviews from "../data/reviews.json"
 
 export const homeService = {
   query,
@@ -11,6 +12,7 @@ export const homeService = {
   getFormattedDateRange,
   getFilterFromSearchParams,
   getHomesByHost,
+  getHomeRating,
 }
 window.hs = homeService
 
@@ -151,7 +153,7 @@ async function _createHomes() {
 
   if (!homes || !homes.length) {
     homes = homesData
-      // homes = await utilService.updateHomeImageUrlsFromCloudinary(homes);
+    // homes = await utilService.updateHomeImageUrlsFromCloudinary(homes);
     utilService.saveToStorage(STORAGE_KEY, homes)
   }
 }
@@ -159,4 +161,10 @@ async function _createHomes() {
 async function getHomesByHost(hostId) {
   const homes = await query()
   return homes.filter(home => home.host_id === hostId)
+}
+
+async function getHomeRating(homeId) {
+  const home = await getById(homeId) // or from homes array
+  if (!home) return 0
+  return home.rating || 0
 }
