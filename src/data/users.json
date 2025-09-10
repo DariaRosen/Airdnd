@@ -9,7 +9,9 @@
         "phone": "0541234567",
         "imgUrl": "",
         "favorites": ["Fo7IG9", "Lm3BR4", "gV1", "Rk8MN2"],
-        "searching_history": []
+        "searching_history": [],
+        "hosting": 0,
+        "avatar": ""
     },
     {
         "_id": "a2",
@@ -21,7 +23,9 @@
         "phone": "0547654321",
         "imgUrl": "",
         "favorites": ["Fo7IG9", "Lm3BR4", "gV1", "Rk8MN2"],
-        "searching_history": []
+        "searching_history": [],
+        "hosting": 0,
+        "avatar": "https://res.cloudinary.com/dool6mmp1/image/upload/v1757510993/Capture_tduo7f.jpg"
     },
     {
         "_id": "a1",
@@ -33,6 +37,22 @@
         "phone": "0549876543",
         "imgUrl": "",
         "favorites": ["Fo7IG9", "Lm3BR4", "gV1", "Rk8MN2"],
-        "searching_history": []
+        "searching_history": [],
+        "hosting": 2,
+        "avatar": "https://res.cloudinary.com/dool6mmp1/image/upload/v1757511065/Capture_xbtv4j.jpg"
+    },
+    {
+        "_id": "b1",
+        "firstName": "Harry",
+        "lastName": "Potter",
+        "username": "harry",
+        "password": "1111",
+        "email": "harry@host.com",
+        "phone": "0549812343",
+        "imgUrl": "",
+        "favorites": ["Fo7IG9", "Lm3BR4", "gV1", "Rk8MN2"],
+        "searching_history": [],
+        "hosting": 10,
+        "avatar": "https://res.cloudinary.com/dool6mmp1/image/upload/v1757510886/Capture_cyuogt.jpg"
     }
 ]

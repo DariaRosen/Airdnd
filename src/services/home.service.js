@@ -13,6 +13,7 @@ export const homeService = {
   getFilterFromSearchParams,
   getHomesByHost,
   getHomeRating,
+  getHomeReviews,
 }
 window.hs = homeService
 
@@ -163,8 +164,14 @@ async function getHomesByHost(hostId) {
   return homes.filter(home => home.host_id === hostId)
 }
 
+async function getHomeReviews(homeId) {
+  // filter reviews from reviews.json by home_id
+  return reviews.filter(review => review.home_id === homeId)
+}
+
 async function getHomeRating(homeId) {
-  const home = await getById(homeId) // or from homes array
-  if (!home) return 0
-  return home.rating || 0
+  const homeReviews = await getHomeReviews(homeId)
+  if (!homeReviews.length) return 0
+  const avg = homeReviews.reduce((sum, r) => sum + r.rating, 0) / homeReviews.length
+  return Math.round(avg * 10) / 10 // round to 1 decimal
 }

@@ -38,7 +38,14 @@
             "Kitchen",
             "AC"
         ],
-        
+        "highlights": {
+            "First main": "Self check-in",
+            "First sub": "Check yourself in with the lockbox.",
+            "Second main": "Walkable area",
+            "Second sub": "This area is easy to get around.",
+            "Third main": "Furry friends welcome",
+            "Third sub": "Bring your pets along for the stay."
+        },
         "msgs": [],
         "unavailableDates": [
             "210825",
@@ -90,6 +97,14 @@
             "Washer",
             "TV"
         ],
+        "highlights": {
+            "First main": "Self check-in",
+            "First sub": "Check yourself in with the lockbox.",
+            "Second main": "Walkable area",
+            "Second sub": "This area is easy to get around.",
+            "Third main": "Furry friends welcome",
+            "Third sub": "Bring your pets along for the stay."
+        },
         "msgs": [],
         "unavailableDates": [
             "191025",
@@ -140,6 +155,14 @@
             "Refrigerator",
             "Fire extinguisher"
         ],
+        "highlights": {
+            "First main": "Self check-in",
+            "First sub": "Check yourself in with the lockbox.",
+            "Second main": "Walkable area",
+            "Second sub": "This area is easy to get around.",
+            "Third main": "Furry friends welcome",
+            "Third sub": "Bring your pets along for the stay."
+        },
         "msgs": [],
         "unavailableDates": [
             "220825",
@@ -193,6 +216,14 @@
             "Fireplace",
             "WiFi"
         ],
+        "highlights": {
+            "First main": "Self check-in",
+            "First sub": "Check yourself in with the lockbox.",
+            "Second main": "Walkable area",
+            "Second sub": "This area is easy to get around.",
+            "Third main": "Furry friends welcome",
+            "Third sub": "Bring your pets along for the stay."
+        },
         "msgs": [],
         "unavailableDates": [
             "061025",
@@ -243,6 +274,14 @@
             "Pets allowed",
             "Nature View"
         ],
+        "highlights": {
+            "First main": "Self check-in",
+            "First sub": "Check yourself in with the lockbox.",
+            "Second main": "Walkable area",
+            "Second sub": "This area is easy to get around.",
+            "Third main": "Furry friends welcome",
+            "Third sub": "Bring your pets along for the stay."
+        },
         "msgs": [],
         "unavailableDates": [
             "111025",
@@ -297,6 +336,14 @@
             "Free parking",
             "WiFi"
         ],
+        "highlights": {
+            "First main": "Self check-in",
+            "First sub": "Check yourself in with the lockbox.",
+            "Second main": "Walkable area",
+            "Second sub": "This area is easy to get around.",
+            "Third main": "Furry friends welcome",
+            "Third sub": "Bring your pets along for the stay."
+        },
         "msgs": [],
         "unavailableDates": [
             "210925",
@@ -349,6 +396,14 @@
             "Balcony",
             "Washer"
         ],
+        "highlights": {
+            "First main": "Self check-in",
+            "First sub": "Check yourself in with the lockbox.",
+            "Second main": "Walkable area",
+            "Second sub": "This area is easy to get around.",
+            "Third main": "Furry friends welcome",
+            "Third sub": "Bring your pets along for the stay."
+        },
         "msgs": [],
         "unavailableDates": [
             "130825",
@@ -397,8 +452,31 @@
         "amenities": [
             "WiFi",
             "AC",
-            "Toaster"
+            "Toaster",
+            "Refrigerator",
+            "Smart TV",
+            "Safe",
+            "Fire extinguisher",
+            "First aid kit",
+            "High chair",
+            "Baby bath",
+            "Pets allowed",
+            "Hammock",
+            "Bikes",
+            "Free parking",
+            "Gym",
+            "Fireplace",
+            "Shampoo",
+            "Self check-in"
         ],
+        "highlights": {
+            "First main": "Self check-in",
+            "First sub": "Check yourself in with the lockbox.",
+            "Second main": "Walkable area",
+            "Second sub": "This area is easy to get around.",
+            "Third main": "Furry friends welcome",
+            "Third sub": "Bring your pets along for the stay."
+        },
         "msgs": [],
         "unavailableDates": [
             "240825",
@@ -450,6 +528,14 @@
             "Coffee",
             "Hot water"
         ],
+        "highlights": {
+            "First main": "Self check-in",
+            "First sub": "Check yourself in with the lockbox.",
+            "Second main": "Walkable area",
+            "Second sub": "This area is easy to get around.",
+            "Third main": "Furry friends welcome",
+            "Third sub": "Bring your pets along for the stay."
+        },
         "msgs": [],
         "unavailableDates": [
             "150925",
@@ -500,6 +586,14 @@
             "Bikes",
             "WiFi"
         ],
+        "highlights": {
+            "First main": "Self check-in",
+            "First sub": "Check yourself in with the lockbox.",
+            "Second main": "Walkable area",
+            "Second sub": "This area is easy to get around.",
+            "Third main": "Furry friends welcome",
+            "Third sub": "Bring your pets along for the stay."
+        },
         "msgs": [],
         "unavailableDates": [
             "270925",
@@ -553,6 +647,14 @@
             "Washer",
             "Self check-in"
         ],
+        "highlights": {
+            "First main": "Self check-in",
+            "First sub": "Check yourself in with the lockbox.",
+            "Second main": "Walkable area",
+            "Second sub": "This area is easy to get around.",
+            "Third main": "Furry friends welcome",
+            "Third sub": "Bring your pets along for the stay."
+        },
         "msgs": [],
         "unavailableDates": [
             "050925",
@@ -603,6 +705,14 @@
             "Kitchen",
             "Work Desk"
         ],
+        "highlights": {
+            "First main": "Self check-in",
+            "First sub": "Check yourself in with the lockbox.",
+            "Second main": "Walkable area",
+            "Second sub": "This area is easy to get around.",
+            "Third main": "Furry friends welcome",
+            "Third sub": "Bring your pets along for the stay."
+        },
         "msgs": [],
         "unavailableDates": [
             "240725",
@@ -653,6 +763,14 @@
             "WiFi",
             "Shampoo"
         ],
+        "highlights": {
+            "First main": "Self check-in",
+            "First sub": "Check yourself in with the lockbox.",
+            "Second main": "Walkable area",
+            "Second sub": "This area is easy to get around.",
+            "Third main": "Furry friends welcome",
+            "Third sub": "Bring your pets along for the stay."
+        },
         "msgs": [],
         "unavailableDates": [
             "190825",
@@ -708,6 +826,14 @@
             "Smoke Alarm",
             "Washer"
         ],
+        "highlights": {
+            "First main": "Self check-in",
+            "First sub": "Check yourself in with the lockbox.",
+            "Second main": "Walkable area",
+            "Second sub": "This area is easy to get around.",
+            "Third main": "Furry friends welcome",
+            "Third sub": "Bring your pets along for the stay."
+        },
         "msgs": [],
         "unavailableDates": [
             "230725",
@@ -762,6 +888,14 @@
             "AC",
             "Safe"
         ],
+        "highlights": {
+            "First main": "Self check-in",
+            "First sub": "Check yourself in with the lockbox.",
+            "Second main": "Walkable area",
+            "Second sub": "This area is easy to get around.",
+            "Third main": "Furry friends welcome",
+            "Third sub": "Bring your pets along for the stay."
+        },
         "msgs": [],
         "unavailableDates": [
             "260925",
@@ -813,6 +947,14 @@
             "AC",
             "Balcony"
         ],
+        "highlights": {
+            "First main": "Self check-in",
+            "First sub": "Check yourself in with the lockbox.",
+            "Second main": "Walkable area",
+            "Second sub": "This area is easy to get around.",
+            "Third main": "Furry friends welcome",
+            "Third sub": "Bring your pets along for the stay."
+        },
         "msgs": [],
         "unavailableDates": [
             "200925",
@@ -863,6 +1005,14 @@
             "Washer",
             "Kitchen"
         ],
+        "highlights": {
+            "First main": "Self check-in",
+            "First sub": "Check yourself in with the lockbox.",
+            "Second main": "Walkable area",
+            "Second sub": "This area is easy to get around.",
+            "Third main": "Furry friends welcome",
+            "Third sub": "Bring your pets along for the stay."
+        },
         "msgs": [],
         "unavailableDates": [
             "190925",
@@ -914,6 +1064,14 @@
             "Pets allowed",
             "AC"
         ],
+        "highlights": {
+            "First main": "Self check-in",
+            "First sub": "Check yourself in with the lockbox.",
+            "Second main": "Walkable area",
+            "Second sub": "This area is easy to get around.",
+            "Third main": "Furry friends welcome",
+            "Third sub": "Bring your pets along for the stay."
+        },
         "msgs": [],
         "unavailableDates": [
             "150825",
@@ -964,6 +1122,14 @@
             "Hammock",
             "Self check-in"
         ],
+        "highlights": {
+            "First main": "Self check-in",
+            "First sub": "Check yourself in with the lockbox.",
+            "Second main": "Walkable area",
+            "Second sub": "This area is easy to get around.",
+            "Third main": "Furry friends welcome",
+            "Third sub": "Bring your pets along for the stay."
+        },
         "msgs": [],
         "unavailableDates": [
             "131025",
@@ -1015,6 +1181,14 @@
             "Workspace",
             "Coffee"
         ],
+        "highlights": {
+            "First main": "Self check-in",
+            "First sub": "Check yourself in with the lockbox.",
+            "Second main": "Walkable area",
+            "Second sub": "This area is easy to get around.",
+            "Third main": "Furry friends welcome",
+            "Third sub": "Bring your pets along for the stay."
+        },
         "msgs": [],
         "unavailableDates": [
             "091025",
@@ -1069,6 +1243,14 @@
             "Balcony",
             "Refrigerator"
         ],
+        "highlights": {
+            "First main": "Self check-in",
+            "First sub": "Check yourself in with the lockbox.",
+            "Second main": "Walkable area",
+            "Second sub": "This area is easy to get around.",
+            "Third main": "Furry friends welcome",
+            "Third sub": "Bring your pets along for the stay."
+        },
         "msgs": [],
         "unavailableDates": [],
         "lastSearchValue": "",
@@ -1109,6 +1291,14 @@
             "Washer",
             "Balcony"
         ],
+        "highlights": {
+            "First main": "Self check-in",
+            "First sub": "Check yourself in with the lockbox.",
+            "Second main": "Walkable area",
+            "Second sub": "This area is easy to get around.",
+            "Third main": "Furry friends welcome",
+            "Third sub": "Bring your pets along for the stay."
+        },
         "msgs": [],
         "unavailableDates": [],
         "lastSearchValue": "",
@@ -1148,6 +1338,14 @@
             "TV",
             "AC"
         ],
+        "highlights": {
+            "First main": "Self check-in",
+            "First sub": "Check yourself in with the lockbox.",
+            "Second main": "Walkable area",
+            "Second sub": "This area is easy to get around.",
+            "Third main": "Furry friends welcome",
+            "Third sub": "Bring your pets along for the stay."
+        },
         "msgs": [],
         "unavailableDates": [],
         "lastSearchValue": "",
@@ -1189,6 +1387,14 @@
             "AC",
             "TV"
         ],
+        "highlights": {
+            "First main": "Self check-in",
+            "First sub": "Check yourself in with the lockbox.",
+            "Second main": "Walkable area",
+            "Second sub": "This area is easy to get around.",
+            "Third main": "Furry friends welcome",
+            "Third sub": "Bring your pets along for the stay."
+        },
         "msgs": [],
         "unavailableDates": [],
         "lastSearchValue": "",
@@ -1228,6 +1434,14 @@
             "Kitchen",
             "Balcony"
         ],
+        "highlights": {
+            "First main": "Self check-in",
+            "First sub": "Check yourself in with the lockbox.",
+            "Second main": "Walkable area",
+            "Second sub": "This area is easy to get around.",
+            "Third main": "Furry friends welcome",
+            "Third sub": "Bring your pets along for the stay."
+        },
         "msgs": [],
         "unavailableDates": [],
         "lastSearchValue": "",
@@ -1267,6 +1481,14 @@
             "TV",
             "AC"
         ],
+        "highlights": {
+            "First main": "Self check-in",
+            "First sub": "Check yourself in with the lockbox.",
+            "Second main": "Walkable area",
+            "Second sub": "This area is easy to get around.",
+            "Third main": "Furry friends welcome",
+            "Third sub": "Bring your pets along for the stay."
+        },
         "msgs": [],
         "unavailableDates": [],
         "lastSearchValue": "",
@@ -1308,6 +1530,14 @@
             "Washer",
             "TV"
         ],
+        "highlights": {
+            "First main": "Self check-in",
+            "First sub": "Check yourself in with the lockbox.",
+            "Second main": "Walkable area",
+            "Second sub": "This area is easy to get around.",
+            "Third main": "Furry friends welcome",
+            "Third sub": "Bring your pets along for the stay."
+        },
         "msgs": [],
         "unavailableDates": [],
         "lastSearchValue": "",
@@ -1348,6 +1578,14 @@
             "Balcony",
             "Kitchen"
         ],
+        "highlights": {
+            "First main": "Self check-in",
+            "First sub": "Check yourself in with the lockbox.",
+            "Second main": "Walkable area",
+            "Second sub": "This area is easy to get around.",
+            "Third main": "Furry friends welcome",
+            "Third sub": "Bring your pets along for the stay."
+        },
         "msgs": [],
         "unavailableDates": [],
         "lastSearchValue": "",
@@ -1388,6 +1626,14 @@
             "Kitchen",
             "Balcony"
         ],
+        "highlights": {
+            "First main": "Self check-in",
+            "First sub": "Check yourself in with the lockbox.",
+            "Second main": "Walkable area",
+            "Second sub": "This area is easy to get around.",
+            "Third main": "Furry friends welcome",
+            "Third sub": "Bring your pets along for the stay."
+        },
         "msgs": [],
         "unavailableDates": [
             "150825",
@@ -1432,6 +1678,14 @@
             "Kitchen",
             "Washer"
         ],
+        "highlights": {
+            "First main": "Self check-in",
+            "First sub": "Check yourself in with the lockbox.",
+            "Second main": "Walkable area",
+            "Second sub": "This area is easy to get around.",
+            "Third main": "Furry friends welcome",
+            "Third sub": "Bring your pets along for the stay."
+        },
         "msgs": [],
         "unavailableDates": [
             "100925",
@@ -1477,6 +1731,14 @@
             "Kitchen",
             "Hot tub"
         ],
+        "highlights": {
+            "First main": "Self check-in",
+            "First sub": "Check yourself in with the lockbox.",
+            "Second main": "Walkable area",
+            "Second sub": "This area is easy to get around.",
+            "Third main": "Furry friends welcome",
+            "Third sub": "Bring your pets along for the stay."
+        },
         "msgs": [],
         "unavailableDates": [
             "151125",
@@ -1523,6 +1785,14 @@
             "TV",
             "Elevator"
         ],
+        "highlights": {
+            "First main": "Self check-in",
+            "First sub": "Check yourself in with the lockbox.",
+            "Second main": "Walkable area",
+            "Second sub": "This area is easy to get around.",
+            "Third main": "Furry friends welcome",
+            "Third sub": "Bring your pets along for the stay."
+        },
         "msgs": [],
         "unavailableDates": [
             "201225",
@@ -1568,6 +1838,14 @@
             "Washer",
             "Heating"
         ],
+        "highlights": {
+            "First main": "Self check-in",
+            "First sub": "Check yourself in with the lockbox.",
+            "Second main": "Walkable area",
+            "Second sub": "This area is easy to get around.",
+            "Third main": "Furry friends welcome",
+            "Third sub": "Bring your pets along for the stay."
+        },
         "msgs": [],
         "unavailableDates": [
             "121125",
@@ -1612,6 +1890,14 @@
             "Fireplace",
             "Garden"
         ],
+        "highlights": {
+            "First main": "Self check-in",
+            "First sub": "Check yourself in with the lockbox.",
+            "Second main": "Walkable area",
+            "Second sub": "This area is easy to get around.",
+            "Third main": "Furry friends welcome",
+            "Third sub": "Bring your pets along for the stay."
+        },
         "msgs": [],
         "unavailableDates": [
             "051225",
@@ -1657,6 +1943,14 @@
             "Kitchen",
             "Gym"
         ],
+        "highlights": {
+            "First main": "Self check-in",
+            "First sub": "Check yourself in with the lockbox.",
+            "Second main": "Walkable area",
+            "Second sub": "This area is easy to get around.",
+            "Third main": "Furry friends welcome",
+            "Third sub": "Bring your pets along for the stay."
+        },
         "msgs": [],
         "unavailableDates": [
             "151025",
@@ -1702,6 +1996,14 @@
             "TV",
             "Kitchenette"
         ],
+        "highlights": {
+            "First main": "Self check-in",
+            "First sub": "Check yourself in with the lockbox.",
+            "Second main": "Walkable area",
+            "Second sub": "This area is easy to get around.",
+            "Third main": "Furry friends welcome",
+            "Third sub": "Bring your pets along for the stay."
+        },
         "msgs": [],
         "unavailableDates": [
             "170925",
@@ -1747,6 +2049,14 @@
             "Hot tub",
             "Lake Access"
         ],
+        "highlights": {
+            "First main": "Self check-in",
+            "First sub": "Check yourself in with the lockbox.",
+            "Second main": "Walkable area",
+            "Second sub": "This area is easy to get around.",
+            "Third main": "Furry friends welcome",
+            "Third sub": "Bring your pets along for the stay."
+        },
         "msgs": [],
         "unavailableDates": [
             "121025",
@@ -1793,6 +2103,14 @@
             "Garden",
             "Fireplace"
         ],
+        "highlights": {
+            "First main": "Self check-in",
+            "First sub": "Check yourself in with the lockbox.",
+            "Second main": "Walkable area",
+            "Second sub": "This area is easy to get around.",
+            "Third main": "Furry friends welcome",
+            "Third sub": "Bring your pets along for the stay."
+        },
         "msgs": [],
         "unavailableDates": [
             "040925",

@@ -1,40 +1,45 @@
-import { useParams, Link } from "react-router-dom"
+import { useParams } from "react-router-dom"
 import { useState, useEffect, useMemo } from "react"
 import { homeService } from "../services/home.service"
-import { userService } from "../services/user.service"
-import { bookingService } from "../services/booking.service"
-import { useSelector } from "react-redux"
 import { amenities } from "../assests/amenities"
 import { AirdndIcon } from "../cmps/AirdndIcon"
 import { BookingSearch } from "../cmps/BookingSearch"
 
 export function HomeDetails() {
   const [home, setHome] = useState(null)
+  const [reviewsCount, setReviewsCount] = useState(0)
+  const [rating, setRating] = useState(0)
   const [selectedImgIdx, setSelectedImgIdx] = useState(null)
   const [isAmenitiesModalOpen, setIsAmenitiesModalOpen] = useState(false)
+
   const params = useParams()
 
-  const homes = useSelector((storeState) => storeState.homeModule.homes || [])
+  const homes = useMemo(() => [], [])
   const uniqueAmenities = useMemo(() => {
     if (!homes.length) return []
-
     const allAmenities = homes.flatMap((home) => home.amenities || [])
-    const unique = [...new Set(allAmenities)]
-
-    console.log("uniqueAmenities:", unique)
-    return unique
+    return [...new Set(allAmenities)]
   }, [homes])
 
   useEffect(() => {
-    loadHome()
+    if (params.homeId) loadHome()
   }, [params.homeId])
 
   async function loadHome() {
     try {
-      const home = await homeService.getById(params.homeId)
-      setHome(home)
-    } catch (error) {
-      console.log("error:", error)
+      const homeData = await homeService.getById(params.homeId)
+      if (!homeData) return
+      setHome(homeData)
+
+      // Get reviews
+      const reviews = await homeService.getHomeReviews(homeData._id)
+      setReviewsCount(reviews.length)
+
+      // Get rating
+      const avgRating = await homeService.getHomeRating(homeData._id)
+      setRating(avgRating)
+    } catch (err) {
+      console.log("Error loading home:", err)
     }
   }
 
@@ -50,6 +55,8 @@ export function HomeDetails() {
   return (
     <section className="home-details">
       <h1>{home.description}</h1>
+
+      {/* Gallery */}
       <section className="gallery">
         <div className="gallery-grid">
           <div className="main-img">
@@ -70,12 +77,20 @@ export function HomeDetails() {
           ))}
         </div>
       </section>
+
+      {/* Content */}
       <section className="content-grid">
         <section className="main-content-details">
-          <h3>{`Entire ${home.type} in ${home.location.city}, ${home.location.country}`}</h3>
+          <h3>
+            {`Entire ${home.type} in ${home.location.city}, ${home.location.country}`}
+          </h3>
           <h4>{`${home.capacity} guests · ${home.rooms} rooms · ${home.beds
             } bed${home.beds > 1 ? "s" : ""} · ${home.bathrooms} bath${home.bathrooms > 1 ? "s" : ""
-            }  `}</h4>
+            }`}</h4>
+
+          <p>Rating: {rating} ⭐</p>
+          <p>{reviewsCount} reviews</p>
+
           <h3>What this place offers</h3>
           <section className="amenities">
             {home.amenities.slice(0, 6).map((amenity) => {
@@ -86,8 +101,7 @@ export function HomeDetails() {
               return (
                 <div className="amenity" key={amenity}>
                   <img
-                    src={`${import.meta.env.BASE_URL}icons/amenities/${match.icon
-                      }.svg`}
+                    src={`${import.meta.env.BASE_URL}icons/amenities/${match.icon}.svg`}
                     alt={match.label}
                   />
                   <span>{match.label}</span>
@@ -110,6 +124,7 @@ export function HomeDetails() {
         </aside>
       </section>
 
+      {/* Image Modal */}
       {selectedImgIdx !== null && (
         <div
           className="modal image-modal"
@@ -144,6 +159,8 @@ export function HomeDetails() {
           </div>
         </div>
       )}
+
+      {/* Amenities Modal */}
       {isAmenitiesModalOpen && (
         <div
           className="modal amenities-modal"
@@ -166,7 +183,7 @@ export function HomeDetails() {
                 return (
                   <div className="amenity" key={amenity}>
                     <img
-                      src={`/Airdnd/public/icons/amenities/${match.icon}.svg`}
+                      src={`${import.meta.env.BASE_URL}icons/amenities/${match.icon}.svg`}
                       alt={match.label}
                     />
                     <span>{match.label}</span>

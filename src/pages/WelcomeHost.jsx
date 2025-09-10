@@ -165,7 +165,7 @@ export function WelcomeHost() {
 
             {/* Listing container */}
             <div className="listing-container">
-                <h1>Welcome back, Daria</h1>
+                <h1>Welcome back, Harry!</h1>
 
                 <div className="dashboard">
                     <button className="create-btn" onClick={() => navigate("/host-dashboard")}>
