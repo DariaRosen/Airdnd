@@ -19,6 +19,7 @@
         ],
         "rating": 4.85,
         "numberOfRaters": 100,
+        "addedToWishlist": 0,
         "guestFavorite": false,
         "location": {
             "country": "UK",
@@ -74,6 +75,7 @@
         ],
         "rating": 4.56,
         "numberOfRaters": 85,
+        "addedToWishlist": 0,
         "guestFavorite": false,
         "location": {
             "country": "Germany",
@@ -125,6 +127,7 @@
         ],
         "rating": 4.84,
         "numberOfRaters": 70,
+        "addedToWishlist": 0,
         "guestFavorite": false,
         "location": {
             "country": "Israel",
@@ -176,6 +179,7 @@
         ],
         "rating": 4.6,
         "numberOfRaters": 90,
+        "addedToWishlist": 0,
         "guestFavorite": false,
         "location": {
             "country": "Canada",
@@ -225,6 +229,7 @@
         ],
         "rating": 4.55,
         "numberOfRaters": 65,
+        "addedToWishlist": 0,
         "guestFavorite": false,
         "location": {
             "country": "USA",
@@ -278,6 +283,7 @@
         ],
         "rating": 0.76,
         "numberOfRaters": 20,
+        "addedToWishlist": 0,
         "guestFavorite": false,
         "location": {
             "country": "Switzerland",
@@ -329,6 +335,7 @@
         ],
         "rating": 4.07,
         "numberOfRaters": 40,
+        "addedToWishlist": 0,
         "guestFavorite": true,
         "location": {
             "country": "Spain",
@@ -378,6 +385,7 @@
         ],
         "rating": 4.79,
         "numberOfRaters": 55,
+        "addedToWishlist": 0,
         "guestFavorite": true,
         "location": {
             "country": "Israel",
@@ -428,6 +436,7 @@
         ],
         "rating": 4.52,
         "numberOfRaters": 75,
+        "addedToWishlist": 0,
         "guestFavorite": true,
         "location": {
             "country": "Netherlands",
@@ -477,6 +486,7 @@
         ],
         "rating": 4.6,
         "numberOfRaters": 50,
+        "addedToWishlist": 0,
         "guestFavorite": false,
         "location": {
             "country": "Costa Rica",
@@ -529,6 +539,7 @@
         ],
         "rating": 4.87,
         "numberOfRaters": 120,
+        "addedToWishlist": 0,
         "guestFavorite": true,
         "location": {
             "country": "USA",
@@ -578,6 +589,7 @@
         ],
         "rating": 4.6,
         "numberOfRaters": 80,
+        "addedToWishlist": 0,
         "guestFavorite": false,
         "location": {
             "country": "USA",
@@ -627,6 +639,7 @@
         ],
         "rating": 4.77,
         "numberOfRaters": 90,
+        "addedToWishlist": 0,
         "guestFavorite": true,
         "location": {
             "country": "USA",
@@ -681,6 +694,7 @@
         ],
         "rating": 4.69,
         "numberOfRaters": 60,
+        "addedToWishlist": 0,
         "guestFavorite": false,
         "location": {
             "country": "USA",
@@ -734,6 +748,7 @@
         ],
         "rating": 4.85,
         "numberOfRaters": 110,
+        "addedToWishlist": 0,
         "guestFavorite": false,
         "location": {
             "country": "USA",
@@ -784,6 +799,7 @@
         ],
         "rating": 4.57,
         "numberOfRaters": 95,
+        "addedToWishlist": 0,
         "guestFavorite": true,
         "location": {
             "country": "Israel",
@@ -833,6 +849,7 @@
         ],
         "rating": 3.87,
         "numberOfRaters": 30,
+        "addedToWishlist": 0,
         "guestFavorite": true,
         "location": {
             "country": "Israel",
@@ -883,6 +900,7 @@
         ],
         "rating": 4.73,
         "numberOfRaters": 65,
+        "addedToWishlist": 0,
         "guestFavorite": false,
         "location": {
             "country": "Israel",
@@ -932,6 +950,7 @@
         ],
         "rating": 4.77,
         "numberOfRaters": 85,
+        "addedToWishlist": 0,
         "guestFavorite": false,
         "location": {
             "country": "Israel",
@@ -982,6 +1001,7 @@
         ],
         "rating": 4.21,
         "numberOfRaters": 40,
+        "addedToWishlist": 0,
         "guestFavorite": false,
         "location": {
             "country": "Israel",
@@ -1031,6 +1051,7 @@
         ],
         "rating": 4.8,
         "numberOfRaters": 60,
+        "addedToWishlist": 7,
         "guestFavorite": true,
         "location": {
             "country": "Spain",
@@ -1073,6 +1094,7 @@
         ],
         "rating": 4.81,
         "numberOfRaters": 45,
+        "addedToWishlist": 0,
         "guestFavorite": true,
         "location": {
             "country": "Spain",
@@ -1112,6 +1134,7 @@
         ],
         "rating": 4.83,
         "numberOfRaters": 30,
+        "addedToWishlist": 0,
         "guestFavorite": false,
         "location": {
             "country": "Spain",
@@ -1150,6 +1173,7 @@
         ],
         "rating": 4.76,
         "numberOfRaters": 50,
+        "addedToWishlist": 0,
         "guestFavorite": true,
         "location": {
             "country": "Spain",
@@ -1190,6 +1214,7 @@
         ],
         "rating": 4.89,
         "numberOfRaters": 70,
+        "addedToWishlist": 0,
         "guestFavorite": false,
         "location": {
             "country": "Spain",
@@ -1228,6 +1253,7 @@
         ],
         "rating": 4.89,
         "numberOfRaters": 25,
+        "addedToWishlist": 0,
         "guestFavorite": true,
         "location": {
             "country": "Spain",
@@ -1266,6 +1292,7 @@
         ],
         "rating": 4.87,
         "numberOfRaters": 55,
+        "addedToWishlist": 0,
         "guestFavorite": true,
         "location": {
             "country": "Spain",
@@ -1306,6 +1333,7 @@
         ],
         "rating": 4.84,
         "numberOfRaters": 40,
+        "addedToWishlist": 0,
         "guestFavorite": false,
         "location": {
             "country": "Spain",
@@ -1345,6 +1373,7 @@
         ],
         "rating": 4.92,
         "numberOfRaters": 80,
+        "addedToWishlist": 14,
         "guestFavorite": true,
         "location": {
             "country": "Israel",
@@ -1388,6 +1417,7 @@
         ],
         "rating": 4.85,
         "numberOfRaters": 90,
+        "addedToWishlist": 0,
         "guestFavorite": false,
         "location": {
             "country": "Israel",
@@ -1432,6 +1462,7 @@
         ],
         "rating": 4.78,
         "numberOfRaters": 55,
+        "addedToWishlist": 0,
         "guestFavorite": true,
         "location": {
             "country": "USA",
@@ -1477,6 +1508,7 @@
         ],
         "rating": 4.91,
         "numberOfRaters": 65,
+        "addedToWishlist": 54,
         "guestFavorite": false,
         "location": {
             "country": "USA",
@@ -1521,6 +1553,7 @@
         ],
         "rating": 4.88,
         "numberOfRaters": 75,
+        "addedToWishlist": 23,
         "guestFavorite": true,
         "location": {
             "country": "UK",
@@ -1565,6 +1598,7 @@
         ],
         "rating": 4.75,
         "numberOfRaters": 120,
+        "addedToWishlist": 0,
         "guestFavorite": false,
         "location": {
             "country": "UK",
@@ -1609,6 +1643,7 @@
         ],
         "rating": 4.80,
         "numberOfRaters": 95,
+        "addedToWishlist": 0,
         "guestFavorite": true,
         "location": {
             "country": "UK",
@@ -1653,6 +1688,7 @@
         ],
         "rating": 4.66,
         "numberOfRaters": 80,
+        "addedToWishlist": 0,
         "guestFavorite": false,
         "location": {
             "country": "UK",
@@ -1696,6 +1732,7 @@
         ],
         "rating": 4.93,
         "numberOfRaters": 150,
+        "addedToWishlist": 0,
         "guestFavorite": true,
         "location": {
             "country": "UK",
@@ -1742,6 +1779,7 @@
         ],
         "rating": 4.81,
         "numberOfRaters": 110,
+        "addedToWishlist": 0,
         "guestFavorite": false,
         "location": {
             "country": "UK",

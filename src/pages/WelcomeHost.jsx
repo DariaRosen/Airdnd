@@ -25,6 +25,7 @@ export function WelcomeHost() {
         totalBookingsChange: 0,
         cancellationRate: 0,
         cancellationChange: 0,
+        wishlistCount: 0,
     })
 
     useEffect(() => {
@@ -49,9 +50,16 @@ export function WelcomeHost() {
         async function loadActiveListings() {
             const userHomes = await homeService.getHomesByHost(user._id)
             console.log("userHomes", userHomes);
-            console.log("user._id", user._id);
 
-            setStats(prev => ({ ...prev, activeListings: userHomes.length }))
+            const wishlistCount = userHomes.reduce((sum, h) => sum + (h.addedToWishlist || 0), 0)
+            console.log("wishlistCount", wishlistCount);
+
+
+            setStats(prev => ({
+                ...prev,
+                activeListings: userHomes.length,
+                wishlistCount
+            }))
         }
         loadActiveListings()
     }, [user._id])
@@ -157,7 +165,7 @@ export function WelcomeHost() {
                 <div className="stat-card">
                     <div className="stat-text">
                         <p>Added to wishlist</p>
-                        <h2>67 <span className="positive">+18%</span></h2>
+                        <h2>{stats.wishlistCount}</h2>
                     </div>
                     <div className="stat-icon"><Heart size={28} /></div>
                 </div>
