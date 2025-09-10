@@ -8,7 +8,7 @@
         "email": "reuven@gmail.com",
         "phone": "0541234567",
         "imgUrl": "",
-        "favorites": [],
+        "favorites": ["Fo7IG9", "Lm3BR4", "gV1", "Rk8MN2"],
         "searching_history": []
     },
     {
@@ -20,7 +20,7 @@
         "email": "daria@gmail.com",
         "phone": "0547654321",
         "imgUrl": "",
-        "favorites": [],
+        "favorites": ["Fo7IG9", "Lm3BR4", "gV1", "Rk8MN2"],
         "searching_history": []
     },
     {
@@ -32,7 +32,7 @@
         "email": "avi@host.com",
         "phone": "0549876543",
         "imgUrl": "",
-        "favorites": [],
+        "favorites": ["Fo7IG9", "Lm3BR4", "gV1", "Rk8MN2"],
         "searching_history": []
     }
 ]

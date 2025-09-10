@@ -10,6 +10,7 @@ export const homeService = {
   getEmptyHome,
   getFormattedDateRange,
   getFilterFromSearchParams,
+  getHomesByHost,
 }
 window.hs = homeService
 
@@ -153,4 +154,9 @@ async function _createHomes() {
       // homes = await utilService.updateHomeImageUrlsFromCloudinary(homes);
     utilService.saveToStorage(STORAGE_KEY, homes)
   }
+}
+
+async function getHomesByHost(hostId) {
+  const homes = await query()
+  return homes.filter(home => home.host_id === hostId)
 }

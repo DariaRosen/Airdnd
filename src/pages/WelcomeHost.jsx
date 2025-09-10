@@ -3,7 +3,7 @@ import { AirdndIcon } from '../cmps/AirdndIcon'
 import { useNavigate } from 'react-router-dom'
 import { Link } from 'react-router-dom'
 import { bookingService } from "../services/booking.service"
-
+import { homeService } from "../services/home.service"
 import {
     DollarSign,
     Heart,
@@ -44,6 +44,17 @@ export function WelcomeHost() {
         }
         loadBookings()
     }, [])
+
+    useEffect(() => {
+        async function loadActiveListings() {
+            const userHomes = await homeService.getHomesByHost(user._id)
+            console.log("userHomes", userHomes);
+            console.log("user._id", user._id);
+
+            setStats(prev => ({ ...prev, activeListings: userHomes.length }))
+        }
+        loadActiveListings()
+    }, [user._id])
 
     useEffect(() => {
         async function loadStats() {
@@ -91,14 +102,15 @@ export function WelcomeHost() {
             const canceledCount = bookings.filter(b => b.status.toLowerCase().includes("canceled")).length
             const cancellationRate = (canceledCount / totalBookings) * 100
 
-            setStats({
+            setStats(prev => ({
+                ...prev, // keep activeListings
                 income: currentIncome,
                 incomeChange,
                 totalBookings,
                 totalBookingsChange,
                 cancellationRate,
-                cancellationChange: 0
-            })
+                cancellationChange: 0,
+            }))
         }
 
         loadStats()
@@ -133,7 +145,7 @@ export function WelcomeHost() {
                 <div className="stat-card">
                     <div className="stat-text">
                         <p>Income</p>
-                        <h2>${stats.income.toFixed(2)}
+                        <h2>${stats.income.toLocaleString(undefined, { minimumFractionDigits: 0, maximumFractionDigits: 0 })}
                             <span className={stats.incomeChange >= 0 ? "positive" : "negative"}>
                                 {Math.round(stats.incomeChange)}%
                             </span>
@@ -180,8 +192,8 @@ export function WelcomeHost() {
 
                 <div className="stat-card">
                     <div className="stat-text">
-                        <p>Active Listings</p>
-                        <h2>12</h2>
+                        <p> Active Listings</p>
+                        <h2>{stats.activeListings}</h2>
                     </div>
                     <div className="stat-icon"><Home size={28} /></div>
                 </div>
