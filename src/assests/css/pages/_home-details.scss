@@ -230,3 +230,79 @@
 .home-highlights p {
   margin: 0.3rem 0;
 }
+
+/* Reviews */
+.home-reviews {
+  margin-top: 2rem;
+}
+
+.review {
+  border-top: 1px solid #ddd;
+  padding: 1rem 0;
+}
+
+.review-header {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+}
+
+.review-header .avatar {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.review-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.review-info .name {
+  font-weight: bold;
+  font-size: 1rem;
+}
+
+.review-info .years {
+  font-size: 0.8rem;
+  color: #555;
+}
+
+.review-info .rating .star {
+  font-size: 1rem;
+  margin-right: 2px;
+  color: #FF385C;
+}
+
+.review-info .rating .star.half {
+  color: #FF385C;
+  opacity: 0.5;
+}
+
+.review-info .rating .star.empty {
+  color: #ccc;
+}
+
+.review-info .meta {
+  font-size: 0.8rem;
+  color: #555;
+}
+
+.review-comment {
+  margin-top: 0.5rem;
+  font-size: 0.9rem;
+  line-height: 1.4rem;
+}
+
+.review-comment .show-more {
+  display: inline-block;
+  margin-left: 5px;
+  background: none;
+  border: none;
+  color: #0071c2;
+  cursor: pointer;
+  font-weight: 500;
+  font-size: 0.9rem;
+}

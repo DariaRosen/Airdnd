@@ -5,6 +5,7 @@ import { userService } from "../services/user.service"
 import { amenities } from "../assests/amenities"
 import { AirdndIcon } from "../cmps/AirdndIcon"
 import { BookingSearch } from "../cmps/BookingSearch"
+import { Review } from "../cmps/Review"
 
 export function HomeDetails() {
   const [home, setHome] = useState(null)
@@ -14,7 +15,8 @@ export function HomeDetails() {
   const [selectedImgIdx, setSelectedImgIdx] = useState(null)
   const [isAmenitiesModalOpen, setIsAmenitiesModalOpen] = useState(false)
   const [showFullDescription, setShowFullDescription] = useState(false)
-
+  const [reviews, setReviews] = useState([])
+  const [reviewsWithUsers, setReviewsWithUsers] = useState([])
   const params = useParams()
 
   useEffect(() => {
@@ -24,11 +26,18 @@ export function HomeDetails() {
   async function loadHome() {
     try {
       const homeData = await homeService.getById(params.homeId)
-      if (!homeData) return
       setHome(homeData)
 
       const reviews = await homeService.getHomeReviews(homeData._id)
-      setReviewsCount(reviews.length)
+
+      // Fetch users for each review
+      const reviewsWithUsers = await Promise.all(
+        reviews.map(async (review) => {
+          const user = await userService.getById(review.user_id)
+          return { ...review, user }
+        })
+      )
+      setReviewsWithUsers(reviewsWithUsers)
 
       const avgRating = await homeService.getHomeRating(homeData._id)
       setRating(avgRating)
@@ -62,18 +71,10 @@ export function HomeDetails() {
       <section className="gallery">
         <div className="gallery-grid">
           <div className="main-img">
-            <img
-              src={home.imgUrls[0]}
-              key={0}
-              onClick={() => setSelectedImgIdx(0)}
-            />
+            <img src={home.imgUrls[0]} key={0} onClick={() => setSelectedImgIdx(0)} />
           </div>
           {home.imgUrls.slice(1, 5).map((url, idx) => (
-            <div
-              className="grid-img"
-              key={idx + 1}
-              onClick={() => setSelectedImgIdx(idx + 1)}
-            >
+            <div className="grid-img" key={idx + 1} onClick={() => setSelectedImgIdx(idx + 1)}>
               <img src={url} />
             </div>
           ))}
@@ -83,9 +84,7 @@ export function HomeDetails() {
       {/* Content */}
       <section className="content-grid">
         <section className="main-content-details">
-          <h3>
-            {`Entire ${home.type} in ${home.location.city}, ${home.location.country}`}
-          </h3>
+          <h3>{`Entire ${home.type} in ${home.location.city}, ${home.location.country}`}</h3>
           <h4>{`${home.capacity} guests · ${home.rooms} rooms · ${home.beds} bed${home.beds > 1 ? "s" : ""} · ${home.bathrooms} bath${home.bathrooms > 1 ? "s" : ""}`}</h4>
 
           <p>Rating: {rating} ⭐</p>
@@ -107,10 +106,7 @@ export function HomeDetails() {
               <p key={idx}>{line}</p>
             ))}
             {!showFullDescription && descriptionLines.length > 7 && (
-              <button
-                className="btn-show-more"
-                onClick={() => setShowFullDescription(true)}
-              >
+              <button className="btn-show-more" onClick={() => setShowFullDescription(true)}>
                 Show more
               </button>
             )}
@@ -130,28 +126,26 @@ export function HomeDetails() {
           <h3>What this place offers</h3>
           <section className="amenities">
             {home.amenities.slice(0, 6).map((amenity) => {
-              const match = amenities.find(
-                (amen) => amen.key.toLowerCase() === amenity.toLowerCase()
-              )
+              const match = amenities.find((amen) => amen.key.toLowerCase() === amenity.toLowerCase())
               if (!match) return null
               return (
                 <div className="amenity" key={amenity}>
-                  <img
-                    src={`${import.meta.env.BASE_URL}icons/amenities/${match.icon}.svg`}
-                    alt={match.label}
-                  />
+                  <img src={`${import.meta.env.BASE_URL}icons/amenities/${match.icon}.svg`} alt={match.label} />
                   <span>{match.label}</span>
                 </div>
               )
             })}
             {home.amenities.length > 6 && (
-              <button
-                className="btn-show-all"
-                onClick={() => setIsAmenitiesModalOpen(true)}
-              >
+              <button className="btn-show-all" onClick={() => setIsAmenitiesModalOpen(true)}>
                 Show all amenities
               </button>
             )}
+          </section>
+
+          {/* Reviews */}
+          <section className="home-reviews">
+            <h3>Reviews</h3>
+              <Review homeId={home._id} />
           </section>
         </section>
 
@@ -179,9 +173,7 @@ export function HomeDetails() {
             <h2>All amenities</h2>
             <div className="all-amenities-grid">
               {home.amenities.map((amenity) => {
-                const match = amenities.find(
-                  (amen) => amen.key.toLowerCase() === amenity.toLowerCase()
-                )
+                const match = amenities.find((amen) => amen.key.toLowerCase() === amenity.toLowerCase())
                 if (!match) return null
                 return (
                   <div className="amenity" key={amenity}>

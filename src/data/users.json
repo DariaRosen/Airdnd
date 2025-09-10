@@ -11,7 +11,8 @@
         "favorites": ["Fo7IG9", "Lm3BR4", "gV1", "Rk8MN2"],
         "searching_history": [],
         "hosting": 0,
-        "avatar": ""
+        "avatar": "",
+        "createdAt": 1687420800000
     },
     {
         "_id": "a2",
@@ -25,7 +26,8 @@
         "favorites": ["Fo7IG9", "Lm3BR4", "gV1", "Rk8MN2"],
         "searching_history": [],
         "hosting": 0,
-        "avatar": "https://res.cloudinary.com/dool6mmp1/image/upload/v1757510993/Capture_tduo7f.jpg"
+        "avatar": "https://res.cloudinary.com/dool6mmp1/image/upload/v1757510993/Capture_tduo7f.jpg",
+        "createdAt": 1689220800000
     },
     {
         "_id": "a1",
@@ -39,7 +41,8 @@
         "favorites": ["Fo7IG9", "Lm3BR4", "gV1", "Rk8MN2"],
         "searching_history": [],
         "hosting": 2,
-        "avatar": "https://res.cloudinary.com/dool6mmp1/image/upload/v1757511065/Capture_xbtv4j.jpg"
+        "avatar": "https://res.cloudinary.com/dool6mmp1/image/upload/v1757511065/Capture_xbtv4j.jpg",
+        "createdAt": 1587420800000
     },
     {
         "_id": "b1",
@@ -53,6 +56,7 @@
         "favorites": ["Fo7IG9", "Lm3BR4", "gV1", "Rk8MN2"],
         "searching_history": [],
         "hosting": 10,
-        "avatar": "https://res.cloudinary.com/dool6mmp1/image/upload/v1757510886/Capture_cyuogt.jpg"
+        "avatar": "https://res.cloudinary.com/dool6mmp1/image/upload/v1757510886/Capture_cyuogt.jpg",
+        "createdAt": 1537420800000
     }
 ]
