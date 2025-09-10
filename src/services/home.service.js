@@ -14,6 +14,7 @@ export const homeService = {
   getHomesByHost,
   getHomeRating,
   getHomeReviews,
+  getHomeHighlights,
 }
 window.hs = homeService
 
@@ -174,4 +175,15 @@ async function getHomeRating(homeId) {
   if (!homeReviews.length) return 0
   const avg = homeReviews.reduce((sum, r) => sum + r.rating, 0) / homeReviews.length
   return Math.round(avg * 10) / 10 // round to 1 decimal
+}
+
+async function getHomeHighlights(homeId) {
+  try {
+    const home = await getById(homeId)
+    if (!home) throw new Error(`Home with id ${homeId} not found`)
+    return home.highlights || {}
+  } catch (err) {
+    console.error("Error getting home highlights:", err)
+    throw err
+  }
 }

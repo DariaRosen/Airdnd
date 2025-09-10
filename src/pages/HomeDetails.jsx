@@ -13,6 +13,7 @@ export function HomeDetails() {
   const [host, setHost] = useState(null)
   const [selectedImgIdx, setSelectedImgIdx] = useState(null)
   const [isAmenitiesModalOpen, setIsAmenitiesModalOpen] = useState(false)
+  const [showFullDescription, setShowFullDescription] = useState(false)
 
   const params = useParams()
 
@@ -48,9 +49,14 @@ export function HomeDetails() {
       </div>
     )
 
+  const descriptionLines = home.description.split("\n")
+  const displayedDescription = showFullDescription
+    ? descriptionLines
+    : descriptionLines.slice(0, 7)
+
   return (
     <section className="home-details">
-      <h1>{home.description}</h1>
+      <h1>{home.title}</h1>
 
       {/* Gallery */}
       <section className="gallery">
@@ -80,9 +86,7 @@ export function HomeDetails() {
           <h3>
             {`Entire ${home.type} in ${home.location.city}, ${home.location.country}`}
           </h3>
-          <h4>{`${home.capacity} guests · ${home.rooms} rooms · ${home.beds
-            } bed${home.beds > 1 ? "s" : ""} · ${home.bathrooms} bath${home.bathrooms > 1 ? "s" : ""
-            }`}</h4>
+          <h4>{`${home.capacity} guests · ${home.rooms} rooms · ${home.beds} bed${home.beds > 1 ? "s" : ""} · ${home.bathrooms} bath${home.bathrooms > 1 ? "s" : ""}`}</h4>
 
           <p>Rating: {rating} ⭐</p>
           <p>{reviewsCount} reviews</p>
@@ -90,17 +94,39 @@ export function HomeDetails() {
           {/* Hosted by info */}
           {host && (
             <div className="host-info">
-              <img
-                src={host.avatar || "https://cdn.pixabay.com/photo/2020/07/01/12/58/icon-5359553_1280.png"}
-                alt={`${host.firstName} ${host.lastName}`}
-                className="host-avatar"
-              />
+              <img className="host-avatar" src={host.avatar || host.imgUrl} alt={`${host.firstName} avatar`} />
               <p>
-                Hosted by {host.firstName} {host.lastName} · Hosting: {host.hosting || 0} years
+                Hosted by {host.firstName} {host.lastName} · Hosting: {host.hosting} years
               </p>
             </div>
           )}
 
+          {/* Description */}
+          <section className="home-description">
+            {displayedDescription.map((line, idx) => (
+              <p key={idx}>{line}</p>
+            ))}
+            {!showFullDescription && descriptionLines.length > 7 && (
+              <button
+                className="btn-show-more"
+                onClick={() => setShowFullDescription(true)}
+              >
+                Show more
+              </button>
+            )}
+          </section>
+
+          {/* Highlights */}
+          {home.highlights && (
+            <section className="home-highlights">
+              <h3>Highlights</h3>
+              {Object.entries(home.highlights).map(([key, value]) => (
+                <p key={key}><strong>{value}</strong></p>
+              ))}
+            </section>
+          )}
+
+          {/* Amenities */}
           <h3>What this place offers</h3>
           <section className="amenities">
             {home.amenities.slice(0, 6).map((amenity) => {
@@ -134,55 +160,22 @@ export function HomeDetails() {
         </aside>
       </section>
 
-      {/* Image Modal */}
+      {/* Modals (Images & Amenities) */}
       {selectedImgIdx !== null && (
-        <div
-          className="modal image-modal"
-          onClick={() => setSelectedImgIdx(null)}
-        >
+        <div className="modal image-modal" onClick={() => setSelectedImgIdx(null)}>
           <div className="modal-content" onClick={(e) => e.stopPropagation()}>
-            <button
-              className="close-btn"
-              onClick={() => setSelectedImgIdx(null)}
-            >
-              ×
-            </button>
-
+            <button className="close-btn" onClick={() => setSelectedImgIdx(null)}>×</button>
             <img src={home.imgUrls[selectedImgIdx]} alt="Full size" />
-
-            {selectedImgIdx > 0 && (
-              <button
-                className="arrow left"
-                onClick={() => setSelectedImgIdx((prev) => prev - 1)}
-              >
-                ←
-              </button>
-            )}
-            {selectedImgIdx < home.imgUrls.length - 1 && (
-              <button
-                className="arrow right"
-                onClick={() => setSelectedImgIdx((prev) => prev + 1)}
-              >
-                →
-              </button>
-            )}
+            {selectedImgIdx > 0 && <button className="arrow left" onClick={() => setSelectedImgIdx(prev => prev - 1)}>←</button>}
+            {selectedImgIdx < home.imgUrls.length - 1 && <button className="arrow right" onClick={() => setSelectedImgIdx(prev => prev + 1)}>→</button>}
           </div>
         </div>
       )}
 
-      {/* Amenities Modal */}
       {isAmenitiesModalOpen && (
-        <div
-          className="modal amenities-modal"
-          onClick={() => setIsAmenitiesModalOpen(false)}
-        >
+        <div className="modal amenities-modal" onClick={() => setIsAmenitiesModalOpen(false)}>
           <div className="modal-content" onClick={(e) => e.stopPropagation()}>
-            <button
-              className="close-btn"
-              onClick={() => setIsAmenitiesModalOpen(false)}
-            >
-              ×
-            </button>
+            <button className="close-btn" onClick={() => setIsAmenitiesModalOpen(false)}>×</button>
             <h2>All amenities</h2>
             <div className="all-amenities-grid">
               {home.amenities.map((amenity) => {
@@ -192,10 +185,7 @@ export function HomeDetails() {
                 if (!match) return null
                 return (
                   <div className="amenity" key={amenity}>
-                    <img
-                      src={`${import.meta.env.BASE_URL}icons/amenities/${match.icon}.svg`}
-                      alt={match.label}
-                    />
+                    <img src={`${import.meta.env.BASE_URL}icons/amenities/${match.icon}.svg`} alt={match.label} />
                     <span>{match.label}</span>
                   </div>
                 )
