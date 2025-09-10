@@ -1,6 +1,7 @@
 import { useParams } from "react-router-dom"
-import { useState, useEffect, useMemo } from "react"
+import { useState, useEffect } from "react"
 import { homeService } from "../services/home.service"
+import { userService } from "../services/user.service"
 import { amenities } from "../assests/amenities"
 import { AirdndIcon } from "../cmps/AirdndIcon"
 import { BookingSearch } from "../cmps/BookingSearch"
@@ -9,17 +10,11 @@ export function HomeDetails() {
   const [home, setHome] = useState(null)
   const [reviewsCount, setReviewsCount] = useState(0)
   const [rating, setRating] = useState(0)
+  const [host, setHost] = useState(null)
   const [selectedImgIdx, setSelectedImgIdx] = useState(null)
   const [isAmenitiesModalOpen, setIsAmenitiesModalOpen] = useState(false)
 
   const params = useParams()
-
-  const homes = useMemo(() => [], [])
-  const uniqueAmenities = useMemo(() => {
-    if (!homes.length) return []
-    const allAmenities = homes.flatMap((home) => home.amenities || [])
-    return [...new Set(allAmenities)]
-  }, [homes])
 
   useEffect(() => {
     if (params.homeId) loadHome()
@@ -31,13 +26,16 @@ export function HomeDetails() {
       if (!homeData) return
       setHome(homeData)
 
-      // Get reviews
       const reviews = await homeService.getHomeReviews(homeData._id)
       setReviewsCount(reviews.length)
 
-      // Get rating
       const avgRating = await homeService.getHomeRating(homeData._id)
       setRating(avgRating)
+
+      if (homeData.host_id) {
+        const hostData = await userService.getById(homeData.host_id)
+        setHost(hostData)
+      }
     } catch (err) {
       console.log("Error loading home:", err)
     }
@@ -45,9 +43,7 @@ export function HomeDetails() {
 
   if (!home)
     return (
-      <div
-        style={{ display: "flex", justifyContent: "center", margin: "4rem 0" }}
-      >
+      <div className="loading-wrapper">
         <AirdndIcon size={80} color="#FF385C" className="loading-icon" />
       </div>
     )
@@ -90,6 +86,20 @@ export function HomeDetails() {
 
           <p>Rating: {rating} ⭐</p>
           <p>{reviewsCount} reviews</p>
+
+          {/* Hosted by info */}
+          {host && (
+            <div className="host-info">
+              <img
+                src={host.avatar || "https://cdn.pixabay.com/photo/2020/07/01/12/58/icon-5359553_1280.png"}
+                alt={`${host.firstName} ${host.lastName}`}
+                className="host-avatar"
+              />
+              <p>
+                Hosted by {host.firstName} {host.lastName} · Hosting: {host.hosting || 0} years
+              </p>
+            </div>
+          )}
 
           <h3>What this place offers</h3>
           <section className="amenities">
