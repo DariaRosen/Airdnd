@@ -7,6 +7,7 @@ import { AirdndIcon } from "../cmps/AirdndIcon"
 import { BookingSearch } from "../cmps/BookingSearch"
 import { Review } from "../cmps/Review"
 import { FaStar } from "react-icons/fa"
+import { amenityIcons } from "../cmps/AmenitySelector"
 
 export function HomeDetails() {
   const [home, setHome] = useState(null)
@@ -19,6 +20,7 @@ export function HomeDetails() {
   const [reviews, setReviews] = useState([])
   const [reviewsWithUsers, setReviewsWithUsers] = useState([])
   const params = useParams()
+
 
   useEffect(() => {
     if (params.homeId) loadHome()
@@ -124,47 +126,131 @@ export function HomeDetails() {
           {/* Highlights */}
           {home.highlights && (
             <section className="home-highlights">
-              {Object.entries(home.highlights).map(([key, value]) => (
-                <p key={key}><strong>{value}</strong></p>
-              ))}
+              {["First", "Second", "Third"].map((prefix) => {
+                const main = home.highlights[`${prefix} main`];
+                const sub = home.highlights[`${prefix} sub`];
+
+                if (!main && !sub) return null;
+
+                return (
+                  <div className="highlight" key={prefix}>
+                    <div className="highlight-icon">
+                      {main && (amenityIcons[main] || <span>✨</span>)}
+                    </div>
+                    <div className="highlight-text">
+                      {main && <p className="highlight-main"><strong>{main}</strong></p>}
+                      {sub && <p className="highlight-sub">{sub}</p>}
+                    </div>
+                  </div>
+                );
+              })}
             </section>
           )}
 
           {/* Description */}
           <section className="home-description">
-            {displayedDescription.map((line, idx) => (
-              <p key={idx}>{line}</p>
-            ))}
-            {!showFullDescription && descriptionLines.length > 7 && (
-              <button className="btn-show-more" onClick={() => setShowFullDescription(true)}>
+            <p>
+              {home.description.length > 200
+                ? home.description.slice(0, 200) + "…"
+                : home.description}
+            </p>
+
+            {home.description.length > 200 && (
+              <button
+                className="btn-show-more"
+                onClick={() => setShowFullDescription(true)}
+              >
                 Show more
               </button>
             )}
           </section>
 
+          {/* Description Modal (same style as amenities modal) */}
+          {showFullDescription && (
+            <div
+              className="modal description-modal"
+              onClick={() => setShowFullDescription(false)}
+            >
+              <div
+                className="modal-content"
+                onClick={(e) => e.stopPropagation()}
+              >
+                <button
+                  className="close-btn"
+                  onClick={() => setShowFullDescription(false)}
+                >
+                  ×
+                </button>
+                <h2 className="modal-title">About this space</h2>
+                <p>{home.description}</p>
+              </div>
+            </div>
+          )}
+
+
+
           {/* Amenities */}
           <h3>What this place offers</h3>
           <section className="amenities">
-            {home.amenities.slice(0, 6).map((amenity) => {
-              const match = amenities.find((amen) => amen.key.toLowerCase() === amenity.toLowerCase())
-              if (!match) return null
-              return (
-                <div className="amenity" key={amenity}>
-                  <img src={`${import.meta.env.BASE_URL}icons/amenities/${match.icon}.svg`} alt={match.label} />
-                  <span>{match.label}</span>
-                </div>
-              )
-            })}
-            {home.amenities.length > 6 && (
-              <button className="btn-show-all" onClick={() => setIsAmenitiesModalOpen(true)}>
+            <div className="amenities-grid">
+              {home.amenities.slice(0, 14).map((amenity) => {
+                const match = amenities.find((amen) => amen.key.toLowerCase() === amenity.toLowerCase())
+                if (!match) return null
+                return (
+                  <div className="amenity" key={amenity}>
+                    <img src={`${import.meta.env.BASE_URL}icons/amenities/${match.icon}.svg`} alt={match.label} />
+                    <span>{match.label}</span>
+                  </div>
+                )
+              })}
+            </div>
+            {home.amenities.length > 10 && (
+              <button className="btn-show-more" onClick={() => setIsAmenitiesModalOpen(true)}>
                 Show all amenities
               </button>
             )}
           </section>
 
+          {/* Amenities Modal (same style as description modal) */}
+          {isAmenitiesModalOpen && (
+            <div
+              className="modal description-modal"
+              onClick={() => setIsAmenitiesModalOpen(false)}
+            >
+              <div
+                className="modal-content"
+                onClick={(e) => e.stopPropagation()}
+              >
+                <button
+                  className="close-btn"
+                  onClick={() => setIsAmenitiesModalOpen(false)}
+                >
+                  ×
+                </button>
+                <h2 className="modal-title">All amenities</h2>
+                <div className="all-amenities-grid">
+                  {home.amenities.map((amenity) => {
+                    const match = amenities.find(
+                      (amen) => amen.key.toLowerCase() === amenity.toLowerCase()
+                    )
+                    if (!match) return null
+                    return (
+                      <div className="amenity" key={amenity}>
+                        <img
+                          src={`${import.meta.env.BASE_URL}icons/amenities/${match.icon}.svg`}
+                          alt={match.label}
+                        />
+                        <span>{match.label}</span>
+                      </div>
+                    )
+                  })}
+                </div>
+              </div>
+            </div>
+          )}
+
           {/* Reviews */}
           <section className="home-reviews">
-            <h3>Reviews</h3>
             <Review homeId={home._id} />
           </section>
         </section>

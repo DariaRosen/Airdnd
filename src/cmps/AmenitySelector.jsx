@@ -38,6 +38,8 @@ import {
     KeySquare,
     KeyRound,
     CheckSquare,
+    Footprints,
+
 } from "lucide-react"
 
 export const amenityIcons = {
@@ -127,6 +129,10 @@ export const amenityIcons = {
     "Self check-in": <Key size={20} />,
     "Keypad entry": <KeySquare size={20} />,
     Lockbox: <Lock size={20} />,
+
+    // Highlights
+    "Furry friends welcome": <PawPrint size={24} />,
+    "Walkable area": <Footprints size={24} />,
 }
 
 
