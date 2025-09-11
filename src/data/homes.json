@@ -1,7 +1,6 @@
 [
     {
-        "_id": "mHhQ8g",
-        "host_id": "a1",
+        "host_id": "68c242e0ac0d57e02713467e",
         "title": "Rustic Countryside House",
         "description": "Country house with a garden and a view of green fields",
         "price": 450,
@@ -63,8 +62,7 @@
         "createdAt": 1753278900218
     },
     {
-        "_id": "HMLE3x",
-        "host_id": "a2",
+        "host_id": "68c242e0ac0d57e02713467d",
         "title": "Modern Loft Downtown",
         "description": "Modern loft in the city center with a fully equipped kitchen",
         "price": 600,
@@ -122,8 +120,7 @@
         "createdAt": 1753278900218
     },
     {
-        "_id": "lF06GX",
-        "host_id": "a3",
+        "host_id": "68c242e0ac0d57e02713467c",
         "title": "Desert Eco Dome",
         "description": "Eco living dome in the heart of the desert",
         "price": 390,
@@ -180,8 +177,7 @@
         "createdAt": 1753278900218
     },
     {
-        "_id": "MtPdvy",
-        "host_id": "a4",
+        "host_id": "68c242e0ac0d57e02713467c",
         "title": "Lakeview Cottage",
         "description": "Magical cottage by the lake with kayaks",
         "price": 500,
@@ -241,8 +237,7 @@
         "createdAt": 1753278900219
     },
     {
-        "_id": "WDdSID",
-        "host_id": "a5",
+        "host_id": "68c242e0ac0d57e02713467c",
         "title": "Treehouse Escape",
         "description": "High tree house among the trees with breathtaking views",
         "price": 420,
@@ -299,8 +294,7 @@
         "createdAt": 1753278900219
     },
     {
-        "_id": "Ii1cMB",
-        "host_id": "a6",
+        "host_id": "68c242e0ac0d57e02713467c",
         "title": "Ski Chalet",
         "description": "Cozy ski chalet near the slopes",
         "price": 750,
@@ -361,8 +355,7 @@
         "createdAt": 1753278900219
     },
     {
-        "_id": "TmWqdi",
-        "host_id": "a7",
+        "host_id": "68c242e0ac0d57e02713467c",
         "title": "Historic City Flat",
         "description": "Historic apartment in the old city with high ceilings",
         "price": 540,
@@ -421,8 +414,7 @@
         "createdAt": 1753278900219
     },
     {
-        "_id": "qA6bZi",
-        "host_id": "b1",
+        "host_id": "68c242e0ac0d57e02713467f",
         "title": "Rooftop Studio TLV",
         "description": "Studio with a rooftop terrace in the heart of Tel Aviv. This cozy studio is perfect for solo travelers or couples looking for a central location. You will enjoy stunning views of the city from the private rooftop terrace. The space is filled with natural light, making it feel bright and welcoming. It comes fully equipped with modern amenities including WiFi, AC, and a smart TV. The kitchen has everything you need to prepare your meals, from a toaster to a refrigerator. The neighborhood is walkable, with cafes, restaurants, and shops just steps away. Public transport is easily accessible, making it convenient to explore the rest of Tel Aviv. Guests love the comfort of the bed and the cleanliness of the apartment. Whether you are here for business or leisure, this studio offers a relaxing and memorable stay.",
         "price": 460,
@@ -494,8 +486,7 @@
         "createdAt": 1753278900219
     },
     {
-        "_id": "6r5E7D",
-        "host_id": "a9",
+        "host_id": "68c242e0ac0d57e02713467f",
         "title": "Canal View Apartment",
         "description": "Beautiful apartment with a view of the canals of Amsterdam",
         "price": 690,
@@ -553,8 +544,7 @@
         "createdAt": 1753278900219
     },
     {
-        "_id": "GKxLMu",
-        "host_id": "a10",
+        "host_id": "68c242e0ac0d57e02713467f",
         "title": "Tropical Jungle Bungalow",
         "description": "Bungalow nestled in the jungle with an outdoor shower",
         "price": 370,
@@ -611,8 +601,7 @@
         "createdAt": 1753278900219
     },
     {
-        "_id": "P8OCBG",
-        "host_id": "a11",
+        "host_id": "68c242e0ac0d57e02713467f",
         "title": "Central Park Apartment",
         "description": "Charming apartment near Central Park with a fully equipped kitchen",
         "price": 720,
@@ -672,8 +661,7 @@
         "createdAt": 1753278900219
     },
     {
-        "_id": "4veGSy",
-        "host_id": "a12",
+        "host_id": "68c242e0ac0d57e02713467f",
         "title": "Brooklyn Loft",
         "description": "Industrial loft in Williamsburg",
         "price": 680,
@@ -730,8 +718,7 @@
         "createdAt": 1753278900219
     },
     {
-        "_id": "qZTIn4",
-        "host_id": "a13",
+        "host_id": "68c242e0ac0d57e02713467f",
         "title": "Times Square Studio",
         "description": "Compact studio in the heart of Manhattan, just minutes from Times Square",
         "price": 580,
@@ -788,8 +775,7 @@
         "createdAt": 1753278900219
     },
     {
-        "_id": "KfbcU8",
-        "host_id": "a14",
+        "host_id": "68c242e0ac0d57e02713467f",
         "title": "Harlem Brownstone",
         "description": "Classic brownstone apartment in Harlem",
         "price": 490,
@@ -851,8 +837,7 @@
         "createdAt": 1753278900219
     },
     {
-        "_id": "TN5rI7",
-        "host_id": "a15",
+        "host_id": "68c242e0ac0d57e02713467f",
         "title": "SoHo Artist Loft",
         "description": "Spacious loft in the trendy SoHo area",
         "price": 850,
@@ -913,8 +898,7 @@
         "createdAt": 1753278900219
     },
     {
-        "_id": "BQYI8F",
-        "host_id": "a16",
+        "host_id": "68c242e0ac0d57e02713467e",
         "title": "Sheinkin Studio",
         "description": "Stylish studio on the bustling Sheinkin Street",
         "price": 490,
@@ -972,8 +956,7 @@
         "createdAt": 1753278900219
     },
     {
-        "_id": "9WEts9",
-        "host_id": "a17",
+        "host_id": "68c242e0ac0d57e02713467e",
         "title": "Luxury Neve Tzedek Apartment",
         "description": "Luxury apartment in the heart of the historic Neve Tzedek neighborhood",
         "price": 880,
@@ -1031,7 +1014,7 @@
     },
     {
         "_id": "Fo7IN1",
-        "host_id": "a18",
+        "host_id": "68c242e0ac0d57e02713467e",
         "title": "Rooftop Loft Dizengoff",
         "description": "Loft with a private rooftop terrace on Dizengoff Street",
         "price": 720,
@@ -1089,8 +1072,7 @@
         "createdAt": 1753278900219
     },
     {
-        "_id": "0PAGNW",
-        "host_id": "a19",
+        "host_id": "68c242e0ac0d57e02713467e",
         "title": "Old North Family Flat",
         "description": "Spacious family apartment in the old north of Tel Aviv",
         "price": 650,
@@ -1147,8 +1129,7 @@
         "createdAt": 1753278900219
     },
     {
-        "_id": "iuZzH3",
-        "host_id": "a20",
+        "host_id": "68c242e0ac0d57e02713467e",
         "title": "Florentin Urban Pad",
         "description": "Stylish urban pad in the vibrant Florentin neighborhood",
         "price": 430,
@@ -1206,8 +1187,7 @@
         "createdAt": 1753278900219
     },
     {
-        "_id": "gV1",
-        "host_id": "b1",
+        "host_id": "68c242e0ac0d57e02713467e",
         "title": "Apartment in Gran Vía",
         "description": "Beautiful apartment in the heart of Madrid with a view of Gran Vía",
         "price": 553,
@@ -1257,8 +1237,7 @@
         "createdAt": 1753278900219
     },
     {
-        "_id": "gV2",
-        "host_id": "b2",
+        "host_id": "68c242e0ac0d57e02713467e",
         "title": "Apartment in Gran Vía",
         "description": "Modern apartment close to major attractions",
         "price": 504,
@@ -1305,8 +1284,7 @@
         "createdAt": 1753278900219
     },
     {
-        "_id": "gV3",
-        "host_id": "b3",
+        "host_id": "68c242e0ac0d57e02713467e",
         "title": "Apartment in Gran Vía",
         "description": "Cozy apartment in the heart of Madrid",
         "price": 453,
@@ -1352,8 +1330,7 @@
         "createdAt": 1753278900219
     },
     {
-        "_id": "gV4",
-        "host_id": "b4",
+        "host_id": "68c242e0ac0d57e02713467e",
         "title": "Apartment in Gran Vía",
         "description": "New apartment with a modern and cozy design",
         "price": 488,
@@ -1401,8 +1378,7 @@
         "createdAt": 1753278900219
     },
     {
-        "_id": "gV5",
-        "host_id": "b5",
+        "host_id": "68c242e0ac0d57e02713467e",
         "title": "Apartment in Gran Vía",
         "description": "Bright apartment with large windows overlooking the main street",
         "price": 555,
@@ -1448,8 +1424,7 @@
         "createdAt": 1753278900219
     },
     {
-        "_id": "gV6",
-        "host_id": "b6",
+        "host_id": "68c242e0ac0d57e02713467d",
         "title": "Room in Gran Vía",
         "description": "Cozy room in the heart of Madrid",
         "price": 302,
@@ -1495,8 +1470,7 @@
         "createdAt": 1753278900219
     },
     {
-        "_id": "gV7",
-        "host_id": "b7",
+        "host_id": "68c242e0ac0d57e02713467d",
         "title": "Apartment in Gran Vía",
         "description": "Cozy apartment for families in the heart of Madrid",
         "price": 610,
@@ -1544,8 +1518,7 @@
         "createdAt": 1753278900219
     },
     {
-        "_id": "gV8",
-        "host_id": "b8",
+        "host_id": "68c242e0ac0d57e02713467d",
         "title": "Apartment in Gran Vía",
         "description": "Spacious apartment with stunning views of the Madrid rooftops",
         "price": 590,
@@ -1592,8 +1565,7 @@
         "createdAt": 1753278900219
     },
     {
-        "_id": "Fo7IG9",
-        "host_id": "b1",
+        "host_id": "68c242e0ac0d57e02713467d",
         "title": "Modern Flat in Tel Aviv",
         "description": "Stylish and modern flat in the heart of Tel Aviv",
         "price": 670,
@@ -1644,8 +1616,7 @@
         "createdAt": 1753278900219
     },
     {
-        "_id": "Rk2LJ8",
-        "host_id": "b10",
+        "host_id": "68c242e0ac0d57e02713467d",
         "title": "Beachfront Retreat TLV",
         "description": "Luxurious beachfront property with stunning sea views",
         "price": 750,
@@ -1697,8 +1668,7 @@
         "createdAt": 1753278900219
     },
     {
-        "_id": "Xy6Tn2",
-        "host_id": "b11",
+        "host_id": "68c242e0ac0d57e02713467d",
         "title": "Cozy Cabin in Colorado",
         "description": "Perfect mountain getaway",
         "price": 450,
@@ -1751,8 +1721,7 @@
         "createdAt": 1753278900219
     },
     {
-        "_id": "Rk8MN2",
-        "host_id": "b1",
+        "host_id": "68c242e0ac0d57e02713467d",
         "title": "Urban Loft NYC",
         "description": "Modern loft in Manhattan",
         "price": 880,
@@ -1804,8 +1773,7 @@
         "createdAt": 1753278900219
     },
     {
-        "_id": "Lm3BR4",
-        "host_id": "b1",
+        "host_id": "68c242e0ac0d57e02713467d",
         "title": "Charming London Flat",
         "description": "Bright and spacious flat in the heart of London",
         "price": 720,
@@ -1857,8 +1825,7 @@
         "createdAt": 1753278900219
     },
     {
-        "_id": "Np6QM7",
-        "host_id": "b14",
+        "host_id": "68c242e0ac0d57e02713467d",
         "title": "Historic Cottage in Bath",
         "description": "Quaint countryside stay",
         "price": 520,
@@ -1910,8 +1877,7 @@
         "createdAt": 1753278900219
     },
     {
-        "_id": "Qs8TL1",
-        "host_id": "b15",
+        "host_id": "68c242e0ac0d57e02713467d",
         "title": "Luxury Apartment Manchester",
         "description": "Central apartment with city view",
         "price": 680,
@@ -1963,8 +1929,7 @@
         "createdAt": 1753278900219
     },
     {
-        "_id": "Hv4NK2",
-        "host_id": "b16",
+        "host_id": "68c242e0ac0d57e02713467d",
         "title": "Modern Studio Birmingham",
         "description": "Ideal for solo travelers or couples",
         "price": 410,
@@ -2015,8 +1980,7 @@
         "createdAt": 1753278900219
     },
     {
-        "_id": "Zt1WD6",
-        "host_id": "b17",
+        "host_id": "68c242e0ac0d57e02713467c",
         "title": "Lake House in the Cotswolds",
         "description": "Tranquil escape with lake view",
         "price": 900,
@@ -2070,8 +2034,7 @@
         "createdAt": 1753278900219
     },
     {
-        "_id": "Bw3PJ1",
-        "host_id": "b18",
+        "host_id": "68c242e0ac0d57e02713467c",
         "title": "Rustic Barn in Yorkshire",
         "description": "Converted barn with stunning views",
         "price": 580,

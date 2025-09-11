@@ -13,7 +13,6 @@ export function DateSearch({ dateRange, setDateRange }) {
     return () => document.removeEventListener("mousedown", onDocClick)
   }, [])
 
-  // ממיר כל דבר ל-Date תקין או null
   const toDate = v => {
     if (!v) return null
     if (v instanceof Date) return isNaN(v.getTime()) ? null : v
@@ -59,7 +58,7 @@ export function DateSearch({ dateRange, setDateRange }) {
   const end = mantineValue[1]
 
   const renderDay = date => {
-    const d = toDate(date) // ← המרה קשיחה ל-Date
+    const d = toDate(date) 
 
     const startFlag = isSameDay(d, start)
     const endFlag = isSameDay(d, end)
