@@ -65,7 +65,7 @@ export function HomeDetails() {
 
   return (
     <section className="home-details">
-      <h1>{home.title}</h1>
+      <h1 className="details-title">{home.title}</h1>
 
       {/* Gallery */}
       <section className="gallery">
@@ -84,8 +84,8 @@ export function HomeDetails() {
       {/* Content */}
       <section className="content-grid">
         <section className="main-content-details">
-          <h3>{`Entire ${home.type} in ${home.location.city}, ${home.location.country}`}</h3>
-          <h4>{`${home.capacity} guests · ${home.rooms} rooms · ${home.beds} bed${home.beds > 1 ? "s" : ""} · ${home.bathrooms} bath${home.bathrooms > 1 ? "s" : ""}`}</h4>
+          <h3 className="content-title">{`Entire ${home.type} in ${home.location.city}, ${home.location.country}`}</h3>
+          <h4 className="content-description">{`${home.capacity} guests · ${home.rooms} rooms · ${home.beds} bed${home.beds > 1 ? "s" : ""} · ${home.bathrooms} bath${home.bathrooms > 1 ? "s" : ""}`}</h4>
 
           <p>Rating: {rating} ⭐</p>
           <p>{reviewsCount} reviews</p>
