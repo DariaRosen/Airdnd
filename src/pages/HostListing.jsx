@@ -171,7 +171,7 @@ export function HostListing() {
                             value={form.location.address}
                             onChange={handleLocationChange}
                         />
-                        <input
+                        {/* <input
                             type="number"
                             placeholder="Latitude"
                             name="lat"
@@ -184,7 +184,7 @@ export function HostListing() {
                             name="lng"
                             value={form.location.lng}
                             onChange={handleLocationChange}
-                        />
+                        /> */}
                     </fieldset>
 
                     <fieldset>

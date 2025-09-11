@@ -154,7 +154,7 @@ export function WelcomeHost() {
                         <p>Cancellation Rate</p>
                         <h2>
                             {stats.cancellationRate.toFixed(1)}%
-                            <span className={stats.cancellationChange >= 0 ? "negative" : "positive"}>
+                            <span className={stats.cancellationChange >= 0 ? "positive" : "negative"}>
                                 {Math.round(stats.cancellationChange)}%
                             </span>
                         </h2>
