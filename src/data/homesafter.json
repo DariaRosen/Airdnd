@@ -1,6 +1,6 @@
 [
     {
-        "host_id": "a1",
+        "host_id": "68c242e0ac0d57e02713467e",
         "title": "Rustic Countryside House",
         "description": "Country house with a garden and a view of green fields",
         "price": 450,
@@ -18,6 +18,7 @@
         ],
         "rating": 4.85,
         "numberOfRaters": 100,
+        "addedToWishlist": 0,
         "guestFavorite": false,
         "location": {
             "country": "UK",
@@ -36,6 +37,14 @@
             "Kitchen",
             "AC"
         ],
+        "highlights": {
+            "First main": "Self check-in",
+            "First sub": "Check yourself in with the lockbox.",
+            "Second main": "Walkable area",
+            "Second sub": "This area is easy to get around.",
+            "Third main": "Furry friends welcome",
+            "Third sub": "Bring your pets along for the stay."
+        },
         "msgs": [],
         "unavailableDates": [
             "210825",
@@ -53,7 +62,7 @@
         "createdAt": 1753278900218
     },
     {
-        "host_id": "a2",
+        "host_id": "68c242e0ac0d57e02713467d",
         "title": "Modern Loft Downtown",
         "description": "Modern loft in the city center with a fully equipped kitchen",
         "price": 600,
@@ -71,6 +80,7 @@
         ],
         "rating": 4.56,
         "numberOfRaters": 85,
+        "addedToWishlist": 0,
         "guestFavorite": false,
         "location": {
             "country": "Germany",
@@ -85,6 +95,14 @@
             "Washer",
             "TV"
         ],
+        "highlights": {
+            "First main": "Self check-in",
+            "First sub": "Check yourself in with the lockbox.",
+            "Second main": "Walkable area",
+            "Second sub": "This area is easy to get around.",
+            "Third main": "Furry friends welcome",
+            "Third sub": "Bring your pets along for the stay."
+        },
         "msgs": [],
         "unavailableDates": [
             "191025",
@@ -102,7 +120,7 @@
         "createdAt": 1753278900218
     },
     {
-        "host_id": "a3",
+        "host_id": "68c242e0ac0d57e02713467c",
         "title": "Desert Eco Dome",
         "description": "Eco living dome in the heart of the desert",
         "price": 390,
@@ -121,6 +139,7 @@
         ],
         "rating": 4.84,
         "numberOfRaters": 70,
+        "addedToWishlist": 0,
         "guestFavorite": false,
         "location": {
             "country": "Israel",
@@ -133,6 +152,14 @@
             "Refrigerator",
             "Fire extinguisher"
         ],
+        "highlights": {
+            "First main": "Self check-in",
+            "First sub": "Check yourself in with the lockbox.",
+            "Second main": "Walkable area",
+            "Second sub": "This area is easy to get around.",
+            "Third main": "Furry friends welcome",
+            "Third sub": "Bring your pets along for the stay."
+        },
         "msgs": [],
         "unavailableDates": [
             "220825",
@@ -150,7 +177,7 @@
         "createdAt": 1753278900218
     },
     {
-        "host_id": "a4",
+        "host_id": "68c242e0ac0d57e02713467c",
         "title": "Lakeview Cottage",
         "description": "Magical cottage by the lake with kayaks",
         "price": 500,
@@ -171,6 +198,7 @@
         ],
         "rating": 4.6,
         "numberOfRaters": 90,
+        "addedToWishlist": 0,
         "guestFavorite": false,
         "location": {
             "country": "Canada",
@@ -184,6 +212,14 @@
             "Fireplace",
             "WiFi"
         ],
+        "highlights": {
+            "First main": "Self check-in",
+            "First sub": "Check yourself in with the lockbox.",
+            "Second main": "Walkable area",
+            "Second sub": "This area is easy to get around.",
+            "Third main": "Furry friends welcome",
+            "Third sub": "Bring your pets along for the stay."
+        },
         "msgs": [],
         "unavailableDates": [
             "061025",
@@ -201,7 +237,7 @@
         "createdAt": 1753278900219
     },
     {
-        "host_id": "a5",
+        "host_id": "68c242e0ac0d57e02713467c",
         "title": "Treehouse Escape",
         "description": "High tree house among the trees with breathtaking views",
         "price": 420,
@@ -219,6 +255,7 @@
         ],
         "rating": 4.55,
         "numberOfRaters": 65,
+        "addedToWishlist": 0,
         "guestFavorite": false,
         "location": {
             "country": "USA",
@@ -232,6 +269,14 @@
             "Pets allowed",
             "Nature View"
         ],
+        "highlights": {
+            "First main": "Self check-in",
+            "First sub": "Check yourself in with the lockbox.",
+            "Second main": "Walkable area",
+            "Second sub": "This area is easy to get around.",
+            "Third main": "Furry friends welcome",
+            "Third sub": "Bring your pets along for the stay."
+        },
         "msgs": [],
         "unavailableDates": [
             "111025",
@@ -249,7 +294,7 @@
         "createdAt": 1753278900219
     },
     {
-        "host_id": "a6",
+        "host_id": "68c242e0ac0d57e02713467c",
         "title": "Ski Chalet",
         "description": "Cozy ski chalet near the slopes",
         "price": 750,
@@ -271,6 +316,7 @@
         ],
         "rating": 0.76,
         "numberOfRaters": 20,
+        "addedToWishlist": 0,
         "guestFavorite": false,
         "location": {
             "country": "Switzerland",
@@ -284,6 +330,14 @@
             "Free parking",
             "WiFi"
         ],
+        "highlights": {
+            "First main": "Self check-in",
+            "First sub": "Check yourself in with the lockbox.",
+            "Second main": "Walkable area",
+            "Second sub": "This area is easy to get around.",
+            "Third main": "Furry friends welcome",
+            "Third sub": "Bring your pets along for the stay."
+        },
         "msgs": [],
         "unavailableDates": [
             "210925",
@@ -301,7 +355,7 @@
         "createdAt": 1753278900219
     },
     {
-        "host_id": "a7",
+        "host_id": "68c242e0ac0d57e02713467c",
         "title": "Historic City Flat",
         "description": "Historic apartment in the old city with high ceilings",
         "price": 540,
@@ -321,6 +375,7 @@
         ],
         "rating": 4.07,
         "numberOfRaters": 40,
+        "addedToWishlist": 0,
         "guestFavorite": true,
         "location": {
             "country": "Spain",
@@ -334,6 +389,14 @@
             "Balcony",
             "Washer"
         ],
+        "highlights": {
+            "First main": "Self check-in",
+            "First sub": "Check yourself in with the lockbox.",
+            "Second main": "Walkable area",
+            "Second sub": "This area is easy to get around.",
+            "Third main": "Furry friends welcome",
+            "Third sub": "Bring your pets along for the stay."
+        },
         "msgs": [],
         "unavailableDates": [
             "130825",
@@ -351,9 +414,9 @@
         "createdAt": 1753278900219
     },
     {
-        "host_id": "a8",
+        "host_id": "68c242e0ac0d57e02713467f",
         "title": "Rooftop Studio TLV",
-        "description": "Studio with a rooftop terrace in the heart of Tel Aviv",
+        "description": "Studio with a rooftop terrace in the heart of Tel Aviv. This cozy studio is perfect for solo travelers or couples looking for a central location. You will enjoy stunning views of the city from the private rooftop terrace. The space is filled with natural light, making it feel bright and welcoming. It comes fully equipped with modern amenities including WiFi, AC, and a smart TV. The kitchen has everything you need to prepare your meals, from a toaster to a refrigerator. The neighborhood is walkable, with cafes, restaurants, and shops just steps away. Public transport is easily accessible, making it convenient to explore the rest of Tel Aviv. Guests love the comfort of the bed and the cleanliness of the apartment. Whether you are here for business or leisure, this studio offers a relaxing and memorable stay.",
         "price": 460,
         "capacity": 2,
         "rooms": 1,
@@ -369,6 +432,7 @@
         ],
         "rating": 4.79,
         "numberOfRaters": 55,
+        "addedToWishlist": 0,
         "guestFavorite": true,
         "location": {
             "country": "Israel",
@@ -380,8 +444,31 @@
         "amenities": [
             "WiFi",
             "AC",
-            "Toaster"
+            "Toaster",
+            "Refrigerator",
+            "Smart TV",
+            "Safe",
+            "Fire extinguisher",
+            "First aid kit",
+            "High chair",
+            "Baby bath",
+            "Pets allowed",
+            "Hammock",
+            "Bikes",
+            "Free parking",
+            "Gym",
+            "Fireplace",
+            "Shampoo",
+            "Self check-in"
         ],
+        "highlights": {
+            "First main": "Self check-in",
+            "First sub": "Check yourself in with the lockbox.",
+            "Second main": "Walkable area",
+            "Second sub": "This area is easy to get around.",
+            "Third main": "Furry friends welcome",
+            "Third sub": "Bring your pets along for the stay."
+        },
         "msgs": [],
         "unavailableDates": [
             "240825",
@@ -399,7 +486,7 @@
         "createdAt": 1753278900219
     },
     {
-        "host_id": "a9",
+        "host_id": "68c242e0ac0d57e02713467f",
         "title": "Canal View Apartment",
         "description": "Beautiful apartment with a view of the canals of Amsterdam",
         "price": 690,
@@ -418,6 +505,7 @@
         ],
         "rating": 4.52,
         "numberOfRaters": 75,
+        "addedToWishlist": 0,
         "guestFavorite": true,
         "location": {
             "country": "Netherlands",
@@ -431,6 +519,14 @@
             "Coffee",
             "Hot water"
         ],
+        "highlights": {
+            "First main": "Self check-in",
+            "First sub": "Check yourself in with the lockbox.",
+            "Second main": "Walkable area",
+            "Second sub": "This area is easy to get around.",
+            "Third main": "Furry friends welcome",
+            "Third sub": "Bring your pets along for the stay."
+        },
         "msgs": [],
         "unavailableDates": [
             "150925",
@@ -448,7 +544,7 @@
         "createdAt": 1753278900219
     },
     {
-        "host_id": "a10",
+        "host_id": "68c242e0ac0d57e02713467f",
         "title": "Tropical Jungle Bungalow",
         "description": "Bungalow nestled in the jungle with an outdoor shower",
         "price": 370,
@@ -466,6 +562,7 @@
         ],
         "rating": 4.6,
         "numberOfRaters": 50,
+        "addedToWishlist": 0,
         "guestFavorite": false,
         "location": {
             "country": "Costa Rica",
@@ -479,6 +576,14 @@
             "Bikes",
             "WiFi"
         ],
+        "highlights": {
+            "First main": "Self check-in",
+            "First sub": "Check yourself in with the lockbox.",
+            "Second main": "Walkable area",
+            "Second sub": "This area is easy to get around.",
+            "Third main": "Furry friends welcome",
+            "Third sub": "Bring your pets along for the stay."
+        },
         "msgs": [],
         "unavailableDates": [
             "270925",
@@ -496,7 +601,7 @@
         "createdAt": 1753278900219
     },
     {
-        "host_id": "a11",
+        "host_id": "68c242e0ac0d57e02713467f",
         "title": "Central Park Apartment",
         "description": "Charming apartment near Central Park with a fully equipped kitchen",
         "price": 720,
@@ -517,6 +622,7 @@
         ],
         "rating": 4.87,
         "numberOfRaters": 120,
+        "addedToWishlist": 0,
         "guestFavorite": true,
         "location": {
             "country": "USA",
@@ -530,6 +636,14 @@
             "Washer",
             "Self check-in"
         ],
+        "highlights": {
+            "First main": "Self check-in",
+            "First sub": "Check yourself in with the lockbox.",
+            "Second main": "Walkable area",
+            "Second sub": "This area is easy to get around.",
+            "Third main": "Furry friends welcome",
+            "Third sub": "Bring your pets along for the stay."
+        },
         "msgs": [],
         "unavailableDates": [
             "050925",
@@ -547,7 +661,7 @@
         "createdAt": 1753278900219
     },
     {
-        "host_id": "a12",
+        "host_id": "68c242e0ac0d57e02713467f",
         "title": "Brooklyn Loft",
         "description": "Industrial loft in Williamsburg",
         "price": 680,
@@ -565,6 +679,7 @@
         ],
         "rating": 4.6,
         "numberOfRaters": 80,
+        "addedToWishlist": 0,
         "guestFavorite": false,
         "location": {
             "country": "USA",
@@ -578,6 +693,14 @@
             "Kitchen",
             "Work Desk"
         ],
+        "highlights": {
+            "First main": "Self check-in",
+            "First sub": "Check yourself in with the lockbox.",
+            "Second main": "Walkable area",
+            "Second sub": "This area is easy to get around.",
+            "Third main": "Furry friends welcome",
+            "Third sub": "Bring your pets along for the stay."
+        },
         "msgs": [],
         "unavailableDates": [
             "240725",
@@ -595,7 +718,7 @@
         "createdAt": 1753278900219
     },
     {
-        "host_id": "a13",
+        "host_id": "68c242e0ac0d57e02713467f",
         "title": "Times Square Studio",
         "description": "Compact studio in the heart of Manhattan, just minutes from Times Square",
         "price": 580,
@@ -613,6 +736,7 @@
         ],
         "rating": 4.77,
         "numberOfRaters": 90,
+        "addedToWishlist": 0,
         "guestFavorite": true,
         "location": {
             "country": "USA",
@@ -626,6 +750,14 @@
             "WiFi",
             "Shampoo"
         ],
+        "highlights": {
+            "First main": "Self check-in",
+            "First sub": "Check yourself in with the lockbox.",
+            "Second main": "Walkable area",
+            "Second sub": "This area is easy to get around.",
+            "Third main": "Furry friends welcome",
+            "Third sub": "Bring your pets along for the stay."
+        },
         "msgs": [],
         "unavailableDates": [
             "190825",
@@ -643,7 +775,7 @@
         "createdAt": 1753278900219
     },
     {
-        "host_id": "a14",
+        "host_id": "68c242e0ac0d57e02713467f",
         "title": "Harlem Brownstone",
         "description": "Classic brownstone apartment in Harlem",
         "price": 490,
@@ -666,6 +798,7 @@
         ],
         "rating": 4.69,
         "numberOfRaters": 60,
+        "addedToWishlist": 0,
         "guestFavorite": false,
         "location": {
             "country": "USA",
@@ -679,6 +812,14 @@
             "Smoke Alarm",
             "Washer"
         ],
+        "highlights": {
+            "First main": "Self check-in",
+            "First sub": "Check yourself in with the lockbox.",
+            "Second main": "Walkable area",
+            "Second sub": "This area is easy to get around.",
+            "Third main": "Furry friends welcome",
+            "Third sub": "Bring your pets along for the stay."
+        },
         "msgs": [],
         "unavailableDates": [
             "230725",
@@ -696,7 +837,7 @@
         "createdAt": 1753278900219
     },
     {
-        "host_id": "a15",
+        "host_id": "68c242e0ac0d57e02713467f",
         "title": "SoHo Artist Loft",
         "description": "Spacious loft in the trendy SoHo area",
         "price": 850,
@@ -718,6 +859,7 @@
         ],
         "rating": 4.85,
         "numberOfRaters": 110,
+        "addedToWishlist": 0,
         "guestFavorite": false,
         "location": {
             "country": "USA",
@@ -731,6 +873,14 @@
             "AC",
             "Safe"
         ],
+        "highlights": {
+            "First main": "Self check-in",
+            "First sub": "Check yourself in with the lockbox.",
+            "Second main": "Walkable area",
+            "Second sub": "This area is easy to get around.",
+            "Third main": "Furry friends welcome",
+            "Third sub": "Bring your pets along for the stay."
+        },
         "msgs": [],
         "unavailableDates": [
             "260925",
@@ -748,7 +898,7 @@
         "createdAt": 1753278900219
     },
     {
-        "host_id": "a16",
+        "host_id": "68c242e0ac0d57e02713467e",
         "title": "Sheinkin Studio",
         "description": "Stylish studio on the bustling Sheinkin Street",
         "price": 490,
@@ -767,6 +917,7 @@
         ],
         "rating": 4.57,
         "numberOfRaters": 95,
+        "addedToWishlist": 0,
         "guestFavorite": true,
         "location": {
             "country": "Israel",
@@ -780,6 +931,14 @@
             "AC",
             "Balcony"
         ],
+        "highlights": {
+            "First main": "Self check-in",
+            "First sub": "Check yourself in with the lockbox.",
+            "Second main": "Walkable area",
+            "Second sub": "This area is easy to get around.",
+            "Third main": "Furry friends welcome",
+            "Third sub": "Bring your pets along for the stay."
+        },
         "msgs": [],
         "unavailableDates": [
             "200925",
@@ -797,7 +956,7 @@
         "createdAt": 1753278900219
     },
     {
-        "host_id": "a17",
+        "host_id": "68c242e0ac0d57e02713467e",
         "title": "Luxury Neve Tzedek Apartment",
         "description": "Luxury apartment in the heart of the historic Neve Tzedek neighborhood",
         "price": 880,
@@ -815,6 +974,7 @@
         ],
         "rating": 3.87,
         "numberOfRaters": 30,
+        "addedToWishlist": 0,
         "guestFavorite": true,
         "location": {
             "country": "Israel",
@@ -828,6 +988,14 @@
             "Washer",
             "Kitchen"
         ],
+        "highlights": {
+            "First main": "Self check-in",
+            "First sub": "Check yourself in with the lockbox.",
+            "Second main": "Walkable area",
+            "Second sub": "This area is easy to get around.",
+            "Third main": "Furry friends welcome",
+            "Third sub": "Bring your pets along for the stay."
+        },
         "msgs": [],
         "unavailableDates": [
             "190925",
@@ -845,7 +1013,8 @@
         "createdAt": 1753278900219
     },
     {
-        "host_id": "a18",
+        "_id": "Fo7IN1",
+        "host_id": "68c242e0ac0d57e02713467e",
         "title": "Rooftop Loft Dizengoff",
         "description": "Loft with a private rooftop terrace on Dizengoff Street",
         "price": 720,
@@ -864,6 +1033,7 @@
         ],
         "rating": 4.73,
         "numberOfRaters": 65,
+        "addedToWishlist": 0,
         "guestFavorite": false,
         "location": {
             "country": "Israel",
@@ -877,6 +1047,14 @@
             "Pets allowed",
             "AC"
         ],
+        "highlights": {
+            "First main": "Self check-in",
+            "First sub": "Check yourself in with the lockbox.",
+            "Second main": "Walkable area",
+            "Second sub": "This area is easy to get around.",
+            "Third main": "Furry friends welcome",
+            "Third sub": "Bring your pets along for the stay."
+        },
         "msgs": [],
         "unavailableDates": [
             "150825",
@@ -894,7 +1072,7 @@
         "createdAt": 1753278900219
     },
     {
-        "host_id": "a19",
+        "host_id": "68c242e0ac0d57e02713467e",
         "title": "Old North Family Flat",
         "description": "Spacious family apartment in the old north of Tel Aviv",
         "price": 650,
@@ -912,6 +1090,7 @@
         ],
         "rating": 4.77,
         "numberOfRaters": 85,
+        "addedToWishlist": 0,
         "guestFavorite": false,
         "location": {
             "country": "Israel",
@@ -925,6 +1104,14 @@
             "Hammock",
             "Self check-in"
         ],
+        "highlights": {
+            "First main": "Self check-in",
+            "First sub": "Check yourself in with the lockbox.",
+            "Second main": "Walkable area",
+            "Second sub": "This area is easy to get around.",
+            "Third main": "Furry friends welcome",
+            "Third sub": "Bring your pets along for the stay."
+        },
         "msgs": [],
         "unavailableDates": [
             "131025",
@@ -942,7 +1129,7 @@
         "createdAt": 1753278900219
     },
     {
-        "host_id": "a20",
+        "host_id": "68c242e0ac0d57e02713467e",
         "title": "Florentin Urban Pad",
         "description": "Stylish urban pad in the vibrant Florentin neighborhood",
         "price": 430,
@@ -961,6 +1148,7 @@
         ],
         "rating": 4.21,
         "numberOfRaters": 40,
+        "addedToWishlist": 0,
         "guestFavorite": false,
         "location": {
             "country": "Israel",
@@ -974,6 +1162,14 @@
             "Workspace",
             "Coffee"
         ],
+        "highlights": {
+            "First main": "Self check-in",
+            "First sub": "Check yourself in with the lockbox.",
+            "Second main": "Walkable area",
+            "Second sub": "This area is easy to get around.",
+            "Third main": "Furry friends welcome",
+            "Third sub": "Bring your pets along for the stay."
+        },
         "msgs": [],
         "unavailableDates": [
             "091025",
@@ -991,7 +1187,7 @@
         "createdAt": 1753278900219
     },
     {
-        "host_id": "b1",
+        "host_id": "68c242e0ac0d57e02713467e",
         "title": "Apartment in Gran Vía",
         "description": "Beautiful apartment in the heart of Madrid with a view of Gran Vía",
         "price": 553,
@@ -1009,6 +1205,7 @@
         ],
         "rating": 4.8,
         "numberOfRaters": 60,
+        "addedToWishlist": 7,
         "guestFavorite": true,
         "location": {
             "country": "Spain",
@@ -1026,13 +1223,21 @@
             "Balcony",
             "Refrigerator"
         ],
+        "highlights": {
+            "First main": "Self check-in",
+            "First sub": "Check yourself in with the lockbox.",
+            "Second main": "Walkable area",
+            "Second sub": "This area is easy to get around.",
+            "Third main": "Furry friends welcome",
+            "Third sub": "Bring your pets along for the stay."
+        },
         "msgs": [],
         "unavailableDates": [],
         "lastSearchValue": "",
         "createdAt": 1753278900219
     },
     {
-        "host_id": "b2",
+        "host_id": "68c242e0ac0d57e02713467e",
         "title": "Apartment in Gran Vía",
         "description": "Modern apartment close to major attractions",
         "price": 504,
@@ -1050,6 +1255,7 @@
         ],
         "rating": 4.81,
         "numberOfRaters": 45,
+        "addedToWishlist": 0,
         "guestFavorite": true,
         "location": {
             "country": "Spain",
@@ -1064,13 +1270,21 @@
             "Washer",
             "Balcony"
         ],
+        "highlights": {
+            "First main": "Self check-in",
+            "First sub": "Check yourself in with the lockbox.",
+            "Second main": "Walkable area",
+            "Second sub": "This area is easy to get around.",
+            "Third main": "Furry friends welcome",
+            "Third sub": "Bring your pets along for the stay."
+        },
         "msgs": [],
         "unavailableDates": [],
         "lastSearchValue": "",
         "createdAt": 1753278900219
     },
     {
-        "host_id": "b3",
+        "host_id": "68c242e0ac0d57e02713467e",
         "title": "Apartment in Gran Vía",
         "description": "Cozy apartment in the heart of Madrid",
         "price": 453,
@@ -1088,6 +1302,7 @@
         ],
         "rating": 4.83,
         "numberOfRaters": 30,
+        "addedToWishlist": 0,
         "guestFavorite": false,
         "location": {
             "country": "Spain",
@@ -1101,13 +1316,21 @@
             "TV",
             "AC"
         ],
+        "highlights": {
+            "First main": "Self check-in",
+            "First sub": "Check yourself in with the lockbox.",
+            "Second main": "Walkable area",
+            "Second sub": "This area is easy to get around.",
+            "Third main": "Furry friends welcome",
+            "Third sub": "Bring your pets along for the stay."
+        },
         "msgs": [],
         "unavailableDates": [],
         "lastSearchValue": "",
         "createdAt": 1753278900219
     },
     {
-        "host_id": "b4",
+        "host_id": "68c242e0ac0d57e02713467e",
         "title": "Apartment in Gran Vía",
         "description": "New apartment with a modern and cozy design",
         "price": 488,
@@ -1125,6 +1348,7 @@
         ],
         "rating": 4.76,
         "numberOfRaters": 50,
+        "addedToWishlist": 0,
         "guestFavorite": true,
         "location": {
             "country": "Spain",
@@ -1140,13 +1364,21 @@
             "AC",
             "TV"
         ],
+        "highlights": {
+            "First main": "Self check-in",
+            "First sub": "Check yourself in with the lockbox.",
+            "Second main": "Walkable area",
+            "Second sub": "This area is easy to get around.",
+            "Third main": "Furry friends welcome",
+            "Third sub": "Bring your pets along for the stay."
+        },
         "msgs": [],
         "unavailableDates": [],
         "lastSearchValue": "",
         "createdAt": 1753278900219
     },
     {
-        "host_id": "b5",
+        "host_id": "68c242e0ac0d57e02713467e",
         "title": "Apartment in Gran Vía",
         "description": "Bright apartment with large windows overlooking the main street",
         "price": 555,
@@ -1164,6 +1396,7 @@
         ],
         "rating": 4.89,
         "numberOfRaters": 70,
+        "addedToWishlist": 0,
         "guestFavorite": false,
         "location": {
             "country": "Spain",
@@ -1177,13 +1410,21 @@
             "Kitchen",
             "Balcony"
         ],
+        "highlights": {
+            "First main": "Self check-in",
+            "First sub": "Check yourself in with the lockbox.",
+            "Second main": "Walkable area",
+            "Second sub": "This area is easy to get around.",
+            "Third main": "Furry friends welcome",
+            "Third sub": "Bring your pets along for the stay."
+        },
         "msgs": [],
         "unavailableDates": [],
         "lastSearchValue": "",
         "createdAt": 1753278900219
     },
     {
-        "host_id": "b6",
+        "host_id": "68c242e0ac0d57e02713467d",
         "title": "Room in Gran Vía",
         "description": "Cozy room in the heart of Madrid",
         "price": 302,
@@ -1201,6 +1442,7 @@
         ],
         "rating": 4.89,
         "numberOfRaters": 25,
+        "addedToWishlist": 0,
         "guestFavorite": true,
         "location": {
             "country": "Spain",
@@ -1214,13 +1456,21 @@
             "TV",
             "AC"
         ],
+        "highlights": {
+            "First main": "Self check-in",
+            "First sub": "Check yourself in with the lockbox.",
+            "Second main": "Walkable area",
+            "Second sub": "This area is easy to get around.",
+            "Third main": "Furry friends welcome",
+            "Third sub": "Bring your pets along for the stay."
+        },
         "msgs": [],
         "unavailableDates": [],
         "lastSearchValue": "",
         "createdAt": 1753278900219
     },
     {
-        "host_id": "b7",
+        "host_id": "68c242e0ac0d57e02713467d",
         "title": "Apartment in Gran Vía",
         "description": "Cozy apartment for families in the heart of Madrid",
         "price": 610,
@@ -1238,6 +1488,7 @@
         ],
         "rating": 4.87,
         "numberOfRaters": 55,
+        "addedToWishlist": 0,
         "guestFavorite": true,
         "location": {
             "country": "Spain",
@@ -1253,13 +1504,21 @@
             "Washer",
             "TV"
         ],
+        "highlights": {
+            "First main": "Self check-in",
+            "First sub": "Check yourself in with the lockbox.",
+            "Second main": "Walkable area",
+            "Second sub": "This area is easy to get around.",
+            "Third main": "Furry friends welcome",
+            "Third sub": "Bring your pets along for the stay."
+        },
         "msgs": [],
         "unavailableDates": [],
         "lastSearchValue": "",
         "createdAt": 1753278900219
     },
     {
-        "host_id": "b8",
+        "host_id": "68c242e0ac0d57e02713467d",
         "title": "Apartment in Gran Vía",
         "description": "Spacious apartment with stunning views of the Madrid rooftops",
         "price": 590,
@@ -1277,6 +1536,7 @@
         ],
         "rating": 4.84,
         "numberOfRaters": 40,
+        "addedToWishlist": 0,
         "guestFavorite": false,
         "location": {
             "country": "Spain",
@@ -1291,13 +1551,21 @@
             "Balcony",
             "Kitchen"
         ],
+        "highlights": {
+            "First main": "Self check-in",
+            "First sub": "Check yourself in with the lockbox.",
+            "Second main": "Walkable area",
+            "Second sub": "This area is easy to get around.",
+            "Third main": "Furry friends welcome",
+            "Third sub": "Bring your pets along for the stay."
+        },
         "msgs": [],
         "unavailableDates": [],
         "lastSearchValue": "",
         "createdAt": 1753278900219
     },
     {
-        "host_id": "b9",
+        "host_id": "68c242e0ac0d57e02713467d",
         "title": "Modern Flat in Tel Aviv",
         "description": "Stylish and modern flat in the heart of Tel Aviv",
         "price": 670,
@@ -1315,6 +1583,7 @@
         ],
         "rating": 4.92,
         "numberOfRaters": 80,
+        "addedToWishlist": 14,
         "guestFavorite": true,
         "location": {
             "country": "Israel",
@@ -1329,6 +1598,14 @@
             "Kitchen",
             "Balcony"
         ],
+        "highlights": {
+            "First main": "Self check-in",
+            "First sub": "Check yourself in with the lockbox.",
+            "Second main": "Walkable area",
+            "Second sub": "This area is easy to get around.",
+            "Third main": "Furry friends welcome",
+            "Third sub": "Bring your pets along for the stay."
+        },
         "msgs": [],
         "unavailableDates": [
             "150825",
@@ -1339,7 +1616,7 @@
         "createdAt": 1753278900219
     },
     {
-        "host_id": "b10",
+        "host_id": "68c242e0ac0d57e02713467d",
         "title": "Beachfront Retreat TLV",
         "description": "Luxurious beachfront property with stunning sea views",
         "price": 750,
@@ -1357,6 +1634,7 @@
         ],
         "rating": 4.85,
         "numberOfRaters": 90,
+        "addedToWishlist": 0,
         "guestFavorite": false,
         "location": {
             "country": "Israel",
@@ -1371,6 +1649,14 @@
             "Kitchen",
             "Washer"
         ],
+        "highlights": {
+            "First main": "Self check-in",
+            "First sub": "Check yourself in with the lockbox.",
+            "Second main": "Walkable area",
+            "Second sub": "This area is easy to get around.",
+            "Third main": "Furry friends welcome",
+            "Third sub": "Bring your pets along for the stay."
+        },
         "msgs": [],
         "unavailableDates": [
             "100925",
@@ -1382,7 +1668,7 @@
         "createdAt": 1753278900219
     },
     {
-        "host_id": "b11",
+        "host_id": "68c242e0ac0d57e02713467d",
         "title": "Cozy Cabin in Colorado",
         "description": "Perfect mountain getaway",
         "price": 450,
@@ -1400,6 +1686,7 @@
         ],
         "rating": 4.78,
         "numberOfRaters": 55,
+        "addedToWishlist": 0,
         "guestFavorite": true,
         "location": {
             "country": "USA",
@@ -1414,6 +1701,14 @@
             "Kitchen",
             "Hot tub"
         ],
+        "highlights": {
+            "First main": "Self check-in",
+            "First sub": "Check yourself in with the lockbox.",
+            "Second main": "Walkable area",
+            "Second sub": "This area is easy to get around.",
+            "Third main": "Furry friends welcome",
+            "Third sub": "Bring your pets along for the stay."
+        },
         "msgs": [],
         "unavailableDates": [
             "151125",
@@ -1426,7 +1721,7 @@
         "createdAt": 1753278900219
     },
     {
-        "host_id": "b12",
+        "host_id": "68c242e0ac0d57e02713467d",
         "title": "Urban Loft NYC",
         "description": "Modern loft in Manhattan",
         "price": 880,
@@ -1444,6 +1739,7 @@
         ],
         "rating": 4.91,
         "numberOfRaters": 65,
+        "addedToWishlist": 54,
         "guestFavorite": false,
         "location": {
             "country": "USA",
@@ -1458,6 +1754,14 @@
             "TV",
             "Elevator"
         ],
+        "highlights": {
+            "First main": "Self check-in",
+            "First sub": "Check yourself in with the lockbox.",
+            "Second main": "Walkable area",
+            "Second sub": "This area is easy to get around.",
+            "Third main": "Furry friends welcome",
+            "Third sub": "Bring your pets along for the stay."
+        },
         "msgs": [],
         "unavailableDates": [
             "201225",
@@ -1469,7 +1773,7 @@
         "createdAt": 1753278900219
     },
     {
-        "host_id": "b13",
+        "host_id": "68c242e0ac0d57e02713467d",
         "title": "Charming London Flat",
         "description": "Bright and spacious flat in the heart of London",
         "price": 720,
@@ -1487,6 +1791,7 @@
         ],
         "rating": 4.88,
         "numberOfRaters": 75,
+        "addedToWishlist": 23,
         "guestFavorite": true,
         "location": {
             "country": "UK",
@@ -1501,6 +1806,14 @@
             "Washer",
             "Heating"
         ],
+        "highlights": {
+            "First main": "Self check-in",
+            "First sub": "Check yourself in with the lockbox.",
+            "Second main": "Walkable area",
+            "Second sub": "This area is easy to get around.",
+            "Third main": "Furry friends welcome",
+            "Third sub": "Bring your pets along for the stay."
+        },
         "msgs": [],
         "unavailableDates": [
             "121125",
@@ -1512,7 +1825,7 @@
         "createdAt": 1753278900219
     },
     {
-        "host_id": "b14",
+        "host_id": "68c242e0ac0d57e02713467d",
         "title": "Historic Cottage in Bath",
         "description": "Quaint countryside stay",
         "price": 520,
@@ -1530,6 +1843,7 @@
         ],
         "rating": 4.75,
         "numberOfRaters": 120,
+        "addedToWishlist": 0,
         "guestFavorite": false,
         "location": {
             "country": "UK",
@@ -1543,6 +1857,14 @@
             "Fireplace",
             "Garden"
         ],
+        "highlights": {
+            "First main": "Self check-in",
+            "First sub": "Check yourself in with the lockbox.",
+            "Second main": "Walkable area",
+            "Second sub": "This area is easy to get around.",
+            "Third main": "Furry friends welcome",
+            "Third sub": "Bring your pets along for the stay."
+        },
         "msgs": [],
         "unavailableDates": [
             "051225",
@@ -1555,7 +1877,7 @@
         "createdAt": 1753278900219
     },
     {
-        "host_id": "b15",
+        "host_id": "68c242e0ac0d57e02713467d",
         "title": "Luxury Apartment Manchester",
         "description": "Central apartment with city view",
         "price": 680,
@@ -1573,6 +1895,7 @@
         ],
         "rating": 4.80,
         "numberOfRaters": 95,
+        "addedToWishlist": 0,
         "guestFavorite": true,
         "location": {
             "country": "UK",
@@ -1586,6 +1909,14 @@
             "Kitchen",
             "Gym"
         ],
+        "highlights": {
+            "First main": "Self check-in",
+            "First sub": "Check yourself in with the lockbox.",
+            "Second main": "Walkable area",
+            "Second sub": "This area is easy to get around.",
+            "Third main": "Furry friends welcome",
+            "Third sub": "Bring your pets along for the stay."
+        },
         "msgs": [],
         "unavailableDates": [
             "151025",
@@ -1598,7 +1929,7 @@
         "createdAt": 1753278900219
     },
     {
-        "host_id": "b16",
+        "host_id": "68c242e0ac0d57e02713467d",
         "title": "Modern Studio Birmingham",
         "description": "Ideal for solo travelers or couples",
         "price": 410,
@@ -1616,6 +1947,7 @@
         ],
         "rating": 4.66,
         "numberOfRaters": 80,
+        "addedToWishlist": 0,
         "guestFavorite": false,
         "location": {
             "country": "UK",
@@ -1629,6 +1961,14 @@
             "TV",
             "Kitchenette"
         ],
+        "highlights": {
+            "First main": "Self check-in",
+            "First sub": "Check yourself in with the lockbox.",
+            "Second main": "Walkable area",
+            "Second sub": "This area is easy to get around.",
+            "Third main": "Furry friends welcome",
+            "Third sub": "Bring your pets along for the stay."
+        },
         "msgs": [],
         "unavailableDates": [
             "170925",
@@ -1640,7 +1980,7 @@
         "createdAt": 1753278900219
     },
     {
-        "host_id": "b17",
+        "host_id": "68c242e0ac0d57e02713467c",
         "title": "Lake House in the Cotswolds",
         "description": "Tranquil escape with lake view",
         "price": 900,
@@ -1658,6 +1998,7 @@
         ],
         "rating": 4.93,
         "numberOfRaters": 150,
+        "addedToWishlist": 0,
         "guestFavorite": true,
         "location": {
             "country": "UK",
@@ -1672,6 +2013,14 @@
             "Hot tub",
             "Lake Access"
         ],
+        "highlights": {
+            "First main": "Self check-in",
+            "First sub": "Check yourself in with the lockbox.",
+            "Second main": "Walkable area",
+            "Second sub": "This area is easy to get around.",
+            "Third main": "Furry friends welcome",
+            "Third sub": "Bring your pets along for the stay."
+        },
         "msgs": [],
         "unavailableDates": [
             "121025",
@@ -1685,7 +2034,7 @@
         "createdAt": 1753278900219
     },
     {
-        "host_id": "b18",
+        "host_id": "68c242e0ac0d57e02713467c",
         "title": "Rustic Barn in Yorkshire",
         "description": "Converted barn with stunning views",
         "price": 580,
@@ -1703,6 +2052,7 @@
         ],
         "rating": 4.81,
         "numberOfRaters": 110,
+        "addedToWishlist": 0,
         "guestFavorite": false,
         "location": {
             "country": "UK",
@@ -1716,6 +2066,14 @@
             "Garden",
             "Fireplace"
         ],
+        "highlights": {
+            "First main": "Self check-in",
+            "First sub": "Check yourself in with the lockbox.",
+            "Second main": "Walkable area",
+            "Second sub": "This area is easy to get around.",
+            "Third main": "Furry friends welcome",
+            "Third sub": "Bring your pets along for the stay."
+        },
         "msgs": [],
         "unavailableDates": [
             "040925",
