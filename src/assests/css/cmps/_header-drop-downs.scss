@@ -2,7 +2,6 @@
   position: relative;
 }
 
-
 .guest-dropdown {
   position: absolute;
   top: 100%;
@@ -41,11 +40,18 @@
       border: 1px solid #ccc;
       background: none;
       font-size: 1.2rem;
+      color: #000;
+
+      /* 👇 new lines */
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0;
+      line-height: 1;
     }
   }
 }
 
-  
 .date-dropdown {
   display: flex;
   justify-content: center;
@@ -71,7 +77,6 @@
     width: 45px !important;
     height: 45px !important;
     aspect-ratio: 1 / 1;
-    padding: 0 !important;
     margin: 4px !important;
     border-radius: 50% !important;
   }
@@ -113,15 +118,11 @@
     .mantine-Month-day {
       background: transparent !important;
       border: none !important;
-
     }
-
-    border-radius: 50%;
 
     .day-number {
       font-weight: 500;
     }
-
 
     &.in-range {
       background: rgba(0, 0, 0, 0.08);
@@ -137,7 +138,6 @@
       border: 1.5px solid #000;
       background: transparent;
       color: #000;
-
     }
   }
 
@@ -166,8 +166,4 @@
     padding: 4px !important;
     color: #000;
   }
-
-
-
-
 }
