@@ -4,24 +4,41 @@
   gap: 2rem;
   margin-top: 20px;
   padding: 0 200px;
+  font-family: Airbnb Cereal VF, Circular, -apple-system, BlinkMacSystemFont,
+    Roboto, Helvetica Neue, sans-serif;
   .details-title {
     margin-bottom: 0;
     font-size: 26px;
     font-weight: 600;
-    font-family: Airbnb Cereal VF, Circular, -apple-system, BlinkMacSystemFont,
-      Roboto, Helvetica Neue, sans-serif;
   }
   .content-title {
     font-size: 22px;
     margin-bottom: 0;
-    font-family: Airbnb Cereal VF, Circular, -apple-system, BlinkMacSystemFont,
-      Roboto, Helvetica Neue, sans-serif;
   }
   .content-description {
     font-size: 1rem;
     font-weight: 400;
-    font-family: Airbnb Cereal VF, Circular, -apple-system, BlinkMacSystemFont,
-      Roboto, Helvetica Neue, sans-serif;
+    margin-bottom: 0;
+  }
+  .content-rating {
+    color: $text-black;
+    font-size: 17px;
+    margin-top: 8px;
+    margin-bottom: 25px;
+    .star-icon {
+      font-size: 8px; // if you're sure this is desired
+      vertical-align: middle;
+      margin-bottom: 4px;
+    }
+    .rating {
+      font-size: 17px;
+      font-weight: 600;
+    }
+    .review-number {
+      font-size: 16px;
+      font-weight: 600;
+      text-decoration: underline;
+    }
   }
 }
 
@@ -207,20 +224,6 @@
   margin: 4rem 0;
 }
 
-.host-info {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  margin: 1rem 0;
-}
-
-.host-avatar {
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  object-fit: cover;
-}
-
 .home-description {
   margin: 1rem 0;
   line-height: 1.5;
@@ -326,4 +329,38 @@
   cursor: pointer;
   font-weight: 500;
   font-size: 0.9rem;
+}
+
+.host-info {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  border-top: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+  padding: 1rem 0;
+  margin: 0.5rem 0;
+}
+
+.host-avatar {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.host-text {
+  display: flex;
+  flex-direction: column; /* stack vertically */
+}
+
+.hosted-by {
+  font-size: 16px;
+  font-weight: 600;
+  margin: 0;
+}
+
+.hosted-time {
+  font-size: 14px;
+  color: #666;
+  margin: 0;
 }

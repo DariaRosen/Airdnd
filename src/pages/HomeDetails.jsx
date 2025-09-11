@@ -6,6 +6,7 @@ import { amenities } from "../assests/amenities"
 import { AirdndIcon } from "../cmps/AirdndIcon"
 import { BookingSearch } from "../cmps/BookingSearch"
 import { Review } from "../cmps/Review"
+import { FaStar } from "react-icons/fa"
 
 export function HomeDetails() {
   const [home, setHome] = useState(null)
@@ -28,9 +29,13 @@ export function HomeDetails() {
       const homeData = await homeService.getById(params.homeId)
       setHome(homeData)
 
+      // Get reviews for this home
       const reviews = await homeService.getHomeReviews(homeData._id)
 
-      // Fetch users for each review
+      // Count reviews
+      setReviewsCount(reviews.length)
+
+      // Attach user details to each review
       const reviewsWithUsers = await Promise.all(
         reviews.map(async (review) => {
           const user = await userService.getById(review.user_id)
@@ -39,9 +44,11 @@ export function HomeDetails() {
       )
       setReviewsWithUsers(reviewsWithUsers)
 
+      // Calculate average rating
       const avgRating = await homeService.getHomeRating(homeData._id)
       setRating(avgRating)
 
+      // Load host info
       if (homeData.host_id) {
         const hostData = await userService.getById(homeData.host_id)
         setHost(hostData)
@@ -50,6 +57,7 @@ export function HomeDetails() {
       console.log("Error loading home:", err)
     }
   }
+
 
   if (!home)
     return (
@@ -87,17 +95,39 @@ export function HomeDetails() {
           <h3 className="content-title">{`Entire ${home.type} in ${home.location.city}, ${home.location.country}`}</h3>
           <h4 className="content-description">{`${home.capacity} guests · ${home.rooms} rooms · ${home.beds} bed${home.beds > 1 ? "s" : ""} · ${home.bathrooms} bath${home.bathrooms > 1 ? "s" : ""}`}</h4>
 
-          <p>Rating: {rating} ⭐</p>
-          <p>{reviewsCount} reviews</p>
+          <p className="content-rating">
+            <span><FaStar className="star-icon" /></span>
+            <span className="rating"> {rating}</span> ·
+            <span> </span>
+            <span className="review-number">{reviewsCount} reviews</span>
+          </p>
 
           {/* Hosted by info */}
           {host && (
             <div className="host-info">
-              <img className="host-avatar" src={host.avatar || host.imgUrl} alt={`${host.firstName} avatar`} />
-              <p>
-                Hosted by {host.firstName} {host.lastName} · Hosting: {host.hosting} years
-              </p>
+              <img
+                className="host-avatar"
+                src={host.avatar || host.imgUrl}
+                alt={`${host.firstName} avatar`}
+              />
+              <div className="host-text">
+                <p className="hosted-by">
+                  Hosted by {host.firstName} {host.lastName}
+                </p>
+                <p className="hosted-time">
+                  {host.hosting} years on Airbnb
+                </p>
+              </div>
             </div>
+          )}
+
+          {/* Highlights */}
+          {home.highlights && (
+            <section className="home-highlights">
+              {Object.entries(home.highlights).map(([key, value]) => (
+                <p key={key}><strong>{value}</strong></p>
+              ))}
+            </section>
           )}
 
           {/* Description */}
@@ -111,16 +141,6 @@ export function HomeDetails() {
               </button>
             )}
           </section>
-
-          {/* Highlights */}
-          {home.highlights && (
-            <section className="home-highlights">
-              <h3>Highlights</h3>
-              {Object.entries(home.highlights).map(([key, value]) => (
-                <p key={key}><strong>{value}</strong></p>
-              ))}
-            </section>
-          )}
 
           {/* Amenities */}
           <h3>What this place offers</h3>
@@ -145,7 +165,7 @@ export function HomeDetails() {
           {/* Reviews */}
           <section className="home-reviews">
             <h3>Reviews</h3>
-              <Review homeId={home._id} />
+            <Review homeId={home._id} />
           </section>
         </section>
 
