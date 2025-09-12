@@ -88,8 +88,7 @@ export function HostListing() {
 
     return (
         <section className="host-listing">
-            <HostDashboardHeader />
-            <h1>Add New Listing</h1>
+            <HostDashboardHeader logoText="Add New Listing" />
             <div className="new-listing">
                 <form className="listing-form" onSubmit={handleSubmit}>
                     <label>

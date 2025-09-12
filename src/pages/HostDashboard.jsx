@@ -51,8 +51,7 @@ export function HostDashboard() {
 
     return (
         <section className="host-dashboard">
-            <HostDashboardHeader />
-            <h1>Host Dashboard</h1>
+            <HostDashboardHeader logoText="Analysis Dashboard"/>
 
             <div className="dashboard-stats">
                 <div className="stat-card">
@@ -72,11 +71,11 @@ export function HostDashboard() {
                     <h2>${avgPrice}</h2>
                 </div>
                 <div className="stat-card">
-                    <p>% Canceled by Host</p>
+                    <p>Canceled by Host</p>
                     <h2>{percentCanceledByHost}%</h2>
                 </div>
                 <div className="stat-card">
-                    <p>% Canceled by Guest</p>
+                    <p>Canceled by Guest</p>
                     <h2>{percentCanceledByGuest}%</h2>
                 </div>
             </div>

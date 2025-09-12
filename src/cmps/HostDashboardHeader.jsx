@@ -5,7 +5,7 @@ import "react-date-range/dist/styles.css"
 import "react-date-range/dist/theme/default.css"
 import { userService } from "../services/user.service"
 
-export function HostDashboardHeader() {
+export function HostDashboardHeader({ logoText = "airdnd" }) {
   const location = useLocation()
   const whereRef = useRef()
 
@@ -35,13 +35,8 @@ export function HostDashboardHeader() {
       <div className="logo-wrapper">
         <Link to="/" className="logo-link">
           <AirdndIcon />
-          <span className="logo-text">airdnd</span>
+          <span className="logo-text">{logoText}</span>
         </Link>
-
-        {/* Title */}
-        <div className="title-container">
-          <h1>{userService.getGreeting()}, Harry Potter!</h1>
-        </div>
       </div>
 
       {/* Tabs */}
@@ -58,6 +53,11 @@ export function HostDashboardHeader() {
         <Link to="/welcome-host" className={`tab-link ${isActive("/welcome-host") ? "active" : ""}`}>
           Main Page
         </Link>
+      </div>
+
+      {/* Title */}
+      <div className="title-host">
+        <span>{userService.getGreeting()}, Harry!</span>
       </div>
     </section>
   )

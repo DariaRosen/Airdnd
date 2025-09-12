@@ -150,12 +150,12 @@ export function HomeDetails() {
           {/* Description */}
           <section className="home-description">
             <p>
-              {home.description.length > 200
-                ? home.description.slice(0, 200) + "…"
+              {home.description.length > 400
+                ? home.description.slice(0, 400) + "…"
                 : home.description}
             </p>
 
-            {home.description.length > 200 && (
+            {home.description.length > 400 && (
               <button
                 className="btn-show-more"
                 onClick={() => setShowFullDescription(true)}
@@ -227,7 +227,7 @@ export function HomeDetails() {
                 >
                   ×
                 </button>
-                <h2 className="modal-title">All amenities</h2>
+                <h2 className="modal-title">What this place offers</h2>
                 <div className="all-amenities-grid">
                   {home.amenities.map((amenity) => {
                     const match = amenities.find(
@@ -272,26 +272,7 @@ export function HomeDetails() {
         </div>
       )}
 
-      {isAmenitiesModalOpen && (
-        <div className="modal amenities-modal" onClick={() => setIsAmenitiesModalOpen(false)}>
-          <div className="modal-content" onClick={(e) => e.stopPropagation()}>
-            <button className="close-btn" onClick={() => setIsAmenitiesModalOpen(false)}>×</button>
-            <h2>All amenities</h2>
-            <div className="all-amenities-grid">
-              {home.amenities.map((amenity) => {
-                const match = amenities.find((amen) => amen.key.toLowerCase() === amenity.toLowerCase())
-                if (!match) return null
-                return (
-                  <div className="amenity" key={amenity}>
-                    <img src={`${import.meta.env.BASE_URL}icons/amenities/${match.icon}.svg`} alt={match.label} />
-                    <span>{match.label}</span>
-                  </div>
-                )
-              })}
-            </div>
-          </div>
-        </div>
-      )}
+
     </section>
   )
 }

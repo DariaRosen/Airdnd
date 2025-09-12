@@ -78,15 +78,7 @@ export function WelcomeHost() {
                     <AirdndIcon color="#000000" />
                 </Link>
 
-                <div className="header-buttons">
-                    <button className="questions-btn">Questions?</button>
-                    <button
-                        className="exit-btn"
-                        onClick={() => navigate("/")}
-                    >
-                        Exit
-                    </button>
-                </div>
+                <h1>Welcome back, Harry!</h1>
             </div>
 
             {/* Dashboard Stats */}
@@ -165,7 +157,7 @@ export function WelcomeHost() {
 
             {/* Listing container */}
             <div className="listing-container">
-                <h1>Welcome back, Harry!</h1>
+
 
                 <div className="dashboard">
                     <button className="create-btn" onClick={() => navigate("/host-dashboard")}>

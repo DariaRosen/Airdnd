@@ -1,24 +1,35 @@
+.host-dashboard {
+  margin: 0 auto;
+  font-family: "Airbnb Cereal", "Helvetica Neue", sans-serif;
+  color: #222;
+}
+
 .host-dashboard h1 {
-  font-size: 2.5rem;
-  margin-bottom: 1rem;
+  font-size: 2.2rem;
+  font-weight: 600;
+  margin-bottom: 2rem;
   text-align: center;
+  color: #222;
 }
 
 .dashboard-stats {
   display: flex;
   flex-wrap: wrap;
-  gap: 1rem;
+  gap: 1.5rem;
   justify-content: center;
   margin-bottom: 2rem;
+  align-items: stretch;
+  margin-top: 2rem;
 }
 
 .stat-card {
   background: #fff;
-  padding: 1rem 1.5rem;
+  padding: 0.5rem 1rem;
   border-radius: 12px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-  min-width: 160px;
+  width: 200px;
   text-align: center;
+  justify-content: center;
 }
 
 .stat-card p {
@@ -28,12 +39,15 @@
 }
 
 .stat-card h2 {
-  font-size: 1.4rem;
+  font-size: 1.3rem;
   margin: 0;
-  font-weight: 600;
+  font-weight: 500;
 }
 
 .dashboard-charts-wrapper {
-  width: 100%;
-  margin-top: 1rem;
+  // background: #fff;
+  // padding: 2rem;
+  // border-radius: 20px;
+  // box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+  grid-column: 1 / -1;
 }
