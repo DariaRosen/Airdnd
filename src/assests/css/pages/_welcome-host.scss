@@ -13,6 +13,10 @@
   justify-content: space-between;
   align-items: center;
   width: 100%;
+  .welcome-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+  }
 }
 
 .welcome-host .welcome-icon {
@@ -44,7 +48,7 @@
   gap: 2rem;
   width: 100%;
   align-items: center;
-  max-width: 800px;
+  max-width: 885px;
   margin: 2rem auto;
   padding: 2rem;
   background: #fff;
@@ -121,17 +125,17 @@
 
 .welcome-host .stat-card {
   background: #fff;
-  border-radius: 16px;
+  border-radius: 15px;
   padding: 0.5rem;
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr auto; /* text left, icon right */
+  grid-template-rows: auto auto; /* title row + content row */
   justify-content: space-between;
-  align-items: center;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  grid-template-rows: auto auto;
+  align-items: center;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
-  /* make all cards same size */
-  flex: 1 1 200px; /* grow, shrink, basis */
-  min-width: 70px;
-  max-width: 180px; /* optional */
+  max-width: 170px; /* optional */
 }
 
 .stat-card:hover {
@@ -139,15 +143,32 @@
   box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
 }
 
-.stat-card .stat-text p {
-  font-size: 15px;
-  color: #777;
-  margin-bottom: 0.25rem;
+.stat-card .stat-title {
+  grid-column: 1;
+  grid-row: 1;
+  font-size: 1rem;
+  font-weight: 500;
+  color: #6a6a6a;
+  margin: 0;
+  text-align: left;
 }
 
-.stat-card .stat-text h2 {
-  font-size: 1.2rem;
+.stat-card .stat-text {
+  grid-column: 1 / span 2;
+  grid-row: 2;
+  font-size: 0.9rem;
   font-weight: 600;
+  color: #222;
+  margin: 0.3rem 0 0;
+  text-align: left;
+}
+
+.stat-icon {
+  grid-column: 2;
+  grid-row: 1; /* span both rows */
+  align-self: start;
+  justify-self: end;
+  color: #ff385c; /* Airbnb pink */
 }
 
 .stat-text .positive {

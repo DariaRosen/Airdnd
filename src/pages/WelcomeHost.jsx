@@ -3,6 +3,7 @@ import { AirdndIcon } from '../cmps/AirdndIcon'
 import { useNavigate, Link } from 'react-router-dom'
 import { bookingService } from "../services/booking.service"
 import { homeService } from "../services/home.service"
+import { DashboardsCharts } from "../cmps/DashboardsCharts"
 import {
     DollarSign,
     Heart,
@@ -17,54 +18,69 @@ export function WelcomeHost() {
     const navigate = useNavigate()
     const user = { _id: "b1", firstName: "Harry" }
 
+    const [hostBookings, setHostBookings] = useState([])
     const [stats, setStats] = useState({
         income: 0,
-        incomeChange: 0,
+        incomeThisMonth: 0,
         totalBookings: 0,
-        totalBookingsChange: 0,
-        cancellationRate: 0,
-        cancellationChange: 0,
+        upcomingBookings: 0,
+        canceledByHost: 0,
+        canceledByGuest: 0,
+        homeRating: 0,
         wishlistCount: 0,
         activeListings: 0,
-        homeRating: 0,
+        newMessages: 35, // hardcoded for now
     })
 
     useEffect(() => {
         async function loadAllStats() {
-            // Host bookings
             const bookings = await bookingService.getHostBookings(user._id)
+            setHostBookings(bookings)
 
-            // Trends (income, cancellation, bookings)
-            const trends = bookingService.calculateTrends(bookings)
-            console.log("trends", trends);
+            const validBookings = bookings.filter(
+                b => !["canceled-by-host", "canceled-by-guest"].includes(b.status.toLowerCase().replace(/\s+/g, "-"))
+            )
+
+            const totalBookings = bookings.length
+            const upcomingBookings = bookings.filter(b => new Date(b.checkIn) > new Date()).length
+            const totalEarnings = validBookings.reduce((sum, b) => sum + b.totalPrice, 0)
+
+            // Earnings this month
+            const now = new Date()
+            const incomeThisMonth = validBookings
+                .filter(b => {
+                    const d = new Date(b.checkIn)
+                    return d.getMonth() === now.getMonth() && d.getFullYear() === now.getFullYear()
+                })
+                .reduce((sum, b) => sum + b.totalPrice, 0)
+
+            const canceledByHost = bookings.filter(b => b.status.toLowerCase().replace(/\s+/g, "-") === "canceled-by-host").length
+            const canceledByGuest = bookings.filter(b => b.status.toLowerCase().replace(/\s+/g, "-") === "canceled-by-guest").length
 
             // Homes
             const userHomes = await homeService.getHomesByHost(user._id)
-            console.log("userHomes", userHomes);
-
-            // Average rating
-            const ratings = await Promise.all(userHomes.map(home => homeService.getHomeRating(home._id)))
-            const validRatings = ratings.filter(r => typeof r === 'number')
-            const avgRating = validRatings.length
-                ? validRatings.reduce((sum, r) => sum + r, 0) / validRatings.length
-                : 0
-
-            // Wishlist count & active listings
+            const ratings = await Promise.all(userHomes.map(h => homeService.getHomeRating(h._id)))
+            const validRatings = ratings.filter(r => typeof r === "number")
+            const avgRating = validRatings.length ? validRatings.reduce((sum, r) => sum + r, 0) / validRatings.length : 0
             const wishlistCount = userHomes.reduce((sum, h) => sum + (h.addedToWishlist || 0), 0)
             const activeListings = userHomes.length
 
             setStats({
-                ...trends,
+                income: totalEarnings,
+                incomeThisMonth,
+                totalBookings,
+                upcomingBookings,
+                canceledByHost,
+                canceledByGuest,
                 homeRating: avgRating,
                 wishlistCount,
                 activeListings,
-                totalBookings: bookings.length // total bookings ever
+                newMessages: 35, // hardcoded for now
             })
         }
 
         loadAllStats()
     }, [user._id])
-
 
     const addListingIcon = "/Airdnd/icons/add-listing.svg"
     const bookingIcon = "/Airdnd/icons/list-check-svgrepo-com.svg"
@@ -77,88 +93,66 @@ export function WelcomeHost() {
                 <Link to="/" className="logo-link">
                     <AirdndIcon color="#000000" />
                 </Link>
-
-                <h1>Welcome back, Harry!</h1>
+                <h1 className="welcome-title">Welcome back, {user.firstName}!</h1>
             </div>
 
             {/* Dashboard Stats */}
             <section className="welcome-dashboard-stats">
-                <div className="stat-card">
-                    <div className="stat-text">
-                        <p>Income</p>
-                        <h2>
-                            ${stats.income.toLocaleString(undefined, { minimumFractionDigits: 0 })}
-                            <span className={stats.incomeChange >= 0 ? "positive" : "negative"}>
-                                {Math.round(stats.incomeChange)}%
-                            </span>
-                        </h2>
-                    </div>
-                    <div className="stat-icon"><DollarSign size={28} /></div>
-                </div>
 
+                {/* Bookings (Total + Upcoming) */}
                 <div className="stat-card">
-                    <div className="stat-text">
-                        <p>Added to wishlist</p>
-                        <h2>{stats.wishlistCount}</h2>
-                    </div>
-                    <div className="stat-icon"><Heart size={28} /></div>
-                </div>
-
-                <div className="stat-card">
-                    <div className="stat-text">
-                        <p>New Messages</p>
-                        <h2>35</h2>
-                    </div>
-                    <div className="stat-icon"><MessageSquare size={28} /></div>
-                </div>
-
-                <div className="stat-card">
-                    <div className="stat-text">
-                        <p>Rating</p>
-                        <h2>{stats.homeRating.toFixed(1)}</h2>
-                    </div>
-                    <div className="stat-icon"><Star size={28} /></div>
-                </div>
-
-                <div className="stat-card">
-                    <div className="stat-text">
-                        <p>Total Bookings</p>
-                        <h2>
-                            {stats.totalBookings}
-                            <span className={stats.totalBookingsChange >= 0 ? "positive" : "negative"}>
-                                {Math.round(stats.totalBookingsChange)}%
-                            </span>
-                        </h2>
-                    </div>
+                    <p className="stat-title">Bookings</p>
+                    <h2 className="stat-text">
+                        Total: {stats.totalBookings} <br />
+                        Upcoming: {stats.upcomingBookings}
+                    </h2>
                     <div className="stat-icon"><BookCheck size={28} /></div>
                 </div>
 
+                {/* Earnings (Total + This Month) */}
                 <div className="stat-card">
-                    <div className="stat-text">
-                        <p>Active Listings</p>
-                        <h2>{stats.activeListings}</h2>
-                    </div>
-                    <div className="stat-icon"><Home size={28} /></div>
+                    <p className="stat-title">Earnings</p>
+                    <h2 className="stat-text">
+                        Total: {Number(stats.income.toFixed(0)).toLocaleString()} $ <br />
+                        This Month: {Number(stats.incomeThisMonth.toFixed(0)).toLocaleString()} $
+                    </h2>
+                    <div className="stat-icon"><DollarSign size={28} /></div>
                 </div>
 
+                {/* Canceled (Host + Guest) */}
                 <div className="stat-card">
-                    <div className="stat-text">
-                        <p>Cancellation Rate</p>
-                        <h2>
-                            {stats.cancellationRate.toFixed(1)}%
-                            <span className={stats.cancellationChange >= 0 ? "positive" : "negative"}>
-                                {Math.round(stats.cancellationChange)}%
-                            </span>
-                        </h2>
-                    </div>
+                    <p className="stat-title">Canceled</p>
+                    <h2 className="stat-text">
+                        Host: {stats.canceledByHost} <br />
+                        Guest: {stats.canceledByGuest}
+                    </h2>
                     <div className="stat-icon"><XCircle size={28} /></div>
                 </div>
+
+                {/* Rating + Wishlist */}
+                <div className="stat-card">
+                    <p className="stat-title">Guest Experience</p>
+                    <h2 className="stat-text">
+                        Rating: {stats.homeRating.toFixed(1)} <br />
+                        Wishlist: {stats.wishlistCount}
+                    </h2>
+                    <div className="stat-icon"><Star size={28} /></div>
+                </div>
+
+                {/* Active Listings + New Messages */}
+                <div className="stat-card">
+                    <p className="stat-title">Hosting Activity</p>
+                    <h2 className="stat-text">
+                        Listings: {stats.activeListings} <br />
+                        Messages: {stats.newMessages}
+                    </h2>
+                    <div className="stat-icon"><MessageSquare size={28} /></div>
+                </div>
+
             </section>
 
             {/* Listing container */}
             <div className="listing-container">
-
-
                 <div className="dashboard">
                     <button className="create-btn" onClick={() => navigate("/host-dashboard")}>
                         <span className="icon">
@@ -167,7 +161,6 @@ export function WelcomeHost() {
                         Dashboard
                     </button>
                 </div>
-
                 <div className="bookings">
                     <button className="create-btn" onClick={() => navigate("/host-bookings")}>
                         <span className="icon">
@@ -176,7 +169,6 @@ export function WelcomeHost() {
                         Bookings
                     </button>
                 </div>
-
                 <div className="listing">
                     <button className="create-btn" onClick={() => navigate("/host-listing")}>
                         <span className="icon">

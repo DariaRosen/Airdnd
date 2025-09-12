@@ -1,14 +1,18 @@
+/* === Dashboard Container === */
 .dashboard-charts {
   margin-top: 1.5rem;
+  font-family: "Airbnb Cereal App", "Inter", "Helvetica Neue", Arial, sans-serif;
+  color: #222;
 }
 
+/* === Filters === */
 .charts-filters {
   margin-bottom: 1.5rem;
   display: flex;
   align-items: center;
   gap: 0.75rem;
   justify-content: center;
-  font-size: 0.95rem;
+  font-size: 1.2rem;
   color: #333;
 }
 
@@ -19,11 +23,21 @@
 .charts-filters input,
 .charts-filters select {
   border: 1px solid #ddd;
-  border-radius: 8px;
-  padding: 0.4rem 0.6rem;
+  border-radius: 10px;
+  padding: 0.45rem 0.7rem;
   font-size: 0.9rem;
+  background: #fff;
+  transition: border 0.2s ease, box-shadow 0.2s ease;
 }
 
+.charts-filters input:focus,
+.charts-filters select:focus {
+  border-color: #ff385c;
+  box-shadow: 0 0 0 3px rgba(255, 56, 92, 0.25);
+  outline: none;
+}
+
+/* === Layout of Cards === */
 .charts-container {
   display: flex;
   flex-wrap: wrap;
@@ -31,45 +45,54 @@
   justify-content: center; /* center if less than 3 items */
 }
 
+/* === Chart Cards === */
 .chart-card {
   background: #fff;
-  padding: 1rem;
-  border-radius: 12px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-  /* Use clamp to control width: min 400px, preferred 40% row, max 650px */
+  padding: 1.25rem;
+  border-radius: 15px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
   flex: 1 1 clamp(400px, 40%, 650px);
   text-align: center;
-  max-height: 350px;
-  max-width: 450px;
+  max-height: 380px;
+  max-width: 480px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
   overflow: hidden;
   position: relative;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.chart-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.12);
 }
 
 .chart-card h3 {
-  font-size: 1rem;
-  margin-bottom: 0.5rem;
+  font-size: 1.05rem;
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+  color: #222;
   flex-shrink: 0;
 }
 
+/* === Tooltip === */
 .chart-tooltip {
   visibility: hidden;
   opacity: 0;
   position: absolute;
-  top: 0.5rem;
-  right: 0.5rem;
-  background: rgba(0, 0, 0, 0.8);
+  top: 0.75rem;
+  right: 0.75rem;
+  background: rgba(34, 34, 34, 0.9);
   color: #fff;
   font-size: 0.85rem;
-  padding: 0.4rem 0.7rem;
-  border-radius: 6px;
+  padding: 0.5rem 0.8rem;
+  border-radius: 8px;
   white-space: nowrap;
   transition: opacity 0.2s ease-in-out;
   z-index: 10;
-  pointer-events: none; /* tooltip doesn’t block chart hover */
+  pointer-events: none;
 }
 
 .chart-card:hover .chart-tooltip {
@@ -77,8 +100,34 @@
   opacity: 1;
 }
 
+/* === Chart.js Canvas Styling === */
 .chart-card canvas {
-  max-height: 200px; /* or 220px, adjust as needed */
+  max-height: 220px; /* adjust height for breathing room */
   width: 100% !important;
   height: auto !important;
+}
+
+/* === Legend Styling (Chart.js injects <ul>) === */
+.chart-card .chartjs-legend ul {
+  display: flex !important;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.chart-card .chartjs-legend li {
+  display: flex;
+  align-items: center;
+  font-size: 0.85rem;
+  color: #6a6a6a;
+  font-weight: 500;
+}
+
+.chart-card .chartjs-legend li span {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%; /* circular color bullets */
+  margin-right: 6px;
 }

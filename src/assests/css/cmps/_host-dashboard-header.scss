@@ -8,6 +8,7 @@
   top: 0;
   z-index: 1000;
   flex-direction: row;
+  font-family: "Airbnb Cereal", "Helvetica Neue", sans-serif;
 }
 
 /* Force each child to take 1/3 of the width */
@@ -78,10 +79,4 @@
   color: #ff385c; /* Airbnb pink */
   font-weight: 600;
   padding: 5px;
-}
-
-.title-container,
-.title-host {
-  justify-content: flex-end;  /* push to right horizontally */
-  align-items: center;        /* center vertically */
 }
