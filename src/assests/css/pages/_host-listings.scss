@@ -1,0 +1,78 @@
+.host-listings {
+  padding: 2rem;
+  font-family: "Airbnb Cereal App", "Helvetica Neue", Arial, sans-serif;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.host-listings h1 {
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+}
+
+.listings-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+.listing-card {
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.listing-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+}
+
+.listing-avatar {
+  width: 100%;
+  padding-top: 60%; /* ratio 5:3 */
+  background-size: cover;
+  background-position: center;
+}
+
+.listing-info {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.listing-info h2 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #222;
+  margin: 0;
+}
+
+.listing-location {
+  font-size: 0.9rem;
+  color: #6a6a6a;
+}
+
+.listing-price {
+  font-weight: 600;
+  font-size: 1rem;
+  margin-top: 0.25rem;
+  color: #222;
+}
+
+.listing-details {
+  font-size: 0.85rem;
+  color: #6a6a6a;
+}
+
+.listing-rating {
+  font-size: 0.85rem;
+  color: #222;
+  font-weight: 500;
+  margin-top: 0.25rem;
+}

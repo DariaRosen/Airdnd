@@ -11,8 +11,8 @@ import { ConfirmationPage } from "./cmps/ConfirmationPage"
 import { WelcomeHost } from './pages/WelcomeHost.jsx';
 import { HostDashboard } from "./pages/HostDashboard.jsx"
 import { HostBookings } from "./pages/HostBookings.jsx"
-import { HostListing } from "./pages/HostListing.jsx"
-
+import { HostAddListing } from "./pages/HostAddListing.jsx"
+import { HostListings } from "./pages/HostListings.jsx" 
 function DefaultLayout() {
   return (
     <>
@@ -55,7 +55,8 @@ export function App() {
           <Route path="/welcome-host" element={<WelcomeHost />} />
           <Route path="/host-dashboard" element={<HostDashboard />} />
           <Route path="/host-bookings" element={<HostBookings />} />
-          <Route path="/host-listing" element={<HostListing />} />
+          <Route path="/host-listing" element={<HostAddListing />} />
+          <Route path="/host-listings" element={<HostListings />} />
         </Route>
       </Routes>
     </Router>

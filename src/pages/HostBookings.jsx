@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { bookingService } from "../services/booking.service";
 import { HostDashboardHeader } from "../cmps/HostDashboardHeader";
 import { BookingFilters } from "../cmps/BookingFilters";
+import { utilService } from "../services/util.service";
 
 export function HostBookings() {
     const user = { _id: "b1", firstName: "Harry" };
@@ -87,10 +88,14 @@ export function HostBookings() {
 
 
     return (
-        <section className="bookings">
+        <section className="host-bookings">
             <HostDashboardHeader logoText="Host Bookings" />
-            <div className="host-bookings">
-                <BookingFilters filters={filters} onChange={setFilters} className="booking-filters" />
+
+            <div className="filters-wrapper">
+                <BookingFilters filters={filters} onChange={setFilters} />
+            </div>
+
+            <div className="table-card">
                 <table className="bookings-table">
                     <thead>
                         <tr>
@@ -102,15 +107,28 @@ export function HostBookings() {
                                 { key: "guest_id", label: "Guest ID" },
                                 { key: "checkIn", label: "Check In" },
                                 { key: "checkOut", label: "Check Out" },
-                                { key: "daysReserved", label: "Days Reserved" },
                                 { key: "totalPrice", label: "Total Price" },
                             ].map((col) => (
-                                <th key={col.key} className="sortable" onClick={() => handleSort(col.key)}>
+                                <th
+                                    key={col.key}
+                                    className="sortable"
+                                    onClick={() => handleSort(col.key)}
+                                >
                                     <div className="th-content">
                                         <span className="col-label">{col.label}</span>
                                         <span className="sort-indicator">
-                                            <span className={`asc ${sortKey === col.key && sortOrder === "asc" ? "active" : ""}`}>▲</span>
-                                            <span className={`desc ${sortKey === col.key && sortOrder === "desc" ? "active" : ""}`}>▼</span>
+                                            <span
+                                                className={`asc ${sortKey === col.key && sortOrder === "asc" ? "active" : ""
+                                                    }`}
+                                            >
+                                                ▲
+                                            </span>
+                                            <span
+                                                className={`desc ${sortKey === col.key && sortOrder === "desc" ? "active" : ""
+                                                    }`}
+                                            >
+                                                ▼
+                                            </span>
                                         </span>
                                     </div>
                                 </th>
@@ -122,34 +140,53 @@ export function HostBookings() {
                         {sortedBookings.map((b) => (
                             <tr key={b._id}>
                                 <td>
-                                    {b.status.toLowerCase() === "new" || b.status.toLowerCase() === "pending" ? (
+                                    {b.status.toLowerCase() === "new" ||
+                                        b.status.toLowerCase() === "pending" ? (
                                         <div className="status-actions">
-                                            <button onClick={() => handleStatusChange(b._id, "Paid")}>✅ Approve</button>
-                                            <button onClick={() => handleStatusChange(b._id, "Canceled by Host")}>❌ Reject</button>
+                                            <button
+                                                className="approve-btn"
+                                                onClick={() => handleStatusChange(b._id, "Paid")}
+                                            >
+                                                Approve
+                                            </button>
+                                            <button
+                                                className="reject-btn"
+                                                onClick={() =>
+                                                    handleStatusChange(b._id, "Canceled by Host")
+                                                }
+                                            >
+                                                Reject
+                                            </button>
                                         </div>
                                     ) : (
                                         <span className="status-gray">
-                                            {b.status.toLowerCase() === "paid" ? "Approved" : "Canceled"}
+                                            {b.status.toLowerCase() === "paid"
+                                                ? "Approved"
+                                                : "Canceled"}
                                         </span>
                                     )}
                                 </td>
-                                <td className={`status-${b.status.toLowerCase().replace(/ /g, "-")}`}>
-                                    {b.status}
+                                <td>
+                                    <span
+                                        className={`status-pill status-${b.status
+                                            .toLowerCase()
+                                            .replace(/ /g, "-")}`}
+                                    >
+                                        {b.status}
+                                    </span>
                                 </td>
                                 <td>{b._id}</td>
                                 <td>{b.home_id}</td>
                                 <td>{b.guest_id}</td>
-                                <td>{b.checkIn}</td>
-                                <td>{b.checkOut}</td>
-                                <td>{getDaysReserved(b.checkIn, b.checkOut)}</td>
+                                <td>{utilService.formatDate(b.checkIn)}</td>
+                                <td>{utilService.formatDate(b.checkOut)}</td>
                                 <td>${b.totalPrice.toFixed(2)}</td>
                             </tr>
                         ))}
                     </tbody>
-
                 </table>
-
             </div>
         </section>
+
     );
 }

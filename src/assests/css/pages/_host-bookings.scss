@@ -1,5 +1,20 @@
 .host-bookings {
-  padding: 2rem;
+  font-family: "Airbnb Cereal App", "Helvetica Neue", Arial, sans-serif;
+}
+
+.filters-wrapper {
+  margin-bottom: 1.5rem;
+  margin-left: 2rem;
+  margin-right: 2rem;
+}
+
+.table-card {
+  background: #fff;
+  border-radius: 15px;
+  overflow-x: auto;
+  border: 1px solid #ddd;
+  margin-left: 2rem;
+  margin-right: 2rem;
 }
 
 .bookings h1 {
@@ -10,10 +25,54 @@
 
 .host-bookings .booking-filters {
   display: flex;
-  gap: 1rem;
-  margin-bottom: 1rem;
-  font-size: 1.2rem;
-  flex: 1;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+  margin-top: 1.5rem;
+  font-size: 0.95rem;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+/* Select and Input styling */
+.host-bookings .booking-filters select,
+.host-bookings .booking-filters input {
+  padding: 0.6rem 1rem;
+  border-radius: 12px;
+  border: 1px solid #ddd;
+  background: #fff;
+  font-size: 0.95rem;
+  outline: none;
+  transition: all 0.2s ease;
+  min-width: 150px;
+}
+
+/* Hover & Focus effects */
+.host-bookings .booking-filters select:hover,
+.host-bookings .booking-filters input:hover,
+.host-bookings .booking-filters select:focus,
+.host-bookings .booking-filters input:focus {
+  border-color: #ff385c; /* Airbnb pink */
+  box-shadow: 0 2px 6px rgba(255, 56, 92, 0.2);
+}
+
+/* Placeholder styling */
+.host-bookings .booking-filters input::placeholder {
+  color: #aaa;
+  font-weight: 400;
+}
+
+/* Responsive: stack filters on small screens */
+@media (max-width: 768px) {
+  .host-bookings .booking-filters {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .host-bookings .booking-filters select,
+  .host-bookings .booking-filters input {
+    width: 100%;
+  }
 }
 
 .host-bookings table {
@@ -31,8 +90,12 @@
 
 .sort-indicator span {
   font-size: 0.8em;
-  color: #ccc;
+  color: #bbb;
   transition: all 0.2s ease;
+}
+
+.sort-indicator .active {
+  color: #ff385c; /* Airbnb pink */
 }
 
 .sort-indicator .asc.active,
@@ -63,30 +126,35 @@
   background-color: #f4f4f4;
 }
 
+/* Status pills */
+.status-pill {
+  display: inline-block;
+  padding: 0.3rem 0.75rem;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #fff;
+}
+
 /* Status colors */
 .status-new {
   color: #2e86de; /* Blue */
-  font-weight: bold;
 }
 
 .status-pending {
   color: #f39c12; /* Orange */
-  font-weight: bold;
 }
 
 .status-paid {
   color: #27ae60; /* Green */
-  font-weight: bold;
 }
 
 .status-canceled-by-host {
   color: #c0392b; /* Red */
-  font-weight: bold;
 }
 
 .status-canceled-by-guest {
   color: #d35400; /* Dark orange */
-  font-weight: bold;
 }
 
 .bookings-table th.sortable {
@@ -108,29 +176,64 @@
 
 .status-actions {
   display: flex;
-  justify-content: center;
-  gap: 0.3rem;
+  gap: 0.5rem;
 }
 
 .status-actions button {
-  padding: 2px 6px;
-  font-size: 0.8rem;
+  padding: 0.35rem 0.8rem;
   border: none;
-  border-radius: 4px;
+  border-radius: 20px;
+  font-size: 0.8rem;
   cursor: pointer;
+  transition: all 0.2s ease;
 }
 
-.status-actions button:first-of-type {
-  background-color: #27ae60;
-  color: white;
+.status-actions .approve-btn {
+  background: #2fc29f;
+  color: #fff;
 }
 
-.status-actions button:last-of-type {
-  background-color: #c0392b;
-  color: white;
+.status-actions .approve-btn:hover {
+  background: #299a80;
+}
+
+.status-actions .reject-btn {
+  background: #cf2f54;
+  color: #fff;
+}
+
+.status-actions .reject-btn:hover {
+  background: #9e2441;
 }
 
 .status-gray {
   color: #888; /* gray color */
-  font-weight: bold;
+  font-weight: 500;
+}
+
+/* Table */
+.bookings-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  font-size: 0.95rem;
+}
+
+.bookings-table th,
+.bookings-table td {
+  padding: 0.9rem 1rem;
+  text-align: left;
+  border-bottom: 1px solid #eee;
+  white-space: nowrap;
+}
+
+.bookings-table th {
+  background: #fafafa;
+  font-weight: 600;
+  color: #444;
+}
+
+.bookings-table tbody tr:hover {
+  background-color: #fdf2f7; /* Airbnb pink highlight */
+  transition: background 0.2s ease;
 }

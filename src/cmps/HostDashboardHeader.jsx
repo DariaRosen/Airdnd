@@ -47,6 +47,9 @@ export function HostDashboardHeader({ logoText = "airdnd" }) {
         <Link to="/host-bookings" className={`tab-link ${isActive("/host-bookings") ? "active" : ""}`}>
           Bookings
         </Link>
+        <Link to="/host-listings" className={`tab-link ${isActive("/host-listings") ? "active" : ""}`}>
+          Listings
+        </Link>
         <Link to="/host-listing" className={`tab-link ${isActive("/host-listing") ? "active" : ""}`}>
           Add New Listing
         </Link>

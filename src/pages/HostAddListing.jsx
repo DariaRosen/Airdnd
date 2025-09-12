@@ -4,7 +4,7 @@ import { AmenitySelector } from "../cmps/AmenitySelector"
 import { ImageUploader } from "../cmps/ImageUploader"
 import { homeService } from "../services/home.service"
 
-export function HostListing() {
+export function HostAddListing() {
     const [amenities, setAmenities] = useState([])
     const [form, setForm] = useState({
         title: "",

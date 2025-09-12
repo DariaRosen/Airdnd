@@ -13,11 +13,27 @@
 
 /* Force each child to take 1/3 of the width */
 .mini-header > * {
-  flex: 1;
   display: flex;
-  justify-content: center;
   align-items: center; /* vertical centering */
   padding: 1rem 0; /* consistent padding for all */
+}
+
+/* Left: logo */
+.mini-header > .logo-wrapper {
+  flex: 1; /* small */
+  justify-content: flex-start;
+}
+
+/* Middle: title or tabs */
+.mini-header > .tabs-container {
+  flex: 2; /* bigger */
+  justify-content: center;
+}
+
+/* Right: host title */
+.mini-header > .title-host {
+  flex: 1; /* small */
+  justify-content: flex-end;
 }
 
 .tabs-container {
