@@ -148,13 +148,13 @@ export function AppHeader() {
         />
 
         {/* SEPARATOR */}
-        <div className="separator">|</div>
+        <div className="separator1"></div>
 
         {/* CHECK-IN / CHECK-OUT */}
         <DateSearch dateRange={dateRange} setDateRange={setDateRange} />
 
         {/* SEPARATOR */}
-        <div className="separator">|</div>
+        <div className="separator3"></div>
 
         {/* WHO + SEARCH ICON */}
         <GuestSearch guests={guests} setGuests={setGuests} />

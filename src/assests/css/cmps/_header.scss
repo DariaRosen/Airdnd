@@ -13,6 +13,8 @@
   ); /* light to darker gray */
   z-index: 1000;
   width: 100%;
+  font-family: Airbnb Cereal VF, Circular, -apple-system, BlinkMacSystemFont,
+    Roboto, Helvetica Neue, sans-serif;
 }
 
 .logo-wrapper {
@@ -110,11 +112,11 @@
   margin: 20px auto 0;
   margin-top: 5px;
   margin-bottom: 15px;
-  border: 1px solid $bg-light-gray;
+  border: 1px solid #c6c5c5;
   border-radius: 50px;
   background-color: $bg-white;
-  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
-  max-width: 800px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+  max-width: 850px;
   width: 100%;
 }
 
@@ -135,7 +137,7 @@
 .search-title {
   font-size: 12px;
   font-weight: bold;
-  color: #555;
+  color: #222;
 }
 
 .search-title.clickable {
@@ -145,13 +147,13 @@
 
 .search-value {
   font-size: 14px;
-  color: grey;
+  color: #808080;
 }
 
 .search-input {
   border: none;
   outline: none;
-  padding: 6px;
+  padding-left: 6px;
   background-color: transparent;
   color: gray;
   margin-left: 20px;
@@ -173,9 +175,10 @@
 }
 
 .magnifying-glass-icon {
-  width: 14px;
-  height: 14px;
+  width: 16px;
+  height: 16px;
   color: #fff;
+  max-width: none;
 }
 
 .magnifying-glass-wrapper {
@@ -305,8 +308,8 @@
 
   &:hover,
   &:focus-within {
-    box-shadow: 0 0 0 2px #ccc;
-    background-color: #f7f7f7b5;
+    box-shadow: 0 0 0 3px #DDDDDD;
+    background-color: #DDDDDD;
   }
 }
 .suggestion-icon {
@@ -339,4 +342,33 @@
   font-size: 1.8rem;
   font-weight: 600;
   margin: 0;
+}
+
+.separator1 {
+  width: 1px; /* thin line */
+  background-color: #ddd; /* light gray like Airbnb */
+  margin: 0 0.75rem; /* spacing around the line */
+  height: 32px;
+  padding-top: unset;
+  border-top-width: 10px;
+}
+
+.separator2 {
+  width: 1px; /* thin line */
+  background-color: #ddd; /* light gray like Airbnb */
+  margin: 0 0.75rem; /* spacing around the line */
+  align-self: stretch;
+  height: 32px;
+  padding-top: unset;
+  border-top-width: 10px;
+  margin-top: 10px;
+}
+
+.separator3 {
+  width: 1px; /* thin line */
+  background-color: #ddd; /* light gray like Airbnb */
+  margin: 0 0.75rem; /* spacing around the line */
+  height: 32px;
+  padding-top: unset;
+  border-top-width: 10px;
 }

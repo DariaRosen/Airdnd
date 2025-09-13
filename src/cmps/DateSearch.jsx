@@ -85,7 +85,7 @@ export function DateSearch({ dateRange, setDateRange }) {
         <div className="search-value">{fmt(current.startDate)}</div>
       </div>
 
-      <div className="separator inner">|</div>
+      <div className="separator2 inner"></div>
 
       <div className="search-item" onClick={() => setIsDateOpen(!isDateOpen)}>
         <div className="search-title">Check out</div>
