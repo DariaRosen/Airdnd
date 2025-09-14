@@ -214,7 +214,7 @@ export function getSuggestedDestinations() {
     },
     {
       title: "Tel Aviv-Yafo, Israel",
-      subtitle: "Because your wishlist has stays in Tel Aviv-Yafo"
+      subtitle: "Because your wishlist has Tel Aviv-Yafo"
     },
     {
       title: "Rome, Italy",

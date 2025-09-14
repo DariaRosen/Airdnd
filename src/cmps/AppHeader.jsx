@@ -145,46 +145,48 @@ export function AppHeader() {
 
       {/* SEARCH BAR */}
 
+      {/* SEARCH BAR */}
       <div className="search-bar">
-        <div className="search-item1" onClick={handleClickItem1}>
-          {/* WHERE */}
-          <LocationSearch
-            ref={inputRef}
-            locationInput={locationInput}
-            setLocationInput={setLocationInput}
-          />
-        </div>
-
-        {/* SEPARATOR */}
-        <div className="separator1"></div>
-
-        <div className="search-item2">
-          {/* CHECK-IN */}
-          <DateSearch type="checkIn" dateRange={dateRange} setDateRange={setDateRange} />
-        </div>
-        {/* SEPARATOR */}
-        <div className="separator2"></div>
-        <div className="search-item3">
-          {/* CHECK-OUT */}
-          <DateSearch type="checkOut" dateRange={dateRange} setDateRange={setDateRange} />
-        </div>
-
-        {/* SEPARATOR */}
-        <div className="separator3"></div>
-
-        {/* WHO + SEARCH ICON */}
-        <div className="search-item4">
-          <GuestSearch guests={guests} setGuests={setGuests} />
-
-          <div className="magnifying-glass-wrapper" onClick={handleSearchClick}>
-            <img
-              src={magnifying_glass}
-              alt="Search"
-              className="magnifying-glass-icon"
+        {/* Group 1: item1 (WHERE) */}
+        <div className="group group-1">
+          <div className="search-item1" onClick={handleClickItem1}>
+            <LocationSearch
+              ref={inputRef}
+              locationInput={locationInput}
+              setLocationInput={setLocationInput}
             />
           </div>
         </div>
+
+        {/* Group 2: separator1 + item2 (CHECK-IN) */}
+        <div className="group group-2">
+          <div className="separator separator1" aria-hidden="true" />
+          <div className="search-item2">
+            <DateSearch type="checkIn" dateRange={dateRange} setDateRange={setDateRange} />
+          </div>
+        </div>
+
+        {/* Group 3: separator2 + item3 (CHECK-OUT) */}
+        <div className="group group-3">
+          <div className="separator separator2" aria-hidden="true" />
+          <div className="search-item3">
+            <DateSearch type="checkOut" dateRange={dateRange} setDateRange={setDateRange} />
+          </div>
+        </div>
+
+        {/* Group 4: separator3 + item4 (WHO + button) */}
+        <div className="group group-4">
+          <div className="separator separator3" aria-hidden="true" />
+          <div className="search-item4">
+            <GuestSearch guests={guests} setGuests={setGuests} />
+
+            <div className="magnifying-glass-wrapper" onClick={handleSearchClick}>
+              <img src={magnifying_glass} alt="Search" className="magnifying-glass-icon" />
+            </div>
+          </div>
+        </div>
       </div>
+
     </section>
   )
 }
