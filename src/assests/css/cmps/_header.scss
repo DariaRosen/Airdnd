@@ -133,7 +133,7 @@
   flex-grow: 1;
   z-index: 100; // keeps it above header base
   cursor: pointer;
-  margin-left: 10px;
+  margin-left: 8px;
 }
 
 .search-title {
@@ -281,7 +281,8 @@
   align-items: center;
   justify-content: center;
   white-space: nowrap;
-  flex: 1;
+  flex: unset; /* stop flex growing equally */
+  width: 244px;
   min-width: 0;
   flex-grow: 1;
   z-index: 100; // keeps it above header base
@@ -292,8 +293,8 @@
   height: 100%;
   &:hover,
   &:focus-within {
-    box-shadow: 0 0 0 3px #dddddd;
-    background-color: #dddddd;
+    // box-shadow: 0 0 0 3px #ebebeb;
+    background-color: #ebebeb;
     z-index: 1;
   }
 }
@@ -303,7 +304,8 @@
   align-items: center;
   justify-content: center;
   white-space: nowrap;
-  flex: 1;
+  flex: unset; /* stop flex growing equally */
+  width: 109px;
   min-width: 0;
   flex-grow: 1;
   z-index: 100; // keeps it above header base
@@ -312,10 +314,11 @@
   // padding: 6px 12px;
   transition: box-shadow 0.2s ease, background-color 0.2s ease;
   height: 100%;
+  text-indent: 19px;
   &:hover,
   &:focus-within {
-    box-shadow: 0 0 0 3px #dddddd;
-    background-color: #dddddd;
+    // box-shadow: 0 0 0 3px #ebebeb;
+    background-color: #ebebeb;
     z-index: 1;
   }
 }
@@ -325,7 +328,8 @@
   align-items: center;
   justify-content: center;
   white-space: nowrap;
-  flex: 1;
+  flex: unset; /* stop flex growing equally */
+  width: 109px;
   min-width: 0;
   flex-grow: 1;
   z-index: 100; // keeps it above header base
@@ -334,10 +338,11 @@
   // padding: 6px 12px;
   transition: box-shadow 0.2s ease, background-color 0.2s ease;
   height: 100%;
+  text-indent: 19px;
   &:hover,
   &:focus-within {
-    box-shadow: 0 0 0 3px #dddddd;
-    background-color: #dddddd;
+    // box-shadow: 0 0 0 3px #ebebeb;
+    background-color: #ebebeb;
     z-index: 1;
   }
 }
@@ -348,7 +353,8 @@
   align-items: center;
   justify-content: center;
   white-space: nowrap;
-  flex: 1;
+  flex: unset; /* stop flex growing equally */
+  width: 243px;
   min-width: 0;
   flex-grow: 1;
   z-index: 100; // keeps it above header base
@@ -358,10 +364,11 @@
   transition: box-shadow 0.2s ease, background-color 0.2s ease;
   flex-direction: row;
   height: 100%;
+  text-indent: 19px;
   &:hover,
   &:focus-within {
-    box-shadow: 0 0 0 3px #dddddd;
-    background-color: #dddddd;
+    // box-shadow: 0 0 0 3px #ebebeb;
+    background-color: #ebebeb;
     z-index: 1;
   }
 }
@@ -403,3 +410,4 @@
   padding-top: unset;
   border-top-width: 10px;
 }
+
