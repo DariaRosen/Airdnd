@@ -1,0 +1,69 @@
+.search-bar.full {
+  display: flex;
+  align-items: center;
+  border: 1px solid #c83030;
+  border-radius: 999px;
+  background: #b41c1c;
+  overflow: hidden; /* keeps rounded edges */
+  padding: 0 4px;
+}
+
+/* Each ellipse section */
+.search-bar.full .item {
+  flex: 1;
+  padding: 10px 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-radius: 999px;
+  transition: background-color 0.2s ease;
+}
+
+.search-bar.full .item:hover {
+  background-color: #df4848; /* light gray hover */
+}
+
+/* Labels (Where, Check in, etc.) */
+.search-bar.full .item span {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #555;
+  margin-bottom: 2px;
+}
+
+/* Inputs */
+.search-bar.full .item input {
+  border: none;
+  outline: none;
+  font-size: 0.9rem;
+  background: transparent;
+  color: #222;
+}
+
+/* Vertical line separators */
+.search-bar.full .divider {
+  width: 1px;
+  background-color: #ddd;
+  height: 32px;
+}
+
+/* Search button */
+.search-bar.full .search-btn {
+  margin-left: 8px;
+  background: #ff385c; /* Airbnb pink */
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  transition: background-color 0.2s ease;
+}
+
+.search-bar.full .search-btn:hover {
+  background-color: #e03150; /* darker pink hover */
+}

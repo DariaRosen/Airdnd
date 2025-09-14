@@ -1,57 +1,87 @@
 .reviews {
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* two columns */
+  gap: 2rem 3rem; /* vertical & horizontal spacing */
 }
 
 .review-item {
-  border-bottom: 1px solid #eee;
-  padding: 1rem 0;
+  border: none; /* remove bottom border for a cleaner Airbnb style */
+  padding: 0;
 }
 
 .review-header {
   display: flex;
   align-items: center;
   gap: 1rem;
+  margin-bottom: 0.5rem;
 }
 
 .review-header h4 {
   margin: 0;
-  font-size: 1rem;
+  font-size: 16px;
   font-weight: 600;
 }
 
 .review-header span {
-  color: #888;
-  font-size: 0.9rem;
+  display: block;
+  color: #555;
+  font-size: 14px;
 }
 
 .review-meta {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
-  font-size: 0.9rem;
-  margin: 0.5rem 0;
+  font-size: 0.85rem;
+  margin: 0.3rem 0 0.5rem;
   color: #555;
 }
 
 .review-stars {
   display: flex;
-  gap: 2px;
+  color: #000; /* Airbnb pink */
+  font-size: 9px;
 }
 
+.review-timeAgo {
+  font-size: 14px;
+  font-weight: 600;
+  color: #222;
+}
+
+.review-dot {
+  margin: 0 6px;
+  font-weight: bold;
+  color: #555;
+}
+
+.review-stayDuration {
+  font-size: 14px;
+}
 .review-comment {
-  margin-top: 0.5rem;
-  font-size: 0.95rem;
+  font-size: 16px;
   line-height: 1.4;
+  color: #222;
 }
 
 .review-toggle {
   background: none;
   border: none;
-  color: #ff5a5f;
+  color: #000;
+  font-weight: 500;
   cursor: pointer;
   padding: 0;
-  font-size: 0.9rem;
+  font-size: 16px;
   margin-top: 0.3rem;
+  text-decoration: underline;
+}
+.review-toggle:hover {
+  background-color: none; /* stay black on hover */
+  text-decoration: underline; /* keep underline */
+}
+.review-header img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%; /* makes it circular */
+  object-fit: cover;
+  flex-shrink: 0; /* prevent squishing */
 }

@@ -42,11 +42,12 @@ export function Review({ homeId }) {
 export function ReviewItem({ review }) {
     const [expanded, setExpanded] = useState(false)
 
-    const timeAgo = review.date
-        ? formatDistanceToNow(new Date(review.date), { addSuffix: true })
+    const timeAgo = review.createdAt
+        ? formatDistanceToNow(new Date(review.createdAt), { addSuffix: true })
         : ""
 
     const stars = Array.from({ length: review.rating }, (_, i) => i + 1)
+
     // ✅ Airbnb membership time
     let membership = ""
     if (review.user?.createdAt) {
@@ -64,20 +65,34 @@ export function ReviewItem({ review }) {
             }
         }
     }
+
+    const defaultAvatar =
+        "https://res.cloudinary.com/dool6mmp1/image/upload/v1757595867/Capture_igxch6.jpg"
+
     return (
         <article className="review-item">
             <div className="review-header">
-                <h4>{review.user?.firstName} {review.user?.lastName}</h4>
-                {membership && <span>{membership}</span>}
+                <img
+                    src={review.user?.avatar || defaultAvatar}
+                    alt={`${review.user?.firstName} ${review.user?.lastName}`}
+                    className="review-avatar"
+                />
+                <div>
+                    <h4>{review.user?.firstName} {review.user?.lastName}</h4>
+                    {membership && <span>{membership}</span>}
+                </div>
             </div>
 
             <div className="review-meta">
-                <span className="review-stars">
-                    {stars.map((_, i) => (
-                        <FaStar key={i} color="#FF5A5F" />
-                    ))}
-                </span>
-                <span>· {timeAgo}</span>
+                <span className="review-stars"><FaStar className="star-icon" /></span>
+                <span className="review-stars"><FaStar className="star-icon" /></span>
+                <span className="review-stars"><FaStar className="star-icon" /></span>
+                <span className="review-stars"><FaStar className="star-icon" /></span>
+                <span className="review-stars"><FaStar className="star-icon" /></span>
+                <span className="review-dot"> · </span>
+                <span className="review-timeAgo">{timeAgo}</span>
+                <span className="review-dot"> · </span>
+                <span className="review-stayDuration">Stayed one night</span>
             </div>
 
             <p className="review-comment">
@@ -85,13 +100,15 @@ export function ReviewItem({ review }) {
             </p>
 
             {review.comment.length > 150 && (
-                <button
+                <button 
                     className="review-toggle"
                     onClick={() => setExpanded((prev) => !prev)}
                 >
-                    {expanded ? "Show less" : "Read more"}
+                    {expanded ? "Show less" : "Show more"}
                 </button>
             )}
         </article>
     )
 }
+
+

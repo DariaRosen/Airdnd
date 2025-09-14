@@ -249,10 +249,7 @@ export function HomeDetails() {
             </div>
           )}
 
-          {/* Reviews */}
-          <section className="home-reviews">
-            <Review homeId={home._id} />
-          </section>
+
         </section>
 
         <aside className="side-panel">
@@ -260,6 +257,11 @@ export function HomeDetails() {
         </aside>
       </section>
 
+      {/* Reviews */}
+      <section className="home-reviews">
+        <Review homeId={home._id} />
+      </section>
+      
       {/* Modals (Images & Amenities) */}
       {selectedImgIdx !== null && (
         <div className="modal image-modal" onClick={() => setSelectedImgIdx(null)}>

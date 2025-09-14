@@ -195,7 +195,7 @@ export function HostAddListing() {
                         />
                     </fieldset>
 
-                    <button type="submit">Create Listing</button>
+                    <button className="btn-primary" type="submit">Create Listing</button>
                 </form>
             </div>
         </section>
