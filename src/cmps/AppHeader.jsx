@@ -43,7 +43,12 @@ export function AppHeader() {
   })
 
   const whereRef = useRef()
+  const inputRef = useRef(null)
 
+  function handleClickItem1() {
+    // focus input when clicking anywhere in the search-item1
+    if (inputRef.current) inputRef.current.focus()
+  }
   useEffect(() => {
     const handleClickOutside = (e) => {
       if (whereRef.current && !whereRef.current.contains(e.target)) {
@@ -141,30 +146,43 @@ export function AppHeader() {
       {/* SEARCH BAR */}
 
       <div className="search-bar">
-        {/* WHERE */}
-        <LocationSearch
-          locationInput={locationInput}
-          setLocationInput={setLocationInput}
-        />
+        <div className="search-item1" onClick={handleClickItem1}>
+          {/* WHERE */}
+          <LocationSearch
+            ref={inputRef}
+            locationInput={locationInput}
+            setLocationInput={setLocationInput}
+          />
+        </div>
 
         {/* SEPARATOR */}
         <div className="separator1"></div>
 
-        {/* CHECK-IN / CHECK-OUT */}
-        <DateSearch dateRange={dateRange} setDateRange={setDateRange} />
+        <div className="search-item2">
+          {/* CHECK-IN */}
+          <DateSearch type="checkIn" dateRange={dateRange} setDateRange={setDateRange} />
+        </div>
+        {/* SEPARATOR */}
+        <div className="separator2"></div>
+        <div className="search-item3">
+          {/* CHECK-OUT */}
+          <DateSearch type="checkOut" dateRange={dateRange} setDateRange={setDateRange} />
+        </div>
 
         {/* SEPARATOR */}
         <div className="separator3"></div>
 
         {/* WHO + SEARCH ICON */}
-        <GuestSearch guests={guests} setGuests={setGuests} />
+        <div className="search-item4">
+          <GuestSearch guests={guests} setGuests={setGuests} />
 
-        <div className="magnifying-glass-wrapper" onClick={handleSearchClick}>
-          <img
-            src={magnifying_glass}
-            alt="Search"
-            className="magnifying-glass-icon"
-          />
+          <div className="magnifying-glass-wrapper" onClick={handleSearchClick}>
+            <img
+              src={magnifying_glass}
+              alt="Search"
+              className="magnifying-glass-icon"
+            />
+          </div>
         </div>
       </div>
     </section>
