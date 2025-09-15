@@ -5,7 +5,7 @@ import { SET_USER, LOGOUT, REMOVE_USER, SET_USERS } from "./user.reducer.js"
 
 export async function loadUsers() {
   try {
-    const users = await userService.getUsers()
+    const users = await userService.query()
     store.dispatch({ type: SET_USERS, users })
   } catch (err) {
     console.log("user.actions: cannot load users", err)

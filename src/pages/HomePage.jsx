@@ -27,7 +27,6 @@ export function HomePage() {
         await Promise.all([
           loadHomes(),
           loadUsers(),
-          login({ username: "avi", password: "1111" }),
         ])
       } catch (err) {
         console.error(" Error loading data:", err)

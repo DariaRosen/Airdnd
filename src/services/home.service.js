@@ -1,189 +1,113 @@
-import { storageService } from "./async-storage.service"
-import { utilService } from "./util.service"
-import homesData from "../data/homes.json"
-import reviews from "../data/reviews.json"
+import { httpService } from './http.service'
 
 export const homeService = {
   query,
   getById,
   save,
   remove,
-  getEmptyHome,
-  getFormattedDateRange,
-  getFilterFromSearchParams,
-  getHomesByHost,
-  getHomeRating,
   getHomeReviews,
-  getHomeHighlights,
-}
-window.hs = homeService
-
-const STORAGE_KEY = "homesCollection"
-_createHomes()
-
-async function query(filterBy = { txt: "", maxPrice: 0 }) {
-  var homes = await storageService.query(STORAGE_KEY)
-  const { txt, maxPrice, capacity, sortField, sortDir } = filterBy
-
-  if (txt) {
-    const regex = new RegExp(txt, "i")
-    homes = homes.filter(
-      (home) => regex.test(home.title) || regex.test(home.description)
-    )
-  }
-  if (maxPrice) {
-    homes = homes.filter((home) => home.price <= maxPrice)
-  }
-  if (capacity) {
-    homes = homes.filter((home) => home.capacity >= capacity)
-  }
-
-  if (sortField) {
-    homes.sort((a, b) => {
-      const valA = a[sortField]
-      const valB = b[sortField]
-      return (
-        (typeof valA === "string" ? valA.localeCompare(valB) : valA - valB) *
-        +sortDir
-      )
-    })
-  }
-
-  return homes
-
-  // return homes.map(({ _id, title, price, capacity, location }) => ({
-  //   _id,
-  //   title,
-  //   price,
-  //   capacity,
-  //   location,
-  // }))
+  getFormattedDateRange,
+  getFilterFromSearchParams
 }
 
-function getById(homeId) {
-  return storageService.get(STORAGE_KEY, homeId)
+async function query(filterBy = {}) {
+  return httpService.get('home', filterBy)
 }
 
-async function remove(homeId) {
-  await storageService.remove(STORAGE_KEY, homeId)
+async function getById(id) {
+  return httpService.get(`home/${id}`)
 }
 
 async function save(home) {
-  var savedHome
   if (home._id) {
-    savedHome = await storageService.put(STORAGE_KEY, home)
+    const payload = pickDefined(home, [
+      'title', 'description', 'price', 'capacity', 'rooms', 'beds', 'bathrooms', 'type',
+      'imgUrls', 'rating', 'numberOfRaters', 'addedToWishlist', 'guestFavorite',
+      'location', 'amenities', 'highlights', 'unavailableDates', 'lastSearchValue'
+    ])
+    return httpService.put(`home/${home._id}`, payload)
   } else {
-    const homeToSave = {
-      ...home,
-      _id: utilService.makeId(),
-      //host: userService.getLoggedinUser(),
-      unavailableDates: [],
-    }
-    savedHome = await storageService.post(STORAGE_KEY, homeToSave)
-  }
-  return savedHome
-}
-function getDefaultFilter() {
-  return {
-    location: {
-      country: "",
-      city: "",
-      address: "",
-      lat: 0,
-      lng: 0,
-    },
-    checkIn: "",
-    checkOut: "",
-    capacity: 0,
+    return httpService.post('home', home)
   }
 }
+
+async function remove(id) {
+  return httpService.del(`home/${id}`)
+}
+
+export async function getHomeReviews(homeId) {
+  if (!homeId) throw new Error('homeId is required')
+  const res = await httpService.get('review', { homeId })
+  const list = Array.isArray(res) ? res : (res?.items || [])
+  return list
+}
+
+export function getFormattedDateRange(checkIn, checkOut) {
+  const toDate = v => v ? new Date(v) : null
+
+  let inDate = toDate(checkIn)
+  let outDate = toDate(checkOut)
+
+  if (!inDate || !outDate) {
+    const now = new Date()
+    inDate = new Date(now.getFullYear(), now.getMonth(), now.getDate() + 14)
+    outDate = new Date(inDate.getFullYear(), inDate.getMonth(), inDate.getDate() + 2)
+  }
+
+  const fmt = d => ({
+    m: d.toLocaleString('en-US', { month: 'short' }),
+    day: d.getDate()
+  })
+
+  const a = fmt(inDate)
+  const b = fmt(outDate)
+
+  return a.m === b.m
+    ? `${a.m} ${a.day}–${b.day}`
+    : `${a.m} ${a.day} – ${b.m} ${b.day}`
+}
+
 function getFilterFromSearchParams(searchParams) {
-  const defaultFilter = getDefaultFilter()
-  const filterBy = {}
-  for (const field in defaultFilter) {
-    filterBy[field] = searchParams.get(field) || ""
-  }
-  return filterBy
-}
+  const sp = typeof searchParams === 'string'
+    ? new URLSearchParams(searchParams)
+    : searchParams
 
-function getEmptyHome() {
+  const locationStr = sp.get('location') || ''
+  let city = ''
+  let country = ''
+
+  if (locationStr.includes(',')) {
+    const [c1, c2] = locationStr.split(',')
+    city = (c1 || '').trim()
+    country = (c2 || '').trim()
+  } else {
+    city = locationStr.trim()
+  }
+
+  const num = v => {
+    const n = Number(v)
+    return Number.isFinite(n) ? n : undefined
+  }
+
   return {
-    title: "",
-    description: "",
-    price: utilService.getRandomIntInclusive(100, 1000),
-    capacity: utilService.getRandomIntInclusive(1, 10),
-    rooms: utilService.getRandomIntInclusive(1, 5),
-    beds: utilService.getRandomIntInclusive(1, 5),
-    bathrooms: utilService.getRandomIntInclusive(1, 5),
-    type: "apartment",
-    imgUrls: [],
-    rating: 0,
-    numberOfRaters: 0,
-    guestFavorite: false,
-    location: {
-      country: "",
-      city: "",
-      address: "",
-      lat: 0,
-      lng: 0,
-    },
-    amenities: [],
-    //host: userService.getLoggedinUser(),
-    //msgs: [], maybe if we want will add this with reviews
-    unavailableDates: [],
-    createdAt: Date.now(),
+    location: locationStr,
+    city,
+    country,
+    checkIn: sp.get('checkIn') || '',
+    checkOut: sp.get('checkOut') || '',
+    guests: num(sp.get('guests')) || 0,
+    capacity: num(sp.get('capacity')),
+    minPrice: num(sp.get('minPrice')),
+    maxPrice: num(sp.get('maxPrice')),
+    type: sp.get('type') || '',
+    txt: sp.get('txt') || '',
+    sortField: sp.get('sortField') || '',
+    sortDir: sp.get('sortDir') || ''
   }
 }
 
-export function getFormattedDateRange(offsetDays = 2) {
-  const today = new Date()
-  const futureDate = new Date()
-  futureDate.setDate(today.getDate() + offsetDays)
-
-  const optionsMonth = { month: "short" }
-  const optionsDay = { day: "numeric" }
-
-  const month = today.toLocaleDateString("en-US", optionsMonth)
-  const startDay = today.toLocaleDateString("en-US", optionsDay)
-  const endDay = futureDate.toLocaleDateString("en-US", optionsDay)
-
-  return `${month} ${startDay}–${endDay}`
-}
-
-async function _createHomes() {
-  let homes = utilService.loadFromStorage(STORAGE_KEY)
-
-  if (!homes || !homes.length) {
-    homes = homesData
-    // homes = await utilService.updateHomeImageUrlsFromCloudinary(homes);
-    utilService.saveToStorage(STORAGE_KEY, homes)
-  }
-}
-
-async function getHomesByHost(hostId) {
-  const homes = await query()
-  return homes.filter(home => home.host_id === hostId)
-}
-
-async function getHomeReviews(homeId) {
-  // filter reviews from reviews.json by home_id
-  return reviews.filter(review => review.home_id === homeId)
-}
-
-async function getHomeRating(homeId) {
-  const homeReviews = await getHomeReviews(homeId)
-  if (!homeReviews.length) return 0
-  const avg = homeReviews.reduce((sum, r) => sum + r.rating, 0) / homeReviews.length
-  return Math.round(avg * 10) / 10 // round to 1 decimal
-}
-
-async function getHomeHighlights(homeId) {
-  try {
-    const home = await getById(homeId)
-    if (!home) throw new Error(`Home with id ${homeId} not found`)
-    return home.highlights || {}
-  } catch (err) {
-    console.error("Error getting home highlights:", err)
-    throw err
-  }
+function pickDefined(obj, keys) {
+  const out = {}
+  for (const k of keys) if (obj[k] !== undefined) out[k] = obj[k]
+  return out
 }

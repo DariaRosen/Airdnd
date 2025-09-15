@@ -1,257 +1,70 @@
-import { storageService } from "./async-storage.service.js"
-import { utilService } from "./util.service.js"
-import bookingsData from "../data/bookings.json"
+import { httpService } from './http.service'
 
 export const bookingService = {
-  query,
+  create,
+  updateStatus,
   getById,
-  save,
-  remove,
-  getEmptyBooking,
+  query,
   getUserBookings,
-  getHostBookings,
-  updateBookingStatus,
-  groupByMonth,
-  calculateMonthlyStats,
-  calculateTrends
+  getHostBookings
 }
 
-const STORAGE_KEY = "bookingCollection"
-_createBookings()
-
-window.bookingService = bookingService
-
-async function query() {
-  return await storageService.query(STORAGE_KEY)
+const normalize = b => b && {
+  _id: b._id,
+  homeId: b.home_id,
+  guestId: b.guest_id,
+  hostId: b.host_id,
+  checkIn: b.checkIn,
+  checkOut: b.checkOut,
+  pricePerNight: b.pricePerNight,
+  discount: b.discount,
+  tax: b.tax,
+  totalPrice: b.totalPrice,
+  status: b.status,
+  createdAt: typeof b.createdAt === 'number'
+    ? b.createdAt
+    : b._id?.getTimestamp?.()?.getTime?.() || Date.now()
 }
 
-function getById(bookingId) {
-  return storageService.get(STORAGE_KEY, bookingId)
+const denormalize = b => ({
+  home_id: b.homeId,
+  guest_id: b.guestId,
+  host_id: b.hostId,
+  checkIn: b.checkIn,
+  checkOut: b.checkOut,
+  pricePerNight: b.pricePerNight,
+  discount: b.discount,
+  tax: b.tax,
+  totalPrice: b.totalPrice,
+  status: b.status
+})
+
+async function create(b) {
+  console.log(b)
+  const created = await httpService.post('booking', denormalize(b))
+  return normalize(created)
 }
 
-async function remove(bookingId) {
-  return await storageService.remove(STORAGE_KEY, bookingId)
+async function updateStatus(bookingId, status) {
+  const updated = await httpService.put(`booking/${bookingId}`, { status })
+  return normalize(updated)
 }
 
-async function save(booking, checkIn, checkOut) {
-  let savedBooking
-
-  const newBooking = {
-    _id: utilService.makeId(),
-    homeId: booking._id,
-    checkIn,
-    checkOut,
-    createdAt: Date.now()
-  }
-  savedBooking = await storageService.post(STORAGE_KEY, newBooking)
-  return savedBooking
+async function getById(id) {
+  const data = await httpService.get(`booking/${id}`)
+  return normalize(data)
 }
 
-function getEmptyBooking() {
+async function query(filterBy = {}) {
+  const data = await httpService.get('booking', filterBy)
   return {
-    homeId: "",
-    hostId: "",
-    guestId: "",
-    checkIn: "",
-    checkOut: "",
-    pricePerNight: 0,
-    nights: 0,
-    discount: 0,
-    totalPrice: 0,
-    tax: 0,
-    createdAt: Date.now(),
+    ...data,
+    items: Array.isArray(data?.items) ? data.items.map(normalize) : []
   }
 }
-
 async function getUserBookings(userId) {
-  const bookings = await query()
-  return bookings.filter(b => b.guestId === userId)
+  return httpService.get('booking', { guest_id: userId })
 }
-
 async function getHostBookings(hostId) {
-  const bookings = await query()
-  bookings.forEach(b => {
-  });
-
-
-  const a = bookings.filter(b => b.host_id === hostId)
-  return a
-}
-
-// Helpers
-function _createBookings() {
-  let bookings = utilService.loadFromStorage(STORAGE_KEY)
-  if (!bookings || !bookings.length) {
-    bookings = bookingsData
-    utilService.saveToStorage(STORAGE_KEY, bookings)
-  }
-}
-
-function _getDatesInRange(start, end) {
-  const startDate = new Date(start)
-  const endDate = new Date(end)
-  const dates = []
-
-  for (
-    let d = new Date(startDate);
-    d < endDate;
-    d.setDate(d.getDate() + 1)
-  ) {
-    const day = d.getDate().toString().padStart(2, "0")
-    const month = (d.getMonth() + 1).toString().padStart(2, "0")
-    const year = d.getFullYear().toString().slice(2)
-    dates.push(`${day}${month}${year}`) // e.g., "040925"
-  }
-
-  return dates
-}
-
-async function updateBookingStatus(bookingId, newStatus) {
-  try {
-    const bookings = await query()
-    const idx = bookings.findIndex(b => b._id === bookingId)
-    if (idx === -1) throw new Error("Booking not found")
-
-    bookings[idx].status = newStatus
-    utilService.saveToStorage(STORAGE_KEY, bookings)
-    return bookings[idx] // return the updated booking
-  } catch (err) {
-    console.error("bookingService.updateBookingStatus error:", err)
-    throw err
-  }
-}
-
-function groupByMonth(bookings) {
-  return bookings.reduce((acc, b) => {
-    const d = new Date(b.checkIn)
-    const key = `${d.getFullYear()}-${d.getMonth() + 1}`
-    if (!acc[key]) acc[key] = []
-    acc[key].push(b)
-    return acc
-  }, {})
-}
-
-function calculateMonthlyStats(bookings) {
-  const months = groupByMonth(bookings)
-
-  const statsByMonth = {}
-  for (const [month, monthBookings] of Object.entries(months)) {
-    const income = monthBookings
-      .filter(b => b.status.toLowerCase() === "paid")
-      .reduce((sum, b) => sum + b.totalPrice, 0)
-
-    const totalBookings = monthBookings.length
-    const canceled = monthBookings.filter(
-      b => b.status.toLowerCase().includes("canceled")
-    ).length
-
-    statsByMonth[month] = { income, totalBookings, canceled }
-  }
-  return statsByMonth
-}
-
-function calculateTrends(bookings) {
-  const now = new Date()
-  const thisMonth = now.getMonth()
-  const thisYear = now.getFullYear()
-
-  // Current month bookings
-  const currentMonthBookings = bookings.filter(b => {
-    const checkIn = new Date(b.checkIn)
-    return (
-      checkIn.getMonth() === thisMonth &&
-      checkIn.getFullYear() === thisYear
-    )
-  })
-
-  // Paid bookings only
-  const currentMonthPaidBookings = bookings.filter(b => {
-    const checkIn = new Date(b.checkIn)
-    return (
-      checkIn.getMonth() === thisMonth &&
-      checkIn.getFullYear() === thisYear &&
-      b.status.toLowerCase() === "paid"
-    )
-  })
-
-  // Monthly stats (for income + averages)
-  const statsByMonth = calculateMonthlyStats(bookings)
-  const months = Object.keys(statsByMonth).sort()
-
-  if (months.length === 0) {
-    return {
-      income: 0,
-      totalBookings: 0,
-      cancellationRate: 0,
-      incomeChange: 0,
-      totalBookingsChange: 0,
-      cancellationChange: 0
-    }
-  }
-
-  // Current month summary
-  const current = {
-    income: currentMonthPaidBookings.reduce(
-      (sum, b) => sum + (Number(b.totalPrice) || 0),
-      0
-    ),
-    totalBookings: currentMonthBookings.length,
-    canceled: currentMonthBookings.filter(b =>
-      b.status && b.status.toLowerCase().includes("canceled")
-    ).length
-  }
-
-  // Past months averages
-  const pastMonths = months.slice(0, -1)
-  const pastAverages = pastMonths.length
-    ? {
-      income: pastMonths.reduce((sum, m) => sum + statsByMonth[m].income, 0) / pastMonths.length,
-      totalBookings: pastMonths.reduce((sum, m) => sum + statsByMonth[m].totalBookings, 0) / pastMonths.length,
-      canceled: pastMonths.reduce((sum, m) => sum + statsByMonth[m].canceled, 0) / pastMonths.length,
-    }
-    : { income: 0, totalBookings: 0, canceled: 0 }
-
-  // 📊 Cancellation (all bookings)
-  const totalBookingsAll = bookings.length
-  const canceledAll = bookings.filter(b =>
-    b.status && b.status.toLowerCase().includes("canceled")
-  ).length
-
-  const cancellationRate = totalBookingsAll
-    ? (canceledAll / totalBookingsAll) * 100
-    : 0
-
-  // 📊 Past-only cancellation (exclude current month)
-  const pastBookingsOnly = bookings.filter(b => {
-    const checkIn = new Date(b.checkIn)
-    return (
-      checkIn.getFullYear() < thisYear ||
-      (checkIn.getFullYear() === thisYear && checkIn.getMonth() < thisMonth)
-    )
-  })
-
-  const totalPastBookings = pastBookingsOnly.length
-  const canceledPastBookings = pastBookingsOnly.filter(b =>
-    b.status && b.status.toLowerCase().includes("canceled")
-  ).length
-
-  const avgCancellationRate = totalPastBookings
-    ? (canceledPastBookings / totalPastBookings) * 100
-    : 0
-
-  // Final trends object
-  return {
-    income: current.income,
-    totalBookings: current.totalBookings,
-    cancellationRate, // ✅ all-time cancellation %
-    incomeChange: pastAverages.income
-      ? ((current.income - pastAverages.income) / pastAverages.income) * 100
-      : 0,
-    totalBookingsChange: pastAverages.totalBookings
-      ? ((current.totalBookings - pastAverages.totalBookings) / pastAverages.totalBookings) * 100
-      : 0,
-    cancellationChange: avgCancellationRate
-      ? ((cancellationRate - avgCancellationRate) / avgCancellationRate) * 100
-      : 0,
-  }
+  return httpService.get('booking', { host_id: hostId })
 }

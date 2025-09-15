@@ -27,38 +27,42 @@ export function HomeDetails() {
   }, [params.homeId])
 
   async function loadHome() {
-    try {
-      const homeData = await homeService.getById(params.homeId)
-      setHome(homeData)
+  try {
+    const homeData = await homeService.getById(params.homeId)
+    setHome(homeData)
 
-      // Get reviews for this home
-      const reviews = await homeService.getHomeReviews(homeData._id)
+    const reviewsRes = await homeService.getHomeReviews(homeData._id)
+    const reviews = Array.isArray(reviewsRes) ? reviewsRes : reviewsRes?.items || []
+    setReviewsCount(reviews.length)
 
-      // Count reviews
-      setReviewsCount(reviews.length)
+    const reviewsWithUsers = await Promise.all(
+      reviews.map(async r => {
+        try {
+          const user = await userService.getById(r.user_id)
+          return { ...r, user }
+        } catch {
+          return { ...r, user: null }
+        }
+      })
+    )
+    setReviewsWithUsers(reviewsWithUsers)
 
-      // Attach user details to each review
-      const reviewsWithUsers = await Promise.all(
-        reviews.map(async (review) => {
-          const user = await userService.getById(review.user_id)
-          return { ...review, user }
-        })
-      )
-      setReviewsWithUsers(reviewsWithUsers)
+    const avg = reviews.length
+      ? Math.round((reviews.reduce((s, r) => s + (+r.rating || 0), 0) / reviews.length) * 10) / 10
+      : 0
+    setRating(avg)
 
-      // Calculate average rating
-      const avgRating = await homeService.getHomeRating(homeData._id)
-      setRating(avgRating)
-
-      // Load host info
-      if (homeData.host_id) {
+    if (homeData.host_id) {
+      try {
         const hostData = await userService.getById(homeData.host_id)
         setHost(hostData)
-      }
-    } catch (err) {
-      console.log("Error loading home:", err)
+      } catch {}
     }
+  } catch (err) {
+    console.log('Error loading home:', err)
   }
+}
+
 
 
   if (!home)
