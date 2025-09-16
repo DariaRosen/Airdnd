@@ -39,11 +39,8 @@ export function DateSearch({ type, dateRange, setDateRange }) {
     setDateRange([{ startDate: toDate(start), endDate: toDate(end), key: "selection" }])
   }
 
-  const start = mantineValue[0]
-  const end = mantineValue[1]
-
   return (
-    <div className="search-group date-container" ref={dateRef}>
+    <div className={`search-group date-container ${type === "checkIn" ? "check-in" : "check-out"}`} ref={dateRef}>
       <div className="search-item" onClick={() => setIsDateOpen(!isDateOpen)}>
         <div className="search-title">{type === "checkIn" ? "Check in" : "Check out"}</div>
         <div className="search-value">{type === "checkIn" ? fmt(current.startDate) : fmt(current.endDate)}</div>
