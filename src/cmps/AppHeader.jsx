@@ -19,13 +19,12 @@ export function AppHeader() {
     { startDate: null, endDate: null, key: "selection" }
   ])
   const [guests, setGuests] = useState({ adults: 0, children: 0, infants: 0, pets: 0 })
+  const [collapsed, setCollapsed] = useState(false)
 
   const searchBarRef = useRef(null)
   const inputRef = useRef(null)
-  // flow: "location" → "checkIn" → "checkOut" → "guests"
-  const [activeStep, setActiveStep] = useState("location")
+  const [activeStep, setActiveStep] = useState("location") // sequential open
 
-  // Close bar if clicking outside
   useEffect(() => {
     const handleClickOutside = (e) => {
       if (searchBarRef.current && !searchBarRef.current.contains(e.target)) {
@@ -36,24 +35,18 @@ export function AppHeader() {
     return () => document.removeEventListener("mousedown", handleClickOutside)
   }, [])
 
-  // Reset filters when navigating home
   useEffect(() => {
     if (location.pathname === "/") {
       setLocationInput("")
       setDateRange([{ startDate: null, endDate: null, key: "selection" }])
       setGuests({ adults: 0, children: 0, infants: 0, pets: 0 })
+      setCollapsed(false)
     }
   }, [location.pathname])
 
   const debouncedFetchLocations = debounce(async (term) => {
     await utilService.getLocationSuggestions(term)
   }, 300)
-
-  const handleLocationInput = (e) => {
-    const value = e.target.value
-    setLocationInput(value)
-    debouncedFetchLocations(value)
-  }
 
   const handleClickItem1 = () => {
     setActiveItem(1)
@@ -75,13 +68,32 @@ export function AppHeader() {
     const params = new URLSearchParams()
     for (const key in filter) if (filter[key]) params.set(key, filter[key])
 
-    setActiveItem(null) // deactivate search bar
+    setActiveItem(null)
+    setCollapsed(true)
     navigate(`/filter?${params.toString()}`)
   }
 
   const globus = "/Airdnd/icons/globus.svg"
   const select = "/Airdnd/icons/select.svg"
   const magnifying_glass = "/Airdnd/icons/magnifying_glass.svg"
+  // Extract city (text before first comma)
+  const city = locationInput.split(",")[0] || "anywhere"
+
+  // Format dates like "Sep 18-20"
+  let dateText = ""
+  if (dateRange[0].startDate && dateRange[0].endDate) {
+    const start = new Date(dateRange[0].startDate)
+    const end = new Date(dateRange[0].endDate)
+
+    const startMonth = start.toLocaleString("en-US", { month: "short" })
+    const startDay = start.getDate()
+    const endDay = end.getDate()
+
+    dateText = ` | ${startMonth} ${startDay}-${endDay}`
+  }
+  // Collapsed summary text
+  // Final summary
+  const collapsedSummary = `Homes in ${city}${dateText} | ${guests.adults + guests.children} guests`
 
   return (
     <section className="header full">
@@ -114,91 +126,101 @@ export function AppHeader() {
       </div>
 
       {/* SEARCH BAR */}
-      <div ref={searchBarRef} className={`search-bar ${activeItem ? "bar-active" : ""}`}>
-        {/* Group 1: WHERE */}
-        <div className="group group-1">
-          <div
-            className={`search-item1 ${activeItem === 1 ? "active" : ""}`}
-            onClick={handleClickItem1}
-            role="button"
-            tabIndex={0}
-            onKeyDown={(e) => e.key === "Enter" && handleClickItem1()}
-          >
-            <LocationSearch
-              ref={inputRef}
-              locationInput={locationInput}
-              setLocationInput={setLocationInput}
-              onLocationSelected={() => setActiveStep("checkIn")}
-            />
-          </div>
+      {collapsed ? (
+        <div
+          className="search-bar collapsed"
+          onClick={() => setCollapsed(false)}
+          role="button"
+          tabIndex={0}
+        >
+          <div className="collapsed-summary">{collapsedSummary}</div>
         </div>
-
-        {/* Group 2: CHECK-IN */}
-        <div className="group group-2">
-          <div className="separator separator1" />
-          <div
-            className={`search-item2 ${activeItem === 2 ? "active" : ""}`}
-            onClick={() => handleItemClick(2)}
-          >
-            <DateSearch
-              type="checkIn"
-              dateRange={dateRange}
-              setDateRange={setDateRange}
-              forceOpen={activeStep === "checkIn"}
-              onDateSelected={() => setActiveStep("checkOut")}
-            />
-          </div>
-        </div>
-
-        {/* Group 3: CHECK-OUT */}
-        <div className="group group-3">
-          <div className="separator separator2" />
-          <div
-            className={`search-item3 ${activeItem === 3 ? "active" : ""}`}
-            onClick={() => handleItemClick(3)}
-          >
-            <DateSearch
-              type="checkOut"
-              dateRange={dateRange}
-              setDateRange={setDateRange}
-              forceOpen={activeStep === "checkOut"}
-              onDateSelected={() => setActiveStep("guests")}
-            />
-          </div>
-        </div>
-
-        {/* Group 4: GUESTS + SEARCH BUTTON */}
-        <div className="group group-4">
-          <div className="separator separator3" />
-          <div
-            className={`search-item4 ${activeItem === 4 ? "active" : ""}`}
-            onClick={() => handleItemClick(4)}
-          >
-            <GuestSearch guests={guests} setGuests={setGuests} />
-
+      ) : (
+        <div ref={searchBarRef} className={`search-bar ${activeItem ? "bar-active" : ""}`}>
+          {/* Group 1: WHERE */}
+          <div className="group group-1">
             <div
-              className={`magnifying-glass-wrapper ${activeItem ? "expanded" : ""}`}
-              onClick={(e) => {
-                e.stopPropagation()
-                handleSearchClick()
-                setActiveItem(null)
-              }}
+              className={`search-item1 ${activeItem === 1 ? "active" : ""}`}
+              onClick={handleClickItem1}
               role="button"
               tabIndex={0}
-              onKeyDown={(e) => e.key === "Enter" && handleSearchClick()}
+              onKeyDown={(e) => e.key === "Enter" && handleClickItem1()}
             >
-              {activeItem ? (
-                <span className="search-label">
+              <LocationSearch
+                ref={inputRef}
+                locationInput={locationInput}
+                setLocationInput={setLocationInput}
+                onLocationSelected={() => setActiveStep("checkIn")}
+              />
+            </div>
+          </div>
+
+          {/* Group 2: CHECK-IN */}
+          <div className="group group-2">
+            <div className="separator separator1" />
+            <div
+              className={`search-item2 ${activeItem === 2 ? "active" : ""}`}
+              onClick={() => handleItemClick(2)}
+            >
+              <DateSearch
+                type="checkIn"
+                dateRange={dateRange}
+                setDateRange={setDateRange}
+                forceOpen={activeStep === "checkIn"}
+                onDateSelected={() => setActiveStep("checkOut")}
+              />
+            </div>
+          </div>
+
+          {/* Group 3: CHECK-OUT */}
+          <div className="group group-3">
+            <div className="separator separator2" />
+            <div
+              className={`search-item3 ${activeItem === 3 ? "active" : ""}`}
+              onClick={() => handleItemClick(3)}
+            >
+              <DateSearch
+                type="checkOut"
+                dateRange={dateRange}
+                setDateRange={setDateRange}
+                forceOpen={activeStep === "checkOut"}
+                onDateSelected={() => setActiveStep("guests")}
+              />
+            </div>
+          </div>
+
+          {/* Group 4: GUESTS + SEARCH BUTTON */}
+          <div className="group group-4">
+            <div className="separator separator3" />
+            <div
+              className={`search-item4 ${activeItem === 4 ? "active" : ""}`}
+              onClick={() => handleItemClick(4)}
+            >
+              <GuestSearch guests={guests} setGuests={setGuests} />
+
+              <div
+                className={`magnifying-glass-wrapper ${activeItem ? "expanded" : ""}`}
+                onClick={(e) => {
+                  e.stopPropagation()
+                  handleSearchClick()
+                }}
+                role="button"
+                tabIndex={0}
+                onKeyDown={(e) => e.key === "Enter" && handleSearchClick()}
+              >
+                {activeItem ? (
+                  <span className="search-label">
+                    <img src={magnifying_glass} alt="Search" className="magnifying-glass-icon" />
+                    <span>Search</span>
+                  </span>
+                ) : (
                   <img src={magnifying_glass} alt="Search" className="magnifying-glass-icon" />
-                  <span>Search</span>
-                </span>
-              ) : (
-                <img src={magnifying_glass} alt="Search" className="magnifying-glass-icon" />
-              )}
+                )}
+              </div>
             </div>
           </div>
         </div>
-      </div>
+      )}
     </section>
   )
 }
