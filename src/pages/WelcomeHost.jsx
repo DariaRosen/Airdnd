@@ -16,7 +16,7 @@ import {
 
 export function WelcomeHost() {
     const navigate = useNavigate()
-    const user = { _id: "b1", firstName: "Harry" }
+    const user = { _id: "68c242e0ac0d57e02713467f", firstName: "Harry" }
 
     const [hostBookings, setHostBookings] = useState([])
     const [stats, setStats] = useState({
@@ -31,10 +31,14 @@ export function WelcomeHost() {
         activeListings: 0,
         newMessages: 35, // hardcoded for now
     })
+    const asArray = v => Array.isArray(v) ? v : (Array.isArray(v?.items) ? v.items : [])
+
 
     useEffect(() => {
         async function loadAllStats() {
-            const bookings = await bookingService.getHostBookings(user._id)
+            const bookingsRes = await bookingService.getHostBookings(user._id)
+            const bookings = asArray(bookingsRes)
+
             setHostBookings(bookings)
 
             const validBookings = bookings.filter(
@@ -58,7 +62,8 @@ export function WelcomeHost() {
             const canceledByGuest = bookings.filter(b => b.status.toLowerCase().replace(/\s+/g, "-") === "canceled-by-guest").length
 
             // Homes
-            const userHomes = await homeService.getHomesByHost(user._id)
+            const userHomesRes = await homeService.getHomesByHost(user._id)
+            const userHomes = asArray(userHomesRes)
             const ratings = await Promise.all(userHomes.map(h => homeService.getHomeRating(h._id)))
             const validRatings = ratings.filter(r => typeof r === "number")
             const avgRating = validRatings.length ? validRatings.reduce((sum, r) => sum + r, 0) / validRatings.length : 0

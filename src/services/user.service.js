@@ -39,7 +39,6 @@ function remove(userId) {
 // }
 async function login() {
   const user = await httpService.get(`user/68c242e0ac0d57e02713467f`)
-  console.log(user)
   return user
 }
 
