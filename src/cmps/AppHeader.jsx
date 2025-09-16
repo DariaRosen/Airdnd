@@ -153,7 +153,7 @@ export function AppHeader() {
             <GuestSearch guests={guests} setGuests={setGuests} />
 
             <div
-              className="magnifying-glass-wrapper"
+              className={`magnifying-glass-wrapper ${activeItem ? "expanded" : ""}`}
               onClick={(e) => {
                 e.stopPropagation()
                 handleSearchClick()
@@ -163,8 +163,17 @@ export function AppHeader() {
               tabIndex={0}
               onKeyDown={(e) => e.key === "Enter" && handleSearchClick()}
             >
-              <img src={magnifying_glass} alt="Search" className="magnifying-glass-icon" />
+              {activeItem ? (
+                <span className="search-label">
+                  <img src={magnifying_glass} alt="Search" className="magnifying-glass-icon" />
+                  <span>Search</span>
+                </span>
+              ) : (
+                <img src={magnifying_glass} alt="Search" className="magnifying-glass-icon" />
+              )}
             </div>
+
+
           </div>
         </div>
       </div>
