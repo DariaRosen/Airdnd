@@ -76,6 +76,7 @@ export function AppHeader() {
   const globus = "/Airdnd/icons/globus.svg"
   const select = "/Airdnd/icons/select.svg"
   const magnifying_glass = "/Airdnd/icons/magnifying_glass.svg"
+  const homeIcon = "/Airdnd/icons/home-icon.jpg"
   // Extract city (text before first comma)
   const city = locationInput.split(",")[0] || "anywhere"
 
@@ -133,6 +134,14 @@ export function AppHeader() {
           role="button"
           tabIndex={0}
         >
+          <video
+            src="/Airdnd/icons/house-twirl.webm" // adjust path
+            className="home-icon-video"
+            muted
+            loop
+            playsInline
+            preload="metadata"
+          />
           <div className="collapsed-summary">{collapsedSummary}</div>
         </div>
       ) : (

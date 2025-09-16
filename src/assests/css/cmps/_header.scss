@@ -284,6 +284,8 @@
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  font-size: 14px;
+  font-weight: 500;
 }
 
 .search-option {
@@ -569,4 +571,35 @@
 .search-item4.active {
   background-color: #fff !important;
   box-shadow: 0 0 0 1px #ddd inset;
+}
+
+.home-icon-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+}
+
+.home-icon-video {
+  width: 55px;
+  height: 55px;
+  object-fit: contain;
+  pointer-events: none; /* so video doesn’t block clicks */
+  transform-origin: center;
+  animation: none;
+}
+
+/* Play on hover */
+.home-icon-wrapper:hover .home-icon-video {
+  animation: spin 1s linear infinite;
+}
+
+/* Optional simple spin keyframes */
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
