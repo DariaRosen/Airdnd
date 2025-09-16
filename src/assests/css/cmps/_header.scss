@@ -199,7 +199,9 @@
   top: calc(100% + 16px);
   left: 0;
   width: calc(190% + 10px); // ✅ fixed: valid calc() syntax
-  padding: 30px;
+  padding-left: 30px;
+  padding-bottom: 30px;
+  padding-top: 30px;
   background: #fff;
   border: 1px solid #ccc;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
@@ -208,19 +210,36 @@
   max-width: 430px;
   overflow-y: auto;
   border-radius: 40px;
+  overflow: hidden; /* ✅ force scrollbar inside rounded edges */
+  margin-top: 7px;
 }
 /* Chrome, Edge, Safari */
 .search-dropdown::-webkit-scrollbar {
-  width: 6px;              /* make scrollbar skinny */
+  width: 6px; /* make scrollbar skinny */
 }
 .search-dropdown::-webkit-scrollbar-track {
-  background: transparent;  /* track invisible */
+  background: transparent; /* track invisible */
 }
+.search-dropdown-inner {
+  max-height: 400px;
+  overflow-y: auto;
+  padding-right: 12px;
 
-.search-dropdown::-webkit-scrollbar-thumb {
-  background-color: rgba(0,0,0,0.4);
+  /* scrollbar styling */
+  scrollbar-width: thin;
+  scrollbar-color: rgba(0,0,0,0.4) transparent;
+}
+.search-dropdown-inner::-webkit-scrollbar {
+  width: 6px;
+}
+.search-dropdown-inner::-webkit-scrollbar-thumb {
+  background: rgba(0,0,0,0.4);
   border-radius: 6px;
-  min-height: 40px;         /* ⬅️ minimum thumb height */
+}
+.search-dropdown::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.4);
+  border-radius: 6px;
+  min-height: 40px; /* ⬅️ minimum thumb height */
   max-height: 400px;
 }
 .search-option {
@@ -443,10 +462,18 @@
 }
 
 /* ensure search-items still take full height and appear as pills */
-.group .search-item1{width: 280px;}
-.group .search-item2{width: 144px;}
-.group .search-item3{width: 144px;}
-.group .search-item4{width: 275px;}
+.group .search-item1 {
+  width: 280px;
+}
+.group .search-item2 {
+  width: 144px;
+}
+.group .search-item3 {
+  width: 144px;
+}
+.group .search-item4 {
+  width: 277px;
+}
 .group .search-item {
   height: 100%;
   display: flex;
@@ -464,8 +491,9 @@
 }
 
 .group:hover .separator,            /* separator inside the hovered group */
-.group:hover + .group .separator {  /* separator in the next group (right-side separator) */
-  background-color: transparent;        /* Airbnb pink highlight */
+.group:hover + .group .separator {
+  /* separator in the next group (right-side separator) */
+  background-color: transparent; /* Airbnb pink highlight */
 }
 
 /* keep magnifying button from affecting layout height */
@@ -481,5 +509,6 @@
 }
 
 /* optional smaller separator color transition for better feel */
-.separator { transition: background-color 0.14s ease, transform 0.14s ease; }
-
+.separator {
+  transition: background-color 0.14s ease, transform 0.14s ease;
+}

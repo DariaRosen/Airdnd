@@ -54,51 +54,46 @@ export function LocationSearch({ locationInput, setLocationInput }) {
         />
         {isLocationOpen && (
           <div className="search-dropdown">
-            {isTyping ? (
-              <ul className="suggestions-list">
-                {locationSuggestions.map((loc, idx) => (
-                  <li
-                    key={idx}
-                    className="suggestion-item"
-                    onClick={() => handleLocationSelect(loc)}
-                  >
-                    <img
-                      src="/Airdnd/public/icons/locationdrop.svg"
-                      alt="location img"
-                      className="suggestion-icon small-icon"
-                    />
-                    <div className="suggestion-title">{loc}</div>
-                  </li>
-                ))}
-              </ul>
-            ) : (
-              <>
-                <div className="search-suggestion-destinations">
-                  Suggested destinations
-                </div>
+            <div className="search-dropdown-inner">
+              {isTyping ? (
                 <ul className="suggestions-list">
-                  {getSuggestedDestinations().map(({ title, subtitle }, idx) => (
-                    <li
-                      key={idx}
-                      className="suggestion-item"
-                      onClick={() => handleLocationSelect(title)}
-                    >
+                  {locationSuggestions.map((loc, idx) => (
+                    <li key={idx} className="suggestion-item" onClick={() => handleLocationSelect(loc)}>
                       <img
-                        src={utilService.getImageSrcForTitle(title)}
-                        alt={title}
-                        className="suggestion-icon"
+                        src="/Airdnd/public/icons/locationdrop.svg"
+                        alt="location img"
+                        className="suggestion-icon small-icon"
                       />
-                      <div>
-                        <div className="suggestion-title">{title}</div>
-                        <div className="suggestion-subtitle">{subtitle}</div>
-                      </div>
+                      <div className="suggestion-title">{loc}</div>
                     </li>
                   ))}
                 </ul>
-              </>
-            )}
+              ) : (
+                <>
+                  <div className="search-suggestion-destinations">
+                    Suggested destinations
+                  </div>
+                  <ul className="suggestions-list">
+                    {getSuggestedDestinations().map(({ title, subtitle }, idx) => (
+                      <li key={idx} className="suggestion-item" onClick={() => handleLocationSelect(title)}>
+                        <img
+                          src={utilService.getImageSrcForTitle(title)}
+                          alt={title}
+                          className="suggestion-icon"
+                        />
+                        <div>
+                          <div className="suggestion-title">{title}</div>
+                          <div className="suggestion-subtitle">{subtitle}</div>
+                        </div>
+                      </li>
+                    ))}
+                  </ul>
+                </>
+              )}
+            </div>
           </div>
         )}
+
       </div>
     </div>
   )
