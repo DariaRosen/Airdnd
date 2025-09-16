@@ -1,12 +1,13 @@
-import { useRef, useState, useEffect } from "react"
+import { useRef, useState, useEffect, forwardRef } from "react"
 import { debounce, utilService, getSuggestedDestinations } from "../services/util.service"
 
-export function LocationSearch({ locationInput, setLocationInput }) {
+export const LocationSearch = forwardRef(({ locationInput, setLocationInput }, ref) => {
   const [locationSuggestions, setLocationSuggestions] = useState([])
   const [isTyping, setIsTyping] = useState(false)
   const [isLocationOpen, setIsLocationOpen] = useState(false)
   const whereRef = useRef()
 
+  // Close dropdown if clicked outside
   useEffect(() => {
     const handleClickOutside = (e) => {
       if (whereRef.current && !whereRef.current.contains(e.target)) {
@@ -17,7 +18,9 @@ export function LocationSearch({ locationInput, setLocationInput }) {
     return () => document.removeEventListener("mousedown", handleClickOutside)
   }, [])
 
+  // Debounced fetch
   const debouncedFetchLocations = debounce(async (term) => {
+    if (!term) return setLocationSuggestions([])
     const locations = await utilService.getLocationSuggestions(term)
     setLocationSuggestions(locations)
   }, 300)
@@ -36,8 +39,8 @@ export function LocationSearch({ locationInput, setLocationInput }) {
   }
 
   return (
-    <div className="search-group location-container">
-      <div className="search-item" ref={whereRef}>
+    <div className="search-group location-container" ref={whereRef}>
+      <div className="search-item">
         <div
           className="search-title clickable"
           onClick={() => setIsLocationOpen(!isLocationOpen)}
@@ -46,22 +49,28 @@ export function LocationSearch({ locationInput, setLocationInput }) {
         </div>
         <input
           type="text"
+          ref={ref} // forwarded ref
           className="search-input"
           placeholder="Search destinations"
           value={locationInput}
           onChange={handleLocationInput}
           onFocus={() => setIsLocationOpen(true)}
         />
+
         {isLocationOpen && (
           <div className="search-dropdown">
             <div className="search-dropdown-inner">
               {isTyping ? (
                 <ul className="suggestions-list">
                   {locationSuggestions.map((loc, idx) => (
-                    <li key={idx} className="suggestion-item" onClick={() => handleLocationSelect(loc)}>
+                    <li
+                      key={idx}
+                      className="suggestion-item"
+                      onClick={() => handleLocationSelect(loc)}
+                    >
                       <img
-                        src="/Airdnd/public/icons/locationdrop.svg"
-                        alt="location img"
+                        src="/Airdnd/icons/locationdrop.svg"
+                        alt="location icon"
                         className="suggestion-icon small-icon"
                       />
                       <div className="suggestion-title">{loc}</div>
@@ -75,7 +84,11 @@ export function LocationSearch({ locationInput, setLocationInput }) {
                   </div>
                   <ul className="suggestions-list">
                     {getSuggestedDestinations().map(({ title, subtitle }, idx) => (
-                      <li key={idx} className="suggestion-item" onClick={() => handleLocationSelect(title)}>
+                      <li
+                        key={idx}
+                        className="suggestion-item"
+                        onClick={() => handleLocationSelect(title)}
+                      >
                         <img
                           src={utilService.getImageSrcForTitle(title)}
                           alt={title}
@@ -93,8 +106,7 @@ export function LocationSearch({ locationInput, setLocationInput }) {
             </div>
           </div>
         )}
-
       </div>
     </div>
   )
-}
+})
