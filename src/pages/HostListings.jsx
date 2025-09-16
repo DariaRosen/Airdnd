@@ -6,7 +6,7 @@ export function HostListings() {
     const [homes, setHomes] = useState([]);
     
     const user = {
-        _id: "b1",
+        _id: "68c242e0ac0d57e02713467f",
         firstName: "Harry",
         lastName: "Potter",
         username: "harry123",

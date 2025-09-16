@@ -3,6 +3,7 @@ import { AirdndIcon } from '../cmps/AirdndIcon'
 import { useNavigate, Link } from 'react-router-dom'
 import { bookingService } from "../services/booking.service"
 import { homeService } from "../services/home.service"
+import { asArray } from "../services/util.service"
 import { DashboardsCharts } from "../cmps/DashboardsCharts"
 import {
     DollarSign,
@@ -13,6 +14,7 @@ import {
     Home,
     XCircle,
 } from "lucide-react"
+import { utilService } from "../services/util.service"
 
 export function WelcomeHost() {
     const navigate = useNavigate()
@@ -31,7 +33,6 @@ export function WelcomeHost() {
         activeListings: 0,
         newMessages: 35, // hardcoded for now
     })
-    const asArray = v => Array.isArray(v) ? v : (Array.isArray(v?.items) ? v.items : [])
 
 
     useEffect(() => {

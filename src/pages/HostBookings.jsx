@@ -3,9 +3,10 @@ import { bookingService } from "../services/booking.service";
 import { HostDashboardHeader } from "../cmps/HostDashboardHeader";
 import { BookingFilters } from "../cmps/BookingFilters";
 import { utilService } from "../services/util.service";
+import { asArray } from "../services/util.service";
 
 export function HostBookings() {
-    const user = { _id: "b1", firstName: "Harry" };
+    const user = { _id: "68c242e0ac0d57e02713467f", firstName: "Harry" };
 
     const [hostBookings, setHostBookings] = useState([]);
     const [filters, setFilters] = useState({
@@ -21,7 +22,10 @@ export function HostBookings() {
 
     useEffect(() => {
         async function loadBookings() {
-            const bookings = await bookingService.getHostBookings(user._id);
+            const bookingsRes = await bookingService.getHostBookings(user._id);
+            const bookings = asArray(bookingsRes)
+
+
             // Remove duplicates by _id
             const uniqueBookings = [...new Map(bookings.map(b => [b._id, b])).values()];
             setHostBookings(uniqueBookings);

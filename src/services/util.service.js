@@ -19,6 +19,7 @@ export const utilService = {
   getImageSrcForTitle,
   getDateRange,
   formatDate,
+
 }
 
 function makeId(length = 6) {
@@ -395,4 +396,9 @@ function getDateRange(startStr, endStr) {
   }
 
   return dates
+}
+export function asArray(v) {
+  if (Array.isArray(v)) return v
+  if (Array.isArray(v?.items)) return v.items
+  return []
 }
