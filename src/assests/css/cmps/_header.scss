@@ -227,13 +227,13 @@
 
   /* scrollbar styling */
   scrollbar-width: thin;
-  scrollbar-color: rgba(0,0,0,0.4) transparent;
+  scrollbar-color: rgba(0, 0, 0, 0.4) transparent;
 }
 .search-dropdown-inner::-webkit-scrollbar {
   width: 6px;
 }
 .search-dropdown-inner::-webkit-scrollbar-thumb {
-  background: rgba(0,0,0,0.4);
+  background: rgba(0, 0, 0, 0.4);
   border-radius: 6px;
 }
 .search-dropdown::-webkit-scrollbar-thumb {
@@ -511,4 +511,19 @@
 /* optional smaller separator color transition for better feel */
 .separator {
   transition: background-color 0.14s ease, transform 0.14s ease;
+}
+
+/* When bar is active, background becomes gray */
+.search-bar.bar-active {
+  background-color: #e2dfdf;
+}
+
+/* Active item overrides and stays white */
+.search-item1.active,
+.search-item2.active,
+.search-item3.active,
+.search-item4.active {
+  background-color: #fff !important;
+  box-shadow: 0 0 0 1px #ddd inset;
+
 }

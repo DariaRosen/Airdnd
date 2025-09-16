@@ -46,9 +46,11 @@ export function AppHeader() {
   const inputRef = useRef(null)
 
   function handleClickItem1() {
-    // focus input when clicking anywhere in the search-item1
+    // focus input when clicking anywhere in the search-item1 and set active
+    setActiveItem(1)
     if (inputRef.current) inputRef.current.focus()
   }
+
   useEffect(() => {
     const handleClickOutside = (e) => {
       if (whereRef.current && !whereRef.current.contains(e.target)) {
@@ -69,7 +71,6 @@ export function AppHeader() {
 
   const debouncedFetchLocations = debounce(async (term) => {
     const locations = await utilService.getLocationSuggestions(term)
-
     setLocationSuggestions(locations)
   }, 300)
 
@@ -102,11 +103,20 @@ export function AppHeader() {
       if (filter[key]) params.set(key, filter[key])
     }
 
+    // clear active item when navigating to results
+    setActiveItem(null)
     navigate(`/filter?${params.toString()}`)
   }
 
+  // NEW: active item state to control bar and item styles
+  const [activeItem, setActiveItem] = useState(null)
+
+  function handleItemClick(num) {
+    setActiveItem(num)
+  }
+
   return (
-    <section className="header full">
+    <section className="header full" onClick={() => {/* clicking header background doesn't change active item */ }}>
       {/* LOGO + ICONS */}
       <div className="logo-wrapper">
         <Link to="/" className="logo-link">
@@ -119,7 +129,6 @@ export function AppHeader() {
           <div className="host-text-wrapper" onClick={() => navigate('/become-host')}>
             <div className="host-text">Become a host</div>
           </div>
-
 
           <Link to="/home" className="logo-link">
             <div className="icon-wrapper">
@@ -144,12 +153,16 @@ export function AppHeader() {
       </div>
 
       {/* SEARCH BAR */}
-
-      {/* SEARCH BAR */}
-      <div className="search-bar">
+      <div className={`search-bar ${activeItem ? "bar-active" : ""}`}>
         {/* Group 1: item1 (WHERE) */}
         <div className="group group-1">
-          <div className="search-item1" onClick={handleClickItem1}>
+          <div
+            className={`search-item1 ${activeItem === 1 ? "active" : ""}`}
+            onClick={handleClickItem1}
+            role="button"
+            tabIndex={0}
+            onKeyDown={(e) => { if (e.key === "Enter") handleClickItem1() }}
+          >
             <LocationSearch
               ref={inputRef}
               locationInput={locationInput}
@@ -161,7 +174,10 @@ export function AppHeader() {
         {/* Group 2: separator1 + item2 (CHECK-IN) */}
         <div className="group group-2">
           <div className="separator separator1" aria-hidden="true" />
-          <div className="search-item2">
+          <div
+            className={`search-item2 ${activeItem === 2 ? "active" : ""}`}
+            onClick={() => handleItemClick(2)}
+          >
             <DateSearch type="checkIn" dateRange={dateRange} setDateRange={setDateRange} />
           </div>
         </div>
@@ -169,7 +185,10 @@ export function AppHeader() {
         {/* Group 3: separator2 + item3 (CHECK-OUT) */}
         <div className="group group-3">
           <div className="separator separator2" aria-hidden="true" />
-          <div className="search-item3">
+          <div
+            className={`search-item3 ${activeItem === 3 ? "active" : ""}`}
+            onClick={() => handleItemClick(3)}
+          >
             <DateSearch type="checkOut" dateRange={dateRange} setDateRange={setDateRange} />
           </div>
         </div>
@@ -177,10 +196,22 @@ export function AppHeader() {
         {/* Group 4: separator3 + item4 (WHO + button) */}
         <div className="group group-4">
           <div className="separator separator3" aria-hidden="true" />
-          <div className="search-item4">
+          <div
+            className={`search-item4 ${activeItem === 4 ? "active" : ""}`}
+            onClick={() => handleItemClick(4)}
+          >
             <GuestSearch guests={guests} setGuests={setGuests} />
 
-            <div className="magnifying-glass-wrapper" onClick={handleSearchClick}>
+            <div
+              className="magnifying-glass-wrapper"
+              onClick={(e) => {
+                e.stopPropagation() // prevent toggling active when pressing search
+                handleSearchClick()
+              }}
+              role="button"
+              tabIndex={0}
+              onKeyDown={(e) => { if (e.key === "Enter") handleSearchClick() }}
+            >
               <img src={magnifying_glass} alt="Search" className="magnifying-glass-icon" />
             </div>
           </div>
