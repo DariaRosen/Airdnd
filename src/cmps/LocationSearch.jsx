@@ -1,7 +1,7 @@
 import { useRef, useState, useEffect, forwardRef } from "react"
 import { debounce, utilService, getSuggestedDestinations } from "../services/util.service"
 
-export const LocationSearch = forwardRef(({ locationInput, setLocationInput }, ref) => {
+export const LocationSearch = forwardRef(({ locationInput, setLocationInput, onLocationSelected }, ref) => {
   const [locationSuggestions, setLocationSuggestions] = useState([])
   const [isTyping, setIsTyping] = useState(false)
   const [isLocationOpen, setIsLocationOpen] = useState(false)
@@ -36,8 +36,13 @@ export const LocationSearch = forwardRef(({ locationInput, setLocationInput }, r
   const handleLocationSelect = (title) => {
     setLocationInput(title)
     setIsLocationOpen(false)
+    if (onLocationSelected) onLocationSelected() // callback to parent
+    // force blur to close keyboard/focus state
+    if (whereRef.current) {
+      const inputEl = whereRef.current.querySelector("input")
+      if (inputEl) inputEl.blur()
+    }
   }
-
   return (
     <div className="search-group location-container" ref={whereRef}>
       <div className="search-item">

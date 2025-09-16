@@ -2,9 +2,6 @@ import { useEffect, useRef, useState } from "react"
 import { debounce, utilService } from "../services/util.service"
 import { AirdndIcon } from "./AirdndIcon"
 import { useNavigate, Link, useLocation } from "react-router-dom"
-import { DateRange } from "react-date-range"
-import "react-date-range/dist/styles.css"
-import "react-date-range/dist/theme/default.css"
 import { LocationSearch } from "./LocationSearch.jsx"
 import { DateSearch } from "./DateSearch.jsx"
 import { GuestSearch } from "./GuestSearch.jsx"
@@ -25,6 +22,8 @@ export function AppHeader() {
 
   const searchBarRef = useRef(null)
   const inputRef = useRef(null)
+  // flow: "location" → "checkIn" → "checkOut" → "guests"
+  const [activeStep, setActiveStep] = useState("location")
 
   // Close bar if clicking outside
   useEffect(() => {
@@ -47,8 +46,7 @@ export function AppHeader() {
   }, [location.pathname])
 
   const debouncedFetchLocations = debounce(async (term) => {
-    const locations = await utilService.getLocationSuggestions(term)
-    // setLocationSuggestions(locations)  // optional if using a list in LocationSearch
+    await utilService.getLocationSuggestions(term)
   }, 300)
 
   const handleLocationInput = (e) => {
@@ -126,30 +124,56 @@ export function AppHeader() {
             tabIndex={0}
             onKeyDown={(e) => e.key === "Enter" && handleClickItem1()}
           >
-            <LocationSearch ref={inputRef} locationInput={locationInput} setLocationInput={setLocationInput} />
+            <LocationSearch
+              ref={inputRef}
+              locationInput={locationInput}
+              setLocationInput={setLocationInput}
+              onLocationSelected={() => setActiveStep("checkIn")}
+            />
           </div>
         </div>
 
         {/* Group 2: CHECK-IN */}
         <div className="group group-2">
           <div className="separator separator1" />
-          <div className={`search-item2 ${activeItem === 2 ? "active" : ""}`} onClick={() => handleItemClick(2)}>
-            <DateSearch type="checkIn" dateRange={dateRange} setDateRange={setDateRange} />
+          <div
+            className={`search-item2 ${activeItem === 2 ? "active" : ""}`}
+            onClick={() => handleItemClick(2)}
+          >
+            <DateSearch
+              type="checkIn"
+              dateRange={dateRange}
+              setDateRange={setDateRange}
+              forceOpen={activeStep === "checkIn"}
+              onDateSelected={() => setActiveStep("checkOut")}
+            />
           </div>
         </div>
 
         {/* Group 3: CHECK-OUT */}
         <div className="group group-3">
           <div className="separator separator2" />
-          <div className={`search-item3 ${activeItem === 3 ? "active" : ""}`} onClick={() => handleItemClick(3)}>
-            <DateSearch type="checkOut" dateRange={dateRange} setDateRange={setDateRange} />
+          <div
+            className={`search-item3 ${activeItem === 3 ? "active" : ""}`}
+            onClick={() => handleItemClick(3)}
+          >
+            <DateSearch
+              type="checkOut"
+              dateRange={dateRange}
+              setDateRange={setDateRange}
+              forceOpen={activeStep === "checkOut"}
+              onDateSelected={() => setActiveStep("guests")}
+            />
           </div>
         </div>
 
         {/* Group 4: GUESTS + SEARCH BUTTON */}
         <div className="group group-4">
           <div className="separator separator3" />
-          <div className={`search-item4 ${activeItem === 4 ? "active" : ""}`} onClick={() => handleItemClick(4)}>
+          <div
+            className={`search-item4 ${activeItem === 4 ? "active" : ""}`}
+            onClick={() => handleItemClick(4)}
+          >
             <GuestSearch guests={guests} setGuests={setGuests} />
 
             <div
@@ -172,8 +196,6 @@ export function AppHeader() {
                 <img src={magnifying_glass} alt="Search" className="magnifying-glass-icon" />
               )}
             </div>
-
-
           </div>
         </div>
       </div>
