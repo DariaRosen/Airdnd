@@ -10,6 +10,8 @@ import { utilService } from '../services/util.service'
 export function BookingSearch({ home }) {
   const { checkIn, setCheckIn, checkOut, setCheckOut, guests, setGuests } =
     useBookingParams()
+console.log('BookingSearch Rendered with', { checkIn, checkOut, guests });
+
   const [isDatePickerOpen, setIsDatePickerOpen] = useState(false)
 
   const calendarRef = useRef()
@@ -85,7 +87,7 @@ export function BookingSearch({ home }) {
   return isDatesSelected ? (
     <section className="booking-form with-dates">
       <h3>
-        {home.price}₪ <span style={{ fontSize: '16px' }}>night</span>
+        {home.price}₪ <span style={{ fontSize: '16px' }}>for night</span>
       </h3>
 
       <div className="booking-grid">
@@ -104,8 +106,7 @@ export function BookingSearch({ home }) {
 
         {/* Guests */}
         <div className="guests-box">
-          <label>GUESTS</label>
-          <GuestSearch guests={guests} setGuests={setGuests} />
+          <GuestSearch guests={guests} setGuests={setGuests} isDetails={true} />
         </div>
       </div>
 

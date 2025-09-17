@@ -2,12 +2,18 @@ import { Link } from "react-router-dom"
 import { useEffect, useState } from "react"
 import { useSelector } from "react-redux"
 import { updateFavoritesUser } from "../store/user/user.action"
+import { useLocation, useNavigate } from "react-router-dom"
 
 export function HomeImgPreview({ home, onHover = () => { }, showCarousel = true, variant = "grid" }) {
   const [currentImgIdx, setCurrentImgIdx] = useState(0)
   const [isLiked, setIsLiked] = useState(false)
   const [slideDirection, setSlideDirection] = useState('')
   const loggedInUser = useSelector(storeState => storeState.userModule.loggedInUser)
+  const location = useLocation()
+  const navigate = useNavigate()
+  const goToHome = (homeId) => {
+    navigate(`/home/${homeId}${location.search}`)
+  }
 
   useEffect(() => {
     setIsLiked(loggedInUser?.favorites?.includes(home._id) || false)
@@ -47,14 +53,14 @@ export function HomeImgPreview({ home, onHover = () => { }, showCarousel = true,
             </button>
           )}
 
-          <Link to={`/home/${home._id}`}>
-            <img
-              key={imgToShow}
-              src={imgToShow}
-              alt={home.title}
-              className={`carousel-img slide-${slideDirection}`}
-              onAnimationEnd={() => setSlideDirection('')}
-            />
+          <Link to={`/home/${home._id}${location.search}`}>
+          <img
+            key={imgToShow}
+            src={imgToShow}
+            alt={home.title}
+            className={`carousel-img slide-${slideDirection}`}
+            onAnimationEnd={() => setSlideDirection('')}
+          />
           </Link>
 
           {hasCarousel && currentImgIdx < home.imgUrls.length - 1 && (
@@ -123,6 +129,7 @@ export function HomeImgPreview({ home, onHover = () => { }, showCarousel = true,
           </div>
         )}
       </div>
+
     </article>
   )
 }

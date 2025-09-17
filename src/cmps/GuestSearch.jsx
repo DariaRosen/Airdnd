@@ -1,9 +1,8 @@
 import { useState, useEffect, useRef } from "react"
 
-export function GuestSearch({ guests, setGuests, isDetails=false }) {
+export function GuestSearch({ guests, setGuests, isDetails = false }) {
   const [isOpen, setIsOpen] = useState(false)
   const dropdownRef = useRef()
-  const guestCount = guests.adults + guests.children
   const title = isDetails ? "GUESTS" : "Who"
   useEffect(() => {
     const handleClickOutside = (e) => {
@@ -22,34 +21,30 @@ export function GuestSearch({ guests, setGuests, isDetails=false }) {
       [field]: Math.max(0, prev[field] + diff),
     }))
   }
+  const normalizedGuests = typeof guests === "number"
+    ? { adults: guests, children: 0, infants: 0, pets: 0 }
+    : guests
 
   return (
     <div className="search-group guest-container" ref={dropdownRef}>
       <div className="search-item" onClick={() => setIsOpen(!isOpen)}>
         <div className="search-title">{title}</div>
         <div className="search-value">
-          {guests.adults + guests.children + guests.infants + guests.pets > 0
+          {normalizedGuests.adults + normalizedGuests.children + normalizedGuests.infants + normalizedGuests.pets > 0
             ? (() => {
-                const parts = []
+              const parts = []
+              const totalGuests = normalizedGuests.adults + normalizedGuests.children
+              if (totalGuests > 0) parts.push(`${totalGuests} guest${totalGuests > 1 ? "s" : ""}`)
+              if (normalizedGuests.infants > 0) parts.push(`${normalizedGuests.infants} infant${normalizedGuests.infants > 1 ? "s" : ""}`)
+              if (normalizedGuests.pets > 0) parts.push(`${normalizedGuests.pets} pet${normalizedGuests.pets > 1 ? "s" : ""}`)
 
-                const totalGuests = guests.adults + guests.children
-                if (totalGuests > 0)
-                  parts.push(
-                    `${totalGuests} guest${totalGuests > 1 ? "s" : ""}`
-                  )
-                if (guests.infants > 0)
-                  parts.push(
-                    `${guests.infants} infant${guests.infants > 1 ? "s" : ""}`
-                  )
-                if (guests.pets > 0)
-                  parts.push(`${guests.pets} pet${guests.pets > 1 ? "s" : ""}`)
-
-                return parts.length > 2
-                  ? parts.slice(0, 2).join(", ") + " ..."
-                  : parts.join(", ")
-              })()
+              return parts.length > 2
+                ? parts.slice(0, 2).join(", ") + " ..."
+                : parts.join(", ")
+            })()
             : "Add guests"}
         </div>
+
       </div>
 
       {isOpen && (
@@ -71,7 +66,7 @@ export function GuestSearch({ guests, setGuests, isDetails=false }) {
               </div>
               <div className="btns">
                 <button onClick={() => updateCount(field, -1)}>-</button>
-                <span>{guests[field]}</span>
+                <span>{normalizedGuests[field]}</span>
                 <button onClick={() => updateCount(field, 1)}>+</button>
               </div>
             </div>

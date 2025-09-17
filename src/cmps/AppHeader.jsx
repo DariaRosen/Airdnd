@@ -60,7 +60,7 @@ export function AppHeader() {
       location: locationInput,
       checkIn: dateRange[0].startDate?.toISOString().slice(0, 10),
       checkOut: dateRange[0].endDate?.toISOString().slice(0, 10),
-      capacity: guests.adults + guests.children
+      guests: guests.adults + guests.children
     }
 
     setFilterBy(filter)

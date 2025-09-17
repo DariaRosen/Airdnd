@@ -230,13 +230,13 @@
 .booking-grid {
   display: grid;
   grid-template-columns: 1fr; /* single column, two stacked rows */
-  gap: 0;
+  gap: 0.5rem;
   border: 1px solid #a7a4a4; /* outer border for the whole box */
   border-radius: 10px;
   overflow: hidden; /* keeps inner borders clipped to radius */
   background: #fff;
   width: 100%;
-  height: 130px;
+  max-height: 112px;
   /* optional width limit:
   max-width: 380px;
   */
