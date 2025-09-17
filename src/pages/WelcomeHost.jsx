@@ -91,6 +91,7 @@ export function WelcomeHost() {
     const addListingIcon = "/Airdnd/icons/add-listing.svg"
     const bookingIcon = "/Airdnd/icons/list-check-svgrepo-com.svg"
     const dashboardIcon = "/Airdnd/icons/dashboard-svgrepo-com.svg"
+    const homesIcon = "/Airdnd/icons/home_icon2.svg"
 
     return (
         <section className="welcome-host">
@@ -181,6 +182,14 @@ export function WelcomeHost() {
                             <img src={addListingIcon} alt="Add Listing icon" className="icon-gray-circle" />
                         </span>
                         Create a new listing
+                    </button>
+                </div>
+                 <div className="listings">
+                    <button className="create-btn" onClick={() => navigate("/host-listings")}>
+                        <span className="icon">
+                            <img src={homesIcon} alt="Homes icon" className="icon-gray-circle" />
+                        </span>
+                        View all listings
                     </button>
                 </div>
             </div>

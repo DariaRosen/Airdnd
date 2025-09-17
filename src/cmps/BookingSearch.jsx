@@ -10,7 +10,6 @@ import { utilService } from '../services/util.service'
 export function BookingSearch({ home }) {
   const { checkIn, setCheckIn, checkOut, setCheckOut, guests, setGuests } =
     useBookingParams()
-  console.log('BookingSearch Rendered with', { checkIn, checkOut, guests });
 
   const [isDatePickerOpen, setIsDatePickerOpen] = useState(false)
 

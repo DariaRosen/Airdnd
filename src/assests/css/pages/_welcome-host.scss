@@ -43,11 +43,11 @@
 
 /* Listing container */
 .welcome-host .listing-container {
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* 2 columns */
+  grid-template-rows: auto; /* rows will auto-adjust */
+  gap: 2rem; /* spacing between buttons */
   width: 100%;
-  align-items: center;
   max-width: 885px;
   margin: 2rem auto;
   padding: 2rem;
@@ -57,6 +57,7 @@
   font-family: Airbnb Cereal VF, Circular, -apple-system, BlinkMacSystemFont,
     Roboto, Helvetica Neue, sans-serif;
   margin-top: 1rem;
+  align-items: center;
 }
 
 .welcome-host .listing-container h1 {
@@ -69,8 +70,8 @@
 /* Buttons wrapper */
 .welcome-host .dashboard,
 .welcome-host .bookings,
-.welcome-host .listing {
-  width: 100%;
+.welcome-host .listing,
+.welcome-host .listings {
   display: flex;
   justify-content: center;
 }
@@ -87,7 +88,7 @@
   border-radius: 10px;
   cursor: pointer;
   background-color: #fff;
-  width: 60%;
+  width: 100%;
   font-size: 26px;
   color: #000;
   transition: background 0.3s, color 0.3s;

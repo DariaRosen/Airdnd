@@ -234,13 +234,12 @@
   gap: 0;
   border: 1px solid #a7a4a4; /* outer border for the whole box */
   border-radius: 10px;
-  overflow: hidden; /* keeps inner borders clipped to radius */
+  overflow: visible; /* keeps inner borders clipped to radius */
   background: #fff;
   width: 100%;
-  max-height: 112px;
-  /* optional width limit:
-  max-width: 380px;
-  */
+  max-height: 115px;
+  padding: 3px;
+  margin-bottom: 5px;
 }
 
 /* Top row: the date picker area */
@@ -249,7 +248,7 @@
   display: block; /* let BookingDatePicker manage its own layout */
   border-bottom: 1px solid #e6e6e6; /* thin divider to the guests row */
   background: #fff;
-  max-height: 56px;
+  max-height: 55px;
   align-items: center;
 }
 
@@ -261,7 +260,8 @@
   justify-content: space-between;
   gap: 12px;
   background: #fff;
-  max-height: 56px;
+  max-height: 55px;
+  position: relative;
 }
 .guests-box-no-dates {
   padding: 10px 12px;
@@ -321,10 +321,6 @@
   cursor: pointer;
 }
 
-/* optional: small chevron using pseudo-element (no external image) */
-.guests-box {
-  position: relative;
-}
 .guests-box::after {
   content: "";
   position: absolute;
@@ -353,5 +349,5 @@
   justify-content: space-between;
   align-items: center;
   gap: 10px;
-  z-index: 10;
+  z-index: 100;
 }
