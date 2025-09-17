@@ -10,7 +10,6 @@
   flex-direction: column;
   gap: 1rem;
 
-
   .input-row {
     display: flex;
     border: 1px solid $clr-gray-700;
@@ -41,7 +40,7 @@
       }
     }
 
-    .input-box + .input-box {
+    .input-box+.input-box {
       border-left: 1px solid $clr-gray-300;
     }
   }
@@ -84,9 +83,11 @@
     }
   }
 }
+
 .rdrMonthAndYearPickers {
   display: none !important;
 }
+
 .date-dropdown-booking {
   display: flex;
   justify-content: center;
@@ -135,28 +136,42 @@
 }
 
 .date-dropdown-booking .dp-day[data-in-range] {
-  background: #f0f0f0 !important; 
-  color: #000 !important;
+  background: rgba(0, 0, 0, 0.08) !important;
+  color: black !important;
   border-radius: 50% !important;
 }
 
+// .date-dropdown-booking .dp-day[data-first-in-range],
+// .date-dropdown-booking .dp-day[data-last-in-range],
+// .date-dropdown-booking .dp-day[data-selected] {
+//   background: #000 !important; 
+//   color: #fff !important;
+//   border-radius: 50% !important;
+// }
 .date-dropdown-booking .dp-day[data-first-in-range],
-.date-dropdown-booking .dp-day[data-last-in-range],
-.date-dropdown-booking .dp-day[data-selected] {
-  background: #000 !important; 
-  color: #fff !important;
+.date-dropdown-booking .dp-day[data-first-in-range]:hover {
+  background: black !important;
+  color: white !important;
   border-radius: 50% !important;
+  z-index: 1;
 }
 
-.date-dropdown-booking .dp-day[data-today] {
-  outline: 1.5px solid #000 !important;
-  outline-offset: 0;
+.date-dropdown-booking .dp-day[data-last-in-range],
+.date-dropdown-booking .dp-day[data-last-in-range]:hover {
+  background: black !important;
+  color: white !important;
+  border-radius: 50% !important;
+  z-index: 1;
 }
+
+
+
 
 .date-dropdown-booking .dp-day:not([data-disabled]):hover {
-  border: 1.5px solid #000 !important;
-  background: transparent !important;
-  color: #000 !important;
+    background: black !important;
+    color: white !important;
+    border-radius: 50% !important;
+    z-index: 1;
 }
 
 
@@ -176,8 +191,8 @@
   font-weight: 600;
   font-size: 18px;
   text-align: center;
-  color: #000;            
-  display: block !important; 
+  color: #000;
+  display: block !important;
 }
 
 .date-dropdown-booking .dp-nav {

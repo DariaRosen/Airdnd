@@ -6,34 +6,43 @@
   padding: 0 200px;
   font-family: Airbnb Cereal VF, Circular, -apple-system, BlinkMacSystemFont,
     Roboto, Helvetica Neue, sans-serif;
+
+
+
   .details-title {
     margin-bottom: 0;
     font-size: 26px;
     font-weight: 600;
   }
+
   .content-title {
     font-size: 22px;
     margin-bottom: 0;
   }
+
   .content-description {
     font-size: 1rem;
     font-weight: 400;
     margin-bottom: 0;
   }
+
   .content-rating {
     color: $text-black;
     font-size: 17px;
     margin-top: 8px;
     margin-bottom: 25px;
+
     .star-icon {
       font-size: 8px; // if you're sure this is desired
       vertical-align: middle;
       margin-bottom: 4px;
     }
+
     .rating {
       font-size: 17px;
       font-weight: 600;
     }
+
     .review-number {
       font-size: 16px;
       font-weight: 600;
@@ -79,11 +88,16 @@
   display: grid;
   grid-template-columns: 2fr 1fr;
   gap: 2rem;
+  overflow: visible;
+  transform: none;
+  align-items: start;
 }
 
 .side-panel {
   position: sticky;
   top: 100px;
+  align-self: start;
+  height: max-content;
 }
 
 /* ---------------- MODAL GENERAL ---------------- */
@@ -156,6 +170,7 @@
   font-weight: bold;
   color: #222;
   cursor: pointer;
+
   &:hover {
     color: #555;
     background: none;
@@ -175,8 +190,10 @@
 
 .amenities-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr); /* 2 columns */
-  gap: 16px 24px; /* row gap | column gap */
+  grid-template-columns: repeat(2, 1fr);
+  /* 2 columns */
+  gap: 16px 24px;
+  /* row gap | column gap */
 }
 
 .amenity {
@@ -244,6 +261,7 @@
   color: #222222;
   cursor: pointer;
   font-weight: bold;
+
   &:hover {
     background: darken(#f2f2f2, 5%);
   }
@@ -254,24 +272,31 @@
   border-bottom: 1px solid #ddd;
   display: flex;
   flex-direction: column;
-  gap: 1rem; /* space between each highlight */
+  gap: 1rem;
+  /* space between each highlight */
   padding-bottom: 1rem;
 }
 
 .highlight {
   display: flex;
-  align-items: center; /* vertically center icon and text */
-  gap: 0.75rem; /* space between icon and text */
+  align-items: center;
+  /* vertically center icon and text */
+  gap: 0.75rem;
+  /* space between icon and text */
 }
 
 .highlight-icon {
-  flex-shrink: 0; /* prevent icon from shrinking */
+  flex-shrink: 0;
+  /* prevent icon from shrinking */
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 32px; /* icon container width */
-  height: 32px; /* icon container height */
-  font-size: 1.5rem; /* icon size */
+  width: 32px;
+  /* icon container width */
+  height: 32px;
+  /* icon container height */
+  font-size: 1.5rem;
+  /* icon size */
 }
 
 .highlight-text {
@@ -317,7 +342,8 @@
 
 .host-text {
   display: flex;
-  flex-direction: column; /* stack vertically */
+  flex-direction: column;
+  /* stack vertically */
 }
 
 .hosted-by {
@@ -340,7 +366,9 @@
   max-height: 80%;
   overflow-y: auto;
   border-radius: 12px;
-  transform: none; /* remove translateY */
+  transform: none;
+
+  /* remove translateY */
   .modal-title {
     margin-top: 0;
     font-size: 24px;
@@ -348,15 +376,4 @@
     margin-bottom: 1rem;
   }
 }
-// .modal {
-//     position: fixed;
-//     top: 0;
-//     left: 0;
-//     width: 100%;
-//     height: 100%;
-//     background: rgba(0, 0, 0, 0.7);
-//     display: flex
-// ;
-//     align-items: center;
-//     justify-content: center;
-//     z-index: 999;
+
