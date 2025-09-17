@@ -269,7 +269,7 @@
 .search-bar.collapsed {
   display: inline-flex;
   align-items: center;
-  padding: 0.5rem 1rem;
+  padding: 0.5rem 5px;
   border: 1px solid #ddd;
   border-radius: 999px;
   font-size: 0.9rem;
@@ -278,14 +278,8 @@
   width: 448px;
   height: 46px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.collapsed-summary {
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  font-size: 14px;
-  font-weight: 500;
+  justify-content: space-between;
+  margin: 0 auto;
 }
 
 .search-option {
@@ -587,6 +581,7 @@
   pointer-events: none; /* so video doesn’t block clicks */
   transform-origin: center;
   animation: none;
+  flex-shrink: 0;
 }
 
 /* Play on hover */
@@ -602,4 +597,39 @@
   100% {
     transform: rotate(360deg);
   }
+}
+
+.collapsed-summary {
+  flex: 1;
+  display: flex;
+  font-size: 0.9rem;
+  color: #222;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: 14px;
+  font-weight: 500;
+  align-items: center;
+  gap: 1rem;
+  margin-left: 5px;
+}
+
+.summary-item {
+  white-space: nowrap;
+}
+
+.separator {
+  width: 1px;
+  height: 25px;
+  background-color: #ddd;
+}
+
+.collapsed-search-icon {
+  width: 32px;
+  height: 32px;
+  padding: 10px;
+  border-radius: 50%;
+  background-color: #ff385c;
+  object-fit: contain;
+  flex-shrink: 0;
 }

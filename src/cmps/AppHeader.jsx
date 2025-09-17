@@ -90,7 +90,7 @@ export function AppHeader() {
     const startDay = start.getDate()
     const endDay = end.getDate()
 
-    dateText = ` | ${startMonth} ${startDay}-${endDay}`
+    dateText = ` ${startMonth} ${startDay}-${endDay}`
   }
   // Collapsed summary text
   // Final summary
@@ -142,7 +142,18 @@ export function AppHeader() {
             playsInline
             preload="metadata"
           />
-          <div className="collapsed-summary">{collapsedSummary}</div>
+          <div className="collapsed-summary">
+            <span className="summary-item">Homes in {city}</span>
+            <span className="separator"></span>
+            <span className="summary-item">{dateText}</span>
+            <span className="separator"></span>
+            <span className="summary-item">{guests.adults + guests.children} guests</span>
+          </div>
+          <img
+            src={magnifying_glass}
+            alt="Search"
+            className="collapsed-search-icon"
+          />
         </div>
       ) : (
         <div ref={searchBarRef} className={`search-bar ${activeItem ? "bar-active" : ""}`}>
