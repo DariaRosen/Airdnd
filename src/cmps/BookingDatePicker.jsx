@@ -70,7 +70,7 @@ export function BookingDatePicker({
         </div>
       </div>
 
-      <div className="separator inner">|</div>
+      <div className="separator inner"></div>
 
       <div className="search-item" onClick={() => setIsOpen(!isOpen)}>
         <div className="search-title">Check out</div>
