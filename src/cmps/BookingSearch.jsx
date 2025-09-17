@@ -48,7 +48,7 @@ export function BookingSearch({ home }) {
     const booking = await bookingService.create({
       homeId: home._id,
       hostId: home.host_id || home.hostId || 'host-anon',
-      guestId: 'guest-' + utilService.makeId(),   
+      guestId: 'guest-' + utilService.makeId(),
       checkIn,
       checkOut,
       pricePerNight: home.price,
@@ -81,27 +81,31 @@ export function BookingSearch({ home }) {
         {home.price}₪ <span style={{ fontSize: '16px' }}>night</span>
       </h3>
 
-      <div ref={calendarRef}>
-        <BookingDatePicker
-          checkIn={checkIn}
-          checkOut={checkOut}
-          setCheckIn={setCheckIn}
-          setCheckOut={setCheckOut}
-          disabledDates={disabledDates}
-          isOpen={isDatePickerOpen}
-          setIsOpen={setIsDatePickerOpen}
-        />
+      <div className="booking-grid">
+        <div className="dates-box" ref={calendarRef}>
+          <BookingDatePicker
+            checkIn={checkIn}
+            checkOut={checkOut}
+            setCheckIn={setCheckIn}
+            setCheckOut={setCheckOut}
+            disabledDates={disabledDates}
+            isOpen={isDatePickerOpen}
+            setIsOpen={setIsDatePickerOpen}
+          />
+        </div>
+
+        <div className="guests-box input-box guests">
+          <label>GUESTS</label>
+          <select value={guests} onChange={e => setGuests(+e.target.value)}>
+            {[...Array(10)].map((_, i) => (
+              <option key={i + 1} value={i + 1}>
+                {i + 1} guest{i > 0 && 's'}
+              </option>
+            ))}
+          </select>
+        </div>
       </div>
 
-      <div className="input-box guests">
-        <select value={guests} onChange={e => setGuests(+e.target.value)}>
-          {[...Array(10)].map((_, i) => (
-            <option key={i + 1} value={i + 1}>
-              {i + 1} guest{i > 0 && 's'}
-            </option>
-          ))}
-        </select>
-      </div>
 
       <button onClick={handleReserve}>Reserve</button>
     </section>
@@ -109,27 +113,25 @@ export function BookingSearch({ home }) {
     <section className="booking-form no-dates">
       <h3>Add dates for prices</h3>
 
-      <div ref={calendarRef}>
-        <BookingDatePicker
-          checkIn={checkIn}
-          checkOut={checkOut}
-          setCheckIn={setCheckIn}
-          setCheckOut={setCheckOut}
-          disabledDates={disabledDates}
-          isOpen={isDatePickerOpen}
-          setIsOpen={setIsDatePickerOpen}
-        />
+      <div className="booking-grid">
+        <div className="dates-box" ref={calendarRef}>
+          <BookingDatePicker
+            checkIn={checkIn}
+            checkOut={checkOut}
+            setCheckIn={setCheckIn}
+            setCheckOut={setCheckOut}
+            disabledDates={disabledDates}
+            isOpen={isDatePickerOpen}
+            setIsOpen={setIsDatePickerOpen}
+          />
+        </div>
+
+        <div className="guests-box input-box guests">
+          <label>GUESTS</label>
+          <div>1 guest</div>
+        </div>
       </div>
 
-      <div className="input-box guests">
-        <select value={guests} onChange={e => setGuests(+e.target.value)}>
-          {[...Array(10)].map((_, i) => (
-            <option key={i + 1} value={i + 1}>
-              {i + 1} guest{i > 0 && 's'}
-            </option>
-          ))}
-        </select>
-      </div>
 
       <button onClick={onCheckAvailability}>Check availability</button>
     </section>

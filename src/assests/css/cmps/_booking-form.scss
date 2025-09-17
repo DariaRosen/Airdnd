@@ -1,7 +1,7 @@
 .booking-form {
   background-color: $clr-white;
   border: 1px solid $clr-gray-300;
-  border-radius: 1rem;
+  border-radius: 12px;
   padding: 1.5rem;
   width: 100%;
   max-width: 380px;
@@ -9,7 +9,6 @@
   box-shadow: 0 2px 10px $clr-card-shadow;
   display: flex;
   flex-direction: column;
-  gap: 1rem;
 
   h3{
     font-size: 22px;
@@ -62,9 +61,6 @@
     }
 
     select {
-      padding: 0.5rem 0.75rem;
-      border: 1px solid $clr-gray-300;
-      border-radius: 8px;
       font-size: 0.9rem;
       background-color: $clr-white;
       color: $clr-gray-700;
@@ -206,4 +202,75 @@
   box-shadow: none !important;
   padding: 4px !important;
   color: #000;
+}
+
+.booking-grid {
+  display: grid;
+  grid-template-columns: 1fr;    /* single column, two stacked rows */
+  gap: 0;
+  border: 1px solid #a7a4a4;       /* outer border for the whole box */
+  border-radius: 10px;
+  overflow: hidden;             /* keeps inner borders clipped to radius */
+  background: #fff;
+  width: 100%;
+  /* optional width limit:
+  max-width: 380px;
+  */
+}
+
+/* Top row: the date picker area */
+.dates-box {
+  padding: 10px 12px;
+  display: block;               /* let BookingDatePicker manage its own layout */
+  border-bottom: 1px solid #e6e6e6; /* thin divider to the guests row */
+  background: #fff;
+}
+
+/* Bottom row: guests select */
+.guests-box {
+  padding: 10px 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  background: #fff;
+}
+
+/* label hidden for accessibility but not visible */
+.visually-hidden {
+  position: absolute !important;
+  height: 1px; width: 1px;
+  overflow: hidden;
+  clip: rect(1px, 1px, 1px, 1px);
+  white-space: nowrap;
+}
+
+/* make select look like native Airbnb pill */
+.input-box.guests select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border: none;
+  background: transparent;
+  font-size: 14px;
+  color: #222;
+  padding: 6px 28px 6px 6px; /* room for an arrow if you add one */
+  cursor: pointer;
+}
+
+/* optional: small chevron using pseudo-element (no external image) */
+.guests-box {
+  position: relative;
+}
+.guests-box::after {
+  content: "";
+  position: absolute;
+  right: 12px;
+  width: 8px;
+  height: 8px;
+  border-right: 2px solid #333;
+  border-bottom: 2px solid #333;
+  transform: rotate(45deg);
+  pointer-events: none;
+  margin-top: 17px;
 }
