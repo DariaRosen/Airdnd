@@ -108,17 +108,17 @@ export function AppHeader() {
             <div className="host-text">Become a host</div>
           </div>
 
-          <Link to="/home" className="logo-link">
+          <Link to="/filter" className="logo-link">
             <div className="icon-wrapper">
               <img src={globus} alt="Globus icon" className="icon-gray-circle" />
             </div>
           </Link>
 
-          <Link to="/home" className="logo-link">
+          {/* <Link to="/" className="logo-link">
             <div className="icon-wrapper">
               <img src={select} alt="Select icon" className="icon-gray-circle" />
             </div>
-          </Link>
+          </Link> */}
         </div>
       </div>
 

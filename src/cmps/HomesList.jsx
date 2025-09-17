@@ -1,76 +1,91 @@
-import { useState, useRef, useEffect } from "react";
-import { utilService } from "../services/util.service.js"
+import { useState, useRef, useEffect, useMemo } from "react"
 import { useSelector } from "react-redux"
-import { HomeImgPreview } from "./HomeImgPreview.jsx";
-import { HomeTextPreview } from "./HomeTextPreview.jsx";
+import { utilService } from "../services/util.service.js"
+import { HomeImgPreview } from "./HomeImgPreview.jsx"
+import { HomeTextPreview } from "./HomeTextPreview.jsx"
 
 export function HomesList({ location, checkIn, checkOut }) {
-  const homes = useSelector(storeState => storeState.homeModule.homes)
+  const homes = useSelector(s => s.homeModule.homes)
+
+  const VISIBLE = 7
   const [startIdx, setStartIdx] = useState(0)
-  const [visibleCount, setVisibleCount] = useState(7)
-  const carouselRef = useRef()
+  const [step, setStep] = useState(0)
+  const [cardW, setCardW] = useState(0)
+
+  const trackRef = useRef(null)
+  const carouselRef = useRef(null)
   const arrow1 = "/Airdnd/icons/arrow1.svg"
 
-  useEffect(() => {
-    function handleResize() {
-      if (!carouselRef.current) return
-      const containerWidth = carouselRef.current.offsetWidth
-      const minWidth = 165
-      const maxItems = Math.floor(containerWidth / minWidth)
-      setVisibleCount(Math.min(maxItems, 7))
-    }
-
-    handleResize()
-    window.addEventListener("resize", handleResize)
-    return () => window.removeEventListener("resize", handleResize)
-  }, [])
-
-  const filteredHomes = homes.filter(home => {
-    const matchesLocation = location ? utilService.doesHomeMatchLocation(home, location) : true
-    const matchesDates = (checkIn && checkOut) ? utilService.doesHomeMatchDates(home, checkIn, checkOut) : true
-    return matchesLocation && matchesDates
-  })
+  const filteredHomes = useMemo(() => {
+    return homes.filter(home => {
+      const byLoc = location ? utilService.doesHomeMatchLocation(home, location) : true
+      const byDates = (checkIn && checkOut) ? utilService.doesHomeMatchDates(home, checkIn, checkOut) : true
+      return byLoc && byDates
+    })
+  }, [homes, location, checkIn, checkOut])
 
   const total = filteredHomes.length
-  const endIdx = Math.min(startIdx + visibleCount, total)
-  const visibleHomes = filteredHomes.slice(startIdx, endIdx)
 
+  const measureStep = () => {
+    const el = carouselRef.current
+    const track = trackRef.current
+    if (!el || !track) return
 
+    const styles = getComputedStyle(track)
+    const gap = parseFloat(styles.gap || "10")
 
+    const exactCardW = Math.floor((el.clientWidth - gap * (VISIBLE - 1)) / VISIBLE)
+    setCardW(exactCardW)
+    setStep(Math.round(exactCardW + gap))
 
-  const next = () => {
-    setStartIdx(prev => Math.min(prev + 1, total - visibleCount))
+    const maxStart = Math.max(0, total - VISIBLE)
+    setStartIdx(p => Math.min(p, maxStart))
   }
 
-  const prev = () => {
-    setStartIdx(prev => Math.max(prev - 1, 0))
-  }
+  useEffect(() => {
+    measureStep()
+    window.addEventListener("resize", measureStep)
+    return () => window.removeEventListener("resize", measureStep)
+  }, [])
+
+  useEffect(() => {
+    measureStep()
+  }, [total])
+
+  const next = () => setStartIdx(p => Math.min(p + 1, Math.max(0, total - VISIBLE)))
+  const prev = () => setStartIdx(p => Math.max(p - 1, 0))
+
+  const translateX = -(startIdx * step)
+  const showArrows = total > VISIBLE
 
   return (
     <section className="home-carousel-wrapper">
-      <div className="home-carousel-header">
-        <button
-          onClick={prev}
-          disabled={startIdx === 0}
-          className="circle-arrow-btn"
-        >
-          <img src={arrow1} alt="Previous" className="arrow-icon rotate-left" />
-        </button>
-
-        <button
-          onClick={next}
-          disabled={startIdx >= total - visibleCount}
-          className="circle-arrow-btn"
-        >
-          <img src={arrow1} alt="Next" className="arrow-icon" />
-        </button>
-      </div>
+      {showArrows && (
+        <div className="home-carousel-header">
+          <button onClick={prev} disabled={startIdx === 0} className="circle-arrow-btn">
+            <img src={arrow1} alt="Previous" className="arrow-icon rotate-left" />
+          </button>
+          <button onClick={next} disabled={startIdx >= total - VISIBLE} className="circle-arrow-btn">
+            <img src={arrow1} alt="Next" className="arrow-icon" />
+          </button>
+        </div>
+      )}
 
       <section className="home-carousel" ref={carouselRef}>
-        <ul className="home-list">
-          {visibleHomes.map(home => (
-            <li className="home-preview" key={home._id}>
-              <HomeImgPreview home={home} showCarousel={false} />
+        <ul
+          ref={trackRef}
+          className="home-list"
+          style={{ transform: `translateX(${translateX}px)` }}
+        >
+          {filteredHomes.map(home => (
+            <li
+              className="home-preview"
+              key={home._id}
+              style={{ width: `${cardW}px`, flex: `0 0 ${cardW}px` }}
+            >
+              <div className="card-img">
+                <HomeImgPreview home={home} showCarousel={false} />
+              </div>
               <HomeTextPreview home={home} variant="main" />
             </li>
           ))}
@@ -83,6 +98,3 @@ export function HomesList({ location, checkIn, checkOut }) {
     </section>
   )
 }
-
-
-//gets props, example: <HomesList location="Tel Aviv-Yafo" checkIn="2025-08-01" checkOut="2025-08-05" />

@@ -1,74 +1,77 @@
-.home-list {
-  display: flex;
-  gap: 10px;
-  list-style: none;
-  padding: 0;
-  margin-top: 12px!important;
-  scroll-behavior: smooth;
+  .home-list {
+    display: flex;
+    gap: 10px;
+    list-style: none;
+    padding: 0;
+    margin-top: 12px !important;
+    scroll-behavior: smooth;
+    transition: transform 320ms ease;
 
 
-  > .home-preview {
-    flex: 1 1 14%; // flex-grow:0, shrink:1, basis:14%
-    min-width: 140px; // won't get smaller than this
-    max-width: 300px; // won't get bigger than this
-    text-decoration: none;
-  }
-}
 
-.home-carousel {
-  overflow: hidden; // or keep overflow-x auto if you want scrolling
-}
+    >.home-preview {
+      flex: 0 0 calc((100% - 60px) / 7);
+      min-width: 0;
+      text-decoration: none;
+    }
 
-.home-carousel-header {
-  position: absolute;
-  top: -30px; // negative to move above carousel
-  right: 0;
-  display: flex;
-  gap: 10px;
-  z-index: 10;
-}
 
-.home-carousel-header button {
-  width: 36px;
-  height: 36px;
-  font-size: 20px;
-  border-radius: 50%!important;
-  border: 1px solid $bg-gray !important;
-  background: $bg-lightest-gray!important;
-  cursor: pointer;
-}
-
-.home-carousel-wrapper {
-  position: relative; // this is the relative container for arrows
-  margin: 0 auto;
-}
-
-.circle-arrow-btn {
-  border-radius: 50%;
-  width: 32px;
-  height: 32px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0;
-  cursor: pointer;
-  transition: background-color 0.2s ease;
-
-  &:hover:not(:disabled) {
-    background-color: #d0d0d0;
   }
 
-  &:disabled {
-    opacity: 0.4;
-    cursor: default;
+  .home-carousel {
+    overflow: hidden; // or keep overflow-x auto if you want scrolling
   }
-}
 
-.arrow-icon {
-  width: 14px;
-  height: 14px;
-}
+  .home-carousel-header {
+    position: absolute;
+    top: -30px; // negative to move above carousel
+    right: 0;
+    display: flex;
+    gap: 10px;
+    z-index: 10;
+  }
 
-.rotate-left {
-  transform: rotate(180deg);
-}
+  .home-carousel-header button {
+    width: 36px;
+    height: 36px;
+    font-size: 20px;
+    border-radius: 50% !important;
+    border: 1px solid $bg-gray !important;
+    background: $bg-lightest-gray !important;
+    cursor: pointer;
+  }
+
+  .home-carousel-wrapper {
+    position: relative; // this is the relative container for arrows
+    margin: 0 auto;
+  }
+
+  .circle-arrow-btn {
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+
+    &:hover:not(:disabled) {
+      background-color: #d0d0d0;
+    }
+
+    &:disabled {
+      opacity: 0.4;
+      cursor: default;
+    }
+  }
+
+  .arrow-icon {
+    width: 14px;
+    height: 14px;
+  }
+
+  .rotate-left {
+    transform: rotate(180deg);
+  }

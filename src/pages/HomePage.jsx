@@ -133,8 +133,6 @@ export function HomePage() {
 
         <HomesList location="UK" />
       </div>
-
-      <hr />
     </div>
   )
 }
