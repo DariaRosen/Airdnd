@@ -25,18 +25,25 @@
   transform: translateX(0);
   border: 1px solid #ddd;
 }
-.guest-dropdown > * {
-  flex: 1; /* fills available space */
-  display: flex; /* if you want content inside to align */
-  align-items: center; /* vertically center content */
-  padding: 8px 0; /* optional spacing */
-  border-bottom: 1px solid #e0e0e0; /* separator line */
+
+.guest-dropdown>* {
+  flex: 1;
+  /* fills available space */
+  display: flex;
+  /* if you want content inside to align */
+  align-items: center;
+  /* vertically center content */
+  padding: 8px 0;
+  /* optional spacing */
+  border-bottom: 1px solid #e0e0e0;
+  /* separator line */
 }
 
 /* Remove border from the last item */
-.guest-dropdown > *:last-child {
+.guest-dropdown>*:last-child {
   border-bottom: none;
 }
+
 /* Check-in dropdown margin */
 .date-container.check-in .date-dropdown {
   margin-left: 143px;
@@ -45,7 +52,9 @@
 /* Check-out dropdown margin */
 .date-container.check-out .date-dropdown {
   left: auto;
-  margin-left: unset;}
+  margin-left: unset;
+}
+
 .guest-row {
   display: flex;
   justify-content: space-between;
@@ -85,15 +94,20 @@
 
     /* Only style the span if you need extra spacing or sizing, otherwise remove width/height */
     span {
-      display: flex; /* flex to center content */
-      align-items: center; /* vertical centering */
-      justify-content: center; /* horizontal centering */
+      display: flex;
+      /* flex to center content */
+      align-items: center;
+      /* vertical centering */
+      justify-content: center;
+      /* horizontal centering */
       font-size: 1rem;
       line-height: 1;
-      text-align: center; /* ensure text is centered */
+      text-align: center;
+      /* ensure text is centered */
       padding: 0;
       margin: 0;
-      min-width: 0; /* prevent extra flex space */
+      min-width: 0;
+      /* prevent extra flex space */
       margin-right: 14px;
     }
   }
@@ -129,17 +143,26 @@
     border-radius: 50% !important;
   }
 
-  .no-square-day:hover,
-  .no-square-day:focus,
-  .no-square-day:focus-visible,
-  .no-square-day[data-selected],
-  .no-square-day[data-in-range],
+  .no-square-day[data-in-range] {
+    background: rgba(0, 0, 0, 0.08) !important;
+    color: black !important;
+    border-radius: 50% !important;
+  }
+
   .no-square-day[data-first-in-range],
-  .no-square-day[data-last-in-range] {
-    background: transparent !important;
-    border: none !important;
-    box-shadow: none !important;
-    outline: none !important;
+  .no-square-day[data-first-in-range]:hover {
+    background: black !important;
+    color: white !important;
+    border-radius: 50% !important;
+    z-index: 1;
+  }
+
+  .no-square-day[data-last-in-range],
+  .no-square-day[data-last-in-range]:hover {
+    background: black !important;
+    color: white !important;
+    border-radius: 50% !important;
+    z-index: 1;
   }
 
   .day-cell {
@@ -216,3 +239,9 @@
   }
 }
 
+.no-square-day:hover {
+  border: none !important;
+  background: black !important;
+  color: white !important;
+  border-radius: 50% !important;
+}

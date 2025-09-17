@@ -1,30 +1,26 @@
-import { useState, useEffect, useRef } from "react"
-import { DatePicker } from "@mantine/dates"
+import { useState, useEffect, useRef, useMemo } from 'react'
+import { DatePicker } from '@mantine/dates'
 
 export function DateSearch({ type, dateRange, setDateRange, forceOpen, onDateSelected }) {
   const [isDateOpen, setIsDateOpen] = useState(false)
   const dateRef = useRef()
 
-  // Auto open when forceOpen is set
   useEffect(() => {
     if (forceOpen) setIsDateOpen(true)
   }, [forceOpen])
 
-  // Close when clicking outside
   useEffect(() => {
-    const onDocClick = (e) => {
-      if (dateRef.current && !dateRef.current.contains(e.target)) {
-        setIsDateOpen(false)
-      }
+    const onDocClick = e => {
+      if (dateRef.current && !dateRef.current.contains(e.target)) setIsDateOpen(false)
     }
-    document.addEventListener("mousedown", onDocClick)
-    return () => document.removeEventListener("mousedown", onDocClick)
+    document.addEventListener('mousedown', onDocClick)
+    return () => document.removeEventListener('mousedown', onDocClick)
   }, [])
 
-  const toDate = (v) => {
+  const toDate = v => {
     if (!v) return null
     if (v instanceof Date) return isNaN(v.getTime()) ? null : v
-    if (typeof v?.toDate === "function") {
+    if (typeof v?.toDate === 'function') {
       const d = v.toDate()
       return isNaN(d?.getTime?.()) ? null : d
     }
@@ -32,58 +28,58 @@ export function DateSearch({ type, dateRange, setDateRange, forceOpen, onDateSel
     return isNaN(d.getTime()) ? null : d
   }
 
-  const fmt = (v) => {
+  const fmt = v => {
     const d = toDate(v)
-    return d ? d.toLocaleDateString() : "Add date"
+    return d ? d.toLocaleDateString() : 'Add date'
   }
 
-  const current = dateRange?.[0] || { startDate: null, endDate: null, key: "selection" }
-  const mantineValue = [toDate(current.startDate), toDate(current.endDate)]
+  const current = dateRange?.[0] || { startDate: null, endDate: null, key: 'selection' }
 
-  const handleMantineChange = (next) => {
+  const mantineValue = useMemo(
+    () => [toDate(current.startDate), toDate(current.endDate)],
+    [current.startDate, current.endDate]
+  )
+
+  const today = useMemo(() => new Date(), [])
+  const classNames = useMemo(() => ({
+    day: 'no-square-day',
+    calendarHeader: 'dp-header',
+    calendarHeaderLevel: 'dp-title',
+    calendarHeaderControl: 'dp-nav'
+  }), [])
+
+  const handleMantineChange = next => {
     const [start, end] = next || []
-    setDateRange([{ startDate: toDate(start), endDate: toDate(end), key: "selection" }])
-
-    // Handle guided flow
-    if (type === "checkIn" && start) {
+    setDateRange([{ startDate: toDate(start), endDate: toDate(end), key: 'selection' }])
+    if (type === 'checkIn' && start) {
       setIsDateOpen(false)
-      onDateSelected?.("checkIn")
+      onDateSelected?.('checkIn')
     }
-    if (type === "checkOut" && end) {
+    if (type === 'checkOut' && end) {
       setIsDateOpen(false)
-      onDateSelected?.("checkOut")
+      onDateSelected?.('checkOut')
     }
   }
 
   return (
-    <div
-      className={`search-group date-container ${type === "checkIn" ? "check-in" : "check-out"}`}
-      ref={dateRef}
-    >
-      <div className="search-item" onClick={() => setIsDateOpen((prev) => !prev)}>
-        <div className="search-title">{type === "checkIn" ? "Check in" : "Check out"}</div>
-        <div className="search-value">
-          {type === "checkIn" ? fmt(current.startDate) : fmt(current.endDate)}
-        </div>
+    <div className={`search-group date-container ${type === 'checkIn' ? 'check-in' : 'check-out'}`} ref={dateRef}>
+      <div className='search-item' onClick={() => setIsDateOpen(p => !p)}>
+        <div className='search-title'>{type === 'checkIn' ? 'Check in' : 'Check out'}</div>
+        <div className='search-value'>{type === 'checkIn' ? fmt(current.startDate) : fmt(current.endDate)}</div>
       </div>
 
       {isDateOpen && (
-        <div className="date-dropdown">
+        <div className='date-dropdown'>
           <DatePicker
-            type="range"
+            type='range'
             value={mantineValue}
             onChange={handleMantineChange}
-            minDate={new Date()}
+            minDate={today}
             numberOfColumns={2}
             allowSingleDateInRange
-            size="lg"
+            size='lg'
             firstDayOfWeek={0}
-            classNames={{
-              day: "no-square-day",
-              calendarHeader: "dp-header",
-              calendarHeaderLevel: "dp-title",
-              calendarHeaderControl: "dp-nav",
-            }}
+            classNames={classNames}
           />
         </div>
       )}
