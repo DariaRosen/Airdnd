@@ -76,7 +76,7 @@ export function BookingSearch({ home }) {
   }
 
   return isDatesSelected ? (
-    <section className="booking-form">
+    <section className="booking-form with-dates">
       <h3>
         {home.price}₪ <span style={{ fontSize: '16px' }}>night</span>
       </h3>
@@ -94,7 +94,6 @@ export function BookingSearch({ home }) {
       </div>
 
       <div className="input-box guests">
-        <label>GUESTS</label>
         <select value={guests} onChange={e => setGuests(+e.target.value)}>
           {[...Array(10)].map((_, i) => (
             <option key={i + 1} value={i + 1}>
@@ -107,7 +106,7 @@ export function BookingSearch({ home }) {
       <button onClick={handleReserve}>Reserve</button>
     </section>
   ) : (
-    <section className="booking-form">
+    <section className="booking-form no-dates">
       <h3>Add dates for prices</h3>
 
       <div ref={calendarRef}>
@@ -123,7 +122,6 @@ export function BookingSearch({ home }) {
       </div>
 
       <div className="input-box guests">
-        <label>GUESTS</label>
         <select value={guests} onChange={e => setGuests(+e.target.value)}>
           {[...Array(10)].map((_, i) => (
             <option key={i + 1} value={i + 1}>

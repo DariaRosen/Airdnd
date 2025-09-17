@@ -64,7 +64,7 @@ export function BookingDatePicker({
   return (
     <div className="search-group date-container" ref={dateRef}>
       <div className="search-item" onClick={() => setIsOpen(!isOpen)}>
-        <div className="search-title">Check in</div>
+        <div className="search-title">CHECK-IN</div>
         <div className="search-value">
           {checkIn ? new Date(checkIn).toLocaleDateString() : 'Add date'}
         </div>
@@ -73,7 +73,7 @@ export function BookingDatePicker({
       <div className="separator inner"></div>
 
       <div className="search-item" onClick={() => setIsOpen(!isOpen)}>
-        <div className="search-title">Check out</div>
+        <div className="search-title">CHECK-OUT</div>
         <div className="search-value">
           {checkOut ? new Date(checkOut).toLocaleDateString() : 'Add date'}
         </div>

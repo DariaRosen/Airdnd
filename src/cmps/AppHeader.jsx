@@ -92,10 +92,6 @@ export function AppHeader() {
 
     dateText = ` ${startMonth} ${startDay}-${endDay}`
   }
-  // Collapsed summary text
-  // Final summary
-  const collapsedSummary = `Homes in ${city}${dateText} | ${guests.adults + guests.children} guests`
-
   return (
     <section className="header full">
       {/* LOGO + ICONS */}
@@ -143,12 +139,25 @@ export function AppHeader() {
             preload="metadata"
           />
           <div className="collapsed-summary">
-            <span className="summary-item">Homes in {city}</span>
+            <span className="summary-item">
+              {city ? `Homes in ${city}` : "Anywhere"}
+            </span>
+
             <span className="separator"></span>
-            <span className="summary-item">{dateText}</span>
+
+            <span className="summary-item">
+              {dateText || "Any week"}
+            </span>
+
             <span className="separator"></span>
-            <span className="summary-item">{guests.adults + guests.children} guests</span>
+
+            <span className="summary-item">
+              {guests.adults + guests.children > 0
+                ? `${guests.adults + guests.children} guests`
+                : "Add guests"}
+            </span>
           </div>
+
           <img
             src={magnifying_glass}
             alt="Search"
