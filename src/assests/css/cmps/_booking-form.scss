@@ -10,7 +10,7 @@
   display: flex;
   flex-direction: column;
 
-  h3{
+  h3 {
     font-size: 22px;
     font-weight: 400;
   }
@@ -44,7 +44,7 @@
       }
     }
 
-    .input-box+.input-box {
+    .input-box + .input-box {
       border-left: 1px solid $clr-gray-300;
     }
   }
@@ -53,6 +53,8 @@
     display: flex;
     flex-direction: column;
     gap: 0.3rem;
+    position: relative;
+    cursor: pointer;
 
     label {
       font-size: 0.6rem;
@@ -62,15 +64,39 @@
 
     select {
       font-size: 0.9rem;
-      background-color: $clr-white;
       color: $clr-gray-700;
+      border: none;
+      background: transparent;
+      font-size: 14px;
+      width: 100%;
+      cursor: pointer;
+      &:focus {
+        outline: none;
+      }
+    }
+    &::after {
+      content: "";
+      position: absolute;
+      right: 1rem;
+      top: 50%;
+      width: 8px;
+      height: 8px;
+      border-right: 2px solid #333;
+      border-bottom: 2px solid #333;
+      transform: translateY(-50%) rotate(45deg);
+      transition: transform 0.3s ease;
+      pointer-events: none;
+    }
+
+    &.open::after {
+      transform: translateY(-50%) rotate(-135deg); // rotates upward
     }
   }
 
   button {
     margin-top: 0.5rem;
     padding: 0.85rem;
-    background: linear-gradient(to right, #ff385c, #e61e4d);
+    background: linear-gradient(to right, #ff385c, #bc1a6e); 
     color: $clr-white;
     font-weight: bold;
     border: none;
@@ -78,7 +104,8 @@
     cursor: pointer;
     font-size: 1rem;
     transition: background 0.3s;
-
+    max-height: 48px;
+    width: 100%;
     &:hover {
       background: linear-gradient(to right, #e61e4d, #ff385c);
     }
@@ -145,7 +172,7 @@
 // .date-dropdown-booking .dp-day[data-first-in-range],
 // .date-dropdown-booking .dp-day[data-last-in-range],
 // .date-dropdown-booking .dp-day[data-selected] {
-//   background: #000 !important; 
+//   background: #000 !important;
 //   color: #fff !important;
 //   border-radius: 50% !important;
 // }
@@ -165,16 +192,12 @@
   z-index: 1;
 }
 
-
-
-
 .date-dropdown-booking .dp-day:not([data-disabled]):hover {
-    background: black !important;
-    color: white !important;
-    border-radius: 50% !important;
-    z-index: 1;
+  background: black !important;
+  color: white !important;
+  border-radius: 50% !important;
+  z-index: 1;
 }
-
 
 .date-dropdown-booking .dp-header {
   background: transparent !important;
@@ -206,13 +229,14 @@
 
 .booking-grid {
   display: grid;
-  grid-template-columns: 1fr;    /* single column, two stacked rows */
+  grid-template-columns: 1fr; /* single column, two stacked rows */
   gap: 0;
-  border: 1px solid #a7a4a4;       /* outer border for the whole box */
+  border: 1px solid #a7a4a4; /* outer border for the whole box */
   border-radius: 10px;
-  overflow: hidden;             /* keeps inner borders clipped to radius */
+  overflow: hidden; /* keeps inner borders clipped to radius */
   background: #fff;
   width: 100%;
+  height: 130px;
   /* optional width limit:
   max-width: 380px;
   */
@@ -221,9 +245,11 @@
 /* Top row: the date picker area */
 .dates-box {
   padding: 10px 12px;
-  display: block;               /* let BookingDatePicker manage its own layout */
+  display: block; /* let BookingDatePicker manage its own layout */
   border-bottom: 1px solid #e6e6e6; /* thin divider to the guests row */
   background: #fff;
+  max-height: 56px;
+  align-items: center;
 }
 
 /* Bottom row: guests select */
@@ -234,12 +260,14 @@
   justify-content: space-between;
   gap: 12px;
   background: #fff;
+  max-height: 56px;
 }
 
 /* label hidden for accessibility but not visible */
 .visually-hidden {
   position: absolute !important;
-  height: 1px; width: 1px;
+  height: 1px;
+  width: 1px;
   overflow: hidden;
   clip: rect(1px, 1px, 1px, 1px);
   white-space: nowrap;
@@ -272,5 +300,23 @@
   border-bottom: 2px solid #333;
   transform: rotate(45deg);
   pointer-events: none;
-  margin-top: 17px;
+}
+
+/* Dropdown box */
+.guest-inner-dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  margin-top: 4px;
+  padding: 0.75rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  z-index: 10;
 }

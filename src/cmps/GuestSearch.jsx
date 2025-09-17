@@ -1,10 +1,10 @@
 import { useState, useEffect, useRef } from "react"
 
-export function GuestSearch({ guests, setGuests }) {
+export function GuestSearch({ guests, setGuests, isDetails=false }) {
   const [isOpen, setIsOpen] = useState(false)
   const dropdownRef = useRef()
   const guestCount = guests.adults + guests.children
-
+  const title = isDetails ? "GUESTS" : "Who"
   useEffect(() => {
     const handleClickOutside = (e) => {
       if (dropdownRef.current && !dropdownRef.current.contains(e.target)) {
@@ -26,7 +26,7 @@ export function GuestSearch({ guests, setGuests }) {
   return (
     <div className="search-group guest-container" ref={dropdownRef}>
       <div className="search-item" onClick={() => setIsOpen(!isOpen)}>
-        <div className="search-title">Who</div>
+        <div className="search-title">{title}</div>
         <div className="search-value">
           {guests.adults + guests.children + guests.infants + guests.pets > 0
             ? (() => {

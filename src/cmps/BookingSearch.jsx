@@ -2,20 +2,23 @@ import { useState, useEffect, useRef } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useBookingParams } from '../customHooks/useBookingParams'
 import { BookingDatePicker } from './BookingDatePicker'
+import { GuestSearch } from './GuestSearch'   // ✅ reuse component
 import { bookingService } from '../services/booking.service'
 import { homeService } from '../services/home.service'
 import { utilService } from '../services/util.service'
 
 export function BookingSearch({ home }) {
-  const { checkIn, setCheckIn, checkOut, setCheckOut, guests, setGuests } = useBookingParams()
+  const { checkIn, setCheckIn, checkOut, setCheckOut, guests, setGuests } =
+    useBookingParams()
   const [isDatePickerOpen, setIsDatePickerOpen] = useState(false)
+
   const calendarRef = useRef()
   const navigate = useNavigate()
 
   const isDatesSelected = checkIn && checkOut
 
   // home.unavailableDates הוא מערך 'ddmmyy'
-  const disabledDates = (home.unavailableDates || []).map(str => {
+  const disabledDates = (home.unavailableDates || []).map((str) => {
     const day = str.slice(0, 2)
     const month = str.slice(2, 4)
     const year = '20' + str.slice(4, 6)
@@ -23,8 +26,10 @@ export function BookingSearch({ home }) {
   })
 
   useEffect(() => {
-    const handleClickOutside = e => {
-      if (calendarRef.current && !calendarRef.current.contains(e.target)) setIsDatePickerOpen(false)
+    const handleClickOutside = (e) => {
+      if (calendarRef.current && !calendarRef.current.contains(e.target)) {
+        setIsDatePickerOpen(false)
+      }
     }
     document.addEventListener('mousedown', handleClickOutside)
     return () => document.removeEventListener('mousedown', handleClickOutside)
@@ -54,10 +59,12 @@ export function BookingSearch({ home }) {
       pricePerNight: home.price,
       discount: 0,
       tax: 0,
-      status: 'Pending'
+      status: 'Pending',
     })
 
-    const uniqueDates = [...new Set([...(home.unavailableDates || []), ...newDates])]
+    const uniqueDates = [
+      ...new Set([...(home.unavailableDates || []), ...newDates]),
+    ]
     const updatedHome = { ...home, unavailableDates: uniqueDates }
     await homeService.save(updatedHome)
 
@@ -82,6 +89,7 @@ export function BookingSearch({ home }) {
       </h3>
 
       <div className="booking-grid">
+        {/* Dates */}
         <div className="dates-box" ref={calendarRef}>
           <BookingDatePicker
             checkIn={checkIn}
@@ -94,18 +102,12 @@ export function BookingSearch({ home }) {
           />
         </div>
 
-        <div className="guests-box input-box guests">
+        {/* Guests */}
+        <div className="guests-box">
           <label>GUESTS</label>
-          <select value={guests} onChange={e => setGuests(+e.target.value)}>
-            {[...Array(10)].map((_, i) => (
-              <option key={i + 1} value={i + 1}>
-                {i + 1} guest{i > 0 && 's'}
-              </option>
-            ))}
-          </select>
+          <GuestSearch guests={guests} setGuests={setGuests} />
         </div>
       </div>
-
 
       <button onClick={handleReserve}>Reserve</button>
     </section>
@@ -114,6 +116,7 @@ export function BookingSearch({ home }) {
       <h3>Add dates for prices</h3>
 
       <div className="booking-grid">
+        {/* Dates */}
         <div className="dates-box" ref={calendarRef}>
           <BookingDatePicker
             checkIn={checkIn}
@@ -126,12 +129,11 @@ export function BookingSearch({ home }) {
           />
         </div>
 
-        <div className="guests-box input-box guests">
-          <label>GUESTS</label>
-          <div>1 guest</div>
+        {/* Guests */}
+        <div className="guests-box">
+          <GuestSearch guests={guests} setGuests={setGuests} isDetails={true} />
         </div>
       </div>
-
 
       <button onClick={onCheckAvailability}>Check availability</button>
     </section>
