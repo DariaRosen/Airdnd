@@ -7,7 +7,8 @@ export const mapService = {
     lookupAddressGeo,
     addClickListener,
     loadGoogleMaps,
-    setMarkers
+    setMarkers,
+    setZoom
 }
 
 // TODO: Enter your API Key
@@ -239,8 +240,8 @@ export function createCustomMarkerClass() {
         }
     }
 }
-
-
-
-
-
+function setZoom(level) {
+    if (gMap && typeof gMap.setZoom === 'function') {
+        gMap.setZoom(level)
+    }
+}

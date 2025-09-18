@@ -8,6 +8,8 @@ import { BookingSearch } from "../cmps/BookingSearch"
 import { Review } from "../cmps/Review"
 import { FaStar } from "react-icons/fa"
 import { amenityIcons } from "../cmps/AmenitySelector"
+import { MapView } from '../cmps/MapView.jsx'
+
 
 export function HomeDetails() {
   const [home, setHome] = useState(null)
@@ -27,41 +29,41 @@ export function HomeDetails() {
   }, [params.homeId])
 
   async function loadHome() {
-  try {
-    const homeData = await homeService.getById(params.homeId)
-    setHome(homeData)
+    try {
+      const homeData = await homeService.getById(params.homeId)
+      setHome(homeData)
 
-    const reviewsRes = await homeService.getHomeReviews(homeData._id)
-    const reviews = Array.isArray(reviewsRes) ? reviewsRes : reviewsRes?.items || []
-    setReviewsCount(reviews.length)
+      const reviewsRes = await homeService.getHomeReviews(homeData._id)
+      const reviews = Array.isArray(reviewsRes) ? reviewsRes : reviewsRes?.items || []
+      setReviewsCount(reviews.length)
 
-    const reviewsWithUsers = await Promise.all(
-      reviews.map(async r => {
+      const reviewsWithUsers = await Promise.all(
+        reviews.map(async r => {
+          try {
+            const user = await userService.getById(r.user_id)
+            return { ...r, user }
+          } catch {
+            return { ...r, user: null }
+          }
+        })
+      )
+      setReviewsWithUsers(reviewsWithUsers)
+
+      const avg = reviews.length
+        ? Math.round((reviews.reduce((s, r) => s + (+r.rating || 0), 0) / reviews.length) * 10) / 10
+        : 0
+      setRating(avg)
+
+      if (homeData.host_id) {
         try {
-          const user = await userService.getById(r.user_id)
-          return { ...r, user }
-        } catch {
-          return { ...r, user: null }
-        }
-      })
-    )
-    setReviewsWithUsers(reviewsWithUsers)
-
-    const avg = reviews.length
-      ? Math.round((reviews.reduce((s, r) => s + (+r.rating || 0), 0) / reviews.length) * 10) / 10
-      : 0
-    setRating(avg)
-
-    if (homeData.host_id) {
-      try {
-        const hostData = await userService.getById(homeData.host_id)
-        setHost(hostData)
-      } catch {}
+          const hostData = await userService.getById(homeData.host_id)
+          setHost(hostData)
+        } catch { }
+      }
+    } catch (err) {
+      console.log('Error loading home:', err)
     }
-  } catch (err) {
-    console.log('Error loading home:', err)
   }
-}
 
 
 
@@ -265,7 +267,13 @@ export function HomeDetails() {
       <section className="home-reviews">
         <Review homeId={home._id} />
       </section>
-      
+
+      <section className="home-map">
+        <div className="map-box map-house-icons">
+          <MapView homes={[home]} singleZoom={15} markerMode="house" />
+        </div>
+      </section>
+
       {/* Modals (Images & Amenities) */}
       {selectedImgIdx !== null && (
         <div className="modal image-modal" onClick={() => setSelectedImgIdx(null)}>
