@@ -131,8 +131,9 @@ export function BookingSearch({ home }) {
 
         {/* Guests */}
         <div className="guests-box-no-dates">
-          <div className="guests-title">GUESTS</div>
-          <div className="guests-count">1 guest</div>
+          {/* <div className="guests-title">GUESTS</div>
+          <div className="guests-count">1 guest</div> */}
+          <GuestSearch guests={guests} setGuests={setGuests} isDetails={true} />
         </div>
       </div>
 

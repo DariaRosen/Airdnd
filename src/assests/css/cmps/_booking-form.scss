@@ -97,7 +97,7 @@
   button {
     margin-top: 0.5rem;
     padding: 0.85rem;
-    background: linear-gradient(to right, #ff385c, #bc1a6e); 
+    background: linear-gradient(to right, #ff385c, #bc1a6e);
     color: $clr-white;
     font-weight: bold;
     border: none;
@@ -125,7 +125,7 @@
   top: 100%;
   left: -14 px;
   transform: translateX(-50%);
-  z-index: 10;
+  z-index: 200;
   background-color: $bg-white;
   border: 1px solid $border-light-gray;
   border-radius: 24px;
@@ -201,23 +201,29 @@
 }
 
 .date-dropdown-booking .dp-header {
+  display: flex !important;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
   background: transparent !important;
   border: none !important;
   box-shadow: none !important;
-  padding: 0 !important;
-  margin: 0 0 8px 0 !important;
+  padding: 0 12px !important; /* space for arrows at edges */
+  margin: 0 0 12px 0 !important;
 }
 
 .date-dropdown-booking .dp-title {
+  flex: 1;
   background: transparent !important;
   border: none !important;
   padding: 0 !important;
   margin: 0 auto 8px auto !important;
   font-weight: 600;
-  font-size: 18px;
+  font-size: 16px;
   text-align: center;
   color: #000;
   display: block !important;
+  white-space: nowrap;
 }
 
 .date-dropdown-booking .dp-nav {
@@ -226,6 +232,9 @@
   box-shadow: none !important;
   padding: 4px !important;
   color: #000;
+  flex-shrink: 0;
+  width: 50px !important;
+  height: 50px !important;
 }
 
 .booking-grid {
@@ -271,9 +280,12 @@
   background: #fff;
   max-height: 56px;
   flex-direction: column; /* stack vertically */
-}
-.guests-box-no-dates {
   position: relative;
+  cursor: pointer;
+}
+.guests-box-no-dates .search-item {
+  width: 285px;
+  height: 100%;
 }
 .guests-box-no-dates::after {
   content: "";

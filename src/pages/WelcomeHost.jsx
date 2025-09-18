@@ -38,8 +38,9 @@ export function WelcomeHost() {
     useEffect(() => {
         async function loadAllStats() {
             const bookingsRes = await bookingService.getHostBookings(user._id)
+            console.log('bookingsRes:', bookingsRes)
             const bookings = asArray(bookingsRes)
-
+            console.log('filtered bookings:', bookings)
             setHostBookings(bookings)
 
             const validBookings = bookings.filter(
@@ -65,7 +66,9 @@ export function WelcomeHost() {
             // Homes
             const userHomesRes = await homeService.getHomesByHost(user._id)
             const userHomes = asArray(userHomesRes)
+            console.log('userHomes:', userHomes)
             const ratings = await Promise.all(userHomes.map(h => homeService.getHomeRating(h._id)))
+            console.log('ratings:', ratings)
             const validRatings = ratings.filter(r => typeof r === "number")
             const avgRating = validRatings.length ? validRatings.reduce((sum, r) => sum + r, 0) / validRatings.length : 0
             const wishlistCount = userHomes.reduce((sum, h) => sum + (h.addedToWishlist || 0), 0)
@@ -184,7 +187,7 @@ export function WelcomeHost() {
                         Create a new listing
                     </button>
                 </div>
-                 <div className="listings">
+                <div className="listings">
                     <button className="create-btn" onClick={() => navigate("/host-listings")}>
                         <span className="icon">
                             <img src={homesIcon} alt="Homes icon" className="icon-gray-circle" />
