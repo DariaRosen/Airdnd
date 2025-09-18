@@ -39,6 +39,7 @@ import {
     KeyRound,
     CheckSquare,
     Footprints,
+    BedDouble,
 
 } from "lucide-react"
 
@@ -56,6 +57,9 @@ export const amenityIcons = {
     Soap: <Droplets size={20} />,
     Towels: <Sofa size={20} />,
     "Bed linens": <Bed size={20} />,
+    Bed: <Bed size={20} />,
+    BedDouble: <BedDouble size={20} />,
+    Sofa: <Sofa size={20} />,
 
     // Kitchen & Dining
     Kitchen: <Utensils size={20} />,
@@ -145,6 +149,9 @@ const categories = {
         "TV",
         "Smart TV",
         "Safe",
+        "Sofa",
+        "Bed",
+        "Bed Double",
     ],
     Kitchen: [
         "Kitchen",

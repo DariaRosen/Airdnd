@@ -22,7 +22,7 @@ export function HomeDetails() {
   const [reviews, setReviews] = useState([])
   const [reviewsWithUsers, setReviewsWithUsers] = useState([])
   const params = useParams()
-
+  const diamondIcon = "/Airdnd/icons/diamond.svg"
 
   useEffect(() => {
     if (params.homeId) loadHome()
@@ -193,6 +193,34 @@ export function HomeDetails() {
             </div>
           )}
 
+          {/* Where you’ll sleep */}
+          <h3>Where you’ll sleep</h3>
+
+          <section className="sleeping-arrangements">
+            <div className="sleeping-item">
+              <span className="icon">{amenityIcons.BedDouble}</span>
+              <div className="room-name">Bedroom 1</div>
+              <span className="label">1 queen bed</span>
+            </div>
+
+            <div className="sleeping-item">
+              <span className="icon">{amenityIcons.BedDouble}</span>
+
+              <div className="room-name">Bedroom 2</div>
+              <span className="label">1 queen bed</span>
+            </div>
+
+            <div className="sleeping-item">
+              <span className="icon">{amenityIcons.Bed}</span>
+              <span className="icon">{amenityIcons.Sofa}</span>
+              <div className="room-name">Living room</div>
+              <span className="label">1 single bed,</span>
+              <span className="label">1 sofa bed</span>
+
+
+            </div>
+          </section>
+
 
 
           {/* Amenities */}
@@ -259,6 +287,10 @@ export function HomeDetails() {
         </section>
 
         <aside className="side-panel">
+          <div className="rare-find">
+            <img src={diamondIcon} alt="diamond" />
+            Rare find! This place is usually booked
+          </div>
           <BookingSearch home={home} />
         </aside>
       </section>
