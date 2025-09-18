@@ -26,7 +26,7 @@
   border: 1px solid #ddd;
 }
 
-.guest-dropdown>* {
+.guest-dropdown > * {
   flex: 1;
   /* fills available space */
   display: flex;
@@ -40,7 +40,7 @@
 }
 
 /* Remove border from the last item */
-.guest-dropdown>*:last-child {
+.guest-dropdown > *:last-child {
   border-bottom: none;
 }
 
@@ -149,7 +149,6 @@
     border-radius: 50% !important;
   }
 
-
   .no-square-day[data-first-in-range],
   .no-square-day[data-first-in-range]:hover {
     background: black !important;
@@ -165,7 +164,6 @@
     border-radius: 50% !important;
     z-index: 1;
   }
-  
 
   .day-cell {
     position: relative;
@@ -239,7 +237,7 @@
     padding: 4px !important;
     color: #000;
   }
-  
+
   .no-square-day:hover {
     border: none !important;
     background: black !important;
