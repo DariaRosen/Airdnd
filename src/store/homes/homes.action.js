@@ -1,4 +1,5 @@
 import { homeService } from "../../services/home.service"
+import { SET_IS_LOADING } from "./homes.reducer"
 import { store } from "../store"
 import {
   ADD_HOME,
@@ -67,6 +68,9 @@ export async function addHomeMsg(homeId, txt) {
 }
 export function setFilterBy(filterBy) {
   store.dispatch({ type: SET_FILTER, filterBy })
+}
+export function setIsLoading(isLoading) {
+  store.dispatch({ type: SET_IS_LOADING, isLoading })
 }
 
 // Command Creators:

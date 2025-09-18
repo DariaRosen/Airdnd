@@ -8,6 +8,8 @@ import { useFilterSearchParams } from "../customHooks/useFilterSearchParams"
 import { loadUsers, login } from "../store/user/user.action.js"
 import { utilService } from "../services/util.service.js"
 import { AirdndIcon } from "../cmps/AirdndIcon"
+import { setIsLoading } from "../store/homes/homes.action.js"
+
 
 const { checkIn, checkOut } = utilService.getNextMonthDates()
 const dateRange = getFormattedDateRange() // e.g. "Jul 15–17"
@@ -19,12 +21,15 @@ export function HomePage() {
   )
   const setExistSearchParams = useFilterSearchParams()
   const arrow1 = "/Airdnd/icons/arrow1.svg"
-  const [isLoading, setIsLoading] = useState(true)
+  //const [isLoading, setIsLoading] = useState(true)
+  const isLoading = useSelector(storeState => storeState.homeModule.isLoading)
+
 
   useEffect(() => {
     async function loadData() {
       try {
         await Promise.all([
+          setIsLoading(true),
           loadHomes(),
           loadUsers(),
           login()
