@@ -285,14 +285,15 @@ export function HomeDetails() {
 
 
         </section>
-
-        <aside className="side-panel">
-          <div className="rare-find">
-            <img src={diamondIcon} alt="diamond" />
-            Rare find! This place is usually booked
-          </div>
-          <BookingSearch home={home} />
-        </aside>
+        <div className="stiky-container">
+          <aside className="side-panel">
+            <div className="rare-find">
+              <img src={diamondIcon} alt="diamond" />
+              Rare find! This place is usually booked
+            </div>
+            <BookingSearch home={home} />
+          </aside>
+        </div>
       </section>
 
       {/* Reviews */}
@@ -300,6 +301,7 @@ export function HomeDetails() {
         <Review homeId={home._id} />
       </section>
 
+      {/* Map */}
       <section className="home-map">
         <div className="map-box map-house-icons">
           <MapView homes={[home]} singleZoom={15} markerMode="house" />

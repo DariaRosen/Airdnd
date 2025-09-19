@@ -100,7 +100,6 @@
 .rare-find {
   display: inline-flex; /* Align icon and text horizontally */
   align-items: center; /* Vertically center icon and text */
-  gap: 8px; /* Space between icon and text */
   background-color: #ffffff; /* Light highlight background */
   font-weight: 500; /* Semi-bold text */
   font-size: 14px; /* Adjust font size */
@@ -108,14 +107,14 @@
   border: 1px solid #dddddd; /* Optional subtle border */
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.168627451); /* Soft shadow */
   width: 366px;
+  height: 60px;
   margin-bottom: 20px;
   color: #555;
 }
 .rare-find img {
-  width: 60px; /* Icon size */
-  height: 60px;
+  width: 90px; /* Icon size */
+  height: 90px;
   object-fit: contain;
-  margin-left: 20px;
 }
 
 /* ---------------- MODAL GENERAL ---------------- */
