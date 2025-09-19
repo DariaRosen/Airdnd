@@ -124,7 +124,8 @@ export function WelcomeHost() {
                     <p className="stat-title">Earnings</p>
                     <h2 className="stat-text">
                         Total: {Number(stats.income.toFixed(0)).toLocaleString()} $ <br />
-                        This Month: {Number(stats.incomeThisMonth.toFixed(0)).toLocaleString()} $
+                        {new Date().toLocaleString('en-US', { month: 'long' })}:{" "}
+                        {Number(stats.incomeThisMonth.toFixed(0)).toLocaleString()} $
                     </h2>
                     <div className="stat-icon"><DollarSign size={28} /></div>
                 </div>

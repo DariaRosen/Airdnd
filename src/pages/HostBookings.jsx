@@ -78,7 +78,7 @@ export function HostBookings() {
     const handleStatusChange = async (bookingId, newStatus) => {
         try {
             // Call your booking service to update the status in the backend
-            await bookingService.updateBookingStatus(bookingId, newStatus);
+            await bookingService.updateStatus(bookingId, newStatus);
 
             // Update the local state so UI refreshes
             setHostBookings(prev =>

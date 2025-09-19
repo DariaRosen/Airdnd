@@ -115,9 +115,12 @@ function pickDefined(obj, keys) {
 }
 async function getHomesByHost(hostId) {
   if (!hostId) throw new Error('hostId is required')
-  const res = await httpService.get('home', { hostId })
-  return Array.isArray(res) ? res : (Array.isArray(res?.items) ? res.items : [])
+  const res = await httpService.get('home', { host_id: hostId }) // match backend
+  return Array.isArray(res)
+    ? res
+    : (Array.isArray(res?.items) ? res.items : [])
 }
+
 async function getHomeRating(homeId) {
   if (!homeId) throw new Error('homeId is required')
 
@@ -125,7 +128,7 @@ async function getHomeRating(homeId) {
     const res = await httpService.get(`review/rating/${homeId}`)
     if (typeof res === 'number') return res
     if (res && typeof res.avg === 'number') return res.avg
-  } catch (_) {}
+  } catch (_) { }
 
   const reviews = await getHomeReviews(homeId)
   const nums = reviews.map(r => Number(r.rating)).filter(n => Number.isFinite(n))
