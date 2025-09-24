@@ -1,8 +1,5 @@
 .host-listings {
   padding: 2rem;
-  font-family: Airbnb Cereal VF, Circular, -apple-system, BlinkMacSystemFont,
-    Roboto, Helvetica Neue, sans-serif;
-  max-width: 1200px;
   margin: 0 auto;
 }
 
@@ -16,6 +13,8 @@
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
   gap: 1.5rem;
+  width: 1000px;
+  margin-top: 2rem;
 }
 
 .listing-card {
@@ -34,10 +33,10 @@
 }
 
 .listing-avatar {
-  width: 100%;
-  padding-top: 60%; /* ratio 5:3 */
-  background-size: cover;
-  background-position: center;
+  display: grid;
+  place-items: center;
+  // width: 200px!important;
+  // height: 200px!important;
 }
 
 .listing-info {
@@ -76,4 +75,22 @@
   color: #222;
   font-weight: 500;
   margin-top: 0.25rem;
+}
+.editable-field {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.editable-field .edit-icon {
+  opacity: 0;
+  margin-left: 6px;
+  width: 14px;
+  height: 14px;
+  transition: opacity 0.2s;
+}
+
+.editable-field:hover .edit-icon {
+  opacity: 1;
 }

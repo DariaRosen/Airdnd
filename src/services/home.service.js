@@ -21,17 +21,21 @@ async function getById(id) {
 }
 
 async function save(home) {
-  if (home._id) {
-    const payload = pickDefined(home, [
+  const payload = home._id
+    ? pickDefined(denormalize(home), [
       'title', 'description', 'price', 'capacity', 'rooms', 'beds', 'bathrooms', 'type',
-      'imgUrls', 'rating', 'numberOfRaters', 'addedToWishlist', 'guestFavorite',
-      'location', 'amenities', 'highlights', 'unavailableDates', 'lastSearchValue'
+      'img_urls', 'rating', 'number_of_raters', 'added_to_wishlist', 'guest_favorite',
+      'location', 'amenities', 'highlights', 'unavailable_dates', 'last_search_value'
     ])
-    return httpService.put(`home/${home._id}`, payload)
+    : denormalize(home)
+
+  if (home._id) {
+    return normalize(await httpService.put(`home/${home._id}`, payload))
   } else {
-    return httpService.post('home', home)
+    return normalize(await httpService.post('home', payload))
   }
 }
+
 
 async function remove(id) {
   return httpService.del(`home/${id}`)
@@ -133,4 +137,57 @@ async function getHomeRating(homeId) {
   const reviews = await getHomeReviews(homeId)
   const nums = reviews.map(r => Number(r.rating)).filter(n => Number.isFinite(n))
   return nums.length ? nums.reduce((s, n) => s + n, 0) / nums.length : 0
+}
+
+function normalize(h) {
+  return h && {
+    _id: h._id,
+    hostId: h.host_id,
+    title: h.title,
+    description: h.description,
+    price: h.price,
+    capacity: h.capacity,
+    rooms: h.rooms,
+    beds: h.beds,
+    bathrooms: h.bathrooms,
+    type: h.type,
+    imgUrls: h.img_urls,
+    rating: h.rating,
+    numberOfRaters: h.number_of_raters,
+    addedToWishlist: h.added_to_wishlist,
+    guestFavorite: h.guest_favorite,
+    location: h.location,
+    amenities: h.amenities,
+    highlights: h.highlights,
+    msgs: h.msgs,
+    unavailableDates: h.unavailable_dates,
+    lastSearchValue: h.last_search_value,
+    createdAt: h.createdAt || Date.now()
+  }
+}
+
+function denormalize(h) {
+  return {
+    host_id: h.hostId,
+    title: h.title,
+    description: h.description,
+    price: h.price,
+    capacity: h.capacity,
+    rooms: h.rooms,
+    beds: h.beds,
+    bathrooms: h.bathrooms,
+    type: h.type,
+    img_urls: h.imgUrls,
+    rating: h.rating,
+    number_of_raters: h.numberOfRaters,
+    added_to_wishlist: h.addedToWishlist,
+    guest_favorite: h.guestFavorite,
+    location: h.location,
+    amenities: h.amenities,
+    highlights: h.highlights,
+    msgs: h.msgs,
+    unavailable_dates: h.unavailableDates,
+    last_search_value: h.lastSearchValue,
+    createdAt: h.createdAt
+  }
 }
