@@ -9,7 +9,9 @@ export const homeService = {
   getFormattedDateRange,
   getFilterFromSearchParams,
   getHomesByHost,
-  getHomeRating
+  getHomeRating,
+  normalize,
+  denormalize
 }
 
 async function query(filterBy = {}) {
@@ -23,9 +25,27 @@ async function getById(id) {
 async function save(home) {
   const payload = home._id
     ? pickDefined(denormalize(home), [
-      'title', 'description', 'price', 'capacity', 'rooms', 'beds', 'bathrooms', 'type',
-      'img_urls', 'rating', 'number_of_raters', 'added_to_wishlist', 'guest_favorite',
-      'location', 'amenities', 'highlights', 'unavailable_dates', 'last_search_value'
+      'host_id',
+      'title',
+      'description',
+      'price',
+      'capacity',
+      'rooms',
+      'beds',
+      'bathrooms',
+      'type',
+      'img_urls',
+      'rating',
+      'number_of_raters',
+      'added_to_wishlist',
+      'guest_favorite',
+      'location',
+      'amenities',
+      'highlights',
+      'msgs',
+      'unavailable_dates',
+      'last_search_value',
+      'createdAt'
     ])
     : denormalize(home)
 
@@ -140,31 +160,39 @@ async function getHomeRating(homeId) {
 }
 
 function normalize(h) {
-  return h && {
+  if (!h) return null
+
+  const imgs = h.img_urls || h.imgUrls || []
+
+  return {
     _id: h._id,
-    hostId: h.host_id,
-    title: h.title,
-    description: h.description,
-    price: h.price,
-    capacity: h.capacity,
-    rooms: h.rooms,
-    beds: h.beds,
-    bathrooms: h.bathrooms,
-    type: h.type,
-    imgUrls: h.img_urls,
-    rating: h.rating,
-    numberOfRaters: h.number_of_raters,
-    addedToWishlist: h.added_to_wishlist,
-    guestFavorite: h.guest_favorite,
-    location: h.location,
-    amenities: h.amenities,
-    highlights: h.highlights,
-    msgs: h.msgs,
-    unavailableDates: h.unavailable_dates,
-    lastSearchValue: h.last_search_value,
-    createdAt: h.createdAt || Date.now()
+    hostId: h.host_id ?? h.hostId ?? null,
+    title: h.title ?? "",
+    description: h.description ?? "",
+    price: h.price ?? 0,
+    capacity: h.capacity ?? 0,
+    rooms: h.rooms ?? null,
+    beds: h.beds ?? null,
+    bathrooms: h.bathrooms ?? null,
+    type: h.type ?? null,
+
+    imgUrls: imgs,
+    imgUrl: Array.isArray(imgs) && imgs.length ? imgs[0] : "",
+
+    rating: h.rating ?? 0,
+    numberOfRaters: h.number_of_raters ?? h.numberOfRaters ?? 0,
+    addedToWishlist: h.added_to_wishlist ?? h.addedToWishlist ?? false,
+    guestFavorite: h.guest_favorite ?? h.guestFavorite ?? false,
+    location: h.location ?? null,
+    amenities: h.amenities ?? [],
+    highlights: h.highlights ?? [],
+    msgs: h.msgs ?? [],
+    unavailableDates: h.unavailable_dates ?? h.unavailableDates ?? [],
+    lastSearchValue: h.last_search_value ?? h.lastSearchValue ?? "",
+    createdAt: h.createdAt ?? h.created_at ?? Date.now()
   }
 }
+
 
 function denormalize(h) {
   return {

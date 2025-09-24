@@ -20,27 +20,21 @@ export function HostListings() {
         async function loadHomes() {
             const allHomes = await homeService.query()
             const hostHomes = allHomes
-                .filter(home => home.host_id === hostId)
-                .map(home => ({
-                    _id: home._id,
-                    title: home.title,
-                    description: home.description,
-                    price: home.price,
-                    capacity: home.capacity,
-                    imgUrl: home.imgUrls?.[0] || "",
-                    rating: home.rating ?? 0,
-                    numberOfRaters: home.numberOfRaters ?? 0,
-                }))
-            setHomes(hostHomes)
+                .map(homeService.normalize)
+                .filter(home => home.hostId === hostId)
+
+            setHomes(hostHomes)  // full homes with all fields intact
+            console.log("hostHomes", hostHomes);
+
         }
         loadHomes()
     }, [hostId])
 
     async function saveHome(updatedHome) {
         try {
-            await homeService.save(updatedHome)
+            const saved = await homeService.save(updatedHome) // this returns normalized home with imgUrls + imgUrl
             setHomes(prev =>
-                prev.map(h => (h._id === updatedHome._id ? updatedHome : h))
+                prev.map(h => (h._id === saved._id ? saved : h))
             )
         } catch (err) {
             console.error("Failed to save", err)
@@ -54,6 +48,11 @@ export function HostListings() {
     function EditableField({ value, onSave, type = "text", truncate = 0 }) {
         const [isEditing, setIsEditing] = useState(false)
         const [draft, setDraft] = useState(value)
+
+        // sync draft with latest prop value
+        useEffect(() => {
+            setDraft(value)
+        }, [value])
 
         function handleSave() {
             setIsEditing(false)
@@ -89,15 +88,14 @@ export function HostListings() {
                 : value
 
         return (
-            <div
-                className="editable-field"
-                onClick={() => setIsEditing(true)}
-            >
+            <div className="editable-field" onClick={() => setIsEditing(true)}>
                 <span>{displayText}</span>
                 <Pencil className="edit-icon" />
             </div>
         )
     }
+
+    console.log("home.imgUrl", homes);
 
     return (
         <section className="host-listings">
@@ -110,6 +108,7 @@ export function HostListings() {
                         </div>
                         <div className="listing-info">
                             <EditableField
+                                className="title-field-home"
                                 value={home.title}
                                 onSave={val => saveHome({ ...home, title: val })}
                             />
@@ -121,9 +120,9 @@ export function HostListings() {
                                         saveHome({ ...home, description: val })
                                     }
                                     type="textarea"
-                                    truncate={!expanded[home._id] ? 200 : 0}
+                                    truncate={!expanded[home._id] ? 60 : 0}
                                 />
-                                {home.description.length > 200 && (
+                                {home.description.length > 60 && (
                                     <button
                                         type="button"
                                         className="show-more-btn"

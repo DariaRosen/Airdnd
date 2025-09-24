@@ -37,6 +37,11 @@
   place-items: center;
   // width: 200px!important;
   // height: 200px!important;
+  img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+  }
 }
 
 .listing-info {
@@ -93,4 +98,10 @@
 
 .editable-field:hover .edit-icon {
   opacity: 1;
+}
+
+.title-field-home span {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #222;
 }
