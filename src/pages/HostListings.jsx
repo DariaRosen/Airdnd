@@ -107,11 +107,13 @@ export function HostListings() {
                             <img src={home.imgUrl} alt={home.title} />
                         </div>
                         <div className="listing-info">
-                            <EditableField
-                                className="title-field-home"
-                                value={home.title}
-                                onSave={val => saveHome({ ...home, title: val })}
-                            />
+                            <div className="editable-title">
+                                <EditableField
+                                    className="title-field-home"
+                                    value={home.title}
+                                    onSave={val => saveHome({ ...home, title: val })}
+                                />
+                            </div>
 
                             <div className="editable-description">
                                 <EditableField
@@ -134,22 +136,25 @@ export function HostListings() {
                                     </button>
                                 )}
                             </div>
+                            <div className="price-field-wrapper">
+                                <label>Price: </label>
+                                <EditableField
+                                    value={String(home.price)}
+                                    onSave={val => saveHome({ ...home, price: Number(val) })}
+                                    type="number"
+                                />
+                            </div>
 
-                            <EditableField
-                                value={String(home.price)}
-                                onSave={val =>
-                                    saveHome({ ...home, price: Number(val) })
-                                }
-                                type="number"
-                            />
-
-                            <EditableField
-                                value={String(home.capacity)}
-                                onSave={val =>
-                                    saveHome({ ...home, capacity: Number(val) })
-                                }
-                                type="number"
-                            />
+                            <div className="capacity-field-wrapper">
+                                <label>Capacity: </label>
+                                <EditableField
+                                    value={String(home.capacity)}
+                                    onSave={val =>
+                                        saveHome({ ...home, capacity: Number(val) })
+                                    }
+                                    type="number"
+                                />
+                            </div>
 
                             <p className="listing-rating">
                                 ⭐ {home.rating?.toFixed(2)} (
