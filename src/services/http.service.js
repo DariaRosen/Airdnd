@@ -1,5 +1,6 @@
-const BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:3030/api'
-
+const BASE_URL =
+  import.meta.env.VITE_API_URL
+  || (import.meta.env.PROD ? `${window.location.origin}/api` : 'http://localhost:3030/api')
 export const httpService = { get, post, put, del }
 
 function get(resource, params) {
