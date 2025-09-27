@@ -13,6 +13,9 @@ import { HostDashboard } from "./pages/HostDashboard.jsx"
 import { HostBookings } from "./pages/HostBookings.jsx"
 import { HostAddListing } from "./pages/HostAddListing.jsx"
 import { HostListings } from "./pages/HostListings.jsx" 
+import { ListingCreationConfirmationPage } from "./cmps/ListingCreationConfirmationPage"
+
+
 function DefaultLayout() {
   return (
     <>
@@ -57,6 +60,7 @@ export function App() {
           <Route path="/host-bookings" element={<HostBookings />} />
           <Route path="/host-listing" element={<HostAddListing />} />
           <Route path="/host-listings" element={<HostListings />} />
+          <Route path="/listing-confirmation" element={<ListingCreationConfirmationPage />} />
         </Route>
       </Routes>
     </Router>

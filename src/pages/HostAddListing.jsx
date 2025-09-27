@@ -3,10 +3,11 @@ import { HostDashboardHeader } from "../cmps/HostDashboardHeader"
 import { AmenitySelector } from "../cmps/AmenitySelector"
 import { ImageUploader } from "../cmps/ImageUploader"
 import { homeService } from "../services/home.service"
-import confetti from 'canvas-confetti'
+import { useNavigate } from "react-router-dom"
 
 export function HostAddListing() {
     const [amenities, setAmenities] = useState([])
+    const navigate = useNavigate()
     const [form, setForm] = useState({
         title: "",
         description: "",
@@ -77,25 +78,15 @@ export function HostAddListing() {
             .then(savedHome => {
                 console.log("Listing saved:", savedHome)
 
-                // 🎉 Trigger confetti animation
-                confetti({
-                    particleCount: 150,
-                    spread: 70,
-                    origin: { y: 0.6 }
-                })
+                // alert("Listing created successfully!")
 
-                alert("Listing created successfully!")
-
-                // Optionally reset the form
-                setForm(homeService.getEmptyHome())
-                setAmenities([])
+                navigate('/listing-confirmation')
             })
             .catch(err => {
                 console.error("Error saving listing:", err)
                 //alert("Failed to create listing. Check console for errors.")
             })
     }
-
 
     return (
         <section className="host-listing">

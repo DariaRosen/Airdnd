@@ -67,10 +67,12 @@ export function WelcomeHost() {
             const userHomesRes = await homeService.getHomesByHost(user._id)
             const userHomes = asArray(userHomesRes)
             console.log('userHomes:', userHomes)
-            const ratings = await Promise.all(userHomes.map(h => homeService.getHomeRating(h._id)))
-            console.log('ratings:', ratings)
-            const validRatings = ratings.filter(r => typeof r === "number")
-            const avgRating = validRatings.length ? validRatings.reduce((sum, r) => sum + r, 0) / validRatings.length : 0
+
+            const ratings = userHomes.map(h => h.rating || 0)
+            const avgRating = ratings.length
+                ? ratings.reduce((sum, r) => sum + r, 0) / ratings.length
+                : 0
+                
             const wishlistCount = userHomes.reduce((sum, h) => sum + (h.addedToWishlist || 0), 0)
             const activeListings = userHomes.length
 

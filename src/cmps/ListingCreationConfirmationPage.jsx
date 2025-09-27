@@ -1,10 +1,10 @@
-import { useNavigate } from "react-router-dom"
 import { useEffect } from "react"
+import { useNavigate } from "react-router-dom"
 import confetti from "canvas-confetti"
 
-export function ConfirmationPage() {
-
+export function ListingCreationConfirmationPage() {
     const navigate = useNavigate()
+
     useEffect(() => {
         // 🎉 Trigger confetti animation once when page loads
         confetti({
@@ -13,15 +13,17 @@ export function ConfirmationPage() {
             origin: { y: 0.6 },
         })
     }, [])
+
     function handleBack() {
-        navigate("/")
+        navigate("/welcome-host")
     }
+
     return (
         <div className="confirmation-container">
             <div className="confirmation-icon">✔</div>
-            <h1 className="confirmation-title">Thank you for your booking!</h1>
+            <h1 className="confirmation-title">Thank you for your listing!</h1>
             <p className="confirmation-text">
-                Your booking has been confirmed.
+                Your listing has been created successfully.
             </p>
             <button className="confirmation-button" onClick={handleBack}>
                 Back Home
