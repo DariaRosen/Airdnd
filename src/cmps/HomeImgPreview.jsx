@@ -24,9 +24,19 @@ export function HomeImgPreview({ home, onHover = () => { }, showCarousel = true,
   }, [home._id])
 
   const toggleHeart = async () => {
+    if (!loggedInUser?._id) return // not logged in
+
     setIsLiked(prev => !prev)
-    const updatedUser = await updateFavoritesUser(loggedInUser._id, home._id)
-    setIsLiked(updatedUser.favorites.includes(home._id))
+
+    try {
+      const updatedUser = await updateFavoritesUser(loggedInUser._id, home._id)
+      if (updatedUser?.favorites) {
+        setIsLiked(updatedUser.favorites.includes(home._id))
+      }
+    } catch (err) {
+      console.error("Failed to update favorites:", err)
+      setIsLiked(loggedInUser?.favorites?.includes(home._id) || false)
+    }
   }
 
   const hasCarousel = showCarousel && home.imgUrls.length > 1
@@ -54,13 +64,13 @@ export function HomeImgPreview({ home, onHover = () => { }, showCarousel = true,
           )}
 
           <Link to={`/home/${home._id}${location.search}`}>
-          <img
-            key={imgToShow}
-            src={imgToShow}
-            alt={home.title}
-            className={`carousel-img slide-${slideDirection}`}
-            onAnimationEnd={() => setSlideDirection('')}
-          />
+            <img
+              key={imgToShow}
+              src={imgToShow}
+              alt={home.title}
+              className={`carousel-img slide-${slideDirection}`}
+              onAnimationEnd={() => setSlideDirection('')}
+            />
           </Link>
 
           {hasCarousel && currentImgIdx < home.imgUrls.length - 1 && (
