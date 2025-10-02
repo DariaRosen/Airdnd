@@ -1,0 +1,842 @@
+[
+  {
+    "user_id": "68de5963d26a1ea2ad78f8b3",
+    "home_id": "68de67a2d26a1ea2ad78f8d9",
+    "comment": "I loved staying in this loft! The space was clean, modern, and very comfortable. Everything we needed was provided, and the location was perfect for exploring the city.",
+    "rating": 4.9,
+    "createdAt": 1696272000000
+  },
+  {
+    "user_id": "68de5963d26a1ea2ad78f8b6",
+    "home_id": "68de67a2d26a1ea2ad78f8da",
+    "comment": "Charming flat with a wonderful atmosphere. The host was very responsive and gave great local tips. I would definitely recommend this place to friends.",
+    "rating": 4.7,
+    "createdAt": 1696358400000
+  },
+  {
+    "user_id": "68de5963d26a1ea2ad78f8b2",
+    "home_id": "68de67a2d26a1ea2ad78f8db",
+    "comment": "The historic cottage was cozy and full of character. It had all the amenities we needed and felt very homey. Perfect for a relaxing weekend getaway.",
+    "rating": 4.8,
+    "createdAt": 1696444800000
+  },
+  {
+    "user_id": "68de5963d26a1ea2ad78f8b9",
+    "home_id": "68de67a2d26a1ea2ad78f8dc",
+    "comment": "A luxurious apartment in a prime location. Everything was spotless and well-maintained. The host made check-in very smooth. Highly recommended.",
+    "rating": 5.0,
+    "createdAt": 1696531200000
+  },
+  {
+    "user_id": "68de5963d26a1ea2ad78f8bb",
+    "home_id": "68de67a2d26a1ea2ad78f8dd",
+    "comment": "Small studio but very well-organized and comfortable for two people. The neighborhood was quiet yet close to restaurants and shops. I really enjoyed my stay here.",
+    "rating": 4.6,
+    "createdAt": 1696617600000
+  },
+  {
+    "user_id": "68de5963d26a1ea2ad78f8c0",
+    "home_id": "68de67a2d26a1ea2ad78f8de",
+    "comment": "Beautiful lake house with stunning views. The space was clean, cozy, and perfect for our family. We loved spending mornings by the water.",
+    "rating": 4.9,
+    "createdAt": 1696704000000
+  },
+  {
+    "user_id": "68de5963d26a1ea2ad78f8c3",
+    "home_id": "68de67a2d26a1ea2ad78f8df",
+    "comment": "Rustic barn with amazing countryside views. Very peaceful and well-equipped. We had a lovely stay and hope to come back soon.",
+    "rating": 4.8,
+    "createdAt": 1696790400000
+  },
+  {
+    "user_id": "68de5963d26a1ea2ad78f8be",
+    "home_id": "68de67a2d26a1ea2ad78f8e0",
+    "comment": "The historic cottage was charming and comfortable. Everything was well-maintained and easy to access. A perfect retreat for a quiet vacation.",
+    "rating": 4.7,
+    "createdAt": 1696876800000
+  },
+  {
+    "user_id": "68de5963d26a1ea2ad78f8b7",
+    "home_id": "68de67a2d26a1ea2ad78f8e5",
+    "comment": "Stunning seaside villa with breathtaking views. The pool area was amazing and the house had all the comforts we needed. Highly recommend for a relaxing stay.",
+    "rating": 5.0,
+    "createdAt": 1696963200000
+  },
+  {
+    "user_id": "68de5963d26a1ea2ad78f8b8",
+    "home_id": "68de67a2d26a1ea2ad78f8e6",
+    "comment": "Cozy rooftop studio with a fantastic view of the city. Very clean and stylishly decorated. The location was excellent for exploring nearby attractions.",
+    "rating": 4.8,
+    "createdAt": 1697049600000
+  },
+  {
+    "user_id": "68de5963d26a1ea2ad78f8bf",
+    "home_id": "68de67a2d26a1ea2ad78f8d7",
+    "comment": "The beachfront retreat was amazing! We loved waking up to the ocean view every morning. Everything was spotless, and the host was very helpful with recommendations.",
+    "rating": 5.0,
+    "createdAt": 1697136000000
+  },
+  {
+    "user_id": "68de5963d26a1ea2ad78f8bc",
+    "home_id": "68de67a2d26a1ea2ad78f8d8",
+    "comment": "Charming cabin in the mountains. The fireplace made evenings very cozy. Location was great for hiking and exploring the surrounding area.",
+    "rating": 4.8,
+    "createdAt": 1697222400000
+  },
+  {
+    "user_id": "68de5963d26a1ea2ad78f8c2",
+    "home_id": "68de67a2d26a1ea2ad78f8d6",
+    "comment": "Modern flat in Tel Aviv was stylish and comfortable. Everything was clean and well-organized. The neighborhood was lively and full of restaurants.",
+    "rating": 4.9,
+    "createdAt": 1697308800000
+  },
+  {
+    "user_id": "68de5963d26a1ea2ad78f8b5",
+    "home_id": "68de67a2d26a1ea2ad78f8c5",
+    "comment": "Canal view apartment was beautiful! The view from the balcony was stunning. Very clean and perfect for a weekend getaway.",
+    "rating": 4.7,
+    "createdAt": 1697395200000
+  },
+  {
+    "user_id": "68de5963d26a1ea2ad78f8b3",
+    "home_id": "68de67a2d26a1ea2ad78f8c6",
+    "comment": "Tropical jungle bungalow was unique and peaceful. Loved the outdoor shower experience! The surroundings were quiet and relaxing.",
+    "rating": 4.6,
+    "createdAt": 1697481600000
+  },
+  {
+    "user_id": "68de5963d26a1ea2ad78f8c1",
+    "home_id": "68de67a2d26a1ea2ad78f8c7",
+    "comment": "Central Park apartment was ideal for our city trip. Spacious and very well-equipped. The location could not have been better!",
+    "rating": 4.9,
+    "createdAt": 1697568000000
+  },
+  {
+    "user_id": "68de5963d26a1ea2ad78f8b9",
+    "home_id": "68de67a2d26a1ea2ad78f8c8",
+    "comment": "Brooklyn loft had a great vibe and was very clean. Easy access to local cafes and bars. We enjoyed our stay very much.",
+    "rating": 4.7,
+    "createdAt": 1697654400000
+  },
+  {
+    "user_id": "68de5963d26a1ea2ad78f8b6",
+    "home_id": "68de67a2d26a1ea2ad78f8c9",
+    "comment": "Times Square studio was compact but very comfortable. Perfect location for sightseeing. The building was safe and quiet.",
+    "rating": 4.8,
+    "createdAt": 1697740800000
+  },
+  {
+    "user_id": "68de5963d26a1ea2ad78f8b7",
+    "home_id": "68de67a2d26a1ea2ad78f8ca",
+    "comment": "Seaside villa was luxurious and spacious. Pool area was perfect for relaxing afternoons. Loved the ocean view from every room.",
+    "rating": 5.0,
+    "createdAt": 1697827200000
+  },
+  {
+    "user_id": "68de5963d26a1ea2ad78f8be",
+    "home_id": "68de67a2d26a1ea2ad78f8cb",
+    "comment": "Cozy cabin was the perfect mountain getaway. The fireplace was very welcoming. The surroundings were beautiful and peaceful.",
+    "rating": 4.8,
+    "createdAt": 1697913600000
+  },
+  {
+    "user_id": "68de5963d26a1ea2ad78f8b8",
+    "home_id": "68de67a2d26a1ea2ad78f8cc",
+    "comment": "Downtown penthouse offered incredible city views. Very modern and clean. Great for a small group of friends exploring the city.",
+    "rating": 4.9,
+    "createdAt": 1698000000000
+  },
+  {
+    "user_id": "68de5963d26a1ea2ad78f8b2",
+    "home_id": "68de67a2d26a1ea2ad78f8cd",
+    "comment": "Beachfront condo was amazing! Close to the beach with lovely sunsets every evening. Very clean and comfortable.",
+    "rating": 4.8,
+    "createdAt": 1698086400000
+  },
+  {
+    "user_id": "68de5963d26a1ea2ad78f8c0",
+    "home_id": "68de67a2d26a1ea2ad78f8ce",
+    "comment": "Countryside farmhouse was beautiful and full of character. Lovely garden and cozy interior. Perfect for a quiet family weekend.",
+    "rating": 4.7,
+    "createdAt": 1698172800000
+  },
+  {
+    "user_id": "68de5963d26a1ea2ad78f8c3",
+    "home_id": "68de67a2d26a1ea2ad78f8cf",
+    "comment": "Apartment in Gran Vía was stylish and comfortable. Great location to explore the city. The host was very helpful and responsive.",
+    "rating": 4.9,
+    "createdAt": 1698259200000
+  },
+  {
+    "user_id": "68de5963d26a1ea2ad78f8bd",
+    "home_id": "68de67a2d26a1ea2ad78f8d0",
+    "comment": "This apartment had everything we needed. Clean, modern, and spacious. Close to public transport which made exploring easy.",
+    "rating": 4.8,
+    "createdAt": 1698345600000
+  },
+  {
+    "user_id": "68de5963d26a1ea2ad78f8ba",
+    "home_id": "68de67a2d26a1ea2ad78f8d1",
+    "comment": "Lovely apartment with a cozy atmosphere. The location was perfect for walking around the city. Host was very friendly and accommodating.",
+    "rating": 4.7,
+    "createdAt": 1698432000000
+  },
+  {
+    "user_id": "68de5963d26a1ea2ad78f8c1",
+    "home_id": "68de67a2d26a1ea2ad78f8d2",
+    "comment": "Bright apartment with a great view. Clean, modern, and very comfortable. We enjoyed our stay and would come back again.",
+    "rating": 4.9,
+    "createdAt": 1698518400000
+  },
+  {
+    "user_id": "68de5963d26a1ea2ad78f8b3",
+    "home_id": "68de67a2d26a1ea2ad78f8d3",
+    "comment": "Room in Gran Vía was cozy and perfect for one person. Clean and quiet, with easy access to restaurants and shops. Loved the location.",
+    "rating": 4.8,
+    "createdAt": 1698604800000
+  },
+  {
+    "user_id": "68de5963d26a1ea2ad78f8b4",
+    "home_id": "68de67a2d26a1ea2ad78f8d4",
+    "comment": "Great apartment for families. Spacious, comfortable, and very clean. Close to public transport and shops.",
+    "rating": 4.9,
+    "createdAt": 1698691200000
+  },
+  {
+    "user_id": "68de5963d26a1ea2ad78f8b6",
+    "home_id": "68de67a2d26a1ea2ad78f8d5",
+    "comment": "Apartment in Gran Vía with stunning views. Clean, cozy, and stylish. Perfect for a short city break.",
+    "rating": 4.8,
+    "createdAt": 1698777600000
+  },
+  {
+    "user_id": "68de5963d26a1ea2ad78f8b8",
+    "home_id": "68de67a2d26a1ea2ad78f8d6",
+    "comment": "Modern flat in Tel Aviv was perfect. Stylish, clean, and very comfortable. The location was lively with plenty of restaurants nearby.",
+    "rating": 4.9,
+    "createdAt": 1698864000000
+  },
+  {
+    "user_id": "68de5963d26a1ea2ad78f8b5",
+    "home_id": "68de67a2d26a1ea2ad78f8d7",
+    "comment": "Beachfront retreat in TLV was incredible. Views were breathtaking, and the house was perfect for our family. Highly recommended!",
+    "rating": 5.0,
+    "createdAt": 1698950400000
+  },
+  {
+    "user_id": "68de5963d26a1ea2ad78f8c2",
+    "home_id": "68de67a2d26a1ea2ad78f8d8",
+    "comment": "Cozy cabin in Colorado was charming. Great amenities and very comfortable. Surrounded by beautiful nature and perfect for relaxation.",
+    "rating": 4.8,
+    "createdAt": 1699036800000
+  },
+  {
+    "user_id": "68de5963d26a1ea2ad78f8bc",
+    "home_id": "68de67a2d26a1ea2ad78f8e6",
+    "comment": "Rooftop studio TLV had an amazing city view. Very clean, modern, and stylish. Easy to get around from this location.",
+    "rating": 4.9,
+    "createdAt": 1699123200000
+  },
+  {
+    "user_id": "68de5963d26a1ea2ad78f8b2",
+    "home_id": "68de67a2d26a1ea2ad78f8e7",
+    "comment": "Sheinkin studio was small but very cozy. Everything was organized and clean. Perfect spot for a short stay in Tel Aviv.",
+    "rating": 4.7,
+    "createdAt": 1699209600000
+  },
+  {
+    "user_id": "68de5963d26a1ea2ad78f8c3",
+    "home_id": "68de67a2d26a1ea2ad78f8e8",
+    "comment": "Luxury Neve Tzedek apartment was fantastic. Very stylish and clean with all amenities. The neighborhood is charming and vibrant.",
+    "rating": 5.0,
+    "createdAt": 1699296000000
+  },
+  {
+    "user_id": "68de5963d26a1ea2ad78f8bd",
+    "home_id": "68de67a2d26a1ea2ad78f8e9",
+    "comment": "Rooftop loft Dizengoff was modern and spacious. Clean, comfortable, and well-located. Great for a group of friends exploring the city.",
+    "rating": 4.8,
+    "createdAt": 1699382400000
+  },
+  {
+    "user_id": "68de5963d26a1ea2ad78f8bf",
+    "home_id": "68de67a2d26a1ea2ad78f8c5",
+    "comment": "Canal view apartment was beautiful. Very clean, cozy, and the view was amazing. Perfect for a romantic weekend getaway.",
+    "rating": 4.9,
+    "createdAt": 1699468800000
+  },
+  {
+    "user_id": "68de5963d26a1ea2ad78f8b4",
+    "home_id": "68de67a2d26a1ea2ad78f8da",
+    "comment": "Charming London flat was perfect for our stay. Clean, cozy, and very well-located. Loved the nearby cafes and shops. Highly recommend for a city break.",
+    "rating": 4.8,
+    "createdAt": 1699555200000
+  },
+  {
+    "user_id": "68de5963d26a1ea2ad78f8b5",
+    "home_id": "68de67a2d26a1ea2ad78f8db",
+    "comment": "Historic cottage in Bath was quaint and full of character. Very comfortable beds and a lovely garden. The host provided great local tips.",
+    "rating": 4.9,
+    "createdAt": 1699641600000
+  },
+  {
+    "user_id": "68de5963d26a1ea2ad78f8bc",
+    "home_id": "68de67a2d26a1ea2ad78f8dc",
+    "comment": "Luxury apartment in Manchester was spacious and modern. Everything was spotless and well-equipped. The building was quiet and secure.",
+    "rating": 5.0,
+    "createdAt": 1699728000000
+  },
+  {
+    "user_id": "68de5963d26a1ea2ad78f8c0",
+    "home_id": "68de67a2d26a1ea2ad78f8dd",
+    "comment": "Modern studio in Birmingham was perfect for a weekend trip. Compact but comfortable and very clean. Loved the location close to restaurants and shops.",
+    "rating": 4.7,
+    "createdAt": 1699814400000
+  },
+  {
+    "user_id": "68de5963d26a1ea2ad78f8b6",
+    "home_id": "68de67a2d26a1ea2ad78f8de",
+    "comment": "Lake house in the Cotswolds was stunning. Beautiful views and very relaxing. The host was friendly and attentive to our needs.",
+    "rating": 4.9,
+    "createdAt": 1699900800000
+  },
+  {
+    "user_id": "68de5963d26a1ea2ad78f8b7",
+    "home_id": "68de67a2d26a1ea2ad78f8df",
+    "comment": "Rustic barn in Yorkshire was charming and spacious. Loved the countryside vibe and peaceful surroundings. Perfect for a quiet getaway.",
+    "rating": 4.8,
+    "createdAt": 1699987200000
+  },
+  {
+    "user_id": "68de5963d26a1ea2ad78f8b3",
+    "home_id": "68de67a2d26a1ea2ad78f8e0",
+    "comment": "Historic cottage in Bath was beautiful and cozy. Excellent location close to local attractions. Very clean and well-maintained.",
+    "rating": 4.9,
+    "createdAt": 1700073600000
+  },
+  {
+    "user_id": "68de5963d26a1ea2ad78f8b2",
+    "home_id": "68de67a2d26a1ea2ad78f8e1",
+    "comment": "Luxury apartment in Manchester exceeded our expectations. Spacious, stylish, and very clean. Would definitely stay here again.",
+    "rating": 5.0,
+    "createdAt": 1700160000000
+  },
+  {
+    "user_id": "68de5963d26a1ea2ad78f8c1",
+    "home_id": "68de67a2d26a1ea2ad78f8e2",
+    "comment": "Modern studio in Birmingham was compact but had everything we needed. Very clean and comfortable. Great location for sightseeing.",
+    "rating": 4.8,
+    "createdAt": 1700246400000
+  },
+  {
+    "user_id": "68de5963d26a1ea2ad78f8be",
+    "home_id": "68de67a2d26a1ea2ad78f8e3",
+    "comment": "Lake house in the Cotswolds was peaceful and relaxing. Beautiful surroundings and very comfortable inside. Perfect spot for a weekend retreat.",
+    "rating": 4.9,
+    "createdAt": 1700332800000
+  },
+  {
+    "user_id": "68de5963d26a1ea2ad78f8b8",
+    "home_id": "68de67a2d26a1ea2ad78f8e4",
+    "comment": "Rustic barn in Yorkshire was exactly as pictured. Spacious, cozy, and surrounded by nature. Very relaxing stay overall.",
+    "rating": 4.8,
+    "createdAt": 1700419200000
+  },
+  {
+    "user_id": "68de5963d26a1ea2ad78f8b9",
+    "home_id": "68de67a2d26a1ea2ad78f8e5",
+    "comment": "Seaside villa in Cornwall was stunning. Incredible views and luxurious amenities. Perfect for a family vacation.",
+    "rating": 5.0,
+    "createdAt": 1700505600000
+  },
+  {
+    "user_id": "68de5963d26a1ea2ad78f8c3",
+    "home_id": "68de67a2d26a1ea2ad78f8e6",
+    "comment": "Rooftop studio in TLV had amazing views. Very clean and stylish. Close to restaurants and nightlife, making it a perfect stay.",
+    "rating": 4.9,
+    "createdAt": 1700592000000
+  },
+  {
+    "user_id": "68de5963d26a1ea2ad78f8bf",
+    "home_id": "68de67a2d26a1ea2ad78f8e7",
+    "comment": "Sheinkin studio was small but very cozy. Everything was organized and clean. Perfect spot for exploring Tel Aviv.",
+    "rating": 4.7,
+    "createdAt": 1700678400000
+  },
+  {
+    "user_id": "68de5963d26a1ea2ad78f8c2",
+    "home_id": "68de67a2d26a1ea2ad78f8e8",
+    "comment": "Luxury Neve Tzedek apartment was exceptional. Spacious, stylish, and spotless. Loved the location and neighborhood charm.",
+    "rating": 5.0,
+    "createdAt": 1700764800000
+  },
+  {
+    "user_id": "68de5963d26a1ea2ad78f8bc",
+    "home_id": "68de67a2d26a1ea2ad78f8e9",
+    "comment": "Rooftop loft Dizengoff was modern and bright. Comfortable and clean with amazing views. Perfect for a weekend in the city.",
+    "rating": 4.8,
+    "createdAt": 1700851200000
+  },
+  {
+    "user_id": "68de5963d26a1ea2ad78f8b2",
+    "home_id": "68de67a2d26a1ea2ad78f8c5",
+    "comment": "Canal view apartment was lovely and well-located. The view was beautiful and the interior was cozy. Great for a short city break.",
+    "rating": 4.9,
+    "createdAt": 1700937600000
+  },
+  {
+    "user_id": "68de5963d26a1ea2ad78f8b5",
+    "home_id": "68de67a2d26a1ea2ad78f8c6",
+    "comment": "Tropical jungle bungalow was peaceful and unique. Loved the outdoor shower and the surroundings. Very clean and comfortable stay.",
+    "rating": 4.7,
+    "createdAt": 1701024000000
+  },
+  {
+    "user_id": "68de5963d26a1ea2ad78f8b4",
+    "home_id": "68de67a2d26a1ea2ad78f8c7",
+    "comment": "Central Park apartment was ideal for sightseeing. Spacious, clean, and well-equipped. Loved the neighborhood and proximity to attractions.",
+    "rating": 4.9,
+    "createdAt": 1701110400000
+  },
+  {
+    "user_id": "68de5963d26a1ea2ad78f8be",
+    "home_id": "68de67a2d26a1ea2ad78f8c8",
+    "comment": "Brooklyn loft was very comfortable. Clean, modern, and close to local cafes. Great base for exploring the city.",
+    "rating": 4.8,
+    "createdAt": 1701196800000
+  },
+  {
+    "user_id": "68de5963d26a1ea2ad78f8b6",
+    "home_id": "68de67a2d26a1ea2ad78f8c9",
+    "comment": "Times Square studio was small but perfect for two. Very clean and convenient for sightseeing. Loved being in the heart of the city.",
+    "rating": 4.7,
+    "createdAt": 1701283200000
+  },
+  {
+    "user_id": "68de5963d26a1ea2ad78f8b7",
+    "home_id": "68de67a2d26a1ea2ad78f8ca",
+    "comment": "Seaside villa was luxurious and beautiful. Great pool area and stunning views. Perfect for a relaxing vacation.",
+    "rating": 5.0,
+    "createdAt": 1701369600000
+  },
+  {
+    "user_id": "68de5963d26a1ea2ad78f8b3",
+    "home_id": "68de67a2d26a1ea2ad78f8cb",
+    "comment": "Cozy cabin was perfect for a mountain escape. Comfortable, clean, and charming. Loved the peaceful surroundings.",
+    "rating": 4.8,
+    "createdAt": 1701456000000
+  },
+  {
+    "user_id": "68de5963d26a1ea2ad78f8bf",
+    "home_id": "68de67a2d26a1ea2ad78f8cc",
+    "comment": "Downtown penthouse had breathtaking city views. Very stylish and modern interior. Perfect for a group stay.",
+    "rating": 4.9,
+    "createdAt": 1701542400000
+  },
+  {
+    "user_id": "68de5963d26a1ea2ad78f8b2",
+    "home_id": "68de67a2d26a1ea2ad78f8cd",
+    "comment": "Beachfront condo was fantastic! Close to the beach with amazing sunsets. Very clean and comfortable for our family.",
+    "rating": 4.8,
+    "createdAt": 1701628800000
+  },
+  {
+    "user_id": "68de5963d26a1ea2ad78f8c1",
+    "home_id": "68de67a2d26a1ea2ad78f8ce",
+    "comment": "Countryside farmhouse was charming and cozy. Lovely garden and great for a peaceful stay. Host was friendly and attentive.",
+    "rating": 4.7,
+    "createdAt": 1701715200000
+  },
+  {
+    "user_id": "68de5963d26a1ea2ad78f8c2",
+    "home_id": "68de67a2d26a1ea2ad78f8cf",
+    "comment": "Apartment in Gran Vía was stylish, clean, and comfortable. Great location to explore the city. Host was very responsive and helpful.",
+    "rating": 4.9,
+    "createdAt": 1701801600000
+  },
+  {
+    "user_id": "68de5963d26a1ea2ad78f8c3",
+    "home_id": "68de67a2d26a1ea2ad78f8d0",
+    "comment": "Apartment in Gran Vía was very cozy and convenient. Clean, well-furnished, and close to shops and restaurants. Would definitely stay again.",
+    "rating": 4.8,
+    "createdAt": 1701888000000
+  },
+  {
+    "user_id": "68de5963d26a1ea2ad78f8b6",
+    "home_id": "68de67a2d26a1ea2ad78f8d1",
+    "comment": "Apartment in Gran Vía had everything we needed for a short stay. Comfortable beds, clean kitchen, and great location. Highly recommend for couples.",
+    "rating": 4.9,
+    "createdAt": 1701974400000
+  },
+  {
+    "user_id": "68de5963d26a1ea2ad78f8b2",
+    "home_id": "68de67a2d26a1ea2ad78f8d2",
+    "comment": "Bright apartment with large windows overlooking the main street. Very clean and well-maintained. Loved the central location for exploring the city.",
+    "rating": 4.8,
+    "createdAt": 1702060800000
+  },
+  {
+    "user_id": "68de5963d26a1ea2ad78f8b5",
+    "home_id": "68de67a2d26a1ea2ad78f8d3",
+    "comment": "Room in Gran Vía was compact but perfect for a solo traveler. Very clean and cozy. Close to public transport and city attractions.",
+    "rating": 4.7,
+    "createdAt": 1702147200000
+  },
+  {
+    "user_id": "68de5963d26a1ea2ad78f8b7",
+    "home_id": "68de67a2d26a1ea2ad78f8d4",
+    "comment": "Apartment in Gran Vía was spacious and family-friendly. Great location near restaurants and attractions. Host was responsive and helpful.",
+    "rating": 4.9,
+    "createdAt": 1702233600000
+  },
+  {
+    "user_id": "68de5963d26a1ea2ad78f8c0",
+    "home_id": "68de67a2d26a1ea2ad78f8d5",
+    "comment": "Spacious apartment with stunning views of the Madrid rooftops. Clean, modern, and comfortable. Perfect for a weekend getaway.",
+    "rating": 4.8,
+    "createdAt": 1702320000000
+  },
+  {
+    "user_id": "68de5963d26a1ea2ad78f8b3",
+    "home_id": "68de67a2d26a1ea2ad78f8d6",
+    "comment": "Modern flat in Tel Aviv was stylish and very clean. Comfortable beds and great location. Ideal for a city break.",
+    "rating": 4.9,
+    "createdAt": 1702406400000
+  },
+  {
+    "user_id": "68de5963d26a1ea2ad78f8b4",
+    "home_id": "68de67a2d26a1ea2ad78f8d7",
+    "comment": "Beachfront retreat TLV had amazing sea views. Very comfortable, clean, and spacious. Loved being so close to the beach.",
+    "rating": 5.0,
+    "createdAt": 1702492800000
+  },
+  {
+    "user_id": "68de5963d26a1ea2ad78f8c2",
+    "home_id": "68de67a2d26a1ea2ad78f8d8",
+    "comment": "Cozy cabin in Colorado was perfect for a mountain escape. Clean, quiet, and well-equipped. Loved the peaceful surroundings and nature walks.",
+    "rating": 4.8,
+    "createdAt": 1702579200000
+  },
+  {
+    "user_id": "68de5963d26a1ea2ad78f8bc",
+    "home_id": "68de67a2d26a1ea2ad78f8d9",
+    "comment": "Urban loft NYC was modern and stylish. Great location for sightseeing and restaurants. Very clean and comfortable stay.",
+    "rating": 4.9,
+    "createdAt": 1702665600000
+  },
+  {
+    "user_id": "68de5963d26a1ea2ad78f8b8",
+    "home_id": "68de67a2d26a1ea2ad78f8da",
+    "comment": "Charming London flat had everything we needed. Clean, cozy, and great location. Would definitely return for another visit.",
+    "rating": 4.8,
+    "createdAt": 1702752000000
+  },
+  {
+    "user_id": "68de5963d26a1ea2ad78f8bb",
+    "home_id": "68de67a2d26a1ea2ad78f8db",
+    "comment": "Historic cottage in Bath was full of character. Very comfortable and clean. Loved the nearby attractions and quiet neighborhood.",
+    "rating": 4.9,
+    "createdAt": 1702838400000
+  },
+  {
+    "user_id": "68de5963d26a1ea2ad78f8b9",
+    "home_id": "68de67a2d26a1ea2ad78f8dc",
+    "comment": "Luxury apartment Manchester was spacious and elegant. Clean and well-furnished. Great host and excellent location.",
+    "rating": 5.0,
+    "createdAt": 1702924800000
+  },
+  {
+    "user_id": "68de5963d26a1ea2ad78f8c1",
+    "home_id": "68de67a2d26a1ea2ad78f8dd",
+    "comment": "Modern studio Birmingham was comfortable and compact. Very clean and well-organized. Perfect for a short city stay.",
+    "rating": 4.7,
+    "createdAt": 1703011200000
+  },
+  {
+    "user_id": "68de5963d26a1ea2ad78f8be",
+    "home_id": "68de67a2d26a1ea2ad78f8de",
+    "comment": "Lake house in the Cotswolds was peaceful and relaxing. Beautiful views and spacious interior. Perfect for a weekend away.",
+    "rating": 4.9,
+    "createdAt": 1703097600000
+  },
+  {
+    "user_id": "68de5963d26a1ea2ad78f8b2",
+    "home_id": "68de67a2d26a1ea2ad78f8df",
+    "comment": "Rustic barn Yorkshire was charming and full of character. Cozy and spacious, perfect for a countryside stay. Loved the quiet surroundings.",
+    "rating": 4.8,
+    "createdAt": 1703184000000
+  },
+  {
+    "user_id": "68de5963d26a1ea2ad78f8b4",
+    "home_id": "68de67a2d26a1ea2ad78f8e0",
+    "comment": "Historic cottage in Bath was delightful. Clean, comfortable, and well-located. Host provided great local recommendations.",
+    "rating": 4.9,
+    "createdAt": 1703270400000
+  },
+  {
+    "user_id": "68de5963d26a1ea2ad78f8b6",
+    "home_id": "68de67a2d26a1ea2ad78f8e1",
+    "comment": "Luxury apartment Manchester was stylish and clean. Spacious rooms and well-furnished. Perfect location for exploring the city.",
+    "rating": 5.0,
+    "createdAt": 1703356800000
+  },
+  {
+    "user_id": "68de5963d26a1ea2ad78f8b7",
+    "home_id": "68de67a2d26a1ea2ad78f8e2",
+    "comment": "Modern studio Birmingham was very convenient. Clean and compact, with everything we needed. Great for a short city trip.",
+    "rating": 4.8,
+    "createdAt": 1703443200000
+  },
+  {
+    "user_id": "68de5963d26a1ea2ad78f8c0",
+    "home_id": "68de67a2d26a1ea2ad78f8e3",
+    "comment": "Lake house in the Cotswolds was beautiful. Peaceful surroundings and very comfortable inside. Perfect for a weekend retreat.",
+    "rating": 4.9,
+    "createdAt": 1703529600000
+  },
+  {
+    "user_id": "68de5963d26a1ea2ad78f8bf",
+    "home_id": "68de67a2d26a1ea2ad78f8e4",
+    "comment": "Rustic barn in Yorkshire was spacious and cozy. Loved the countryside ambiance. Very clean and well-maintained.",
+    "rating": 4.8,
+    "createdAt": 1703616000000
+  },
+  {
+    "user_id": "68de5963d26a1ea2ad78f8c2",
+    "home_id": "68de67a2d26a1ea2ad78f8e5",
+    "comment": "Seaside villa Cornwall was stunning. Very luxurious and comfortable. Excellent location and amazing views.",
+    "rating": 5.0,
+    "createdAt": 1703702400000
+  },
+  {
+    "user_id": "68de5963d26a1ea2ad78f8b3",
+    "home_id": "68de67a2d26a1ea2ad78f8e6",
+    "comment": "Rooftop studio TLV had incredible city views. Clean, modern, and comfortable. Perfect location near restaurants and nightlife.",
+    "rating": 4.9,
+    "createdAt": 1703788800000
+  },
+  {
+    "user_id": "68de5963d26a1ea2ad78f8b9",
+    "home_id": "68de67a2d26a1ea2ad78f8e7",
+    "comment": "Sheinkin studio was cozy and very well-organized. Clean, quiet, and perfect for exploring Tel Aviv. Great value for money.",
+    "rating": 4.8,
+    "createdAt": 1703875200000
+  },
+  {
+    "user_id": "68de5963d26a1ea2ad78f8b8",
+    "home_id": "68de67a2d26a1ea2ad78f8e8",
+    "comment": "Luxury Neve Tzedek apartment was spacious and elegant. Clean, modern, and perfectly located. Host was very responsive.",
+    "rating": 5.0,
+    "createdAt": 1703961600000
+  },
+  {
+    "user_id": "68de5963d26a1ea2ad78f8c1",
+    "home_id": "68de67a2d26a1ea2ad78f8e9",
+    "comment": "Rooftop loft Dizengoff was stylish and comfortable. Great city views and very clean. Perfect for a short city break.",
+    "rating": 4.9,
+    "createdAt": 1704048000000
+  },
+  {
+    "user_id": "68de5963d26a1ea2ad78f8be",
+    "home_id": "68de67a2d26a1ea2ad78f8c5",
+    "comment": "Canal view apartment was charming and well-located. Very clean and cozy with all amenities. Loved the view and the neighborhood.",
+    "rating": 4.8,
+    "createdAt": 1704134400000
+  },
+  {
+    "user_id": "68de5963d26a1ea2ad78f8b4",
+    "home_id": "68de67a2d26a1ea2ad78f8c6",
+    "comment": "Tropical Jungle Bungalow was an amazing stay. Surrounded by nature, very peaceful and clean. Loved the outdoor shower experience.",
+    "rating": 4.9,
+    "createdAt": 1704220800000
+  },
+  {
+    "user_id": "68de5963d26a1ea2ad78f8b2",
+    "home_id": "68de67a2d26a1ea2ad78f8c7",
+    "comment": "Central Park Apartment had a fantastic location near the park. Clean, spacious, and cozy. The kitchen had everything we needed.",
+    "rating": 4.8,
+    "createdAt": 1704307200000
+  },
+  {
+    "user_id": "68de5963d26a1ea2ad78f8b6",
+    "home_id": "68de67a2d26a1ea2ad78f8c8",
+    "comment": "Brooklyn Loft was perfect for our stay in NYC. Very stylish and clean with comfortable beds. Loved the industrial feel and location.",
+    "rating": 4.7,
+    "createdAt": 1704393600000
+  },
+  {
+    "user_id": "68de5963d26a1ea2ad78f8b3",
+    "home_id": "68de67a2d26a1ea2ad78f8c9",
+    "comment": "Times Square Studio was compact but very well-equipped. Great location right in the heart of Manhattan. Clean and cozy for two.",
+    "rating": 4.8,
+    "createdAt": 1704480000000
+  },
+  {
+    "user_id": "68de5963d26a1ea2ad78f8b5",
+    "home_id": "68de67a2d26a1ea2ad78f8ca",
+    "comment": "Seaside Villa was luxurious and comfortable. Amazing private pool and views of the ocean. Perfect for a family vacation.",
+    "rating": 5.0,
+    "createdAt": 1704566400000
+  },
+  {
+    "user_id": "68de5963d26a1ea2ad78f8b7",
+    "home_id": "68de67a2d26a1ea2ad78f8cb",
+    "comment": "Cozy Cabin was charming and very clean. Loved the fireplace and quiet mountain location. Perfect for a peaceful getaway.",
+    "rating": 4.9,
+    "createdAt": 1704652800000
+  },
+  {
+    "user_id": "68de5963d26a1ea2ad78f8b8",
+    "home_id": "68de67a2d26a1ea2ad78f8cc",
+    "comment": "Downtown Penthouse offered incredible skyline views. Modern and spacious, with all necessary amenities. Highly recommend for a luxury stay.",
+    "rating": 5.0,
+    "createdAt": 1704739200000
+  },
+  {
+    "user_id": "68de5963d26a1ea2ad78f8b9",
+    "home_id": "68de67a2d26a1ea2ad78f8cd",
+    "comment": "Beachfront Condo was perfect for our beach holiday. Beautiful views, clean and comfortable. Easy access to the sand and local restaurants.",
+    "rating": 4.9,
+    "createdAt": 1704825600000
+  },
+  {
+    "user_id": "68de5963d26a1ea2ad78f8ba",
+    "home_id": "68de67a2d26a1ea2ad78f8ce",
+    "comment": "Countryside Farmhouse was charming and relaxing. Clean, spacious, and full of character. Perfect for a quiet weekend in the country.",
+    "rating": 4.8,
+    "createdAt": 1704912000000
+  },
+  {
+    "user_id": "68de5963d26a1ea2ad78f8bb",
+    "home_id": "68de67a2d26a1ea2ad78f8cf",
+    "comment": "Apartment in Gran Vía was very convenient and clean. Spacious rooms and great location near shops and restaurants. Host was very responsive.",
+    "rating": 4.9,
+    "createdAt": 1704998400000
+  },
+  {
+    "user_id": "68de5963d26a1ea2ad78f8bc",
+    "home_id": "68de67a2d26a1ea2ad78f8d0",
+    "comment": "Apartment in Gran Vía was perfect for a couple. Clean, cozy, and well-equipped. Very central location, close to transport and attractions.",
+    "rating": 4.8,
+    "createdAt": 1705084800000
+  },
+  {
+    "user_id": "68de5963d26a1ea2ad78f8bd",
+    "home_id": "68de67a2d26a1ea2ad78f8d1",
+    "comment": "Apartment in Gran Vía was spacious and stylish. Very clean and comfortable. Host provided great tips about the area.",
+    "rating": 5.0,
+    "createdAt": 1705171200000
+  },
+  {
+    "user_id": "68de5963d26a1ea2ad78f8be",
+    "home_id": "68de67a2d26a1ea2ad78f8d2",
+    "comment": "Bright apartment with large windows. Clean and comfortable with a great view. Perfect base for exploring the city.",
+    "rating": 4.8,
+    "createdAt": 1705257600000
+  },
+  {
+    "user_id": "68de5963d26a1ea2ad78f8bf",
+    "home_id": "68de67a2d26a1ea2ad78f8d3",
+    "comment": "Room in Gran Vía was small but very cozy. Clean, quiet, and centrally located. Ideal for a short city trip.",
+    "rating": 4.7,
+    "createdAt": 1705344000000
+  },
+  {
+    "user_id": "68de5963d26a1ea2ad78f8c0",
+    "home_id": "68de67a2d26a1ea2ad78f8d4",
+    "comment": "Apartment in Gran Vía was perfect for families. Clean, spacious, and well-located. We really enjoyed our stay.",
+    "rating": 4.9,
+    "createdAt": 1705430400000
+  },
+  {
+    "user_id": "68de5963d26a1ea2ad78f8c1",
+    "home_id": "68de67a2d26a1ea2ad78f8d5",
+    "comment": "Stunning apartment with rooftop views. Clean, modern, and comfortable. Perfect for a weekend in Madrid.",
+    "rating": 5.0,
+    "createdAt": 1705516800000
+  },
+  {
+    "user_id": "68de5963d26a1ea2ad78f8b2",
+    "home_id": "68de67a2d26a1ea2ad78f8d6",
+    "comment": "Modern Flat in Tel Aviv was stylish and very comfortable. Great location, close to cafes and nightlife. Highly recommended.",
+    "rating": 4.9,
+    "createdAt": 1705603200000
+  },
+  {
+    "user_id": "68de5963d26a1ea2ad78f8b3",
+    "home_id": "68de67a2d26a1ea2ad78f8d7",
+    "comment": "Beachfront Retreat TLV had amazing sea views. Spacious and very clean. Perfect for a relaxing vacation by the beach.",
+    "rating": 5.0,
+    "createdAt": 1705689600000
+  },
+  {
+    "user_id": "68de5963d26a1ea2ad78f8b4",
+    "home_id": "68de67a2d26a1ea2ad78f8d8",
+    "comment": "Cozy Cabin in Colorado was perfect for a mountain escape. Very clean, quiet, and comfortable. Loved the peaceful surroundings.",
+    "rating": 4.8,
+    "createdAt": 1705776000000
+  },
+  {
+    "user_id": "68de5963d26a1ea2ad78f8b5",
+    "home_id": "68de67a2d26a1ea2ad78f8e5",
+    "comment": "Seaside Villa Cornwall was amazing. Luxurious, clean, and spacious. The views and location were perfect for our family holiday.",
+    "rating": 5.0,
+    "createdAt": 1705862400000
+  },
+  {
+    "user_id": "68de5963d26a1ea2ad78f8b6",
+    "home_id": "68de67a2d26a1ea2ad78f8e6",
+    "comment": "Rooftop Studio TLV was modern and comfortable. Clean, stylish, and great location near the beach. Highly recommend for couples.",
+    "rating": 4.9,
+    "createdAt": 1705948800000
+  },
+  {
+    "user_id": "68de5963d26a1ea2ad78f8b7",
+    "home_id": "68de67a2d26a1ea2ad78f8e7",
+    "comment": "Sheinkin Studio was very cozy and clean. Perfect location in Tel Aviv, close to cafes and shops. Great for a short stay.",
+    "rating": 4.8,
+    "createdAt": 1706035200000
+  },
+  {
+    "user_id": "68de5963d26a1ea2ad78f8b8",
+    "home_id": "68de67a2d26a1ea2ad78f8e8",
+    "comment": "Luxury Neve Tzedek Apartment was elegant and spacious. Clean, modern, and very comfortable. Host was responsive and helpful.",
+    "rating": 5.0,
+    "createdAt": 1706121600000
+  },
+  {
+    "user_id": "68de5963d26a1ea2ad78f8b9",
+    "home_id": "68de67a2d26a1ea2ad78f8e9",
+    "comment": "Rooftop Loft Dizengoff had stunning city views. Very clean and stylish. Perfect location for exploring Tel Aviv.",
+    "rating": 4.9,
+    "createdAt": 1706208000000
+  },
+  {
+    "user_id": "68de5963d26a1ea2ad78f8ba",
+    "home_id": "68de67a2d26a1ea2ad78f8ea",
+    "comment": "Old North Family Flat was clean, comfortable, and spacious. Perfect for a family stay. Close to local shops and attractions.",
+    "rating": 4.8,
+    "createdAt": 1706294400000
+  },
+  {
+    "user_id": "68de5963d26a1ea2ad78f8bb",
+    "home_id": "68de67a2d26a1ea2ad78f8eb",
+    "comment": "Florentin Urban Pad was stylish and cozy. Clean and comfortable with a great location in Tel Aviv. Loved the vibrant neighborhood.",
+    "rating": 4.9,
+    "createdAt": 1706380800000
+  },
+  {
+    "user_id": "68de5963d26a1ea2ad78f8bc",
+    "home_id": "68de67a2d26a1ea2ad78f8c5",
+    "comment": "Canal View Apartment in Amsterdam was stunning. Very clean and comfortable, with an amazing view. Great host and neighborhood.",
+    "rating": 5.0,
+    "createdAt": 1706467200000
+  },
+  {
+    "user_id": "68de5963d26a1ea2ad78f8bd",
+    "home_id": "68de67a2d26a1ea2ad78f8c6",
+    "comment": "Tropical Jungle Bungalow was an unforgettable stay. Peaceful, clean, and surrounded by nature. Perfect for a relaxing vacation.",
+    "rating": 4.9,
+    "createdAt": 1706553600000
+  }
+]
