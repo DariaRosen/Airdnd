@@ -114,11 +114,11 @@ export function AppHeader() {
             </div>
           </Link>
 
-          {/* <Link to="/" className="logo-link">
+          <Link to="/" className="logo-link">
             <div className="icon-wrapper">
               <img src={select} alt="Select icon" className="icon-gray-circle" />
             </div>
-          </Link> */}
+          </Link>
         </div>
       </div>
 
