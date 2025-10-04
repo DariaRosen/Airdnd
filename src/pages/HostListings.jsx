@@ -6,7 +6,6 @@ import { Pencil } from "lucide-react" // install lucide-react if not already
 export function HostListings() {
     const [homes, setHomes] = useState([])
     const [expanded, setExpanded] = useState({}) // track expanded descriptions
-
     const user = {
         _id: "68de5963d26a1ea2ad78f8b3",
         firstName: "Daria",
@@ -24,8 +23,6 @@ export function HostListings() {
                 .filter(home => home.hostId === hostId)
 
             setHomes(hostHomes)  // full homes with all fields intact
-            console.log("hostHomes", hostHomes);
-
         }
         loadHomes()
     }, [hostId])
@@ -94,8 +91,6 @@ export function HostListings() {
             </div>
         )
     }
-
-    console.log("home.imgUrl", homes);
 
     return (
         <section className="host-listings">

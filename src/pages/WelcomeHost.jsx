@@ -38,9 +38,7 @@ export function WelcomeHost() {
     useEffect(() => {
         async function loadAllStats() {
             const bookingsRes = await bookingService.getHostBookings(user._id)
-            console.log('bookingsRes:', bookingsRes)
             const bookings = asArray(bookingsRes)
-            console.log('filtered bookings:', bookings)
             setHostBookings(bookings)
 
             const validBookings = bookings.filter(
@@ -66,8 +64,6 @@ export function WelcomeHost() {
             // Homes
             const userHomesRes = await homeService.getHomesByHost(user._id)
             const userHomes = asArray(userHomesRes)
-            console.log('userHomes:', userHomes)
-
             const ratings = userHomes.map(h => h.rating || 0)
             const avgRating = ratings.length
                 ? ratings.reduce((sum, r) => sum + r, 0) / ratings.length

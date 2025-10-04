@@ -40,7 +40,6 @@ const denormalize = b => ({
 })
 
 async function create(b) {
-  console.log(b)
   const created = await httpService.post('booking', denormalize(b))
   return normalize(created)
 }
