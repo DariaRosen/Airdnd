@@ -7,6 +7,7 @@ import { DateSearch } from "./DateSearch.jsx"
 import { GuestSearch } from "./GuestSearch.jsx"
 import { setFilterBy } from "../store/homes/homes.action.js"
 import { useFilterSearchParams } from "../customHooks/useFilterSearchParams"
+import { ProfileDropdown } from "./ProfileDropdown.jsx"
 
 export function AppHeader() {
   const navigate = useNavigate()
@@ -25,10 +26,18 @@ export function AppHeader() {
   const inputRef = useRef(null)
   const [activeStep, setActiveStep] = useState("location") // sequential open
 
+  // dropdown state
+  const [showDropdown, setShowDropdown] = useState(false)
+  const dropdownRef = useRef(null)
+
   useEffect(() => {
     const handleClickOutside = (e) => {
-      if (searchBarRef.current && !searchBarRef.current.contains(e.target)) {
-        setActiveItem(null)
+      if (
+        dropdownRef.current &&
+        !dropdownRef.current.contains(e.target) &&
+        !e.target.closest(".profile-toggle")
+      ) {
+        setShowDropdown(false)
       }
     }
     document.addEventListener("mousedown", handleClickOutside)
@@ -76,7 +85,7 @@ export function AppHeader() {
   const globus = "/Airdnd/icons/globus.svg"
   const select = "/Airdnd/icons/select.svg"
   const magnifying_glass = "/Airdnd/icons/magnifying_glass.svg"
-  const homeIcon = "/Airdnd/icons/home-icon.jpg"
+
   // Extract city (text before first comma)
   const city = locationInput.split(",")[0] || "anywhere"
 
@@ -85,13 +94,12 @@ export function AppHeader() {
   if (dateRange[0].startDate && dateRange[0].endDate) {
     const start = new Date(dateRange[0].startDate)
     const end = new Date(dateRange[0].endDate)
-
     const startMonth = start.toLocaleString("en-US", { month: "short" })
     const startDay = start.getDate()
     const endDay = end.getDate()
-
     dateText = ` ${startMonth} ${startDay}-${endDay}`
   }
+
   return (
     <section className="header full">
       {/* LOGO + ICONS */}
@@ -114,11 +122,19 @@ export function AppHeader() {
             </div>
           </Link>
 
-          <Link to="/" className="logo-link">
-            <div className="icon-wrapper">
-              <img src={select} alt="Select icon" className="icon-gray-circle" />
+          {/* profile dropdown toggle */}
+          <div
+            className="icon-wrapper profile-toggle"
+            onClick={() => setShowDropdown(!showDropdown)}
+          >
+            <img src={select} alt="Profile menu" className="icon-gray-circle" />
+          </div>
+
+          {showDropdown && (
+            <div ref={dropdownRef} className="dropdown-container">
+              <ProfileDropdown onClose={() => setShowDropdown(false)} />
             </div>
-          </Link>
+          )}
         </div>
       </div>
 
@@ -131,7 +147,7 @@ export function AppHeader() {
           tabIndex={0}
         >
           <video
-            src="/Airdnd/icons/house-twirl.webm" // adjust path
+            src="/Airdnd/icons/house-twirl.webm"
             className="home-icon-video"
             muted
             loop
@@ -142,22 +158,15 @@ export function AppHeader() {
             <span className="summary-item">
               {city ? `Homes in ${city}` : "Anywhere"}
             </span>
-
             <span className="separator"></span>
-
-            <span className="summary-item">
-              {dateText || "Any week"}
-            </span>
-
+            <span className="summary-item">{dateText || "Any week"}</span>
             <span className="separator"></span>
-
             <span className="summary-item">
               {guests.adults + guests.children > 0
                 ? `${guests.adults + guests.children} guests`
                 : "Add guests"}
             </span>
           </div>
-
           <img
             src={magnifying_glass}
             alt="Search"
@@ -226,7 +235,6 @@ export function AppHeader() {
               onClick={() => handleItemClick(4)}
             >
               <GuestSearch guests={guests} setGuests={setGuests} />
-
               <div
                 className={`magnifying-glass-wrapper ${activeItem ? "expanded" : ""}`}
                 onClick={(e) => {
