@@ -18,7 +18,7 @@ import { utilService } from "../services/util.service"
 
 export function WelcomeHost() {
     const navigate = useNavigate()
-    const user = { _id: "68c242e0ac0d57e02713467f", firstName: "Harry" }
+    const user = { _id: "68de5963d26a1ea2ad78f8b3", firstName: "Daria" }
 
     const [hostBookings, setHostBookings] = useState([])
     const [stats, setStats] = useState({

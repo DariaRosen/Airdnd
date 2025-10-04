@@ -38,7 +38,7 @@ function remove(userId) {
 //   return saveLocalUser(user)
 // }
 async function login() {
-  const user = await httpService.get(`user/68c242e0ac0d57e02713467f`)
+  const user = await httpService.get(`user/68de5963d26a1ea2ad78f8b3`)
   return user
 }
 

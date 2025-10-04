@@ -60,7 +60,7 @@ export function HostDashboardHeader({ logoText = "airdnd" }) {
 
       {/* Title */}
       <div className="title-host">
-        <span>{userService.getGreeting()}, Harry!</span>
+        <span>{userService.getGreeting()}, Daria!</span>
       </div>
     </section>
   )

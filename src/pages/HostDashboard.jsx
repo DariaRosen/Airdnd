@@ -9,11 +9,11 @@ export function HostDashboard() {
     // const user = JSON.parse(sessionStorage.getItem("loggedinUser"))
 
     const user = {
-        _id: "68c242e0ac0d57e02713467f",
-        firstName: "Harry",
-        lastName: "Potter",
-        username: "harry123",
-        email: "harry@gmail.com",
+        _id: "68de5963d26a1ea2ad78f8b3",
+        firstName: "Daria",
+        lastName: "Rosen",
+        username: "daria123",
+        email: "daria@gmail.com",
     }
 
 
