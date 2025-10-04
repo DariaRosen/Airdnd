@@ -67,6 +67,8 @@ export async function loadHostBookings(hostId) {
   try {
     store.dispatch({ type: SET_IS_LOADING, isLoading: true })
     const bookings = await bookingService.getHostBookings(hostId)
+    console.log('Bookings fetched in action:', bookings);
+    
     store.dispatch({ type: SET_BOOKINGS, bookings })
   } catch (err) {
     console.error("booking.actions: cannot load host bookings", err)

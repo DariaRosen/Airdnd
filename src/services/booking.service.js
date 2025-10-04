@@ -66,5 +66,5 @@ async function getUserBookings(userId) {
   return httpService.get('booking', { guest_id: userId }, { limit: 200 })
 }
 async function getHostBookings(hostId) {
-  return httpService.get('booking', { host_id: hostId }, { limit: 200 })
+  return httpService.get('booking', { hostId }, { limit: 200 })
 }
