@@ -1,14 +1,15 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { MiniHeader } from "../cmps/MiniHeader";
+import { loginWithPhone } from "../store/user/user.action";
 
 export function BecomeHostLogin() {
     const navigate = useNavigate();
-    const [country, setCountry] = useState("IL"); // default selected
+    const [country, setCountry] = useState("IL");
     const [phone, setPhone] = useState("");
     const [errors, setErrors] = useState({ phone: "" });
 
-    const handleContinue = () => {
+    const handleContinue = async () => {
         const newErrors = { phone: "" };
         let hasError = false;
 
@@ -20,7 +21,17 @@ export function BecomeHostLogin() {
         setErrors(newErrors);
 
         if (!hasError) {
-            navigate("/welcome-host");
+            try {
+                const user = await loginWithPhone(phone);
+                if (user) {
+                    navigate("/welcome-host");
+                } else {
+                    setErrors({ phone: "User not found. Please sign up." });
+                }
+            } catch (err) {
+                console.error("Login failed", err);
+                setErrors({ phone: "Failed to login. Try again." });
+            }
         }
     };
 
@@ -66,6 +77,12 @@ export function BecomeHostLogin() {
                 <p className="privacy-txt">Privacy Policy</p>
 
                 <button onClick={handleContinue}>Continue</button>
+
+                <h3>or</h3>
+                <h4>Continue with email</h4>
+                <h4>Continue with Google</h4>
+                <h4>Continue with Apple</h4>
+                <h4>Continue with Facebook</h4>
             </div>
         </section>
     );

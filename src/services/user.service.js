@@ -13,7 +13,8 @@ export const userService = {
   getLoggedinUser,
   saveLocalUser,
   getEmptyUser,
-  getGreeting
+  getGreeting,
+  loginWithPhone
 }
 
 function query(params = {}) {
@@ -40,6 +41,13 @@ function remove(userId) {
 async function login() {
   const user = await httpService.get(`user/68de5963d26a1ea2ad78f8b3`)
   return user
+}
+
+async function loginWithPhone(phone) {
+  console.log("phone service", phone);
+  const user = await httpService.post('auth/login-phone', { phone }, { withCredentials: true })
+  console.log("user", user);
+  return saveLocalUser(user)
 }
 
 async function signup(credentials) {

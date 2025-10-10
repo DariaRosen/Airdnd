@@ -55,6 +55,19 @@ export async function login() {
   }
 }
 
+export async function loginWithPhone(phone) {
+  try {
+    console.log("phone", phone);
+    
+    const user = await userService.loginWithPhone(phone);
+    store.dispatch({ type: SET_USER, user });
+    return user;
+  } catch (err) {
+    console.log("user.actions: cannot login with phone", err);
+    throw err;
+  }
+}
+
 export async function signup(credentials) {
   try {
     const user = await userService.signup(credentials)

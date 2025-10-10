@@ -17,6 +17,7 @@ export function ProfileDropdown({ onClose }) {
       <Link to="/find-cohost" className="dropdown-item">Find a co-host</Link>
       <Link to="/gift-cards" className="dropdown-item">Gift cards</Link>
       <hr />
+      <Link to="/login" className="dropdown-item">Log in</Link>
       <Link to="/logout" className="dropdown-item">Log out</Link>
     </div>
   )
