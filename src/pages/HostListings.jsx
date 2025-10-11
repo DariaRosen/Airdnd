@@ -2,39 +2,53 @@ import { useEffect, useState } from "react"
 import { homeService } from "../services/home.service"
 import { HostDashboardHeader } from "../cmps/HostDashboardHeader"
 import { Pencil } from "lucide-react" // install lucide-react if not already
+import { userService } from "../services/user.service"
+import { useNavigate } from "react-router-dom"
 
 export function HostListings() {
+    const navigate = useNavigate()
     const [homes, setHomes] = useState([])
     const [expanded, setExpanded] = useState({}) // track expanded descriptions
-    const user = {
-        _id: "68de5963d26a1ea2ad78f8b3",
-        firstName: "Daria",
-        lastName: "Rosen",
-        username: "daria123",
-        email: "daria@gmail.com",
-    }
-    const hostId = user._id
+    const [user, setUser] = useState(null)
+    const [loading, setLoading] = useState(true)
 
+    // Load logged-in user
     useEffect(() => {
-        async function loadHomes() {
-            const allHomes = await homeService.query()
-            const hostHomes = allHomes
-                .map(homeService.normalize)
-                .filter(home => home.hostId === hostId)
-
-            setHomes(hostHomes)  // full homes with all fields intact
+        const loggedinUser = userService.getLoggedinUser()
+        if (!loggedinUser) {
+            navigate("/login") // redirect if not logged in
+        } else {
+            setUser(loggedinUser)
         }
+        setLoading(false)
+    }, [navigate])
+
+    // Load homes for host
+    useEffect(() => {
+        if (!user) return
+
+        async function loadHomes() {
+            try {
+                const allHomes = await homeService.query()
+                const hostHomes = allHomes
+                    .map(homeService.normalize)
+                    .filter(home => home.hostId === user._id)
+
+                setHomes(hostHomes) // full homes with all fields intact
+            } catch (err) {
+                console.error("Failed to load homes", err)
+            }
+        }
+
         loadHomes()
-    }, [hostId])
+    }, [user])
 
     async function saveHome(updatedHome) {
         try {
-            const saved = await homeService.save(updatedHome) // this returns normalized home with imgUrls + imgUrl
-            setHomes(prev =>
-                prev.map(h => (h._id === saved._id ? saved : h))
-            )
+            const saved = await homeService.save(updatedHome) // returns normalized home
+            setHomes(prev => prev.map(h => (h._id === saved._id ? saved : h)))
         } catch (err) {
-            console.error("Failed to save", err)
+            console.error("Failed to save home", err)
         }
     }
 
@@ -92,6 +106,9 @@ export function HostListings() {
         )
     }
 
+    if (loading) return <p>Loading...</p>
+    if (!user) return null
+
     return (
         <section className="host-listings">
             <HostDashboardHeader logoText="Add New Listing" />
@@ -113,9 +130,7 @@ export function HostListings() {
                             <div className="editable-description">
                                 <EditableField
                                     value={home.description}
-                                    onSave={val =>
-                                        saveHome({ ...home, description: val })
-                                    }
+                                    onSave={val => saveHome({ ...home, description: val })}
                                     type="textarea"
                                     truncate={!expanded[home._id] ? 60 : 0}
                                 />
@@ -125,12 +140,11 @@ export function HostListings() {
                                         className="show-more-btn"
                                         onClick={() => toggleExpand(home._id)}
                                     >
-                                        {expanded[home._id]
-                                            ? "Show less"
-                                            : "Show more"}
+                                        {expanded[home._id] ? "Show less" : "Show more"}
                                     </button>
                                 )}
                             </div>
+
                             <div className="price-field-wrapper">
                                 <label>Price: </label>
                                 <EditableField
@@ -144,16 +158,13 @@ export function HostListings() {
                                 <label>Capacity: </label>
                                 <EditableField
                                     value={String(home.capacity)}
-                                    onSave={val =>
-                                        saveHome({ ...home, capacity: Number(val) })
-                                    }
+                                    onSave={val => saveHome({ ...home, capacity: Number(val) })}
                                     type="number"
                                 />
                             </div>
 
                             <p className="listing-rating">
-                                ⭐ {home.rating?.toFixed(2)} (
-                                {home.numberOfRaters ?? 0})
+                                ⭐ {home.rating?.toFixed(2)} ({home.numberOfRaters ?? 0})
                             </p>
                         </div>
                     </div>
