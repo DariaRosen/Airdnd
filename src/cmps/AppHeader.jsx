@@ -8,6 +8,7 @@ import { GuestSearch } from "./GuestSearch.jsx"
 import { setFilterBy } from "../store/homes/homes.action.js"
 import { useFilterSearchParams } from "../customHooks/useFilterSearchParams"
 import { ProfileDropdown } from "./ProfileDropdown.jsx"
+import { LanguageRegionPopup } from "./LanguageRegionPopup.jsx"
 
 export function AppHeader() {
   const navigate = useNavigate()
@@ -30,6 +31,10 @@ export function AppHeader() {
   const [showDropdown, setShowDropdown] = useState(false)
   const dropdownRef = useRef(null)
 
+  // language & region popup state
+  const [showLangPopup, setShowLangPopup] = useState(false)
+  const langPopupRef = useRef(null)
+
   useEffect(() => {
     const handleClickOutside = (e) => {
       if (
@@ -38,6 +43,13 @@ export function AppHeader() {
         !e.target.closest(".profile-toggle")
       ) {
         setShowDropdown(false)
+      }
+      if (
+        langPopupRef.current &&
+        !langPopupRef.current.contains(e.target) &&
+        !e.target.closest(".globus-icon")
+      ) {
+        setShowLangPopup(false)
       }
     }
     document.addEventListener("mousedown", handleClickOutside)
@@ -116,23 +128,26 @@ export function AppHeader() {
             <div className="host-text">Become a host</div>
           </div>
 
-          <Link to="/filter" className="logo-link">
-            <div className="icon-wrapper">
-              <img src={globus} alt="Globus icon" className="icon-gray-circle" />
-            </div>
-          </Link>
-
-          {/* profile dropdown toggle */}
           <div
-            className="icon-wrapper profile-toggle"
-            onClick={() => setShowDropdown(!showDropdown)}
+            className="icon-wrapper globus-icon"
+            onClick={() => setShowLangPopup(!showLangPopup)}
           >
+            <img src={globus} alt="Globus icon" className="icon-gray-circle" />
+          </div>
+
+          <div className="icon-wrapper profile-toggle" onClick={() => setShowDropdown(!showDropdown)}>
             <img src={select} alt="Profile menu" className="icon-gray-circle" />
           </div>
 
           {showDropdown && (
             <div ref={dropdownRef} className="dropdown-container">
               <ProfileDropdown onClose={() => setShowDropdown(false)} />
+            </div>
+          )}
+
+          {showLangPopup && (
+            <div ref={langPopupRef} className="dropdown-container">
+              <LanguageRegionPopup onClose={() => setShowLangPopup(false)} />
             </div>
           )}
         </div>
@@ -155,9 +170,7 @@ export function AppHeader() {
             preload="metadata"
           />
           <div className="collapsed-summary">
-            <span className="summary-item">
-              {city ? `Homes in ${city}` : "Anywhere"}
-            </span>
+            <span className="summary-item">{city ? `Homes in ${city}` : "Anywhere"}</span>
             <span className="separator"></span>
             <span className="summary-item">{dateText || "Any week"}</span>
             <span className="separator"></span>
@@ -167,11 +180,7 @@ export function AppHeader() {
                 : "Add guests"}
             </span>
           </div>
-          <img
-            src={magnifying_glass}
-            alt="Search"
-            className="collapsed-search-icon"
-          />
+          <img src={magnifying_glass} alt="Search" className="collapsed-search-icon" />
         </div>
       ) : (
         <div ref={searchBarRef} className={`search-bar ${activeItem ? "bar-active" : ""}`}>
