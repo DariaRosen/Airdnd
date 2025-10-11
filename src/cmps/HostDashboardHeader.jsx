@@ -8,6 +8,12 @@ import { userService } from "../services/user.service"
 export function HostDashboardHeader({ logoText = "airdnd" }) {
   const location = useLocation()
   const whereRef = useRef()
+  const [user, setUser] = useState(null)
+
+  useEffect(() => {
+    const loggedinUser = userService.getLoggedinUser()
+    if (loggedinUser) setUser(loggedinUser)
+  }, [])
 
   useEffect(() => {
     const handleClickOutside = (e) => {
@@ -41,26 +47,44 @@ export function HostDashboardHeader({ logoText = "airdnd" }) {
 
       {/* Tabs */}
       <div className="tabs-container">
-        <Link to="/host-dashboard" className={`tab-link ${isActive("/host-dashboard") ? "active" : ""}`}>
+        <Link
+          to="/host-dashboard"
+          className={`tab-link ${isActive("/host-dashboard") ? "active" : ""}`}
+        >
           Dashboard
         </Link>
-        <Link to="/host-bookings" className={`tab-link ${isActive("/host-bookings") ? "active" : ""}`}>
+        <Link
+          to="/host-bookings"
+          className={`tab-link ${isActive("/host-bookings") ? "active" : ""}`}
+        >
           Bookings
         </Link>
-        <Link to="/host-listings" className={`tab-link ${isActive("/host-listings") ? "active" : ""}`}>
+        <Link
+          to="/host-listings"
+          className={`tab-link ${isActive("/host-listings") ? "active" : ""}`}
+        >
           Listings
         </Link>
-        <Link to="/host-listing" className={`tab-link ${isActive("/host-listing") ? "active" : ""}`}>
+        <Link
+          to="/host-listing"
+          className={`tab-link ${isActive("/host-listing") ? "active" : ""}`}
+        >
           Add New Listing
         </Link>
-        <Link to="/welcome-host" className={`tab-link ${isActive("/welcome-host") ? "active" : ""}`}>
+        <Link
+          to="/welcome-host"
+          className={`tab-link ${isActive("/welcome-host") ? "active" : ""}`}
+        >
           Main Page
         </Link>
       </div>
 
       {/* Title */}
       <div className="title-host">
-        <span>{userService.getGreeting()}, Daria!</span>
+        <span>
+          {userService.getGreeting()}
+          {user ? `, ${user.firstName}!` : "!"}
+        </span>
       </div>
     </section>
   )
