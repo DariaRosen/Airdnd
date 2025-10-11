@@ -1,26 +1,26 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect } from "react"
 
 export function BookingFilters({ filters, onChange }) {
-    const [localFilters, setLocalFilters] = useState(filters);
+    const [localFilters, setLocalFilters] = useState(filters)
 
     useEffect(() => {
-        setLocalFilters(filters);
-    }, [filters]);
+        setLocalFilters(filters)
+    }, [filters])
 
     const handleChange = (e) => {
-        const { name, value } = e.target;
-        const updated = { ...localFilters, [name]: value };
-        setLocalFilters(updated);
-        onChange(updated);
-    };
+        const { name, value } = e.target
+        const updated = { ...localFilters, [name]: value }
+        setLocalFilters(updated)
+        onChange(updated)
+    }
 
     // Generate year options dynamically
-    const currentYear = new Date().getFullYear();
-    const years = Array.from({ length: 5 }, (_, i) => currentYear - i);
+    const currentYear = new Date().getFullYear()
+    const years = Array.from({ length: 5 }, (_, i) => currentYear - i)
     const months = [
         "January", "February", "March", "April", "May", "June",
         "July", "August", "September", "October", "November", "December"
-    ];
+    ]
 
 
     return (
@@ -70,5 +70,5 @@ export function BookingFilters({ filters, onChange }) {
                 onChange={handleChange}
             />
         </div>
-    );
+    )
 }

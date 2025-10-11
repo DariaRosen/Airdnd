@@ -12,5 +12,5 @@ export function AirdndIcon({ size = 30, color = "#FF385C", className = "" }) {
         fill={color} // <-- now controlled by prop
       />
     </svg>
-  );
+  )
 }

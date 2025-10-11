@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState } from "react"
 import {
     Chart as ChartJS,
     CategoryScale,
@@ -10,8 +10,8 @@ import {
     Title,
     Tooltip,
     Legend,
-} from "chart.js";
-import { Bar, Pie, Line, Doughnut } from "react-chartjs-2";
+} from "chart.js"
+import { Bar, Pie, Line, Doughnut } from "react-chartjs-2"
 
 // Airbnb color palette
 export const airbnbColors = {
@@ -21,7 +21,7 @@ export const airbnbColors = {
     lightGray: "#ebebeb",
     white: "#ffffff",
     pastel: ["#ff385c", "#ffb4c0", "#e7ce8aff", "#94c2f1ff", "#8de4b1ff", "#f08599ff"],
-};
+}
 
 ChartJS.register(
     CategoryScale,
@@ -33,19 +33,19 @@ ChartJS.register(
     Title,
     Tooltip,
     Legend
-);
+)
 
 export function DashboardsCharts({ bookings }) {
-    const [barData, setBarData] = useState({ labels: [], datasets: [] });
-    const [pieData, setPieData] = useState({ labels: [], datasets: [] });
-    const [lineData, setLineData] = useState({ labels: [], datasets: [] });
-    const [doughnutData, setDoughnutData] = useState({ labels: [], datasets: [] });
-    const [revenuePerHomeData, setRevenuePerHomeData] = useState({ labels: [], datasets: [] });
-    const [bookingWeekdayData, setBookingWeekdayData] = useState({ labels: [], datasets: [] });
+    const [barData, setBarData] = useState({ labels: [], datasets: [] })
+    const [pieData, setPieData] = useState({ labels: [], datasets: [] })
+    const [lineData, setLineData] = useState({ labels: [], datasets: [] })
+    const [doughnutData, setDoughnutData] = useState({ labels: [], datasets: [] })
+    const [revenuePerHomeData, setRevenuePerHomeData] = useState({ labels: [], datasets: [] })
+    const [bookingWeekdayData, setBookingWeekdayData] = useState({ labels: [], datasets: [] })
 
-    const currentYear = new Date().getFullYear();
-    const [monthFilter, setMonthFilter] = useState(0);
-    const [yearFilter, setYearFilter] = useState(currentYear);
+    const currentYear = new Date().getFullYear()
+    const [monthFilter, setMonthFilter] = useState(0)
+    const [yearFilter, setYearFilter] = useState(currentYear)
 
     // Global chart options for Airbnb modern look
     const baseChartOptions = {
@@ -79,51 +79,51 @@ export function DashboardsCharts({ bookings }) {
                 ticks: { color: airbnbColors.gray, font: { size: 12 } },
             },
         },
-    };
+    }
 
     useEffect(() => {
-        const monthlyIncome = Array(12).fill(0);
-        const nightsCount = {};
-        const bookingsByMonth = Array(12).fill(0);
-        const statusCount = {};
-        const revenuePerHome = {};
-        const bookingsByWeekday = Array(7).fill(0);
+        const monthlyIncome = Array(12).fill(0)
+        const nightsCount = {}
+        const bookingsByMonth = Array(12).fill(0)
+        const statusCount = {}
+        const revenuePerHome = {}
+        const bookingsByWeekday = Array(7).fill(0)
 
         if (bookings?.length) {
-            const validBookings = bookings.filter(b => !b.status.toLowerCase().includes("cancel"));
+            const validBookings = bookings.filter(b => !b.status.toLowerCase().includes("cancel"))
 
             // Status breakdown (all bookings)
             bookings.forEach(b => {
-                const status = b.status.toLowerCase();
-                statusCount[status] = (statusCount[status] || 0) + 1;
-            });
+                const status = b.status.toLowerCase()
+                statusCount[status] = (statusCount[status] || 0) + 1
+            })
 
             // Financial charts (valid bookings)
             validBookings.forEach(b => {
-                const checkIn = new Date(b.checkIn);
-                const checkOut = new Date(b.checkOut);
-                const nights = Math.ceil((checkOut - checkIn) / (1000 * 60 * 60 * 24));
-                const matchesYear = checkIn.getFullYear() === Number(yearFilter);
-                const matchesMonth = monthFilter === 0 || checkIn.getMonth() + 1 === monthFilter;
+                const checkIn = new Date(b.checkIn)
+                const checkOut = new Date(b.checkOut)
+                const nights = Math.ceil((checkOut - checkIn) / (1000 * 60 * 60 * 24))
+                const matchesYear = checkIn.getFullYear() === Number(yearFilter)
+                const matchesMonth = monthFilter === 0 || checkIn.getMonth() + 1 === monthFilter
 
                 if (matchesYear && matchesMonth) {
-                    monthlyIncome[checkIn.getMonth()] += b.totalPrice;
-                    revenuePerHome[b.home_id] = (revenuePerHome[b.home_id] || 0) + b.totalPrice;
-                    nightsCount[nights] = (nightsCount[nights] || 0) + 1;
+                    monthlyIncome[checkIn.getMonth()] += b.totalPrice
+                    revenuePerHome[b.home_id] = (revenuePerHome[b.home_id] || 0) + b.totalPrice
+                    nightsCount[nights] = (nightsCount[nights] || 0) + 1
                 }
-            });
+            })
 
             // Demand charts (all bookings)
             bookings.forEach(b => {
-                const checkIn = new Date(b.checkIn);
-                const matchesYear = checkIn.getFullYear() === Number(yearFilter);
-                const matchesMonth = monthFilter === 0 || checkIn.getMonth() + 1 === monthFilter;
+                const checkIn = new Date(b.checkIn)
+                const matchesYear = checkIn.getFullYear() === Number(yearFilter)
+                const matchesMonth = monthFilter === 0 || checkIn.getMonth() + 1 === monthFilter
 
                 if (matchesYear && matchesMonth) {
-                    bookingsByMonth[checkIn.getMonth()]++;
-                    bookingsByWeekday[checkIn.getDay()]++;
+                    bookingsByMonth[checkIn.getMonth()]++
+                    bookingsByWeekday[checkIn.getDay()]++
                 }
-            });
+            })
         }
 
         setBarData({
@@ -136,7 +136,7 @@ export function DashboardsCharts({ bookings }) {
                 borderSkipped: false,
                 hoverBackgroundColor: "#ff5a75",
             }],
-        });
+        })
 
         setPieData({
             labels: Object.keys(nightsCount).map(n => `${n} Night${n > 1 ? "s" : ""}`),
@@ -147,7 +147,7 @@ export function DashboardsCharts({ bookings }) {
                 borderColor: "#fff",
                 hoverOffset: 10,
             }],
-        });
+        })
 
         setLineData({
             labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
@@ -159,7 +159,7 @@ export function DashboardsCharts({ bookings }) {
                 fill: true,
                 tension: 0.4,
             }],
-        });
+        })
 
         setDoughnutData({
             labels: Object.keys(statusCount),
@@ -170,7 +170,7 @@ export function DashboardsCharts({ bookings }) {
                 borderColor: "#fff",
                 hoverOffset: 10,
             }],
-        });
+        })
 
         setRevenuePerHomeData({
             labels: Object.keys(revenuePerHome),
@@ -181,7 +181,7 @@ export function DashboardsCharts({ bookings }) {
                 borderRadius: 15,
                 borderSkipped: false,
             }],
-        });
+        })
 
         setBookingWeekdayData({
             labels: ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"],
@@ -192,10 +192,10 @@ export function DashboardsCharts({ bookings }) {
                 borderRadius: 15,
                 borderSkipped: false,
             }],
-        });
-    }, [bookings, yearFilter, monthFilter]);
+        })
+    }, [bookings, yearFilter, monthFilter])
 
-    const months = ["All", "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+    const months = ["All", "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
 
     const chartExplanations = {
         bar: ["💡 Income per month", "❌ Excludes canceled orders"],
@@ -204,7 +204,7 @@ export function DashboardsCharts({ bookings }) {
         doughnut: ["💡 Distribution of booking statuses", "Includes canceled bookings"],
         revenue: ["💡 Revenue distribution per home", "❌ Excludes canceled orders"],
         weekday: ["💡 Bookings by check-in weekday", "❌ Excludes canceled bookings"],
-    };
+    }
 
     const ChartCard = ({ title, chart, explanation }) => (
         <div className="chart-card">
@@ -214,7 +214,7 @@ export function DashboardsCharts({ bookings }) {
                 {explanation.map((line, i) => <div key={i}>{line}</div>)}
             </div>
         </div>
-    );
+    )
 
     return (
         <div className="dashboard-charts">
@@ -241,5 +241,5 @@ export function DashboardsCharts({ bookings }) {
                 <ChartCard title="Booking Frequency by Weekday" chart={<Bar data={bookingWeekdayData} options={baseChartOptions} />} explanation={chartExplanations.weekday} />
             </div>
         </div>
-    );
+    )
 }

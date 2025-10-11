@@ -1,42 +1,42 @@
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import { MiniHeader } from "../cmps/MiniHeader";
-import { loginWithPhone } from "../store/user/user.action";
+import { useState } from "react"
+import { useNavigate } from "react-router-dom"
+import { MiniHeader } from "../cmps/MiniHeader"
+import { loginWithPhone } from "../store/user/user.action"
 
 export function BecomeHostLogin() {
-    const navigate = useNavigate();
-    const [country, setCountry] = useState("IL");
-    const [phone, setPhone] = useState("");
-    const [errors, setErrors] = useState({ phone: "" });
+    const navigate = useNavigate()
+    const [country, setCountry] = useState("IL")
+    const [phone, setPhone] = useState("")
+    const [errors, setErrors] = useState({ phone: "" })
     const apple = "/Airdnd/icons/apple.svg"
     const email = "/Airdnd/icons/email.svg"
     const facebook = "/Airdnd/icons/facebook.svg"
     const google = "/Airdnd/icons/google.svg"
     const handleContinue = async () => {
-        const newErrors = { phone: "" };
-        let hasError = false;
+        const newErrors = { phone: "" }
+        let hasError = false
 
         if (!phone) {
-            newErrors.phone = "Phone number is required";
-            hasError = true;
+            newErrors.phone = "Phone number is required"
+            hasError = true
         }
 
-        setErrors(newErrors);
+        setErrors(newErrors)
 
         if (!hasError) {
             try {
-                const user = await loginWithPhone(phone);
+                const user = await loginWithPhone(phone)
                 if (user) {
-                    navigate("/welcome-host");
+                    navigate("/welcome-host")
                 } else {
-                    setErrors({ phone: "User not found. Please sign up." });
+                    setErrors({ phone: "User not found. Please sign up." })
                 }
             } catch (err) {
-                console.error("Login failed", err);
-                setErrors({ phone: "Failed to login. Try again." });
+                console.error("Login failed", err)
+                setErrors({ phone: "Failed to login. Try again." })
             }
         }
-    };
+    }
 
     return (
         <section className="become-host-login">
@@ -104,5 +104,5 @@ export function BecomeHostLogin() {
 
             </div>
         </section>
-    );
+    )
 }

@@ -1,15 +1,15 @@
-import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
-import { bookingService } from "../services/booking.service";
-import { HostDashboardHeader } from "../cmps/HostDashboardHeader";
-import { BookingFilters } from "../cmps/BookingFilters";
-import { utilService, asArray } from "../services/util.service";
-import { userService } from "../services/user.service";
+import { useEffect, useState } from "react"
+import { useNavigate } from "react-router-dom"
+import { bookingService } from "../services/booking.service"
+import { HostDashboardHeader } from "../cmps/HostDashboardHeader"
+import { BookingFilters } from "../cmps/BookingFilters"
+import { utilService, asArray } from "../services/util.service"
+import { userService } from "../services/user.service"
 
 export function HostBookings() {
-    const navigate = useNavigate();
-    const [user, setUser] = useState(null);
-    const [hostBookings, setHostBookings] = useState([]);
+    const navigate = useNavigate()
+    const [user, setUser] = useState(null)
+    const [hostBookings, setHostBookings] = useState([])
     const [filters, setFilters] = useState({
         guestId: "",
         bookingId: "",
@@ -17,44 +17,44 @@ export function HostBookings() {
         status: "",
         year: "",
         month: "",
-    });
-    const [sortKey, setSortKey] = useState("checkIn");
-    const [sortOrder, setSortOrder] = useState("asc");
+    })
+    const [sortKey, setSortKey] = useState("checkIn")
+    const [sortOrder, setSortOrder] = useState("asc")
 
     // Load logged-in user
     useEffect(() => {
-        const loggedinUser = userService.getLoggedinUser();
+        const loggedinUser = userService.getLoggedinUser()
         if (!loggedinUser) {
-            navigate("/login"); // redirect if not logged in
+            navigate("/login") // redirect if not logged in
         } else {
-            setUser(loggedinUser);
+            setUser(loggedinUser)
         }
-    }, [navigate]);
+    }, [navigate])
 
     // Load bookings once user is available
     useEffect(() => {
-        if (!user) return;
+        if (!user) return
 
         async function loadBookings() {
-            const bookingsRes = await bookingService.getHostBookings(user._id);
-            const bookings = asArray(bookingsRes);
+            const bookingsRes = await bookingService.getHostBookings(user._id)
+            const bookings = asArray(bookingsRes)
 
             // Remove duplicates by _id
-            const uniqueBookings = [...new Map(bookings.map(b => [b._id, b])).values()];
-            setHostBookings(uniqueBookings);
+            const uniqueBookings = [...new Map(bookings.map(b => [b._id, b])).values()]
+            setHostBookings(uniqueBookings)
         }
 
-        loadBookings();
-    }, [user]);
+        loadBookings()
+    }, [user])
 
     const getDaysReserved = (checkIn, checkOut) => {
-        const inDate = new Date(checkIn);
-        const outDate = new Date(checkOut);
-        return Math.ceil((outDate - inDate) / (1000 * 60 * 60 * 24));
-    };
+        const inDate = new Date(checkIn)
+        const outDate = new Date(checkOut)
+        return Math.ceil((outDate - inDate) / (1000 * 60 * 60 * 24))
+    }
 
     const filteredBookings = hostBookings.filter((b) => {
-        const bDate = new Date(b.checkIn);
+        const bDate = new Date(b.checkIn)
         return (
             (!filters.guestId || b.guest_id.toLowerCase().includes(filters.guestId.toLowerCase())) &&
             (!filters.bookingId || b._id.toLowerCase().includes(filters.bookingId.toLowerCase())) &&
@@ -62,47 +62,49 @@ export function HostBookings() {
             (!filters.status || b.status.toLowerCase() === filters.status.toLowerCase()) &&
             (!filters.year || bDate.getFullYear() === parseInt(filters.year)) &&
             (!filters.month || bDate.getMonth() + 1 === parseInt(filters.month))
-        );
-    });
+        )
+    })
 
     const sortedBookings = [...filteredBookings].sort((a, b) => {
         if (sortKey === "checkIn" || sortKey === "checkOut") {
             return sortOrder === "asc"
                 ? new Date(a[sortKey]) - new Date(b[sortKey])
-                : new Date(b[sortKey]) - new Date(a[sortKey]);
+                : new Date(b[sortKey]) - new Date(a[sortKey])
         } else if (sortKey === "totalPrice" || sortKey === "daysReserved") {
-            const valA = sortKey === "daysReserved" ? getDaysReserved(a.checkIn, a.checkOut) : a[sortKey];
-            const valB = sortKey === "daysReserved" ? getDaysReserved(b.checkIn, b.checkOut) : b[sortKey];
-            return sortOrder === "asc" ? valA - valB : valB - valA;
+            const valA = sortKey === "daysReserved" ? getDaysReserved(a.checkIn, a.checkOut) : a[sortKey]
+            const valB = sortKey === "daysReserved" ? getDaysReserved(b.checkIn, b.checkOut) : b[sortKey]
+            return sortOrder === "asc" ? valA - valB : valB - valA
         } else if (sortKey === "status") {
-            return sortOrder === "asc" ? a.status.localeCompare(b.status) : b.status.localeCompare(a.status);
+            return sortOrder === "asc" ? a.status.localeCompare(b.status) : b.status.localeCompare(a.status)
         } else {
-            return sortOrder === "asc" ? a[sortKey].localeCompare(b[sortKey]) : b[sortKey].localeCompare(a[sortKey]);
+            return sortOrder === "asc" ? a[sortKey].localeCompare(b[sortKey]) : b[sortKey].localeCompare(a[sortKey])
         }
-    });
+    })
 
     const handleSort = (key) => {
-        if (sortKey === key) setSortOrder(sortOrder === "asc" ? "desc" : "asc");
+        if (sortKey === key) setSortOrder(sortOrder === "asc" ? "desc" : "asc")
         else {
-            setSortKey(key);
-            setSortOrder("asc");
+            setSortKey(key)
+            setSortOrder("asc")
         }
-    };
+    }
 
     const handleStatusChange = async (bookingId, newStatus) => {
         try {
-            await bookingService.updateStatus(bookingId, newStatus);
+            // Call your booking service to update the status in the backend
+            await bookingService.updateStatus(bookingId, newStatus)
 
+            // Update the local state so UI refreshes
             setHostBookings(prev =>
                 prev.map(b => (b._id === bookingId ? { ...b, status: newStatus } : b))
-            );
+            )
         } catch (err) {
-            console.error("Failed to update status:", err);
-            alert("Could not update status, try again.");
+            console.error("Failed to update status:", err)
+            alert("Could not update status, try again.")
         }
-    };
+    }
 
-    if (!user) return <p>Loading...</p>;
+    if (!user) return <p>Loading...</p>
 
     return (
         <section className="host-bookings">
@@ -196,5 +198,5 @@ export function HostBookings() {
                 </table>
             </div>
         </section>
-    );
+    )
 }

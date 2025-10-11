@@ -8,7 +8,7 @@ import { HomesList } from "./cmps/HomesList"
 import { UserMsg } from "./cmps/UserMsg"
 import { BecomeHostLogin } from "./pages/BecomeHostLogin"
 import { ConfirmationPage } from "./cmps/ConfirmationPage"
-import { WelcomeHost } from './pages/WelcomeHost.jsx';
+import { WelcomeHost } from './pages/WelcomeHost.jsx'
 import { HostDashboard } from "./pages/HostDashboard.jsx"
 import { HostBookings } from "./pages/HostBookings.jsx"
 import { HostAddListing } from "./pages/HostAddListing.jsx"

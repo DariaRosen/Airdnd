@@ -7,7 +7,7 @@ export function UserMsg() {
     useEffect(() => {
         eventBusService.on('show-user-msg', msg => {
             setMsg(msg)
-            setTimeout(closeMsg, 3000);
+            setTimeout(closeMsg, 3000)
         })
     }, [])
 

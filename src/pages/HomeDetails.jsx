@@ -133,10 +133,10 @@ export function HomeDetails() {
           {home.highlights && (
             <section className="home-highlights">
               {["First", "Second", "Third"].map((prefix) => {
-                const main = home.highlights[`${prefix} main`];
-                const sub = home.highlights[`${prefix} sub`];
+                const main = home.highlights[`${prefix} main`]
+                const sub = home.highlights[`${prefix} sub`]
 
-                if (!main && !sub) return null;
+                if (!main && !sub) return null
 
                 return (
                   <div className="highlight" key={prefix}>
@@ -148,7 +148,7 @@ export function HomeDetails() {
                       {sub && <p className="highlight-sub">{sub}</p>}
                     </div>
                   </div>
-                );
+                )
               })}
             </section>
           )}

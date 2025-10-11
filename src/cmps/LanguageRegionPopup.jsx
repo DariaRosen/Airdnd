@@ -1,7 +1,7 @@
-import { useState } from "react";
+import { useState } from "react"
 
 export function LanguageRegionPopup({ onClose }) {
-    const [activeTab, setActiveTab] = useState("language"); // "language" or "currency"
+    const [activeTab, setActiveTab] = useState("language") // "language" or "currency"
 
     return (
         <div className="language-region-popup">
@@ -36,5 +36,5 @@ export function LanguageRegionPopup({ onClose }) {
                 )}
             </div>
         </div>
-    );
+    )
 }
