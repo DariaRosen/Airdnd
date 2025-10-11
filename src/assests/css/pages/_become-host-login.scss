@@ -20,15 +20,15 @@
   padding: 2rem;
   padding-bottom: 5px;
   width: 100%;
-  max-width: 550px;
+  max-width: 570px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
 }
 
 /* Headings */
 .become-host-login-content h1 {
   text-align: center;
-  font-size: 1.25rem;
-  font-weight: 600;
+  font-size: 16px;
+  font-weight: 700;
   margin-bottom: 1rem;
   border-bottom: 1px solid #ddd;
   padding-bottom: 1rem;
@@ -62,28 +62,37 @@
   color: #333;
 }
 
-.become-host-login-content h4 {
-  font-size: 14px;
-  font-weight: 600;
-  margin: 15px 0;
-  text-align: center;
-  position: relative;
+.social-login {
   display: flex;
   align-items: center;
-  justify-content: center;
-  flex: 1;
-  transition: border-color 0.2s, background-color 0.2s;
+  justify-content: flex-start;
+  gap: 10px;
   padding: 12px;
   border: 1px solid #7d7b7b;
   border-radius: 8px;
-  font-size: 1rem;
-}
-
-.become-host-login-content h4:hover {
-  background-color: #f2f2f2; 
+  transition: background-color 0.2s, border-color 0.2s;
   cursor: pointer;
+  margin: 15px 0;
 }
 
+.social-login:hover {
+  background-color: #f2f2f2;
+}
+
+.social-login img {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+  align-self: baseline;
+}
+
+.become-host-login-content h4 {
+  font-size: 1rem;
+  font-weight: 600;
+  margin: 0 auto; /* centers text within flex */
+  text-align: center;
+  flex: 1; /* ensures text takes available space */
+}
 
 /* Phone input wrapper */
 .phone-input-wrapper {

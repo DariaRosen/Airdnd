@@ -8,7 +8,10 @@ export function BecomeHostLogin() {
     const [country, setCountry] = useState("IL");
     const [phone, setPhone] = useState("");
     const [errors, setErrors] = useState({ phone: "" });
-
+    const apple = "/Airdnd/icons/apple.svg"
+    const email = "/Airdnd/icons/email.svg"
+    const facebook = "/Airdnd/icons/facebook.svg"
+    const google = "/Airdnd/icons/google.svg"
     const handleContinue = async () => {
         const newErrors = { phone: "" };
         let hasError = false;
@@ -79,11 +82,26 @@ export function BecomeHostLogin() {
                 <button onClick={handleContinue}>Continue</button>
 
                 <h3>or</h3>
-                
-                <h4>Continue with Google</h4>
-                <h4>Continue with Apple</h4>
-                <h4>Continue with email</h4>
-                <h4>Continue with Facebook</h4>
+
+                <span className="social-login" onClick={handleContinue}>
+                    <img src={google} alt="Google" className="social-icon" />
+                    <h4>Continue with Google</h4>
+                </span>
+                <span className="social-login" onClick={handleContinue}>
+                    <img src={apple} alt="Apple" className="social-icon" />
+                    <h4>Continue with Apple</h4>
+                </span>
+                <span className="social-login" onClick={handleContinue}>
+                    <img src={email} alt="Email" className="social-icon" />
+                    <h4>Continue with email</h4>
+                </span>
+                <span className="social-login" onClick={handleContinue}>
+                    <img src={facebook} alt="Facebook" className="social-icon" />
+                    <h4>Continue with Facebook</h4>
+                </span>
+
+
+
             </div>
         </section>
     );
