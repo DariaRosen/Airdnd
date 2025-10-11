@@ -15,11 +15,12 @@ import {
     XCircle,
 } from "lucide-react"
 import { utilService } from "../services/util.service"
+import { userService } from "../services/user.service"
 
 export function WelcomeHost() {
     const navigate = useNavigate()
-    const user = { _id: "68de5963d26a1ea2ad78f8b3", firstName: "Daria" }
-
+    const [user, setUser] = useState(null)
+    const [loading, setLoading] = useState(true)
     const [hostBookings, setHostBookings] = useState([])
     const [stats, setStats] = useState({
         income: 0,
@@ -31,68 +32,92 @@ export function WelcomeHost() {
         homeRating: 0,
         wishlistCount: 0,
         activeListings: 0,
-        newMessages: 35, // hardcoded for now
+        newMessages: 0,
     })
 
-
+    // Load logged-in user
     useEffect(() => {
+        const loggedinUser = userService.getLoggedinUser()
+        if (!loggedinUser) {
+            navigate("/login") // redirect if not logged in
+        } else {
+            setUser(loggedinUser)
+        }
+        setLoading(false)
+    }, [navigate])
+
+    // Load stats once user is available
+    useEffect(() => {
+        if (!user) return
+
         async function loadAllStats() {
-            const bookingsRes = await bookingService.getHostBookings(user._id)
-            const bookings = asArray(bookingsRes)
-            setHostBookings(bookings)
+            try {
+                // Host bookings
+                const bookingsRes = await bookingService.getHostBookings(user._id)
+                const bookings = asArray(bookingsRes)
+                setHostBookings(bookings)
 
-            const validBookings = bookings.filter(
-                b => !["canceled-by-host", "canceled-by-guest"].includes(b.status.toLowerCase().replace(/\s+/g, "-"))
-            )
+                const validBookings = bookings.filter(
+                    b => !["canceled-by-host", "canceled-by-guest"].includes(
+                        b.status.toLowerCase().replace(/\s+/g, "-")
+                    )
+                )
 
-            const totalBookings = bookings.length
-            const upcomingBookings = bookings.filter(b => new Date(b.checkIn) > new Date()).length
-            const totalEarnings = validBookings.reduce((sum, b) => sum + b.totalPrice, 0)
+                const totalBookings = bookings.length
+                const upcomingBookings = bookings.filter(b => new Date(b.checkIn) > new Date()).length
+                const totalEarnings = validBookings.reduce((sum, b) => sum + b.totalPrice, 0)
 
-            // Earnings this month
-            const now = new Date()
-            const incomeThisMonth = validBookings
-                .filter(b => {
-                    const d = new Date(b.checkIn)
-                    return d.getMonth() === now.getMonth() && d.getFullYear() === now.getFullYear()
+                // Earnings this month
+                const now = new Date()
+                const incomeThisMonth = validBookings
+                    .filter(b => {
+                        const d = new Date(b.checkIn)
+                        return d.getMonth() === now.getMonth() && d.getFullYear() === now.getFullYear()
+                    })
+                    .reduce((sum, b) => sum + b.totalPrice, 0)
+
+                const canceledByHost = bookings.filter(
+                    b => b.status.toLowerCase().replace(/\s+/g, "-") === "canceled-by-host"
+                ).length
+                const canceledByGuest = bookings.filter(
+                    b => b.status.toLowerCase().replace(/\s+/g, "-") === "canceled-by-guest"
+                ).length
+
+                // Homes
+                const userHomesRes = await homeService.getHomesByHost(user._id)
+                const userHomes = asArray(userHomesRes)
+                const ratings = userHomes.map(h => h.rating || 0)
+                const avgRating = ratings.length ? ratings.reduce((sum, r) => sum + r, 0) / ratings.length : 0
+                const wishlistCount = userHomes.reduce((sum, h) => sum + (h.addedToWishlist || 0), 0)
+                const activeListings = userHomes.length
+
+                setStats({
+                    income: totalEarnings,
+                    incomeThisMonth,
+                    totalBookings,
+                    upcomingBookings,
+                    canceledByHost,
+                    canceledByGuest,
+                    homeRating: avgRating,
+                    wishlistCount,
+                    activeListings,
+                    newMessages: 35, // hardcoded for now
                 })
-                .reduce((sum, b) => sum + b.totalPrice, 0)
-
-            const canceledByHost = bookings.filter(b => b.status.toLowerCase().replace(/\s+/g, "-") === "canceled-by-host").length
-            const canceledByGuest = bookings.filter(b => b.status.toLowerCase().replace(/\s+/g, "-") === "canceled-by-guest").length
-
-            // Homes
-            const userHomesRes = await homeService.getHomesByHost(user._id)
-            const userHomes = asArray(userHomesRes)
-            const ratings = userHomes.map(h => h.rating || 0)
-            const avgRating = ratings.length
-                ? ratings.reduce((sum, r) => sum + r, 0) / ratings.length
-                : 0
-                
-            const wishlistCount = userHomes.reduce((sum, h) => sum + (h.addedToWishlist || 0), 0)
-            const activeListings = userHomes.length
-
-            setStats({
-                income: totalEarnings,
-                incomeThisMonth,
-                totalBookings,
-                upcomingBookings,
-                canceledByHost,
-                canceledByGuest,
-                homeRating: avgRating,
-                wishlistCount,
-                activeListings,
-                newMessages: 35, // hardcoded for now
-            })
+            } catch (err) {
+                console.error("Error loading host stats:", err)
+            }
         }
 
         loadAllStats()
-    }, [user._id])
+    }, [user])
 
     const addListingIcon = "/Airdnd/icons/add-listing.svg"
     const bookingIcon = "/Airdnd/icons/list-check-svgrepo-com.svg"
     const dashboardIcon = "/Airdnd/icons/dashboard-svgrepo-com.svg"
     const homesIcon = "/Airdnd/icons/home_icon2.svg"
+
+    if (loading) return <p>Loading...</p>
+    if (!user) return null
 
     return (
         <section className="welcome-host">
@@ -107,7 +132,7 @@ export function WelcomeHost() {
             {/* Dashboard Stats */}
             <section className="welcome-dashboard-stats">
 
-                {/* Bookings (Total + Upcoming) */}
+                {/* Bookings */}
                 <div className="stat-card">
                     <p className="stat-title">Bookings</p>
                     <h2 className="stat-text">
@@ -117,7 +142,7 @@ export function WelcomeHost() {
                     <div className="stat-icon"><BookCheck size={28} /></div>
                 </div>
 
-                {/* Earnings (Total + This Month) */}
+                {/* Earnings */}
                 <div className="stat-card">
                     <p className="stat-title">Earnings</p>
                     <h2 className="stat-text">
@@ -128,7 +153,7 @@ export function WelcomeHost() {
                     <div className="stat-icon"><DollarSign size={28} /></div>
                 </div>
 
-                {/* Canceled (Host + Guest) */}
+                {/* Canceled */}
                 <div className="stat-card">
                     <p className="stat-title">Canceled</p>
                     <h2 className="stat-text">

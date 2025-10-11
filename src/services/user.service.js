@@ -34,19 +34,13 @@ function remove(userId) {
   return httpService.delete(`user/${userId}`)
 }
 
-// async function login(credentials) {
-//   const user = await httpService.post('auth/login', credentials)
-//   return saveLocalUser(user)
-// }
-async function login() {
-  const user = await httpService.get(`user/68de5963d26a1ea2ad78f8b3`)
-  return user
+async function login(credentials) {
+  const user = await httpService.post('auth/login', credentials)
+  return saveLocalUser(user)
 }
 
 async function loginWithPhone(phone) {
-  console.log("phone service", phone);
   const user = await httpService.post('auth/login-phone', { phone }, { withCredentials: true })
-  console.log("user", user);
   return saveLocalUser(user)
 }
 
