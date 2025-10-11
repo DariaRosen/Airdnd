@@ -1,25 +1,35 @@
-import { useEffect } from "react"
+import { useEffect, useState } from "react"
 import { useSelector } from "react-redux"
 import { HostDashboardHeader } from "../cmps/HostDashboardHeader"
 import { DashboardsCharts } from "../cmps/DashboardsCharts"
 import { loadHostBookings } from "../store/booking/booking.action"
+import { userService } from "../services/user.service"
+import { useNavigate } from "react-router-dom"
 
 export function HostDashboard() {
-    // Hardcoded logged-in user (replace with sessionStorage later)
-    // const user = JSON.parse(sessionStorage.getItem("loggedinUser"))
-    const user = {
-        _id: "68de5963d26a1ea2ad78f8b3",
-        firstName: "Daria",
-        lastName: "Rosen",
-        username: "daria123",
-        email: "daria@gmail.com",
-    }
-    const bookings = useSelector((state) => state.bookingModule.bookings)
-    const isLoading = useSelector((state) => state.bookingModule.isLoading)
+    const navigate = useNavigate()
+    const [user, setUser] = useState(null)
 
+    const bookings = useSelector(state => state.bookingModule.bookings)
+    const isLoading = useSelector(state => state.bookingModule.isLoading)
+
+    // Load logged-in user
     useEffect(() => {
-        loadHostBookings(user._id)
-    }, [user._id])
+        const loggedinUser = userService.getLoggedinUser()
+        if (!loggedinUser) {
+            navigate("/login") // redirect if not logged in
+        } else {
+            setUser(loggedinUser)
+        }
+    }, [navigate])
+
+    // Load host bookings once user is available
+    useEffect(() => {
+        if (!user) return
+        loadHostBookings(user._id) // call action directly
+    }, [user])
+
+    if (!user) return <p>Loading...</p>
 
     return (
         <section className="host-dashboard">
