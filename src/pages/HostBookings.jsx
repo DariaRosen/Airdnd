@@ -1,13 +1,14 @@
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { bookingService } from "../services/booking.service";
 import { HostDashboardHeader } from "../cmps/HostDashboardHeader";
 import { BookingFilters } from "../cmps/BookingFilters";
-import { utilService } from "../services/util.service";
-import { asArray } from "../services/util.service";
+import { utilService, asArray } from "../services/util.service";
+import { userService } from "../services/user.service";
 
 export function HostBookings() {
-    const user = { _id: "68de5963d26a1ea2ad78f8b3", firstName: "Daria" };
-
+    const navigate = useNavigate();
+    const [user, setUser] = useState(null);
     const [hostBookings, setHostBookings] = useState([]);
     const [filters, setFilters] = useState({
         guestId: "",
@@ -20,18 +21,31 @@ export function HostBookings() {
     const [sortKey, setSortKey] = useState("checkIn");
     const [sortOrder, setSortOrder] = useState("asc");
 
+    // Load logged-in user
     useEffect(() => {
+        const loggedinUser = userService.getLoggedinUser();
+        if (!loggedinUser) {
+            navigate("/login"); // redirect if not logged in
+        } else {
+            setUser(loggedinUser);
+        }
+    }, [navigate]);
+
+    // Load bookings once user is available
+    useEffect(() => {
+        if (!user) return;
+
         async function loadBookings() {
             const bookingsRes = await bookingService.getHostBookings(user._id);
-            const bookings = asArray(bookingsRes)
-
+            const bookings = asArray(bookingsRes);
 
             // Remove duplicates by _id
             const uniqueBookings = [...new Map(bookings.map(b => [b._id, b])).values()];
             setHostBookings(uniqueBookings);
         }
+
         loadBookings();
-    }, [user._id]);
+    }, [user]);
 
     const getDaysReserved = (checkIn, checkOut) => {
         const inDate = new Date(checkIn);
@@ -77,10 +91,8 @@ export function HostBookings() {
 
     const handleStatusChange = async (bookingId, newStatus) => {
         try {
-            // Call your booking service to update the status in the backend
             await bookingService.updateStatus(bookingId, newStatus);
 
-            // Update the local state so UI refreshes
             setHostBookings(prev =>
                 prev.map(b => (b._id === bookingId ? { ...b, status: newStatus } : b))
             );
@@ -90,6 +102,7 @@ export function HostBookings() {
         }
     };
 
+    if (!user) return <p>Loading...</p>;
 
     return (
         <section className="host-bookings">
@@ -122,14 +135,12 @@ export function HostBookings() {
                                         <span className="col-label">{col.label}</span>
                                         <span className="sort-indicator">
                                             <span
-                                                className={`asc ${sortKey === col.key && sortOrder === "asc" ? "active" : ""
-                                                    }`}
+                                                className={`asc ${sortKey === col.key && sortOrder === "asc" ? "active" : ""}`}
                                             >
                                                 ▲
                                             </span>
                                             <span
-                                                className={`desc ${sortKey === col.key && sortOrder === "desc" ? "active" : ""
-                                                    }`}
+                                                className={`desc ${sortKey === col.key && sortOrder === "desc" ? "active" : ""}`}
                                             >
                                                 ▼
                                             </span>
@@ -155,26 +166,20 @@ export function HostBookings() {
                                             </button>
                                             <button
                                                 className="reject-btn"
-                                                onClick={() =>
-                                                    handleStatusChange(b._id, "Canceled by Host")
-                                                }
+                                                onClick={() => handleStatusChange(b._id, "Canceled by Host")}
                                             >
                                                 Reject
                                             </button>
                                         </div>
                                     ) : (
                                         <span className="status-gray">
-                                            {b.status.toLowerCase() === "paid"
-                                                ? "Approved"
-                                                : "Canceled"}
+                                            {b.status.toLowerCase() === "paid" ? "Approved" : "Canceled"}
                                         </span>
                                     )}
                                 </td>
                                 <td>
                                     <span
-                                        className={`status-pill status-${b.status
-                                            .toLowerCase()
-                                            .replace(/ /g, "-")}`}
+                                        className={`status-pill status-${b.status.toLowerCase().replace(/ /g, "-")}`}
                                     >
                                         {b.status}
                                     </span>
@@ -191,6 +196,5 @@ export function HostBookings() {
                 </table>
             </div>
         </section>
-
     );
 }
