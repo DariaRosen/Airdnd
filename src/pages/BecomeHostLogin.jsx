@@ -79,9 +79,10 @@ export function BecomeHostLogin() {
                 <button onClick={handleContinue}>Continue</button>
 
                 <h3>or</h3>
-                <h4>Continue with email</h4>
+                
                 <h4>Continue with Google</h4>
                 <h4>Continue with Apple</h4>
+                <h4>Continue with email</h4>
                 <h4>Continue with Facebook</h4>
             </div>
         </section>
