@@ -1,0 +1,48 @@
+.language-region-popup {
+  position: absolute;
+  top: 50px; /* adjust relative to globus icon */
+  right: 0;
+  width: 500px;
+  height: 500px;
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+  z-index: 999;
+  font-family: sans-serif;
+}
+
+.popup-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #eee;
+  padding: 8px;
+  height: 50px;
+}
+
+.popup-header button {
+  flex: 1;
+  border: none;
+  background: none;
+  cursor: pointer;
+  padding: 8px;
+  height: 40px;
+  color: #555;
+}
+
+.popup-header button.active {
+  font-weight: 600;
+}
+
+.popup-header .close-btn {
+  flex: 0;
+  font-size: 1.2rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.popup-content {
+  padding: 12px;
+}
