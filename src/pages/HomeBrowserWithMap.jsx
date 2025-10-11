@@ -19,9 +19,12 @@ export function HomeBrowserWithMap() {
     const queryString = hash.split('?')[1] || ''
     const urlParams = new URLSearchParams(queryString)
 
-    const location = urlParams.get('location') || ''
+    const locationParam = urlParams.get('location') || '';
+    const location = locationParam.includes(",") ? locationParam.split(",")[0] : locationParam;
     const checkIn = urlParams.get('checkIn') || ''
     const checkOut = urlParams.get('checkOut') || ''
+
+    console.log("Parsed URL params:", { location });
 
     const newParams = { location, checkIn, checkOut }
     setParams(newParams)
