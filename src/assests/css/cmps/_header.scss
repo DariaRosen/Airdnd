@@ -101,6 +101,20 @@
   height: 16px;
 }
 
+.user-initial-circle {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background-color: black;
+  color: white;
+  font-weight: 400;
+  font-size: 0.7rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: default;
+}
+
 /* ----------------------------- */
 /* Search Bar Layout + Styling  */
 /* ----------------------------- */
