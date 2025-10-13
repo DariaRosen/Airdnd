@@ -9,6 +9,7 @@ import { setFilterBy } from "../store/homes/homes.action.js"
 import { useFilterSearchParams } from "../customHooks/useFilterSearchParams"
 import { ProfileDropdown } from "./ProfileDropdown.jsx"
 import { LanguageRegionPopup } from "./LanguageRegionPopup.jsx"
+import { userService } from "../services/user.service"
 
 export function AppHeader() {
   const navigate = useNavigate()
@@ -34,6 +35,9 @@ export function AppHeader() {
   // language & region popup state
   const [showLangPopup, setShowLangPopup] = useState(false)
   const langPopupRef = useRef(null)
+
+  // check logged-in user
+  const loggedinUser = userService.getLoggedinUser()
 
   useEffect(() => {
     const handleClickOutside = (e) => {
@@ -128,14 +132,23 @@ export function AppHeader() {
             <div className="host-text">Become a host</div>
           </div>
 
-          <div
-            className="icon-wrapper globus-icon"
-            onClick={() => setShowLangPopup(!showLangPopup)}
-          >
-            <img src={globus} alt="Globus icon" className="icon-gray-circle" />
-          </div>
+          {loggedinUser ? (
+            <div className="user-initial-circle">
+              {loggedinUser.firstName?.[0]?.toUpperCase() || "?"}
+            </div>
+          ) : (
+            <div
+              className="icon-wrapper globus-icon"
+              onClick={() => setShowLangPopup(!showLangPopup)}
+            >
+              <img src={globus} alt="Globus icon" className="icon-gray-circle" />
+            </div>
+          )}
 
-          <div className="icon-wrapper profile-toggle" onClick={() => setShowDropdown(!showDropdown)}>
+          <div
+            className="icon-wrapper profile-toggle"
+            onClick={() => setShowDropdown(!showDropdown)}
+          >
             <img src={select} alt="Profile menu" className="icon-gray-circle" />
           </div>
 
