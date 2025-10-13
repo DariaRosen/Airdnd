@@ -43,10 +43,11 @@ export async function removeUser(userId) {
   }
 }
 
-export async function login() {
+export async function login(credentials) {
   try {
-    //const user = await userService.login(credentials)
-    const user = await userService.login()
+    // Use provided credentials, or fallback to hardcoded default
+    const creds = credentials || { username: 'daria123', password: 'abcd' }
+    const user = await userService.login(creds)
     store.dispatch({ type: SET_USER, user })
     return user
   } catch (err) {

@@ -35,6 +35,8 @@ function remove(userId) {
 }
 
 async function login(credentials) {
+  console.log('credentials', credentials);
+  
   const user = await httpService.post('auth/login', credentials)
   return saveLocalUser(user)
 }
