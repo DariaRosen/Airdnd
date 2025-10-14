@@ -11,10 +11,10 @@ export async function loadUsers() {
     console.log("user.actions: cannot load users", err)
   }
 }
+
 export async function updateFavoritesUser(userId, homeId) {
   try {
     const user = await userService.getById(userId)
-
     const idx = user.favorites.indexOf(homeId)
 
     if (idx === -1) {
@@ -22,11 +22,11 @@ export async function updateFavoritesUser(userId, homeId) {
     } else {
       user.favorites.splice(idx, 1)
     }
-
-    const updatedUser = await userService.update(user)
-
+    console.log("user after update favorites:", user);
+    const updatedUser = await userService.save(user)
+    console.log("updatedUser after update favorites:", updatedUser);
     store.dispatch({ type: SET_USER, user: updatedUser })
-    store.dispatch({ type: SET_USERS, users: await userService.getUsers() })
+    store.dispatch({ type: SET_USERS, users: await userService.query() })
 
     return updatedUser
   } catch (err) {
@@ -59,7 +59,7 @@ export async function login(credentials) {
 export async function loginWithPhone(phone) {
   try {
     console.log("phone", phone);
-    
+
     const user = await userService.loginWithPhone(phone);
     store.dispatch({ type: SET_USER, user });
     return user;
