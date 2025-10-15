@@ -22,9 +22,7 @@ export async function updateFavoritesUser(userId, homeId) {
     } else {
       user.favorites.splice(idx, 1)
     }
-    console.log("user after update favorites:", user);
     const updatedUser = await userService.save(user)
-    console.log("updatedUser after update favorites:", updatedUser);
     store.dispatch({ type: SET_USER, user: updatedUser })
     store.dispatch({ type: SET_USERS, users: await userService.query() })
 

@@ -1,7 +1,8 @@
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { useNavigate } from "react-router-dom"
 import { MiniHeader } from "../cmps/MiniHeader"
 import { loginWithPhone } from "../store/user/user.action"
+import { userService } from "../services/user.service"
 
 export function BecomeHostLogin() {
     const navigate = useNavigate()
@@ -12,6 +13,15 @@ export function BecomeHostLogin() {
     const email = "/Airdnd/icons/email.svg"
     const facebook = "/Airdnd/icons/facebook.svg"
     const google = "/Airdnd/icons/google.svg"
+
+    // ✅ Check for logged-in user on mount
+    useEffect(() => {
+        const user = userService.getLoggedinUser()
+        if (user) {
+            navigate("/welcome-host")
+        }
+    }, [navigate])
+
     const handleContinue = async () => {
         const newErrors = { phone: "" }
         let hasError = false
@@ -99,9 +109,6 @@ export function BecomeHostLogin() {
                     <img src={facebook} alt="Facebook" className="social-icon" />
                     <h4>Continue with Facebook</h4>
                 </span>
-
-
-
             </div>
         </section>
     )
